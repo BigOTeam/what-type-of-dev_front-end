@@ -7,6 +7,8 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 
 import { Global } from '@emotion/react';
 
+import resetStyles from './styles/resetStyles';
+
 import history from './history';
 
 import ErrorPage from './pages/ErrorPage';
@@ -15,6 +17,7 @@ import HomePage from './pages/HomePage';
 const App: React.FC = () => {
   return (
     <ErrorBoundary FallbackComponent={ErrorPage}>
+      <Global styles={resetStyles} />
       <Router history={history}>
         <Switch>
           <Route exact path="/" component={HomePage} />
