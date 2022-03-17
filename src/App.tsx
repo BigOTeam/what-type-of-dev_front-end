@@ -14,6 +14,7 @@ import history from './history';
 
 import ErrorPage from './pages/ErrorPage';
 import HomePage from './pages/HomePage';
+import ChartPage from './pages/ChartPage';
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const App: React.FC = () => {
       <Router history={history}>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/statistics" component={ChartPage} />
         </Switch>
         {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
       </Router>
