@@ -6,6 +6,7 @@ import { ChartResultType } from '../../types/chartTypes';
 
 import DoughnutChart from './DoughnutChart';
 import VerticalBarChart from './VerticalBarChart';
+import HorizontalBarChart from './HorizontalBarChart';
 
 const ChartResult: React.FC = () => {
   const [chartResult, setChartResult] = useState<ChartResultType[]>([]);
@@ -35,6 +36,13 @@ const ChartResult: React.FC = () => {
       case 'verticalBar':
         return (
           <VerticalBarChart
+            id={data.id}
+            chartAnswerInfo={data.chartAnswerInfo}
+          />
+        );
+        case 'horizontalBar':
+        return (
+          <HorizontalBarChart
             id={data.id}
             chartAnswerInfo={data.chartAnswerInfo}
           />

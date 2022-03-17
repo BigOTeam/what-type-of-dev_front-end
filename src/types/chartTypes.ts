@@ -36,3 +36,16 @@ interface VerticalBarChartDataset {
   borderColor: string;
   borderWidth: number;
 }
+
+export interface HorizontalBarChartData {
+  labels: string[];
+  datasets: HorizontalBarChartDataset[];
+}
+
+interface HorizontalBarChartDataset {
+  label: string;
+  data: number[];
+  backgroundColor: string;
+  borderColor: string;
+  borderWidth: number;
+}
