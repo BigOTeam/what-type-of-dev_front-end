@@ -79,7 +79,7 @@ export const chartData: ChartResultType[] = [
   {
     id: 7,
     question: '모든 것을 고려했을 때, 요즘 당신의 삶은 얼마나 만족스러운가요?',
-    chartType: 'verticalBar',
+    chartType: 'horizontalBar',
     chartAnswerInfo: [
       { answer: '모르겠다', answerCount: 1, rank: 0 },
       { answer: '불만족1', answerCount: 9, rank: 0 },
@@ -97,7 +97,7 @@ export const chartData: ChartResultType[] = [
   {
     id: 8,
     question: '당신의 직업에 얼마나 만족하나요?',
-    chartType: 'verticalBar',
+    chartType: 'horizontalBar',
     chartAnswerInfo: [
       { answer: '완전히 만족', answerCount: 10, rank: 0 },
       { answer: '매우 만족', answerCount: 10, rank: 0 },
@@ -112,7 +112,7 @@ export const chartData: ChartResultType[] = [
   {
     id: 9,
     question: '값 비싼 것을 소유하고, 부자가 되는 것을 중요하게 생각하나요?',
-    chartType: 'verticalBar',
+    chartType: 'horizontalBar',
     chartAnswerInfo: [
       { answer: '매우 그렇다', answerCount: 20, rank: 0 },
       { answer: '그렇다', answerCount: 25, rank: 0 },
@@ -125,7 +125,7 @@ export const chartData: ChartResultType[] = [
     id: 10,
     question:
       '어떤 위험 요소도 없는 안전한 삶을 사는 것을 중요하게 생각하나요?',
-    chartType: 'verticalBar',
+    chartType: 'horizontalBar',
     chartAnswerInfo: [
       { answer: '매우 그렇다', answerCount: 20, rank: 0 },
       { answer: '그렇다', answerCount: 25, rank: 0 },
@@ -137,7 +137,7 @@ export const chartData: ChartResultType[] = [
   {
     id: 11,
     question: '다른 사람을 돕는 것을 중요하게 생각하나요?',
-    chartType: 'verticalBar',
+    chartType: 'horizontalBar',
     chartAnswerInfo: [
       { answer: '매우 그렇다', answerCount: 20, rank: 0 },
       { answer: '그렇다', answerCount: 25, rank: 0 },
@@ -149,13 +149,13 @@ export const chartData: ChartResultType[] = [
   {
     id: 12,
     question: '항상 올바르게 행동하는 것을 중요하게 생각하나요?',
-    chartType: 'verticalBar',
+    chartType: 'horizontalBar',
     chartAnswerInfo: [
-      { answer: '매우 그렇다', answerCount: 20, rank: 2 },
-      { answer: '그렇다', answerCount: 25, rank: 1 },
-      { answer: '그렇지 않다', answerCount: 15, rank: 3 },
-      { answer: '매우 그렇지 않다', answerCount: 20, rank: 2 },
-      { answer: '모르겠다', answerCount: 20, rank: 2 },
+      { answer: '매우 그렇다', answerCount: 20, rank: 0 },
+      { answer: '그렇다', answerCount: 25, rank: 0 },
+      { answer: '그렇지 않다', answerCount: 15, rank: 0 },
+      { answer: '매우 그렇지 않다', answerCount: 20, rank: 0 },
+      { answer: '모르겠다', answerCount: 20, rank: 0 },
     ],
   },
 ];
