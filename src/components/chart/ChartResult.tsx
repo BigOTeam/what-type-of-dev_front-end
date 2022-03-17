@@ -5,8 +5,7 @@ import styled from '@emotion/styled';
 import { ChartResultType } from '../../types/chartTypes';
 
 import DoughnutChart from './DoughnutChart';
-import VerticalBarChart from './VerticalBarChart';
-import HorizontalBarChart from './HorizontalBarChart';
+import BarChart from './BarChart';
 
 const ChartResult: React.FC = () => {
   const [chartResult, setChartResult] = useState<ChartResultType[]>([]);
@@ -35,15 +34,17 @@ const ChartResult: React.FC = () => {
         );
       case 'verticalBar':
         return (
-          <VerticalBarChart
+          <BarChart
             id={data.id}
+            indexAxis="x"
             chartAnswerInfo={data.chartAnswerInfo}
           />
         );
-        case 'horizontalBar':
+      case 'horizontalBar':
         return (
-          <HorizontalBarChart
+          <BarChart
             id={data.id}
+            indexAxis="y"
             chartAnswerInfo={data.chartAnswerInfo}
           />
         );

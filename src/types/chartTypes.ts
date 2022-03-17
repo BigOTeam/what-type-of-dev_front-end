@@ -24,25 +24,17 @@ interface DoughnutChartDataset {
   borderWidth: number;
 }
 
-export interface VerticalBarChartData {
+export interface BarChartOption {
+  indexAxis: 'y' | 'x';
+  responsive: boolean;
+}
+
+export interface BarChartData {
   labels: string[];
-  datasets: VerticalBarChartDataset[];
+  datasets: BarChartDataset[];
 }
 
-interface VerticalBarChartDataset {
-  label: string;
-  data: number[];
-  backgroundColor: string;
-  borderColor: string;
-  borderWidth: number;
-}
-
-export interface HorizontalBarChartData {
-  labels: string[];
-  datasets: HorizontalBarChartDataset[];
-}
-
-interface HorizontalBarChartDataset {
+interface BarChartDataset {
   label: string;
   data: number[];
   backgroundColor: string;
