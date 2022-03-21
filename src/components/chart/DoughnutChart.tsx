@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+import styled from '@emotion/styled';
+
 import {
   Chart as ChartJS,
   ArcElement,
@@ -20,13 +22,7 @@ interface ChartResultProps {
   chartAnswerInfo: ChartAnswerType[];
 }
 
-ChartJS.register(
-  ArcElement,
-  CategoryScale,
-  Tooltip,
-  Legend,
-  ChartDataLabels,
-);
+ChartJS.register(ArcElement, CategoryScale, Tooltip, Legend, ChartDataLabels);
 
 const DoughnutChart: React.FC<ChartResultProps> = ({ id, chartAnswerInfo }) => {
   const [data, setData] = useState<DoughnutChartData>({
@@ -82,7 +78,7 @@ const DoughnutChart: React.FC<ChartResultProps> = ({ id, chartAnswerInfo }) => {
   }, [chartAnswerInfo]);
 
   return (
-    <div>
+    <Container>
       <Doughnut
         data={data}
         options={{
@@ -109,8 +105,17 @@ const DoughnutChart: React.FC<ChartResultProps> = ({ id, chartAnswerInfo }) => {
           },
         }}
       />
-    </div>
+    </Container>
   );
 };
 
 export default DoughnutChart;
+
+const Container = styled.div`
+  position: relative;
+  overflow: hidden;
+  height: 311px;
+
+  @media (max-width: 767px) {
+  }
+`;
