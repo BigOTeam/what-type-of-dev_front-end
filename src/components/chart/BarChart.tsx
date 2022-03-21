@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+import styled from '@emotion/styled';
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,7 +12,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+// import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 import {
   ChartAnswerType,
@@ -34,10 +36,10 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  ChartDataLabels,
+  // ChartDataLabels,
 );
 
-const HorizontalBarChart: React.FC<ChartResultProps> = ({
+const BarChart: React.FC<ChartResultProps> = ({
   id,
   indexAxis,
   chartAnswerInfo,
@@ -75,13 +77,22 @@ const HorizontalBarChart: React.FC<ChartResultProps> = ({
         },
       ],
     });
-  }, [data]);
+  }, []);
 
   return (
-    <div>
+    <Container>
       <Bar options={options} data={data} />
-    </div>
+    </Container>
   );
 };
 
-export default HorizontalBarChart;
+export default BarChart;
+
+const Container = styled.div`
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+
+  @media (max-width: 767px) {
+  }
+`;
