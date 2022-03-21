@@ -1,8 +1,50 @@
+export interface ChartDataType {
+  chartData: ChartResultType;
+}
+
 export interface ChartResultType {
-  id: number;
+  statisticTitle: ChartResultTitleType;
+  statisticContents: ChartResultContentsType[];
+  statisticAnalyze: ChartResultAnalyzeType[];
+}
+
+export interface ChartResultTitleType {
+  surveyPeriod: string;
+  responseUserCount: number;
+  statisticSummary: string;
+  imgUrl: string;
+}
+
+export interface ChartResultContentsType {
+  partId: number;
+  title: string;
+  contentsInfo: ChartContentInfoType[];
+}
+
+export interface ChartContentInfoType {
+  questionId: number;
+  question: string;
+}
+
+export interface ChartResultAnalyzeType {
+  partId: number;
+  title: string;
+  description: string;
+  imgUrl: string;
+  statisticsSummary: ChartResultAnalyzeSummaryType[];
+  statisticResult: ChartAnalyzeType[];
+}
+
+export interface ChartResultAnalyzeSummaryType {
+  summaryId: number;
+  summary: string;
+}
+
+export interface ChartAnalyzeType {
+  statisticId: number;
   question: string;
   chartType: string;
-  chartAnswerInfo: ChartAnswerType[];
+  chartInfo: ChartAnswerType[];
 }
 
 export interface ChartAnswerType {
