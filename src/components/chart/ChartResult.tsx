@@ -16,14 +16,14 @@ import { css } from '@emotion/react';
 const ChartResult: React.FC = () => {
   const { isLoading, data, isError, errorMessage } = useChartList();
 
-  const chartByType = (data: ChartAnalyzeType) => {
+  const chartByType = (data: ChartAnalyzeType, userCount: number) => {
     switch (data.chartType) {
       case 'doughnut':
         return (
           <DoughnutChart
             id={data.statisticId}
             chartAnswerInfo={data.chartInfo}
-            // userCount={data.userCount}
+            userCount={userCount}
           />
         );
       case 'verticalBar':
@@ -159,8 +159,8 @@ const ChartResult: React.FC = () => {
                                   <ChartStatisticContentWrapper>
                                     {chartByType(
                                       statisticData,
-                                      // data.chartData.statisticTitle
-                                      //   .responseUserCount,
+                                      data.chartData.statisticTitle
+                                        .responseUserCount,
                                     )}
                                   </ChartStatisticContentWrapper>
                                 </ChartItem>

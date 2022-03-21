@@ -20,27 +20,24 @@ interface ChartResultProps {
   //   question: string;
   //   chartType: string;
   chartAnswerInfo: ChartAnswerType[];
+  userCount: number;
 }
 
 ChartJS.register(ArcElement, CategoryScale, Tooltip, Legend, ChartDataLabels);
 
-const DoughnutChart: React.FC<ChartResultProps> = ({ id, chartAnswerInfo }) => {
+const DoughnutChart: React.FC<ChartResultProps> = ({
+  id,
+  chartAnswerInfo,
+  userCount,
+}) => {
   const [data, setData] = useState<DoughnutChartData>({
-    labels: chartAnswerInfo
-      .sort((a: ChartAnswerType, b: ChartAnswerType) =>
-        a.rank > b.rank ? 1 : b.rank > a.rank ? -1 : 0,
-      )
-      .map((data: ChartAnswerType) => data.answer),
+    labels: chartAnswerInfo.map((data: ChartAnswerType) => data.answer),
     datasets: [
       {
         label: '# of Votes',
-        data: chartAnswerInfo
-          .sort((a: ChartAnswerType, b: ChartAnswerType) =>
-            a.rank > b.rank ? 1 : b.rank > a.rank ? -1 : 0,
-          )
-          .map((data: ChartAnswerType) =>
-            Math.floor(Number(data.answerCount / 90) * 100),
-          ),
+        data: chartAnswerInfo.map((data: ChartAnswerType) =>
+          Math.floor(Number(data.answerCount / userCount) * 100),
+        ),
         backgroundColor: CHART_COLOR_LIST.map((x) => x.backgroundColor),
         borderColor: CHART_COLOR_LIST.map((x) => x.borderColor),
         borderWidth: 0,
@@ -50,21 +47,13 @@ const DoughnutChart: React.FC<ChartResultProps> = ({ id, chartAnswerInfo }) => {
 
   useEffect(() => {
     setData({
-      labels: chartAnswerInfo
-        .sort((a: ChartAnswerType, b: ChartAnswerType) =>
-          a.rank > b.rank ? 1 : b.rank > a.rank ? -1 : 0,
-        )
-        .map((data: ChartAnswerType) => data.answer),
+      labels: chartAnswerInfo.map((data: ChartAnswerType) => data.answer),
       datasets: [
         {
           label: '# of Votes',
-          data: chartAnswerInfo
-            .sort((a: ChartAnswerType, b: ChartAnswerType) =>
-              a.rank > b.rank ? 1 : b.rank > a.rank ? -1 : 0,
-            )
-            .map((data: ChartAnswerType) => {
-              return Math.floor(Number(data.answerCount / 90) * 100);
-            }),
+          data: chartAnswerInfo.map((data: ChartAnswerType) => {
+            return Math.floor(Number(data.answerCount / userCount) * 100);
+          }),
           backgroundColor: CHART_COLOR_LIST.map(
             (chartColor: ChartColor) => chartColor.backgroundColor,
           ),
@@ -75,13 +64,15 @@ const DoughnutChart: React.FC<ChartResultProps> = ({ id, chartAnswerInfo }) => {
         },
       ],
     });
-  }, [chartAnswerInfo]);
+  }, []);
 
   return (
     <Container>
       <Doughnut
         data={data}
         options={{
+          responsive: true,
+          maintainAspectRatio: false,
           plugins: {
             datalabels: {
               formatter: function (value, context) {
