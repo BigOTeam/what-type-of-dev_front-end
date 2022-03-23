@@ -1,3 +1,5 @@
 import { setupWorker } from 'msw';
 
-export const worker = setupWorker();
+import { formHandler } from './handlers/formHandler';
+
+export const worker = setupWorker(...formHandler);
