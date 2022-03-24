@@ -215,7 +215,7 @@ export const formData2 = {
   data: {
     pageNo: 2,
     pageName: '개발관련',
-    pageDescription: '당신이 개발자라면?',
+    pageDescription: '개발 관련 질문!',
     pageImageUrl: '/images/2_개발관련.png',
     survey: [
       {

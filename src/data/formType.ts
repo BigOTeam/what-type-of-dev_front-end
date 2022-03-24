@@ -22,3 +22,12 @@ export interface Answers {
   answerSeq: number;
   answer: string;
 }
+
+export interface SurveyResultResponseType {
+  surveyResult: SurveyResultType[];
+}
+
+export interface SurveyResultType {
+  question_initial: number;
+  answerSeq: number;
+}

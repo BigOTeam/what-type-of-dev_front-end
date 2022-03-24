@@ -9,20 +9,37 @@ import styled from '@emotion/styled';
 import FormItem from './FormItem';
 import { FormResponseData } from '../../data/formType';
 
+interface VisibleProps {
+  isVisible: boolean;
+}
+
 const FormSection: React.FC = () => {
   const [formData, setFormData] = useState<FormResponseData>();
   const [isDeveloper, setIsDeveloper] = useState<boolean>(false);
   const [nextPageNumber, setNextPageNumber] = useState<number>(1);
+  const [isClickDeveloper, setIsClickDeveloper] = useState<boolean>(false);
+  const [isButtonVisible, setIsButtonVisible] = useState<boolean>(true);
+  const [isNextButtonVisible, setIsNextButtonVisible] =
+    useState<boolean>(false);
 
   useEffect(() => {
     axiosInstance.get(`/dev-form/${nextPageNumber}`).then((response) => {
       setFormData(response.data);
-      console.log(response.data);
     });
   }, [nextPageNumber]);
 
-  const onClickDeveloperQuestion = () => {
+  const onClickYes = () => {
     setIsDeveloper(true);
+    setIsClickDeveloper(true);
+    setIsButtonVisible(false);
+    setIsNextButtonVisible(true);
+  };
+
+  const onClickNo = () => {
+    setIsDeveloper(false);
+    setIsClickDeveloper(true);
+    setIsButtonVisible(false);
+    setIsNextButtonVisible(true);
   };
 
   const onClickNextButton = () => {
@@ -36,16 +53,39 @@ const FormSection: React.FC = () => {
         src={formData?.data.pageImageUrl}
         alt={formData?.data.pageDescription}
       />
-      <MainQuestion>{formData?.data.pageDescription}😀</MainQuestion>
-      {/* <div className="question__btns" css={question__button}>
-        <button className="btn btn01" onClick={onClickDeveloperQuestion}>
-          네!
-        </button>
-        <button className="btn btn02">아니오</button>
-      </div> */}
-      <FormItem surveyList={formData?.data.survey} />
+      <MainQuestion>
+        💖🧡💛 {formData?.data.pageDescription} 💚💙💜
+      </MainQuestion>
+      {nextPageNumber === 1 ? (
+        <>
+          <Question isVisible={isButtonVisible}>
+            1. 당신은 개발자인가요?
+          </Question>
+          <ButtonSection>
+            <QuestionButton onClick={onClickYes} isVisible={isButtonVisible}>
+              네
+            </QuestionButton>
+            <QuestionButton onClick={onClickNo} isVisible={isButtonVisible}>
+              아니오
+            </QuestionButton>
+          </ButtonSection>
+        </>
+      ) : null}
+      {isDeveloper}
+      {isClickDeveloper ? (
+        <FormItem
+          surveyList={formData?.data.survey}
+          pageNo={formData?.data.pageNo}
+          isDeveloper={isDeveloper}
+        />
+      ) : null}
       <ButtonSection>
-        <NextButton onClick={onClickNextButton}>다음</NextButton>
+        <QuestionButton
+          onClick={onClickNextButton}
+          isVisible={isNextButtonVisible}
+        >
+          다음
+        </QuestionButton>
       </ButtonSection>
     </Container>
   );
@@ -74,59 +114,26 @@ const MainQuestion = styled.p`
   text-align: center;
 
   width: 100%;
-  padding: 10px;
+  padding: 20px 0px;
 
   font-size: 24px;
-
+  font-weight: 500;
   box-sizing: border-box;
 `;
 
-const QuestionWrapper = styled.div`
+const Question = styled.p<VisibleProps>`
+  display: ${(props) => (props.isVisible ? 'block' : 'none')};
+
   justify-content: center;
   align-items: center;
   text-align: center;
 
   width: 100%;
-  padding: 10px;
-
-  box-sizing: border-box;
-
-  & p {
-    font-size: 20px;
-  }
-`;
-
-const question__button = css`
-  width: 280px;
-  position: relative;
-  margin: 0 auto;
-
   padding: 20px 0px;
 
-  & .btn {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-
-    width: 100%;
-    height: 100px;
-
-    background-color: #fff;
-    border: 2px solid #593137;
-    border-radius: 15px;
-
-    letter-spacing: -0.02em;
-    line-height: 1.2em;
-    font-size: 20px;
-    font-weight: bold;
-
-    cursor: pointer;
-  }
-
-  & :first-child {
-    margin-bottom: 18px;
-  }
+  font-size: 24px;
+  font-weight: 500;
+  box-sizing: border-box;
 `;
 
 const ButtonSection = styled.div`
@@ -136,7 +143,14 @@ const ButtonSection = styled.div`
   align-items: center;
 `;
 
-const NextButton = styled.button`
+const QuestionButton = styled.button<VisibleProps>`
+  display: ${(props) => (props.isVisible ? 'block' : 'none')};
+
+  width: 280px;
+  height: 100px;
+
+  margin: 20px 20px;
+
   background-color: #fff;
   border: 2px solid #593137;
   border-radius: 15px;
@@ -147,10 +161,6 @@ const NextButton = styled.button`
   font-weight: bold;
 
   cursor: pointer;
-
-  width: 280px;
-  height: 100px;
-  margin: 20px 0px;
 `;
 
 export default FormSection;
