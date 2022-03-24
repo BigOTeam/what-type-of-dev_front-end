@@ -27,21 +27,23 @@ const FormSection: React.FC = () => {
 
   const onClickNextButton = () => {
     setNextPageNumber((prevNumber) => prevNumber + 1);
+    window.scrollTo({ top: 0 });
   };
 
   return (
     <Container>
-      <MainImage src="/images/1_자기소개.png" alt="자기소개 이미지" />
-      <MainQuestion>당신에 대해서 알려주세요😀</MainQuestion>
-      <div className="question__btns" css={question__button}>
+      <MainImage
+        src={formData?.data.pageImageUrl}
+        alt={formData?.data.pageDescription}
+      />
+      <MainQuestion>{formData?.data.pageDescription}😀</MainQuestion>
+      {/* <div className="question__btns" css={question__button}>
         <button className="btn btn01" onClick={onClickDeveloperQuestion}>
           네!
         </button>
         <button className="btn btn02">아니오</button>
-      </div>
-      {isDeveloper === true ? (
-        <FormItem questionList={formData?.results} />
-      ) : null}
+      </div> */}
+      <FormItem surveyList={formData?.data.survey} />
       <ButtonSection>
         <NextButton onClick={onClickNextButton}>다음</NextButton>
       </ButtonSection>

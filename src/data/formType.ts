@@ -1,15 +1,24 @@
 export interface FormResponseData {
-  pageNumber: Number;
-  results: Question[];
+  code: '';
+  message: '';
+  data: SurveyInfo;
 }
 
-export interface Question {
-  id: number;
+export interface SurveyInfo {
+  pageNo: number;
+  pageName: string;
+  pageDescription: string;
+  pageImageUrl: string;
+  survey: Survey[];
+}
+
+export interface Survey {
+  questionId: number;
   question: string;
-  options: QuestionOption[];
+  answers: Answers[];
 }
 
-export interface QuestionOption {
-  optionId: number;
-  optionDescription: string;
+export interface Answers {
+  answerSeq: number;
+  answer: string;
 }

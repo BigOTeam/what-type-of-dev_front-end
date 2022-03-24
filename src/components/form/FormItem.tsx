@@ -8,36 +8,36 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-import { Question } from '../../data/formType';
+import { Survey } from '../../data/formType';
 
 interface FormItemProps {
-  questionList: Question[] | undefined;
+  surveyList: Survey[] | undefined;
 }
 
-const FormItem: React.FC<FormItemProps> = ({ questionList }) => {
+const FormItem: React.FC<FormItemProps> = ({ surveyList }) => {
   return (
     <Container>
-      {questionList !== undefined
-        ? questionList.map((element) => {
+      {surveyList !== undefined
+        ? surveyList.map((element) => {
             return (
               <FormControl css={radioStyle}>
                 <FormLabel
-                  id="demo-radio-buttons-group-label"
+                  id={String(element.questionId)}
                   css={QuestionWrapper}
                 >
-                  {element.id}. {element.question}
+                  {element.questionId}. {element.question}
                 </FormLabel>
                 <RadioGroup
                   row
                   aria-labelledby="demo-radio-buttons-group -label"
-                  name="radio-buttons-group"
+                  // name="radio-buttons-group"
                 >
-                  {element.options.map((option) => {
+                  {element.answers.map((option) => {
                     return (
                       <FormControlLabel
-                        value={option.optionId}
+                        value={option.answerSeq}
                         control={<Radio />}
-                        label={option.optionDescription}
+                        label={option.answer}
                       />
                     );
                   })}
@@ -76,7 +76,8 @@ const QuestionWrapper = css`
   padding: 10px 0px;
 
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 800;
+  color: #2e2e2e;
   box-sizing: border-box;
 `;
 
