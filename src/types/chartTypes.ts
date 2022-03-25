@@ -14,6 +14,8 @@ export interface ChartResultType {
 export interface ChartResultTitleType {
   surveyPeriod: string;
   responseUserCount: number;
+  responseCareerCount: number;
+  responseNewCount: number;
   statisticSummary: string;
 }
 

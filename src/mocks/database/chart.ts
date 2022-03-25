@@ -4,6 +4,8 @@ export const chartData: ChartResultType = {
   statisticTitle: {
     surveyPeriod: '2022/04/04 ~ 04/08',
     responseUserCount: 2000,
+    responseCareerCount: 1000,
+    responseNewCount: 2000,
     statisticSummary:
       '명의 이용자들이 설문에 참여했습니다. 아래 통계는 답변 내용을 비율별로 정리한 결과입니다. 다른 개발자들은 어떤 마음가짐으로 생활을 하는지 엿보며 비교해 보세요.',
   },
