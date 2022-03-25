@@ -6,7 +6,6 @@ export const chartData: ChartResultType = {
     responseUserCount: 2000,
     statisticSummary:
       '명의 이용자들이 설문에 참여했습니다. 아래 통계는 답변 내용을 비율별로 정리한 결과입니다. 다른 개발자들은 어떤 마음가짐으로 생활을 하는지 엿보며 비교해 보세요.',
-    imgUrl: '/images/chart/title.png',
   },
   statisticContents: [
     {
@@ -88,7 +87,7 @@ export const chartData: ChartResultType = {
         {
           statisticId: 2,
           question: '어느 분야의 개발자인가요?',
-          chartType: 'doughnut',
+          chartType: 'horizontalBar',
           chartInfo: [
             { answer: '웹', answerCount: 50, rank: 1 },
             { answer: '금융', answerCount: 30, rank: 2 },
@@ -129,7 +128,7 @@ export const chartData: ChartResultType = {
         {
           statisticId: 5,
           question: '희망연봉',
-          chartType: 'verticalBar',
+          chartType: 'horizontalBar',
           chartInfo: [
             { answer: '2000-3000만원', answerCount: 1, rank: 0 },
             { answer: '3000-4000만원', answerCount: 19, rank: 0 },
@@ -144,7 +143,7 @@ export const chartData: ChartResultType = {
         {
           statisticId: 6,
           question: '당신의 직업에 얼마나 만족하나요?',
-          chartType: 'verticalBar',
+          chartType: 'horizontalBar',
           chartInfo: [
             { answer: '완전히 만족', answerCount: 10, rank: 0 },
             { answer: '매우 만족', answerCount: 10, rank: 0 },
@@ -183,13 +182,14 @@ export const chartData: ChartResultType = {
         {
           statisticId: 1,
           question: '일할 때 즐겨마시는 드링크',
-          chartType: 'doughnut',
+          chartType: 'horizontalBar',
           chartInfo: [
-            { answer: '커피류', answerCount: 50, rank: 1 },
-            { answer: '에너지음료', answerCount: 30, rank: 2 },
-            { answer: '물', answerCount: 9, rank: 5 },
+            { answer: '커피', answerCount: 50, rank: 1 },
             { answer: '차', answerCount: 11, rank: 4 },
-            { answer: '기타', answerCount: 30, rank: 2 },
+            { answer: '물', answerCount: 9, rank: 5 },
+            { answer: '에너지음료', answerCount: 30, rank: 2 },
+            { answer: '맥주', answerCount: 19, rank: 3 },
+            { answer: '청량음료', answerCount: 9, rank: 5 },
           ],
         },
         {
@@ -205,7 +205,7 @@ export const chartData: ChartResultType = {
           statisticId: 3,
           question:
             '모든 것을 고려했을 때, 요즘 당신의 삶은 얼마나 만족스러운가요?',
-          chartType: 'verticalBar',
+          chartType: 'horizontalBar',
           chartInfo: [
             { answer: '모르겠다', answerCount: 1, rank: 0 },
             { answer: '매우매우 불만족', answerCount: 9, rank: 0 },
