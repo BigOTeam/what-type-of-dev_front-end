@@ -16,6 +16,8 @@ import history from './history';
 
 import LoadingCircular from './components/common/LoadingCircular';
 
+import ChartPage from './pages/ChartPage';
+
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 const HomePage = lazy(() => import('./pages/HomePage'));
 
@@ -32,6 +34,7 @@ const App: React.FC = () => {
         <Router history={history}>
           <Switch>
             <Route exact path="/" component={HomePage} />
+            <Route exact path="/statistics" component={ChartPage} />
           </Switch>
           {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
         </Router>
