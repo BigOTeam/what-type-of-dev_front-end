@@ -4,6 +4,7 @@ import { ChartAnalyzeType } from '../../types/chartTypes';
 
 import useChartList from '../../hooks/useChartList';
 
+import ChartSearch from './ChartSearch';
 import DoughnutChart from './DoughnutChart';
 import BarChart from './BarChart';
 
@@ -62,6 +63,7 @@ const ChartResult: React.FC = () => {
                 </TitleTextWrapper>
               </TitleBox>
             </HeadContainer>
+            <ChartSearch />
             <BodyContainer>
               <Contents>
                 {/* 목차 */}
@@ -300,7 +302,7 @@ const Section = styled.section`
   align-items: center;
   width: 100%;
   padding: 80px 0px;
-  color: #593137;
+  color: #263747;
 
   @media (max-width: 767px) {
     padding: 72px 16px;
@@ -349,7 +351,7 @@ const ContentInfo = styled.li`
   width: calc(50% - 16px);
   // padding: 24px 40px;
   border-radius: 25px;
-  border: solid #000;
+  border: solid #d7e2eb;
   border-width: 1px;
   background-color: #ffffff;
   line-height: 130%;
@@ -445,7 +447,7 @@ const ChartHeadWrapper = styled.div`
 
 // 차트 소제목
 const ChartHead = styled.h1`
-  color: #593137;
+  color: #263747;
   font-size: 48px;
   font-weight: bold;
 
@@ -496,10 +498,11 @@ const ChartItem = styled.li`
   margin-bottom: 12px;
   // padding: 24px 40px 24px 40px;
   border-radius: 25px;
-  border: solid #000;
+  border: solid #d7e2eb;
   border-width: 1px;
   background-color: #ffffff;
-  color: #593137;
+  // color: #593137;
+  color: #263747;
 
   @media (max-width: 767px) {
     width: 100%;
@@ -619,7 +622,7 @@ const ChartStatiticHead = styled.h2`
   /* padding-right: 40px; */
   font-size: 20px;
   font-weight: 700;
-  color: #593137;
+  color: #263747;
   line-height: 120%;
 
   @media (max-width: 767px) {
