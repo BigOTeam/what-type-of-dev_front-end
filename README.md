@@ -11,16 +11,16 @@
 ## 목차
 
 1. [**웹 서비스 소개**](#1)
-1. [**버전 기록**](#2)
-1. [**기술 스택**](#3)
-1. [**주요 기능**](#4)
+1. [**기술 스택**](#2)
+1. [**주요 기능**](#3)
+1. [**화면 설계 내용**](#4)
 1. [**프로젝트 구성도**](#5)
-1. [**데모 영상**](#6)
-1. [**특이사항**](#7)
-1. [**구글 애널리틱스 통계**](#8)
-1. [**개발 팀 소개**](#9)
-1. [**개발 기간 및 일정**](#10)
-1. [**실행 방법**](#11)
+1. [**캐릭터 디자인**](#6)
+1. [**API 명세**](#7)
+1. [**정보 공유**](#8)
+1. [**데일리 스크럼 기록**](#9)
+1. [**개발 팀 소개**](#10)
+1. [**Git 규칙**](#11)
 
 <br />
 
@@ -34,9 +34,49 @@
 
 개발자에 대한 관심이 증가하면서, 본인이 어느 분야에 맞는지 잘 모르니 어느 정도 척도를 제공하기 위함입니다.
 
+### 서비스 노션
+
+[🔗 서비스 노션 링크](https://ifyoudev.notion.site/13054c90526f473ab2217b0842c5e4d0) 👈
+
 <br />
 
-<div id="9"></div>
+<div id="2"></div>
+
+## 🛠 기술 스택
+
+### **Front-end**
+
+| <img src="https://profilinator.rishav.dev/skills-assets/html5-original-wordmark.svg" alt="HTML5" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/css3-original-wordmark.svg" alt="CSS3" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/typescript-original.svg" alt="TypeScript" width="50px" height="50px" /> |
+| :----------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: |
+|                                                             HTML5                                                              |                                                             CSS3                                                             |                                                           TypeScript                                                            |
+
+| <img src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" alt="React.js" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/redux-original.svg" alt="Redux" width="50px" height="50px" /> | <img src="https://cdn.worldvectorlogo.com/logos/redux-saga.svg" alt="Redux-Saga" width="50px" height="50px" /> | <img src="https://react-query-v2.tanstack.com/_next/static/images/emblem-light-5d1cdce6c8bbb006ac6cefb8e1642877.svg" alt="React-Query" width="50px" height="50px" /> |
+| :-------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                               React                                                               |                                                         Redux                                                         |                                                   Redux-Saga                                                   |                                                                             React-Query                                                                              |
+
+| <img src="https://raw.githubusercontent.com/emotion-js/emotion/main/emotion.png" alt="Emotion" width="50px" height="50px" /> | <img src="https://mui.com/static/logo.png" alt="MUI" width="50px" height="50px" /> | <img src="https://github.com/mswjs/msw/raw/main/media/msw-logo.svg" alt="Mock Service Worker" width="50px" height="50px" /> |
+| :--------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: |
+|                                                           Emotion                                                            |                                        MUI                                         |                                                     Mock Service Worker                                                     |
+
+### **Back-end**
+
+| <img src="https://profilinator.rishav.dev/skills-assets/java-original-wordmark.svg" alt="Java" width="50px" height="50px" /> | <img src="https://www.seekpng.com/png/full/8-80775_spring-logo-png-transparent-spring-java.png" alt="Spring-Boot" width="50px" height="50px" /> | <img src="https://media.vlpt.us/images/2012monk/post/86ce779f-a08b-438d-836c-8dbe6e5a8cc0/hibernate_icon_whitebkg.svg" alt="Hibernate" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/mysql-original-wordmark.svg" alt="MySQL" width="50px" height="50px" /> | <img src="https://www.h2database.com/html/images/h2-logo-2.png" alt="H2" width="50px" height="50px" /> |
+| :--------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
+|                                                             Java                                                             |                                                                   Spring-Boot                                                                   |                                                                              Hibernate                                                                               |                                                             MySQL                                                              |                                                   H2                                                   |
+
+| <img src="https://res.cloudinary.com/postman/image/upload/t_team_logo/v1629869194/team/2893aede23f01bfcbd2319326bc96a6ed0524eba759745ed6d73405a3a8b67a8" alt="Postman" width="50px" height="50px" /> | <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Swagger-logo.png" alt="Swagger" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/redis-original-wordmark.svg" alt="redis" width="50px" height="50px" /> |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
+|                                                                                               Postman                                                                                                |                                                           Swagger                                                           |                                                             redis                                                              |
+
+### **DevOps**
+
+| <img src="https://profilinator.rishav.dev/skills-assets/nginx-original.svg" alt="NGiNX" width="50px" height="50px" /> | <img src="https://pbs.twimg.com/profile_images/1351702967561252865/aXfcETIt_400x400.jpg" alt="aws" width="50px" height="50px" /> | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Jenkins_logo.svg/1200px-Jenkins_logo.svg.png" alt="Jenkins" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/docker-original-wordmark.svg" alt="docker" width="50px" height="50px" /> |
+| :-------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------: |
+|                                                         NGiNX                                                         |                                                               aws                                                                |                                                                            Jenkins                                                                            |                                                              docker                                                              |
+
+<br />
+
+<div id="3"></div>
 
 ## 💡 주요 기능
 
@@ -65,11 +105,11 @@
 
 <br />
 
-<div id="9"></div>
+<div id="4"></div>
 
-## 화면 설계 내용
+## 💻 화면 설계 내용
 
-[화면 기획 노션 페이지](https://www.notion.so/ifyoudev/30740cd7963f4bd7a61499a59fbf37ed)
+[🔗 화면 기획 노션 페이지](https://ifyoudev.notion.site/30740cd7963f4bd7a61499a59fbf37ed) 👈
 
 ### 메인 페이지
 
@@ -129,9 +169,23 @@
 
 <br />
 
-<div id="9"></div>
+<div id="5"></div>
 
-## 캐릭터 디자인
+## 📂 프로젝트 구성도
+
+| [Figma](https://www.figma.com/file/rQIr2T42ioEPhIBGi90Tch/If-you-developer) |
+| :-------------------------------------------------------------------------: |
+|              <img src="readme_assets/Figma.png" alt="Figma" />              |
+
+|                      ERD                      |
+| :-------------------------------------------: |
+| <img src="readme_assets/erd.png" alt="ERD" /> |
+
+<br />
+
+<div id="6"></div>
+
+## 🐱 캐릭터 디자인
 
 ### 설문 폼 캐릭터
 
@@ -149,7 +203,31 @@
 
 <br />
 
+<div id="7"></div>
+
+## 📋 API 명세
+
+[API 명세 문서 링크](https://www.notion.so/ifyoudev/API-b9a2523dfcb54d508f10d97aa63fb6c3)
+
+<br />
+
+<div id="8"></div>
+
+## 📥 정보 공유
+
+[🔗 정보 공유 문서 링크](https://ifyoudev.notion.site/7805297c6cde4eaea6eb5664c043b9b7) 👈
+
+<br />
+
 <div id="9"></div>
+
+## 📆 데일리 스크럼 기록
+
+[🔗 데일리 스크럼 기록 문서 링크](https://ifyoudev.notion.site/Scrum-28dd7bc3dca943bbbcc868a302d3e067) 👈
+
+<br />
+
+<div id="10"></div>
 
 ## 👪 개발 팀 소개
 
@@ -219,3 +297,67 @@
     </td>
   </tr>
 </table>
+
+<br />
+
+<div id="11"></div>
+
+## 📌 Git 규칙
+
+### Git Convention
+
+```
+Feat : 새로운 기능을 추가할 경우
+Fix : 버그를 고친 경우
+Hotfix : 급하게 치명적인 버그를 고쳐야하는 경우
+Design : CSS 등 사용자 UI 디자인 변경
+Style : 코드 포맷 변경, 세미 콜론 누락, 코드 수정이 없는 경우
+Modify : 단순한 코드 수정
+Delete : 삭제한 코드 설명
+Remove : 파일을 삭제하는 작업만 수행한 경우
+Comment: 필요한 주석 추가 및 변경
+Docs : 문서를 수정한 경우
+Test : 테스트 추가, 테스트 리팩토링(프로덕션 코드 변경 X)
+Chore : 빌드 태스트 업데이트, 패키지 매니저를 설정하는 경우(프로덕션 코드 변경 X)
+Refactor : 코드 리팩토링 경우
+Rename : 파일 혹은 폴더명을 수정하거나 옮기는 작업만인 경우
+Merge : to ← from (#1)
+Merge : 변경된 내용 작성
+```
+
+> Tag : 커밋 내용에 대한 설명
+
+> 커밋 내용에 대한 설명은 간결하면서도 그 설명만 보고도 어떠한 커밋인지 추측할 수 있을 정도로 작성
+
+### 예시
+
+```
+Feat : 로그인 API 구현
+Design : 00 통계 차트 마크업 및 스타일링 구현
+Refactor : 회원가입 API 코드 리팩터링
+Merge : develop ← feature/login
+Remove : 땡땡땡 파일 삭제
+```
+
+### 브랜치 전략
+
+```
+master : 제품으로 출시될 수 있는 브랜치
+develop : 다음 출시 버전을 개발하는 브랜치
+feature : 기능을 개발하는 브랜치
+release : 이번 출시 버전을 준비하는 브랜치
+hotfix : 출시 버전에서 발생한 버그를 수정 하는 브랜치
+```
+
+### 예시
+
+```
+master
+
+release-1.0.0
+
+develop
+
+feature/login
+feature/signup
+```
