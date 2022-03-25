@@ -10,9 +10,13 @@ import {
   Legend,
 } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import ChartDataLabels, { Context } from 'chartjs-plugin-datalabels';
 
-import { ChartAnswerType, DoughnutChartData } from '../../types/chartTypes';
+import {
+  ChartAnswerType,
+  DoughnutChartData,
+  DoughnutChartOption,
+} from '../../types/chartTypes';
 import { ChartColor, CHART_COLOR_LIST } from '../../data/chartColorListData';
 
 interface ChartResultProps {
@@ -45,6 +49,41 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
     ],
   });
 
+  const options: DoughnutChartOption = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      datalabels: {
+        formatter: function (value: number, context: Context): string {
+          return (
+            value +
+            '%\n' +
+            context.chart.data.labels?.slice(
+              context.dataIndex,
+              context.dataIndex + 1,
+            )
+          );
+        },
+        labels: {
+          value: {
+            font: {
+              weight: 'bold',
+            },
+          },
+        },
+      },
+      tooltip: {
+        backgroundColor: '#FFFFFF',
+        bodyColor: '#000000',
+        bodyFont: {
+          size: 14,
+          weight: 'bold',
+        },
+        padding: 8,
+      },
+    },
+  };
+
   useEffect(() => {
     setData({
       labels: chartAnswerInfo.map((data: ChartAnswerType) => data.answer),
@@ -68,34 +107,7 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
 
   return (
     <Container>
-      <Doughnut
-        data={data}
-        options={{
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            datalabels: {
-              formatter: function (value, context) {
-                return (
-                  value +
-                  '%\n' +
-                  context.chart.data.labels?.slice(
-                    context.dataIndex,
-                    context.dataIndex + 1,
-                  )
-                );
-              },
-              labels: {
-                value: {
-                  font: {
-                    weight: 'bold',
-                  },
-                },
-              },
-            },
-          },
-        }}
-      />
+      <Doughnut data={data} options={options} />
     </Container>
   );
 };
@@ -103,10 +115,11 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
 export default DoughnutChart;
 
 const Container = styled.div`
-  position: relative;
-  overflow: hidden;
-  height: 311px;
+  // position: relative;
+  // overflow: hidden;
+  // height: 311px;
 
   @media (max-width: 767px) {
+    padding: 8px 0px;
   }
 `;
