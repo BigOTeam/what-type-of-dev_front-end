@@ -38,6 +38,12 @@
 
 [🔗 서비스 노션 링크](https://ifyoudev.notion.site/13054c90526f473ab2217b0842c5e4d0) 👈
 
+### GitLab Repo
+
+[**🔗 프론트엔드 저장소 바로가기 Click !**](https://lab.ssafy.com/jeonghwan9405/s06p22a205-frontend) 👈
+
+[**🔗 백엔드 저장소 바로가기 Click !**](https://lab.ssafy.com/s06-bigdata-rec-sub2/S06P22A205) 👈
+
 <br />
 
 <div id="2"></div>
