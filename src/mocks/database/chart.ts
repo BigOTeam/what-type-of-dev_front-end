@@ -1,6 +1,6 @@
 import { ChartResultType } from '../../types/chartTypes';
 
-export const chartData: ChartResultType = {
+export const statictData: ChartResultType = {
   statisticTitle: {
     surveyPeriod: '2022/04/04 ~ 04/08',
     responseUserCount: 2000,

@@ -2,7 +2,7 @@ import { Context } from 'chartjs-plugin-datalabels';
 import { Padding } from 'chartjs-plugin-datalabels/types/options';
 
 export interface ChartDataType {
-  chartData: ChartResultType;
+  statictData: ChartResultType;
 }
 
 export interface ChartResultType {
@@ -71,16 +71,18 @@ export interface DoughnutChartOption {
         };
       };
     };
-    tooltip: {
-      backgroundColor: string;
-      bodyColor: string;
-      bodyFont: {
-        size: number;
-        weight: 'bold' | 'normal' | 'bolder' | 'lighter';
-      };
-      padding: Padding;
-    };
+    tooltip: TooltipType;
   };
+}
+
+interface TooltipType {
+  backgroundColor: string;
+  bodyColor: string;
+  bodyFont: {
+    size: number;
+    weight: 'bold' | 'normal' | 'bolder' | 'lighter';
+  };
+  padding: Padding;
 }
 
 export interface DoughnutChartData {
@@ -97,6 +99,8 @@ interface DoughnutChartDataset {
 }
 
 export interface BarChartOption {
+  responsive: boolean;
+  indexAxis: 'y' | 'x';
   plugins: {
     datalabels: {
       display: boolean;
@@ -104,15 +108,7 @@ export interface BarChartOption {
     legend: {
       display: boolean;
     };
-    tooltip: {
-      backgroundColor: string;
-      bodyColor: string;
-      bodyFont: {
-        size: number;
-        weight: 'bold' | 'normal' | 'bolder' | 'lighter';
-      };
-      padding: Padding;
-    };
+    tooltip: TooltipType;
   };
   scales: {
     y: {
@@ -121,8 +117,6 @@ export interface BarChartOption {
       };
     };
   };
-  indexAxis: 'y' | 'x';
-  responsive: boolean;
 }
 
 export interface BarChartData {

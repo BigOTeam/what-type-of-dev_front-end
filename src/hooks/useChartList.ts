@@ -14,7 +14,7 @@ const useChartList = () => {
     AxiosError<ErrorResponse>
   >('chartResultList', queryFn);
 
-  console.log(data?.data.chartData);
+  console.log(data?.data.statictData);
 
   return {
     isLoading,
