@@ -60,13 +60,13 @@ const ChartResult: React.FC<ChartResultProps> = ({
             <Section>
               <SubHead>목차</SubHead>
               <ContentsWrapper>
-                {chartContents.map((contentData, index) => {
+                {chartContents.map((contentData) => {
                   return (
-                    <ContentInfo key={index}>
+                    <ContentInfo key={contentData.partId}>
                       <ContentSubTitle>{contentData.title}</ContentSubTitle>
                       <ContentInfoList>
-                        {contentData.contentsInfo.map((contentInfo, index) => (
-                          <ContentInfoItem key={index}>
+                        {contentData.contentsInfo.map((contentInfo) => (
+                          <ContentInfoItem key={contentInfo.questionId}>
                             <ContentItem>{contentInfo.question}</ContentItem>
                           </ContentInfoItem>
                         ))}
@@ -78,11 +78,11 @@ const ChartResult: React.FC<ChartResultProps> = ({
             </Section>
             {/* 차트 목록 */}
             <ChartWrapper>
-              {chartAnalyze.map((chartData, index) => {
+              {chartAnalyze.map((chartData) => {
                 return (
-                  <ChartListWrapper>
+                  <ChartListWrapper key={chartData.partId}>
                     {/* 차트 목차 제목 */}
-                    <ChartHeadWrapper key={index}>
+                    <ChartHeadWrapper>
                       <ChartHead>
                         Part {chartData.partId}. {chartData.title}
                       </ChartHead>
@@ -110,37 +110,33 @@ const ChartResult: React.FC<ChartResultProps> = ({
                         <ChartItem>
                           <ChartSummaryText>요약</ChartSummaryText>
                           <ChartSummaryList>
-                            {chartData.statisticsSummary.map(
-                              (summaryData, index) => {
-                                return (
-                                  <ChartSummaryItem key={index}>
-                                    {summaryData.summary}
-                                  </ChartSummaryItem>
-                                );
-                              },
-                            )}
+                            {chartData.statisticsSummary.map((summaryData) => {
+                              return (
+                                <ChartSummaryItem key={summaryData.summaryId}>
+                                  {summaryData.summary}
+                                </ChartSummaryItem>
+                              );
+                            })}
                           </ChartSummaryList>
                         </ChartItem>
                       </ChartTitleItemWrapper>
                       {/* 차트 결과 차트 모음 */}
                       <ChartItemWrapper>
-                        {chartData.statisticResult.map(
-                          (statisticData, index) => (
-                            <ChartItem key={index}>
-                              <ChartItemBox>
-                                {/* 차트 질문 */}
-                                <ChartStatisticHeadWrapper>
-                                  <ChartStatiticHead>
-                                    {statisticData.question}
-                                  </ChartStatiticHead>
-                                </ChartStatisticHeadWrapper>
-                                <ChartStatisticContentWrapper>
-                                  {chartByType(statisticData, userCount)}
-                                </ChartStatisticContentWrapper>
-                              </ChartItemBox>
-                            </ChartItem>
-                          ),
-                        )}
+                        {chartData.statisticResult.map((statisticData) => (
+                          <ChartItem key={statisticData.statisticId}>
+                            <ChartItemBox>
+                              {/* 차트 질문 */}
+                              <ChartStatisticHeadWrapper>
+                                <ChartStatiticHead>
+                                  {statisticData.question}
+                                </ChartStatiticHead>
+                              </ChartStatisticHeadWrapper>
+                              <ChartStatisticContentWrapper>
+                                {chartByType(statisticData, userCount)}
+                              </ChartStatisticContentWrapper>
+                            </ChartItemBox>
+                          </ChartItem>
+                        ))}
                       </ChartItemWrapper>
                     </ChartItemList>
                   </ChartListWrapper>
@@ -154,7 +150,7 @@ const ChartResult: React.FC<ChartResultProps> = ({
   );
 };
 
-const Container = styled.section`
+const Container = styled.div`
   margin-top: 12px;
   padding: 0px 16px;
 
