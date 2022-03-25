@@ -9,31 +9,32 @@ import ChartSearch from '../components/chart/ChartSearch';
 const ChartPage: React.FC = () => {
   const { isLoading, data, isError, errorMessage } = useChartList();
 
+  if (isError) {
+    console.log(errorMessage);
+  }
+
   return (
-    <>
-      <Container>
+    <Container>
+      {isLoading || !data ? (
+        <></>
+      ) : (
         <Wrapper>
-          {data && (
-            <>
-              <ChartHeader chartTitle={data.chartData.statisticTitle} />
-              <ChartSearch />
-              <ChartResult
-                chartContents={data.chartData.statisticContents}
-                chartAnalyze={data.chartData.statisticAnalyze}
-                userCount={data.chartData.statisticTitle.responseUserCount}
-              />
-            </>
-          )}
+          <ChartHeader chartTitle={data.statictData.statisticTitle} />
+          <ChartSearch />
+          <ChartResult
+            chartContents={data.statictData.statisticContents}
+            chartAnalyze={data.statictData.statisticAnalyze}
+            userCount={data.statictData.statisticTitle.responseUserCount}
+          />
         </Wrapper>
-      </Container>
-    </>
+      )}
+    </Container>
   );
 };
 
 export default ChartPage;
 
-// 전체
-const Container = styled.section`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,9 +46,7 @@ const Container = styled.section`
   }
 `;
 
-// 전체 안쪽
 const Wrapper = styled.div`
-  // width: calc(100%-32px);
   width: 100%;
   max-width: 900px;
 `;
