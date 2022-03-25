@@ -109,7 +109,7 @@
 
 ## 💻 화면 설계 내용
 
-[🔗 화면 기획 노션 페이지](https://ifyoudev.notion.site/30740cd7963f4bd7a61499a59fbf37ed) 👈
+[🔗 화면 기획 노션 페이지 링크](https://ifyoudev.notion.site/30740cd7963f4bd7a61499a59fbf37ed) 👈
 
 ### 메인 페이지
 
@@ -121,7 +121,7 @@
   - API : 설문 내용 고른 내용 POST → 학습모델 결과 예측 반환
   - 설문 내용 : 구글 스프레드 시트 번역한 것 (20개 이상) + 우리가 정한 6개 질문
   - 구글 스프레드 시트
-    - [검사용 설문지 (2)](https://www.notion.so/912dbe447c1643f9ae111a375cc542af)
+    - [검사용 설문지](https://www.notion.so/912dbe447c1643f9ae111a375cc542af)
   - 우리가 정한 6개 질문
     - 성별
     - 연령대
@@ -175,7 +175,7 @@
 
 | [Figma](https://www.figma.com/file/rQIr2T42ioEPhIBGi90Tch/If-you-developer) |
 | :-------------------------------------------------------------------------: |
-|              <img src="readme_assets/Figma.png" alt="Figma" />              |
+|              <img src="readme_assets/figma.png" alt="Figma" />              |
 
 |                      ERD                      |
 | :-------------------------------------------: |
@@ -207,7 +207,7 @@
 
 ## 📋 API 명세
 
-[API 명세 문서 링크](https://www.notion.so/ifyoudev/API-b9a2523dfcb54d508f10d97aa63fb6c3)
+[🔗 API 명세 문서 링크](https://ifyoudev.notion.site/API-b9a2523dfcb54d508f10d97aa63fb6c3) 👈
 
 <br />
 
