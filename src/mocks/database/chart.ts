@@ -14,11 +14,15 @@ export const chartData: ChartResultType = {
       partId: 1,
       title: '프로필',
       contentsInfo: [
-        { questionId: 1, question: '당신은 개발자인가요?' },
-        { questionId: 2, question: '어느 분야의 개발자인가요?' },
-        { questionId: 3, question: '연령대' },
-        { questionId: 4, question: '성별' },
-        { questionId: 5, question: '희망연봉' },
+        { questionId: 1, question: '현직에서 개발일을 하고 계신가요?' },
+        {
+          questionId: 2,
+          question:
+            '현직 개발자인 경우, 현재 일하고 있는 분야를 선택해주세요. 현직 개발자가 아닌 경우, 어느 분야에서 일하고 싶은지 선택해주세요.',
+        },
+        { questionId: 3, question: '연령대를 선택해주세요.' },
+        { questionId: 4, question: '성별을 선택해주세요.' },
+        { questionId: 5, question: '희망 연봉은 얼마인가요?' },
         { questionId: 6, question: '당신의 직업에 얼마나 만족하나요?' },
       ],
     },
@@ -26,7 +30,7 @@ export const chartData: ChartResultType = {
       partId: 2,
       title: '생활모습',
       contentsInfo: [
-        { questionId: 1, question: '어떤 모바일 운영체제를 사용하나요?' },
+        { questionId: 1, question: '사용하는 모바일 운영체제는 무엇인가요?' },
         {
           questionId: 2,
           question: '선호하는 근무 형태는 무엇인가요?',
@@ -79,7 +83,7 @@ export const chartData: ChartResultType = {
       statisticResult: [
         {
           statisticId: 1,
-          question: '당신은 개발자인가요?',
+          question: '현직에서 개발일을 하고 계신가요?',
           chartType: 'doughnut',
           chartInfo: [
             { answer: '예', answerCount: 60, rank: 1 },
@@ -88,7 +92,8 @@ export const chartData: ChartResultType = {
         },
         {
           statisticId: 2,
-          question: '어느 분야의 개발자인가요?',
+          question:
+            '현직 개발자인 경우, 현재 일하고 있는 분야를 선택해주세요. 현직 개발자가 아닌 경우, 어느 분야에서 일하고 싶은지 선택해주세요.',
           chartType: 'horizontalBar',
           chartInfo: [
             { answer: '웹', answerCount: 50, rank: 1 },
@@ -105,7 +110,7 @@ export const chartData: ChartResultType = {
         },
         {
           statisticId: 3,
-          question: '연령대',
+          question: '연령대를 선택해주세요.',
           chartType: 'verticalBar',
           chartInfo: [
             { answer: '20세 미만', answerCount: 1, rank: 0 },
@@ -120,7 +125,7 @@ export const chartData: ChartResultType = {
         },
         {
           statisticId: 4,
-          question: '성별',
+          question: '성별을 선택해주세요.',
           chartType: 'doughnut',
           chartInfo: [
             { answer: '여성', answerCount: 51, rank: 1 },
@@ -129,7 +134,7 @@ export const chartData: ChartResultType = {
         },
         {
           statisticId: 5,
-          question: '희망연봉',
+          question: '희망 연봉은 얼마인가요?',
           chartType: 'horizontalBar',
           chartInfo: [
             { answer: '2000-3000만원', answerCount: 1, rank: 0 },
