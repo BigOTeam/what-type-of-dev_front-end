@@ -58,8 +58,33 @@ const BarChart: React.FC<ChartResultProps> = ({
   });
 
   const options: BarChartOption = {
+    plugins: {
+      datalabels: {
+        display: false,
+      },
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        backgroundColor: '#FFFFFF',
+        bodyColor: '#000000',
+        bodyFont: {
+          size: 14,
+          weight: 'bold',
+        },
+        padding: 8,
+      },
+    },
+    scales: {
+      y: {
+        ticks: {
+          autoSkip: false,
+        },
+      },
+    },
     indexAxis: indexAxis,
     responsive: true,
+    
   };
 
   useEffect(() => {
@@ -89,9 +114,9 @@ const BarChart: React.FC<ChartResultProps> = ({
 export default BarChart;
 
 const Container = styled.div`
-  position: relative;
-  overflow: hidden;
-  height: 200px;
+  // position: relative;
+  // overflow: hidden;
+  // height: 200px;
 
   @media (max-width: 767px) {
   }
