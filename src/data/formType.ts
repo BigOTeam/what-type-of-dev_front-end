@@ -1,7 +1,5 @@
 export interface FormResponseData {
-  code: '';
-  message: '';
-  data: SurveyInfo;
+  pageData: SurveyInfo;
 }
 
 export interface SurveyInfo {

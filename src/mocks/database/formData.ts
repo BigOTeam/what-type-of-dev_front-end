@@ -1,7 +1,5 @@
 export const formData1 = {
-  code: '',
-  message: '',
-  data: {
+  pageData: {
     pageNo: 1,
     pageName: '자기소개',
     pageDescription: '당신에 대해서 알려주세요!',
@@ -210,9 +208,7 @@ export const formData1 = {
 };
 
 export const formData2 = {
-  code: '',
-  message: '',
-  data: {
+  pageData: {
     pageNo: 2,
     pageName: '개발관련',
     pageDescription: '개발 관련 질문!',

@@ -10,7 +10,7 @@ import FormItem from './FormItem';
 import { FormResponseData } from '../../data/formType';
 
 interface VisibleProps {
-  isVisible: boolean;
+  isVisible?: boolean;
 }
 
 const FormSection: React.FC = () => {
@@ -19,8 +19,6 @@ const FormSection: React.FC = () => {
   const [nextPageNumber, setNextPageNumber] = useState<number>(1);
   const [isClickDeveloper, setIsClickDeveloper] = useState<boolean>(false);
   const [isButtonVisible, setIsButtonVisible] = useState<boolean>(true);
-  const [isNextButtonVisible, setIsNextButtonVisible] =
-    useState<boolean>(false);
 
   useEffect(() => {
     axiosInstance.get(`/dev-form/${nextPageNumber}`).then((response) => {
@@ -32,14 +30,12 @@ const FormSection: React.FC = () => {
     setIsDeveloper(true);
     setIsClickDeveloper(true);
     setIsButtonVisible(false);
-    setIsNextButtonVisible(true);
   };
 
   const onClickNo = () => {
     setIsDeveloper(false);
     setIsClickDeveloper(true);
     setIsButtonVisible(false);
-    setIsNextButtonVisible(true);
   };
 
   const onClickNextButton = () => {
@@ -50,11 +46,11 @@ const FormSection: React.FC = () => {
   return (
     <Container>
       <MainImage
-        src={formData?.data.pageImageUrl}
-        alt={formData?.data.pageDescription}
+        src={formData?.pageData.pageImageUrl}
+        alt={formData?.pageData.pageDescription}
       />
       <MainQuestion>
-        💖🧡💛 {formData?.data.pageDescription} 💚💙💜
+        💖🧡💛 {formData?.pageData.pageDescription} 💚💙💜
       </MainQuestion>
       {nextPageNumber === 1 ? (
         <>
@@ -71,22 +67,20 @@ const FormSection: React.FC = () => {
           </ButtonSection>
         </>
       ) : null}
-      {isDeveloper}
       {isClickDeveloper ? (
-        <FormItem
-          surveyList={formData?.data.survey}
-          pageNo={formData?.data.pageNo}
-          isDeveloper={isDeveloper}
-        />
+        <>
+          <FormItem
+            surveyList={formData?.pageData.survey}
+            pageNo={formData?.pageData.pageNo}
+            isDeveloper={isDeveloper}
+          />
+          <ButtonSection>
+            <QuestionButton onClick={onClickNextButton} isVisible={true}>
+              다음
+            </QuestionButton>
+          </ButtonSection>
+        </>
       ) : null}
-      <ButtonSection>
-        <QuestionButton
-          onClick={onClickNextButton}
-          isVisible={isNextButtonVisible}
-        >
-          다음
-        </QuestionButton>
-      </ButtonSection>
     </Container>
   );
 };
@@ -144,7 +138,8 @@ const ButtonSection = styled.div`
 `;
 
 const QuestionButton = styled.button<VisibleProps>`
-  display: ${(props) => (props.isVisible ? 'block' : 'none')};
+  display: ${(props) =>
+    !props || props.isVisible === true ? 'block' : 'none'};
 
   width: 280px;
   height: 100px;

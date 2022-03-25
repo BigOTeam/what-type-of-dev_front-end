@@ -16,6 +16,10 @@ import ErrorPage from './pages/ErrorPage';
 import HomePage from './pages/HomePage';
 import FormPage from './pages/FormPage';
 
+import { worker } from './mocks/browser';
+
+worker.start();
+
 const App: React.FC = () => {
   return (
     <ErrorBoundary FallbackComponent={ErrorPage}>
