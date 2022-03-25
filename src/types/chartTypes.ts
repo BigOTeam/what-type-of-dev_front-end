@@ -1,3 +1,6 @@
+import { Context } from 'chartjs-plugin-datalabels';
+import { Padding } from 'chartjs-plugin-datalabels/types/options';
+
 export interface ChartDataType {
   chartData: ChartResultType;
 }
@@ -12,7 +15,6 @@ export interface ChartResultTitleType {
   surveyPeriod: string;
   responseUserCount: number;
   statisticSummary: string;
-  imgUrl: string;
 }
 
 export interface ChartResultContentsType {
@@ -53,6 +55,32 @@ export interface ChartAnswerType {
   rank: number;
 }
 
+export interface DoughnutChartOption {
+  responsive: boolean;
+  maintainAspectRatio: boolean;
+  plugins: {
+    datalabels: {
+      formatter: (value: number, context: Context) => string;
+      labels: {
+        value: {
+          font: {
+            weight: 'bold' | 'normal' | 'bolder' | 'lighter';
+          };
+        };
+      };
+    };
+    tooltip: {
+      backgroundColor: string;
+      bodyColor: string;
+      bodyFont: {
+        size: number;
+        weight: 'bold' | 'normal' | 'bolder' | 'lighter';
+      };
+      padding: Padding;
+    };
+  };
+}
+
 export interface DoughnutChartData {
   labels: string[];
   datasets: DoughnutChartDataset[];
@@ -67,6 +95,30 @@ interface DoughnutChartDataset {
 }
 
 export interface BarChartOption {
+  plugins: {
+    datalabels: {
+      display: boolean;
+    };
+    legend: {
+      display: boolean;
+    };
+    tooltip: {
+      backgroundColor: string;
+      bodyColor: string;
+      bodyFont: {
+        size: number;
+        weight: 'bold' | 'normal' | 'bolder' | 'lighter';
+      };
+      padding: Padding;
+    };
+  };
+  scales: {
+    y: {
+      ticks: {
+        autoSkip: boolean;
+      };
+    };
+  };
   indexAxis: 'y' | 'x';
   responsive: boolean;
 }
