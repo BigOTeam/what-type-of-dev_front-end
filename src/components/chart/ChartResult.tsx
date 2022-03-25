@@ -1,16 +1,25 @@
 import styled from '@emotion/styled';
 
-import { ChartAnalyzeType } from '../../types/chartTypes';
+import {
+  ChartAnalyzeType,
+  ChartResultAnalyzeType,
+  ChartResultContentsType,
+} from '../../types/chartTypes';
 
-import useChartList from '../../hooks/useChartList';
-
-import ChartSearch from './ChartSearch';
 import DoughnutChart from './DoughnutChart';
 import BarChart from './BarChart';
 
-const ChartResult: React.FC = () => {
-  const { isLoading, data, isError, errorMessage } = useChartList();
+interface ChartResultProps {
+  chartContents: ChartResultContentsType[];
+  chartAnalyze: ChartResultAnalyzeType[];
+  userCount: number;
+}
 
+const ChartResult: React.FC<ChartResultProps> = ({
+  chartContents,
+  chartAnalyze,
+  userCount,
+}) => {
   const chartByType = (data: ChartAnalyzeType, userCount: number) => {
     switch (data.chartType) {
       case 'doughnut':
@@ -45,132 +54,99 @@ const ChartResult: React.FC = () => {
   return (
     <Container>
       <Wrapper>
-        {data && (
+        {chartContents && chartAnalyze && userCount && (
           <>
-            <HeadContainer>
-              {/* 제목 */}
-              <TitleBox>
-                <TitleTextWrapper>
-                  <TitleHead>당신이 개발자라면 설문 통계</TitleHead>
-                  <TitlePeriod>
-                    설문 조사 기간 :{' '}
-                    {data.chartData.statisticTitle.surveyPeriod}
-                  </TitlePeriod>
-                  <TitleInfo>
-                    {data.chartData.statisticTitle.responseUserCount}
-                    {data.chartData.statisticTitle.statisticSummary}
-                  </TitleInfo>
-                </TitleTextWrapper>
-              </TitleBox>
-            </HeadContainer>
-            <ChartSearch />
-            <BodyContainer>
-              <Contents>
-                {/* 목차 */}
-                <Section>
-                  <SubHead>목차</SubHead>
-                  <ContentsWrapper>
-                    {data.chartData.statisticContents.map(
-                      (contentData, index) => {
-                        return (
-                          <ContentInfo key={index}>
-                            <ContentSubTitle>
-                              {contentData.title}
-                            </ContentSubTitle>
-                            <ContentInfoList>
-                              {contentData.contentsInfo.map(
-                                (contentInfo, index) => (
-                                  <ContentInfoItem key={index}>
-                                    <ContentItem>
-                                      {contentInfo.question}
-                                    </ContentItem>
-                                  </ContentInfoItem>
-                                ),
-                              )}
-                            </ContentInfoList>
-                          </ContentInfo>
-                        );
-                      },
-                    )}
-                  </ContentsWrapper>
-                </Section>
-                {/* 차트 목록 */}
-                <ChartWrapper>
-                  {data.chartData.statisticAnalyze.map((chartData, index) => {
-                    return (
-                      <ChartListWrapper>
-                        {/* 차트 목차 제목 */}
-                        <ChartHeadWrapper key={index}>
-                          <ChartHead>
-                            Part {chartData.partId}. {chartData.title}
-                          </ChartHead>
-                        </ChartHeadWrapper>
-                        {/* 차트 카드 리스트 시작 */}
-                        <ChartItemList>
-                          {/* 차트 제목, 요약 2개의 카드 */}
-                          <ChartTitleItemWrapper>
-                            {/* 차트 카드 : 제목, 이미지, 요약 */}
-                            <ChartItem>
+            {/* 목차 */}
+            <Section>
+              <SubHead>목차</SubHead>
+              <ContentsWrapper>
+                {chartContents.map((contentData, index) => {
+                  return (
+                    <ContentInfo key={index}>
+                      <ContentSubTitle>{contentData.title}</ContentSubTitle>
+                      <ContentInfoList>
+                        {contentData.contentsInfo.map((contentInfo, index) => (
+                          <ContentInfoItem key={index}>
+                            <ContentItem>{contentInfo.question}</ContentItem>
+                          </ContentInfoItem>
+                        ))}
+                      </ContentInfoList>
+                    </ContentInfo>
+                  );
+                })}
+              </ContentsWrapper>
+            </Section>
+            {/* 차트 목록 */}
+            <ChartWrapper>
+              {chartAnalyze.map((chartData, index) => {
+                return (
+                  <ChartListWrapper>
+                    {/* 차트 목차 제목 */}
+                    <ChartHeadWrapper key={index}>
+                      <ChartHead>
+                        Part {chartData.partId}. {chartData.title}
+                      </ChartHead>
+                    </ChartHeadWrapper>
+                    {/* 차트 카드 리스트 시작 */}
+                    <ChartItemList>
+                      {/* 차트 제목, 요약 2개의 카드 */}
+                      <ChartTitleItemWrapper>
+                        {/* 차트 카드 : 제목, 이미지, 요약 */}
+                        <ChartItem>
+                          <ChartItemBox>
+                            <ChartTitleItemImg
+                              src={chartData.imgUrl}
+                              alt={chartData.imgUrl}
+                            ></ChartTitleItemImg>
+                            <ChartTitleItemHead>
+                              {chartData.title}
+                            </ChartTitleItemHead>
+                            <ChartTitleItemDescription>
+                              {chartData.description}
+                            </ChartTitleItemDescription>
+                          </ChartItemBox>
+                        </ChartItem>
+                        {/* 차트 카드 : 주요 정보 3개 요약 */}
+                        <ChartItem>
+                          <ChartSummaryText>요약</ChartSummaryText>
+                          <ChartSummaryList>
+                            {chartData.statisticsSummary.map(
+                              (summaryData, index) => {
+                                return (
+                                  <ChartSummaryItem key={index}>
+                                    {summaryData.summary}
+                                  </ChartSummaryItem>
+                                );
+                              },
+                            )}
+                          </ChartSummaryList>
+                        </ChartItem>
+                      </ChartTitleItemWrapper>
+                      {/* 차트 결과 차트 모음 */}
+                      <ChartItemWrapper>
+                        {chartData.statisticResult.map(
+                          (statisticData, index) => (
+                            <ChartItem key={index}>
                               <ChartItemBox>
-                                <ChartTitleItemImg
-                                  src={chartData.imgUrl}
-                                  alt={chartData.imgUrl}
-                                ></ChartTitleItemImg>
-                                <ChartTitleItemHead>
-                                  {chartData.title}
-                                </ChartTitleItemHead>
-                                <ChartTitleItemDescription>
-                                  {chartData.description}
-                                </ChartTitleItemDescription>
+                                {/* 차트 질문 */}
+                                <ChartStatisticHeadWrapper>
+                                  <ChartStatiticHead>
+                                    {statisticData.question}
+                                  </ChartStatiticHead>
+                                </ChartStatisticHeadWrapper>
+                                <ChartStatisticContentWrapper>
+                                  {chartByType(statisticData, userCount)}
+                                </ChartStatisticContentWrapper>
                               </ChartItemBox>
                             </ChartItem>
-                            {/* 차트 카드 : 주요 정보 3개 요약 */}
-                            <ChartItem>
-                              <ChartSummaryText>요약</ChartSummaryText>
-                              <ChartSummaryList>
-                                {chartData.statisticsSummary.map(
-                                  (summaryData, index) => {
-                                    return (
-                                      <ChartSummaryItem key={index}>
-                                        {summaryData.summary}
-                                      </ChartSummaryItem>
-                                    );
-                                  },
-                                )}
-                              </ChartSummaryList>
-                            </ChartItem>
-                          </ChartTitleItemWrapper>
-                          {/* 차트 결과 차트 모음 */}
-                          <ChartItemWrapper>
-                            {chartData.statisticResult.map(
-                              (statisticData, index) => (
-                                <ChartItem key={index}>
-                                  <ChartItemBox>
-                                    {/* 차트 질문 */}
-                                    <ChartStatisticHeadWrapper>
-                                      <ChartStatiticHead>
-                                        {statisticData.question}
-                                      </ChartStatiticHead>
-                                    </ChartStatisticHeadWrapper>
-                                    <ChartStatisticContentWrapper>
-                                      {chartByType(
-                                        statisticData,
-                                        data.chartData.statisticTitle
-                                          .responseUserCount,
-                                      )}
-                                    </ChartStatisticContentWrapper>
-                                  </ChartItemBox>
-                                </ChartItem>
-                              ),
-                            )}
-                          </ChartItemWrapper>
-                        </ChartItemList>
-                      </ChartListWrapper>
-                    );
-                  })}
-                </ChartWrapper>
-              </Contents>
-            </BodyContainer>
+                          ),
+                        )}
+                      </ChartItemWrapper>
+                    </ChartItemList>
+                  </ChartListWrapper>
+                );
+              })}
+            </ChartWrapper>
           </>
         )}
       </Wrapper>
@@ -178,98 +154,7 @@ const ChartResult: React.FC = () => {
   );
 };
 
-// 전체
 const Container = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0px 16px;
-  // background-color: #fff1f7;
-  background-color: #ffffff;
-
-  @media (max-width: 767px) {
-  }
-`;
-
-// 전체 안쪽
-const Wrapper = styled.div`
-  // width: calc(100%-32px);
-  width: 100%;
-  max-width: 900px;
-`;
-
-// 타이틀 전체
-const HeadContainer = styled.section`
-  text-align: center;
-  color: #ffffff;
-`;
-
-// 타이틀 전체 안쪽
-const TitleBox = styled.div`
-  background: url(/images/chart/title.png);
-  opacity: 0.55;
-`;
-
-// 타이틀 전체 안의 텍스트 감싸기
-const TitleTextWrapper = styled.div`
-  padding: 32px 48px;
-  opacity: 1;
-
-  @media (max-width: 767px) {
-    padding: 32px 48px 28px;
-  }
-  @media (max-width: 575px) {
-    padding: 32px 48px 24px;
-  }
-`;
-
-// 제목
-const TitleHead = styled.h1`
-  margin: 20px 0px 28px;
-  font-size: 52px;
-  font-weight: bold;
-
-  @media (max-width: 767px) {
-    margin: 20px 0px 24px;
-    font-size: 44px;
-  }
-  @media (max-width: 575px) {
-    font-size: 32px;
-  }
-`;
-
-// 기간
-const TitlePeriod = styled.h2`
-  padding-top: 8px;
-  font-size: 24px;
-
-  @media (max-width: 767px) {
-    // font-size: 24px;
-    padding-top: 4px;
-  }
-  @media (max-width: 575px) {
-    font-size: 18px;
-  }
-`;
-
-// 설문자수와 설명
-const TitleInfo = styled.h2`
-  margin: 24px 32px 16px;
-  font-size: 18px;
-  line-height: 150%;
-
-  @media (max-width: 767px) {
-    margin: 24px 20px 16px;
-    // font-size: 20px;
-  }
-  @media (max-width: 575px) {
-    margin: 16px 16px 16px;
-    font-size: 14px;
-  }
-`;
-
-// 목차와 차트 전체
-const BodyContainer = styled.div`
   margin-top: 12px;
   padding: 0px 16px;
 
@@ -282,8 +167,7 @@ const BodyContainer = styled.div`
   }
 `;
 
-// 목차와 차트 안쪽
-const Contents = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
