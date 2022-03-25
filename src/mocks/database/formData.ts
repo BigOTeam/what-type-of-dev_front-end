@@ -19,6 +19,17 @@ export const formData1 = {
           },
         ],
       },
+    ],
+  },
+};
+
+export const formData2 = {
+  pageData: {
+    pageNo: 2,
+    pageName: '자기소개',
+    pageDescription: '당신에 대해서 알려주세요!',
+    pageImageUrl: '/images/1_자기소개.png',
+    survey: [
       {
         questionId: 2,
         question: '어느 분야의 개발자인가요?',
@@ -207,9 +218,154 @@ export const formData1 = {
   },
 };
 
-export const formData2 = {
+export const formData3 = {
   pageData: {
     pageNo: 2,
+    pageName: '자기소개',
+    pageDescription: '당신에 대해서 알려주세요!',
+    pageImageUrl: '/images/1_자기소개.png',
+    survey: [
+      {
+        questionId: 3,
+        question: '연령대를 선택해주세요.',
+        answers: [
+          {
+            answerSeq: 1,
+            answer: '20세 미만',
+          },
+          {
+            answerSeq: 2,
+            answer: '20-24세',
+          },
+          {
+            answerSeq: 3,
+            answer: '25-29세',
+          },
+          {
+            answerSeq: 4,
+            answer: '30-34세',
+          },
+          {
+            answerSeq: 5,
+            answer: '35-39세',
+          },
+          {
+            answerSeq: 6,
+            answer: '40-44세',
+          },
+          {
+            answerSeq: 7,
+            answer: '45-49세',
+          },
+          {
+            answerSeq: 8,
+            answer: '50세 이상',
+          },
+        ],
+      },
+      {
+        questionId: 4,
+        question: '성별을 선택해주세요.',
+        answers: [
+          {
+            answerSeq: 1,
+            answer: '남성',
+          },
+          {
+            answerSeq: 2,
+            answer: '여성',
+          },
+        ],
+      },
+      {
+        questionId: 5,
+        question: '희망 연봉은 얼마인가요?(단위 만원)',
+        answers: [
+          {
+            answerSeq: 1,
+            answer: '2000-3000 미만',
+          },
+          {
+            answerSeq: 2,
+            answer: '3000-4000 미만',
+          },
+          {
+            answerSeq: 3,
+            answer: '4000-5000 미만',
+          },
+          {
+            answerSeq: 4,
+            answer: '5000-6000 미만',
+          },
+          {
+            answerSeq: 5,
+            answer: '6000-7000 미만',
+          },
+          {
+            answerSeq: 6,
+            answer: '7000-8000 미만',
+          },
+          {
+            answerSeq: 7,
+            answer: '8000-9000 미만',
+          },
+          {
+            answerSeq: 8,
+            answer: '9000-1억 미만',
+          },
+          {
+            answerSeq: 9,
+            answer: '1억 이상',
+          },
+        ],
+      },
+      {
+        questionId: 6,
+        question: '선호하는 근무 형태는 무엇인가요?',
+        answers: [
+          {
+            answerSeq: 1,
+            answer: '회사 출근',
+          },
+          {
+            answerSeq: 2,
+            answer: '재택근무',
+          },
+          {
+            answerSeq: 3,
+            answer: '난 천재라서 어디든 됨',
+          },
+          {
+            answerSeq: 4,
+            answer: '상관 없음',
+          },
+        ],
+      },
+      {
+        questionId: 7,
+        question: '사용하는 모바일 운영체제는 무엇인가요?',
+        answers: [
+          {
+            answerSeq: 1,
+            answer: 'Android',
+          },
+          {
+            answerSeq: 2,
+            answer: 'iOS',
+          },
+          {
+            answerSeq: 3,
+            answer: '기타',
+          },
+        ],
+      },
+    ],
+  },
+};
+
+export const formData4 = {
+  pageData: {
+    pageNo: 3,
     pageName: '개발관련',
     pageDescription: '개발 관련 질문!',
     pageImageUrl: '/images/2_개발관련.png',

@@ -12,57 +12,37 @@ import { Survey } from '../../data/formType';
 
 interface FormItemProps {
   surveyList: Survey[] | undefined;
-  pageNo: number | undefined;
-  isDeveloper: boolean;
 }
 
-const FormItem: React.FC<FormItemProps> = ({
-  surveyList,
-  pageNo,
-  isDeveloper,
-}) => {
+const FormItem: React.FC<FormItemProps> = ({ surveyList }) => {
   return (
     <Container>
       {surveyList !== undefined
         ? surveyList.map((element) => {
-            if (
-              pageNo === 1 &&
-              isDeveloper === false &&
-              (element.questionId === 1 || element.questionId === 2)
-            ) {
-              return null;
-            } else if (
-              pageNo === 1 &&
-              isDeveloper === true &&
-              element.questionId === 1
-            ) {
-              return null;
-            } else {
-              return (
-                <FormControl css={radioStyle} key={element.questionId}>
-                  <FormLabel
-                    id={String(element.questionId)}
-                    css={QuestionWrapper}
-                  >
-                    {element.questionId}. {element.question}
-                  </FormLabel>
-                  <RadioGroup
-                    row
-                    aria-labelledby="demo-radio-buttons-group -label"
-                  >
-                    {element.answers.map((option) => {
-                      return (
-                        <FormControlLabel
-                          value={option.answerSeq}
-                          control={<Radio />}
-                          label={option.answer}
-                        />
-                      );
-                    })}
-                  </RadioGroup>
-                </FormControl>
-              );
-            }
+            return (
+              <FormControl css={radioStyle} key={element.questionId}>
+                <FormLabel
+                  id={String(element.questionId)}
+                  css={QuestionWrapper}
+                >
+                  {element.questionId}. {element.question}
+                </FormLabel>
+                <RadioGroup
+                  row
+                  aria-labelledby="demo-radio-buttons-group -label"
+                >
+                  {element.answers.map((option) => {
+                    return (
+                      <FormControlLabel
+                        value={option.answerSeq}
+                        control={<Radio />}
+                        label={option.answer}
+                      />
+                    );
+                  })}
+                </RadioGroup>
+              </FormControl>
+            );
           })
         : null}
     </Container>
