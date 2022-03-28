@@ -95,7 +95,6 @@ const Footer: React.FC = () => {
 };
 
 const Container = styled.footer`
-  margin-top: 80px;
   border-top: 1px solid #f1f1f1;
   background-color: #f9f9f9;
 

@@ -51,7 +51,7 @@ const BrandName = styled.span`
   padding-top: 1px;
   font-size: 18px;
   font-weight: 700;
-  color: #061e30;
+  color: #333;
 `;
 
 export default Header;
