@@ -1,15 +1,58 @@
+import { useEffect, useState } from 'react';
+
 import styled from '@emotion/styled';
+
+import useChartSearchList from '../../hooks/useChartSearchList';
 
 import { GENDER_LIST, CAREER_LIST, AGE_LIST } from '../../data/chartSearchData';
 
 import BarChart from './BarChart';
 
+// import { ChartAnswerType } from '../../types/chartTypes';
+
 const ChartSearch: React.FC = () => {
+  const [career, setCareer] = useState<string>('all');
+  const [gender, setGender] = useState<string>('all');
+  const [age, setAge] = useState<string>('all');
+
+  const { isLoading, data, isError, errorMessage } = useChartSearchList({
+    career,
+    gender,
+    age,
+  });
+
+  useEffect(() => {
+    console.log(data);
+    BarChartData();
+  }, []);
+
+  const handleChangeCareer = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ): void => {
+    setCareer(event.target.value);
+  };
+
+  const handleChangeGender = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ): void => {
+    setGender(event.target.value);
+  };
+
+  const handleChangeAge = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ): void => {
+    setAge(event.target.value);
+  };
+
+  const BarChartData = () => {
+    return <BarChart id={1} indexAxis="y" chartAnswerInfo={data} />;
+  };
+
   return (
     <Container>
       <Wrapper>
         <FilterList>
-          <FilterSelect name="career">
+          <FilterSelect name="career" onChange={handleChangeCareer}>
             <option value="all">전체 개발자</option>
             {CAREER_LIST.map((career) => (
               <option key={career.id} value={career.value}>
@@ -17,7 +60,7 @@ const ChartSearch: React.FC = () => {
               </option>
             ))}
           </FilterSelect>
-          <FilterSelect name="gender">
+          <FilterSelect name="gender" onChange={handleChangeGender}>
             <option value="all">전체 성별</option>
             {GENDER_LIST.map((gender) => (
               <option key={gender.id} value={gender.value}>
@@ -25,7 +68,7 @@ const ChartSearch: React.FC = () => {
               </option>
             ))}
           </FilterSelect>
-          <FilterSelect name="age">
+          <FilterSelect name="age" onChange={handleChangeAge}>
             <option value="all">전체 연령대</option>
             {AGE_LIST.map((age) => (
               <option key={age.id} value={age.value}>
@@ -34,13 +77,14 @@ const ChartSearch: React.FC = () => {
             ))}
           </FilterSelect>
         </FilterList>
-        <ChartWrapper>
-          {/* <BarChart
-            id={1}
-            indexAxis="y"
-            chartAnswerInfo={}
-          /> */}
-        </ChartWrapper>
+        {isLoading || !data ? (
+          <></>
+        ) : (
+          <ChartWrapper>
+            <BarChartData />
+            {/* <BarChart id={1} indexAxis="y" chartAnswerInfo={data} /> */}
+          </ChartWrapper>
+        )}
       </Wrapper>
     </Container>
   );
