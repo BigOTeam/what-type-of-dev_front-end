@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 
 import { ChartResultTitleType } from '../../types/chartTypes';
 
-interface chartTitleProps {
+interface ChartTitleProps {
   chartTitle: ChartResultTitleType;
 }
 
-const ChartHeader: React.FC<chartTitleProps> = ({ chartTitle }) => {
+const ChartHeader: React.FC<ChartTitleProps> = ({ chartTitle }) => {
   return (
     <Container>
       <Wrapper>

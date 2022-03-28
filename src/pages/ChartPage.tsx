@@ -19,12 +19,12 @@ const ChartPage: React.FC = () => {
         <></>
       ) : (
         <Wrapper>
-          <ChartHeader chartTitle={data.statictData.statisticTitle} />
+          <ChartHeader chartTitle={data.statisticsData.statisticTitle} />
           <ChartSearch />
           <ChartResult
-            chartContents={data.statictData.statisticContents}
-            chartAnalyze={data.statictData.statisticAnalyze}
-            userCount={data.statictData.statisticTitle.responseUserCount}
+            chartContents={data.statisticsData.statisticContents}
+            chartAnalyze={data.statisticsData.statisticAnalyze}
+            userCount={data.statisticsData.statisticTitle.responseUserCount}
           />
         </Wrapper>
       )}

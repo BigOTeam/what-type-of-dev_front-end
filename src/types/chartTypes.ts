@@ -2,7 +2,7 @@ import { Context } from 'chartjs-plugin-datalabels';
 import { Padding } from 'chartjs-plugin-datalabels/types/options';
 
 export interface ChartDataType {
-  statictData: ChartResultType;
+  statisticsData: ChartResultType;
 }
 
 export interface ChartResultType {
