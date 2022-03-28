@@ -97,13 +97,6 @@ const Footer: React.FC = () => {
 const Container = styled.footer`
   border-top: 1px solid #f1f1f1;
   background-color: #f9f9f9;
-
-  @media (max-width: 767px) {
-    margin-top: 60px;
-  }
-  @media (max-width: 575px) {
-    margin-top: 40px;
-  }
 `;
 
 const Wrapper = styled.div`
