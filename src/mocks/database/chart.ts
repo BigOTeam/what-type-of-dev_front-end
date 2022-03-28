@@ -1,4 +1,4 @@
-import { ChartResultType } from '../../types/chartTypes';
+import { ChartFilterType, ChartResultType } from '../../types/chartTypes';
 
 export const statictData: ChartResultType = {
   statisticTitle: {
@@ -296,3 +296,128 @@ export const statictData: ChartResultType = {
     },
   ],
 };
+
+export const ChartSearchData: ChartFilterType[] = [
+  {
+    career: 'all',
+    gender: 'all',
+    age: 'all',
+    chartJobRankList:
+      //  {
+      //   jobRankListData:
+      [
+        {
+          rank: 1,
+          answer: '웹',
+          answerCount: 210,
+        },
+        {
+          rank: 2,
+          answer: '인프라',
+          answerCount: 200,
+        },
+        {
+          rank: 3,
+          answer: '게임',
+          answerCount: 150,
+        },
+        {
+          rank: 4,
+          answer: '금융',
+          answerCount: 140,
+        },
+        {
+          rank: 5,
+          answer: '시스템소프트웨어',
+          answerCount: 130,
+        },
+        {
+          rank: 6,
+          answer: '엔터테인먼트',
+          answerCount: 110,
+        },
+        {
+          rank: 7,
+          answer: '데이터/머신러닝',
+          answerCount: 20,
+        },
+        {
+          rank: 8,
+          answer: 'DB',
+          answerCount: 10,
+        },
+        {
+          rank: 9,
+          answer: '프로그래밍툴',
+          answerCount: 8,
+        },
+        {
+          rank: 10,
+          answer: '응용소프트웨어',
+          answerCount: 2,
+        },
+      ],
+    // },
+  },
+  {
+    career: 'all',
+    gender: 'female',
+    age: 'all',
+    chartJobRankList:
+      // {
+      //   jobRankListData:
+      [
+        {
+          rank: 1,
+          answer: '인프라',
+          answerCount: 220,
+        },
+        {
+          rank: 2,
+          answer: '웹',
+          answerCount: 190,
+        },
+        {
+          rank: 3,
+          answer: '게임',
+          answerCount: 150,
+        },
+        {
+          rank: 4,
+          answer: '금융',
+          answerCount: 140,
+        },
+        {
+          rank: 5,
+          answer: '시스템소프트웨어',
+          answerCount: 130,
+        },
+        {
+          rank: 6,
+          answer: '엔터테인먼트',
+          answerCount: 110,
+        },
+        {
+          rank: 7,
+          answer: '데이터/머신러닝',
+          answerCount: 20,
+        },
+        {
+          rank: 8,
+          answer: 'DB',
+          answerCount: 10,
+        },
+        {
+          rank: 9,
+          answer: '프로그래밍툴',
+          answerCount: 8,
+        },
+        {
+          rank: 10,
+          answer: '응용소프트웨어',
+          answerCount: 2,
+        },
+      ],
+    // },
+  },
+];

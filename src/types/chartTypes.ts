@@ -131,3 +131,20 @@ interface BarChartDataset {
   borderColor: string;
   borderWidth: number;
 }
+
+export interface ChartFilterType {
+  career: string;
+  gender: string;
+  age: string;
+  chartJobRankList: ChartAnswerType[] | null;
+}
+
+export interface ChartJobRankListType {
+  chartJobRankListData: ChartAnswerType[];
+}
+
+// export interface ChartJobRankType {
+//   rankId: number;
+//   jobName: string;
+//   userCount: number;
+// }
