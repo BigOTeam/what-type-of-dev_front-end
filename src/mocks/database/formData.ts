@@ -539,18 +539,6 @@ export const formData4 = {
             answer: '16-17시',
           },
           {
-            answerSeq: 13,
-            answer: '16-17시',
-          },
-          {
-            answerSeq: 13,
-            answer: '16-17시',
-          },
-          {
-            answerSeq: 13,
-            answer: '16-17시',
-          },
-          {
             answerSeq: 14,
             answer: '17-18시',
           },
