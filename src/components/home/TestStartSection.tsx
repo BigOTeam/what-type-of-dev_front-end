@@ -7,16 +7,16 @@ const TestStartSection: React.FC = () => {
     <Container>
       <Wrapper>
         <ImgWrapper>
-          <MainCharacterImg
+          <CharacterImg
             src="/images/common/self-introduction_character.png"
             alt="메인 케릭터 이미지"
           />
         </ImgWrapper>
         <Box>
           <Head>당신이 개발자라면?</Head>
-          <TestStatus>누적 테스트 응답자 수 50명</TestStatus>
+          <Description>누적 테스트 응답자 수 50명</Description>
           <LinkWrapper>
-            <TestStartLink to="#">테스트 시작</TestStartLink>
+            <LinkButton to="#">테스트 시작</LinkButton>
           </LinkWrapper>
         </Box>
       </Wrapper>
@@ -25,13 +25,14 @@ const TestStartSection: React.FC = () => {
 };
 
 const Container = styled.section`
-  padding: 100px 0;
+  padding: 120px 0;
+  background-color: #e8f4fd;
 `;
 
 const Wrapper = styled.div`
   overflow: hidden;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 auto;
   max-width: 900px;
 `;
@@ -49,22 +50,22 @@ const ImgWrapper = styled.div`
   align-items: center;
 `;
 
-const MainCharacterImg = styled.img`
+const CharacterImg = styled.img`
   overflow: hidden;
-  max-width: 500px;
+  width: 460px;
   height: 333px;
   border-radius: 20px;
 `;
 
 const Head = styled.h1`
-  font-size: 38px;
+  font-size: 42px;
   font-weight: 600;
   color: #1d87da;
 `;
 
-const TestStatus = styled.p`
-  margin: 36px 0;
-  font-size: 22px;
+const Description = styled.p`
+  margin: 40px 0;
+  font-size: 24px;
   font-weight: 500;
   color: #333;
 `;
@@ -75,7 +76,7 @@ const LinkWrapper = styled.div`
   align-items: center;
 `;
 
-const TestStartLink = styled(Link)`
+const LinkButton = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
