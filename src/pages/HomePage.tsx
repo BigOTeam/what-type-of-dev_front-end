@@ -13,17 +13,11 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Header />
-      <Container>
-        <TestStartSection />
-        <StatisticsSection />
-      </Container>
+      <TestStartSection />
+      <StatisticsSection />
       <Footer />
     </>
   );
 };
-
-const Container = styled.main`
-  padding: 0 16px;
-`;
 
 export default HomePage;
