@@ -133,6 +133,7 @@ const FilterSelect = styled.select`
   // background-color: #fbfbfd;
   // background-repeat: no-repeat;
   font-size: 16px;
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   // font-weight: 400;
   line-height: 1.6;
   color: #263747;

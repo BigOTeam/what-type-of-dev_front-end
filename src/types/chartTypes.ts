@@ -66,6 +66,7 @@ export interface DoughnutChartOption {
       labels: {
         value: {
           font: {
+            family: string;
             weight: 'bold' | 'normal' | 'bolder' | 'lighter';
           };
         };
@@ -114,6 +115,18 @@ export interface BarChartOption {
     y: {
       ticks: {
         autoSkip: boolean;
+        font: {
+          family: string;
+          // weight: 'bold' | 'normal' | 'bolder' | 'lighter';
+        };
+      };
+    };
+    x: {
+      ticks: {
+        font: {
+          family: string;
+          // weight: 'bold' | 'normal' | 'bolder' | 'lighter';
+        };
       };
     };
   };

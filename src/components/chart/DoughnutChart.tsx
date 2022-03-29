@@ -67,6 +67,7 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
         labels: {
           value: {
             font: {
+              family: 'Spoqa Han Sans Neo', // 'sans-serif',
               weight: 'bold',
             },
           },

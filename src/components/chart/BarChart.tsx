@@ -27,6 +27,7 @@ interface ChartResultProps {
   //   question: string;
   //   chartType: string;
   chartAnswerInfo: ChartAnswerType[];
+  // chartAnswerInfo: [{id: number, labelName: string, dataCount: number}]
 }
 
 ChartJS.register(
@@ -79,12 +80,23 @@ const BarChart: React.FC<ChartResultProps> = ({
       y: {
         ticks: {
           autoSkip: false,
+          font: {
+            family: 'Spoqa Han Sans Neo', // 'sans-serif',
+            // weight: 'bold',
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            family: 'Spoqa Han Sans Neo', // 'sans-serif',
+            // weight: 'bold',
+          },
         },
       },
     },
     indexAxis: indexAxis,
     responsive: true,
-    
   };
 
   useEffect(() => {
@@ -117,6 +129,7 @@ const Container = styled.div`
   // position: relative;
   // overflow: hidden;
   // height: 200px;
+  height: 100%;
 
   @media (max-width: 767px) {
   }
