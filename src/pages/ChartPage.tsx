@@ -5,6 +5,7 @@ import useChartList from '../hooks/useChartList';
 import ChartHeader from '../components/chart/ChartHeader';
 import ChartResult from '../components/chart/ChartResult';
 import ChartSearch from '../components/chart/ChartSearch';
+import SkeletonChartSection from '../components/chart/SkeletonChartSection';
 
 const ChartPage: React.FC = () => {
   const { isLoading, data, isError, errorMessage } = useChartList();
@@ -15,19 +16,21 @@ const ChartPage: React.FC = () => {
 
   return (
     <Container>
-      {isLoading || !data ? (
-        <></>
-      ) : (
-        <Wrapper>
-          <ChartHeader chartTitle={data.statisticsData.statisticTitle} />
-          <ChartSearch />
-          <ChartResult
-            chartContents={data.statisticsData.statisticContents}
-            chartAnalyze={data.statisticsData.statisticAnalyze}
-            userCount={data.statisticsData.statisticTitle.responseUserCount}
-          />
-        </Wrapper>
-      )}
+      <Wrapper>
+        {isLoading || !data ? (
+          <SkeletonChartSection />
+        ) : (
+          <>
+            <ChartHeader chartTitle={data.statisticsData.statisticTitle} />
+            <ChartSearch />
+            <ChartResult
+              chartContents={data.statisticsData.statisticContents}
+              chartAnalyze={data.statisticsData.statisticAnalyze}
+              userCount={data.statisticsData.statisticTitle.responseUserCount}
+            />
+          </>
+        )}
+      </Wrapper>
     </Container>
   );
 };

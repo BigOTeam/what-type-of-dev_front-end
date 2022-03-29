@@ -56,7 +56,6 @@ const ChartResult: React.FC<ChartResultProps> = ({
       <Wrapper>
         {chartContents && chartAnalyze && userCount && (
           <>
-            {/* 목차 */}
             <Section>
               <SubHead>목차</SubHead>
               <ContentsWrapper>
@@ -157,7 +156,7 @@ const Container = styled.div`
   @media (max-width: 767px) {
     margin-top: 8px;
     width: calc(100%-32px);
-    padding: 0px;
+    padding: 16px;
   }
   @media (max-width: 575px) {
   }
@@ -373,7 +372,6 @@ const ChartItem = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  // width: 38%;
   width: calc(50% - 16px);
   margin-bottom: 12px;
   // padding: 24px 40px 24px 40px;
@@ -392,22 +390,27 @@ const ChartItem = styled.li`
 
 // 통계 카드 내부
 const ChartItemBox = styled.div`
-  padding: 24px 40px 20px;
+  padding: 24px 32px 20px;
 
   @media (max-width: 767px) {
-    padding: 24px 48px;
+    padding: 28px 56px;
+  }
+  @media (max-width: 575px) {
+    padding: 20px 48px 24px;
   }
 `;
 
 // 차트 소제목 관련 이미지
 const ChartTitleItemImg = styled.img`
-  width: 72px;
-  height: 72px;
+  width: 100px;
+  height: auto;
   margin: 12px 0px 20px;
 
   @media (max-width: 767px) {
   }
   @media (max-width: 575px) {
+    width: 80px;
+    height: auto;
     margin: 12px 0px 16px;
   }
 `;
@@ -465,11 +468,10 @@ const ChartSummaryItem = styled.li`
 
   &::before {
     content: '\\2022';
-    font-size: 20px;
-    text-align: left;
-
     display: inline-block;
     padding-right: 3px;
+    font-size: 20px;
+    text-align: left;
     // margin: 0 0 0 -2em;
     // width: 2em;
   }
