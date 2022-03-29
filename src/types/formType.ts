@@ -21,11 +21,25 @@ export interface Answers {
   answer: string;
 }
 
-export interface SurveyResultResponseType {
-  surveyResult: SurveyResultType[];
+export interface SurveyResultRequestType {
+  surveyResult: SurveyResult[];
 }
 
-export interface SurveyResultType {
-  question_initial: number;
+export interface SurveyResult {
+  questionInitial: number;
   answerSeq: number;
+}
+export interface Job {
+  jobId: number;
+  jobName: string;
+  jobImgUrl: string;
+}
+
+export interface JobRank extends Job {
+  jobRank: number;
+  jobDescription: string;
+}
+
+export interface SurveyResultResponseType {
+  rankData: JobRank[];
 }
