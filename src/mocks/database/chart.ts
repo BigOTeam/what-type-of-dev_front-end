@@ -135,7 +135,7 @@ export const statisticsData: ChartResultType = {
         {
           statisticId: 5,
           question: '희망 연봉은 얼마인가요?',
-          chartType: 'horizontalBar',
+          chartType: 'verticalBar',
           chartInfo: [
             { answer: '2000-3000만원', answerCount: 1, rank: 0 },
             { answer: '3000-4000만원', answerCount: 19, rank: 0 },
@@ -188,7 +188,7 @@ export const statisticsData: ChartResultType = {
       statisticResult: [
         {
           statisticId: 1,
-          question: '일할 때 즐겨마시는 드링크',
+          question: '일 할 때 어떤 음료를 마시나요?',
           chartType: 'horizontalBar',
           chartInfo: [
             { answer: '커피', answerCount: 50, rank: 1 },
@@ -201,7 +201,7 @@ export const statisticsData: ChartResultType = {
         },
         {
           statisticId: 2,
-          question: '모바일 운영체제',
+          question: '사용하는 모바일 운영체제는 무엇인가요?',
           chartType: 'doughnut',
           chartInfo: [
             { answer: 'iOS', answerCount: 51, rank: 1 },
@@ -229,8 +229,8 @@ export const statisticsData: ChartResultType = {
         },
         {
           statisticId: 4,
-          question: '선호하는 근무 형태',
-          chartType: 'doughnut',
+          question: '선호하는 근무 형태는 무엇인가요?',
+          chartType: 'horizontalBar',
           chartInfo: [
             { answer: '재택근무', answerCount: 70, rank: 1 },
             { answer: '출퇴근', answerCount: 10, rank: 3 },
