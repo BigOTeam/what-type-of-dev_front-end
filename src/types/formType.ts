@@ -11,7 +11,7 @@ export interface SurveyInfo {
 }
 
 export interface Survey {
-  questionId: number;
+  questionInitial: string;
   question: string;
   answers: Answers[];
 }

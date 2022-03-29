@@ -6,7 +6,7 @@ export const formData1 = {
     pageImageUrl: '/images/1_자기소개.png',
     survey: [
       {
-        questionId: 1,
+        questionInitial: 'aboutme_dev',
         question: '당신은 개발자인가요?',
         answers: [
           {
@@ -31,7 +31,7 @@ export const formData2 = {
     pageImageUrl: '/images/1_자기소개.png',
     survey: [
       {
-        questionId: 2,
+        questionInitial: 'aboutme_dev_type',
         question: '어느 분야의 개발자인가요?',
         answers: [
           {
@@ -81,7 +81,7 @@ export const formData2 = {
         ],
       },
       {
-        questionId: 3,
+        questionInitial: 'aboutme_age',
         question: '연령대를 선택해주세요.',
         answers: [
           {
@@ -119,7 +119,7 @@ export const formData2 = {
         ],
       },
       {
-        questionId: 4,
+        questionInitial: 'aboutme_gender',
         question: '성별을 선택해주세요.',
         answers: [
           {
@@ -133,7 +133,7 @@ export const formData2 = {
         ],
       },
       {
-        questionId: 5,
+        questionInitial: 'aboutme_salary',
         question: '희망 연봉은 얼마인가요?(단위 만원)',
         answers: [
           {
@@ -175,7 +175,7 @@ export const formData2 = {
         ],
       },
       {
-        questionId: 6,
+        questionInitial: 'aboutme_work',
         question: '선호하는 근무 형태는 무엇인가요?',
         answers: [
           {
@@ -197,7 +197,7 @@ export const formData2 = {
         ],
       },
       {
-        questionId: 7,
+        questionInitial: 'aboutme_mobile',
         question: '사용하는 모바일 운영체제는 무엇인가요?',
         answers: [
           {
@@ -226,7 +226,7 @@ export const formData3 = {
     pageImageUrl: '/images/1_자기소개.png',
     survey: [
       {
-        questionId: 3,
+        questionInitial: 'aboutme_age',
         question: '연령대를 선택해주세요.',
         answers: [
           {
@@ -264,7 +264,7 @@ export const formData3 = {
         ],
       },
       {
-        questionId: 4,
+        questionInitial: 'aboutme_gender',
         question: '성별을 선택해주세요.',
         answers: [
           {
@@ -278,7 +278,7 @@ export const formData3 = {
         ],
       },
       {
-        questionId: 5,
+        questionInitial: 'aboutme_salary',
         question: '희망 연봉은 얼마인가요?(단위 만원)',
         answers: [
           {
@@ -320,7 +320,7 @@ export const formData3 = {
         ],
       },
       {
-        questionId: 6,
+        questionInitial: 'aboutme_work',
         question: '선호하는 근무 형태는 무엇인가요?',
         answers: [
           {
@@ -342,7 +342,7 @@ export const formData3 = {
         ],
       },
       {
-        questionId: 7,
+        questionInitial: 'aboutme_mobile',
         question: '사용하는 모바일 운영체제는 무엇인가요?',
         answers: [
           {
@@ -371,7 +371,7 @@ export const formData4 = {
     pageImageUrl: '/images/2_개발관련.png',
     survey: [
       {
-        questionId: 8,
+        questionInitial: 'dev_headphone',
         question: '어떤 타입의 헤드셋을 사용하시나요?',
         answers: [
           {
@@ -393,7 +393,7 @@ export const formData4 = {
         ],
       },
       {
-        questionId: 9,
+        questionInitial: 'dev_eat',
         question: '점심은 주로 어떻게 드세요?',
         answers: [
           {
@@ -423,7 +423,7 @@ export const formData4 = {
         ],
       },
       {
-        questionId: 10,
+        questionInitial: 'dev_drink',
         question: '일 할 때 어떤 음료를 마시나요?',
         answers: [
           {
@@ -453,7 +453,7 @@ export const formData4 = {
         ],
       },
       {
-        questionId: 11,
+        questionInitial: 'dev_team_size',
         question: '팀 규모가 몇 명인 곳에서 일하고 싶나요?',
         answers: [
           {
@@ -483,7 +483,7 @@ export const formData4 = {
         ],
       },
       {
-        questionId: 12,
+        questionInitial: 'dev_worktime',
         question: '주로 몇 시부터 일하나요? 또는 몇 시부터 일하고 싶나요?',
         answers: [
           {
