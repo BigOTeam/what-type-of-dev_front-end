@@ -7,6 +7,7 @@ import useChartSearchList from '../../hooks/useChartSearchList';
 import { GENDER_LIST, CAREER_LIST, AGE_LIST } from '../../data/chartSearchData';
 
 import BarChart from './BarChart';
+import SkeletonChartItem from './SkeletonChartItem';
 
 // import { ChartAnswerType } from '../../types/chartTypes';
 
@@ -24,7 +25,7 @@ const ChartSearch: React.FC = () => {
   useEffect(() => {
     console.log(data);
     BarChartData();
-  }, []);
+  }, [data]);
 
   const handleChangeCareer = (
     event: React.ChangeEvent<HTMLSelectElement>,
@@ -77,12 +78,17 @@ const ChartSearch: React.FC = () => {
             ))}
           </FilterSelect>
         </FilterList>
-        {isLoading || !data ? (
-          <></>
+        {isLoading ? (
+          <SkeletonChartItem />
         ) : (
           <ChartWrapper>
-            <BarChartData />
-            {/* <BarChart id={1} indexAxis="y" chartAnswerInfo={data} /> */}
+            {!data ? (
+              <div>일치하는 데이터가 없습니다</div>
+            ) : (
+              <ChartItem>
+                <BarChartData />
+              </ChartItem>
+            )}
           </ChartWrapper>
         )}
       </Wrapper>
@@ -117,17 +123,17 @@ const FilterSelect = styled.select`
   width: 100%;
   max-width: 378px;
   height: 42px;
+  margin: 0px 4px;
   padding: 0 14px;
   border: 1px solid #d7e2eb;
   border-radius: 4px;
   box-sizing: border-box;
-  background-position: calc(100% - 0.8rem) 49%;
-  background-size: 0.625rem 0.3125rem;
-  background-color: #fbfbfd;
-  //   background-image: url(/images/common/toggle-black.png);
-  background-repeat: no-repeat;
+  // background-position: calc(100% - 0.8rem) 49%;
+  // background-size: 0.625rem 0.3125rem;
+  // background-color: #fbfbfd;
+  // background-repeat: no-repeat;
   font-size: 16px;
-  font-weight: 500;
+  // font-weight: 400;
   line-height: 1.6;
   color: #263747;
   appearance: none;
@@ -154,4 +160,19 @@ const FilterSelect = styled.select`
   }
 `;
 
-const ChartWrapper = styled.div``;
+const ChartWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+`;
+
+const ChartItem = styled.div`
+  width: 60%;
+
+  @media (max-width: 767px) {
+    width: 80%;
+  }
+  @media (max-width: 575px) {
+    width: 95%;
+  }
+`;
