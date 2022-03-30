@@ -4,94 +4,54 @@ import Skeleton from '@mui/material/Skeleton';
 
 const SkeletonChartSection: React.FC = () => {
   return (
-    <>
-      <TitleContainer>
-        <TitleWrapper>
-          <TitleHead>당신이 개발자라면 설문 통계</TitleHead>
-        </TitleWrapper>
-      </TitleContainer>
-      <BodyContainer>
-        <BodyWrapper>
-          <Section>
-            <ContentInfo>
-              <ContentInfoItem>
-                <ContentTitle />
-                <ContentItem />
-              </ContentInfoItem>
-              <ContentInfoItem>
-                <ContentTitle />
-                <ContentItem />
-              </ContentInfoItem>
-            </ContentInfo>
-            <ContentInfo>
-              <ContentInfoItem>
-                <ContentTitle />
-                <ContentItem />
-              </ContentInfoItem>
-              <ContentInfoItem>
-                <ContentTitle />
-                <ContentItem />
-              </ContentInfoItem>
-            </ContentInfo>
-            <ContentInfo>
-              <ContentInfoItem>
-                <ContentTitle />
-                <ContentItem />
-              </ContentInfoItem>
-              <ContentInfoItem>
-                <ContentTitle />
-                <ContentItem />
-              </ContentInfoItem>
-            </ContentInfo>
-            <ContentInfo>
-              <ContentInfoItem>
-                <ContentTitle />
-                <ContentItem />
-              </ContentInfoItem>
-              <ContentInfoItem>
-                <ContentTitle />
-                <ContentItem />
-              </ContentInfoItem>
-            </ContentInfo>
-          </Section>
-        </BodyWrapper>
-      </BodyContainer>
-    </>
+    <BodyContainer>
+      <BodyWrapper>
+        <Section>
+          <ContentInfo>
+            <ContentInfoItem>
+              <ContentTitle />
+              <ContentItem />
+            </ContentInfoItem>
+            <ContentInfoItem>
+              <ContentTitle />
+              <ContentItem />
+            </ContentInfoItem>
+          </ContentInfo>
+          <ContentInfo>
+            <ContentInfoItem>
+              <ContentTitle />
+              <ContentItem />
+            </ContentInfoItem>
+            <ContentInfoItem>
+              <ContentTitle />
+              <ContentItem />
+            </ContentInfoItem>
+          </ContentInfo>
+          <ContentInfo>
+            <ContentInfoItem>
+              <ContentTitle />
+              <ContentItem />
+            </ContentInfoItem>
+            <ContentInfoItem>
+              <ContentTitle />
+              <ContentItem />
+            </ContentInfoItem>
+          </ContentInfo>
+          <ContentInfo>
+            <ContentInfoItem>
+              <ContentTitle />
+              <ContentItem />
+            </ContentInfoItem>
+            <ContentInfoItem>
+              <ContentTitle />
+              <ContentItem />
+            </ContentInfoItem>
+          </ContentInfo>
+        </Section>
+      </BodyWrapper>
+    </BodyContainer>
   );
 };
-
-const TitleContainer = styled.section`
-  text-align: center;
-  color: #ffffff;
-  background: url(/images/chart/title.png);
-  opacity: 0.55;
-`;
-
-const TitleWrapper = styled.div`
-  padding: 32px 48px;
-  opacity: 1;
-
-  @media (max-width: 767px) {
-    padding: 32px 48px 28px;
-  }
-  @media (max-width: 575px) {
-    padding: 32px 48px 24px;
-  }
-`;
-
-const TitleHead = styled.h1`
-  margin: 20px 0px 44px;
-  font-size: 52px;
-  font-weight: bold;
-
-  @media (max-width: 767px) {
-    margin: 20px 0px 28px;
-    font-size: 44px;
-  }
-  @media (max-width: 575px) {
-    font-size: 32px;
-  }
-`;
 
 const BodyContainer = styled.div`
   margin-top: 28px;
