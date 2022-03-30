@@ -110,8 +110,7 @@ const ContentInfoItem = styled.li`
   margin-top: 10px;
   padding: 16px 32px 0px;
   border-radius: 25px;
-  border: solid #d7e2eb;
-  border-width: 1px;
+  border: 1px solid #d7e2eb;
   background-color: #ffffff;
 
   @media (max-width: 767px) {

@@ -51,7 +51,6 @@ const Title = styled.h2`
 
   @media (max-width: 767px) {
     margin: 40px 0px 16px;
-    padding: 12px 0px 0px 40px;
     font-size: 28px;
   }
   @media (max-width: 575px) {
@@ -86,6 +85,10 @@ const NavItem = styled.li`
   }
 `;
 
-const NavLink = styled.a``;
+const NavLink = styled.a`
+  &:hover {
+    color: #3396f4;
+  }
+`;
 
 export default ContentItem;

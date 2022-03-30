@@ -164,7 +164,10 @@ const FilterSelect = styled.select`
 const ChartWrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 12px;
+  margin-top: 20px;
+  padding: 40px 0px;
+  border-radius: 25px;
+  border: 1px solid #d7e2eb;
 `;
 
 const ChartItem = styled.div`

@@ -74,11 +74,9 @@ const ChartResult: React.FC<ChartResultProps> = ({
                 return (
                   <ChartListWrapper key={chartData.partId}>
                     {/* 차트 목차 제목 */}
-                    <ChartHeadWrapper>
-                      <ChartHead>
-                        Part {chartData.partId}. {chartData.title}
-                      </ChartHead>
-                    </ChartHeadWrapper>
+                    <ChartHead>
+                      Part {chartData.partId}. {chartData.title}
+                    </ChartHead>
                     {/* 차트 카드 리스트 시작 */}
                     <ChartItemList>
                       {/* 차트 제목, 요약 2개의 카드 */}
@@ -100,16 +98,22 @@ const ChartResult: React.FC<ChartResultProps> = ({
                         </ChartItem>
                         {/* 차트 카드 : 주요 정보 3개 요약 */}
                         <ChartItem>
-                          <ChartSummaryText>요약</ChartSummaryText>
-                          <ChartSummaryList>
-                            {chartData.statisticsSummary.map((summaryData) => {
-                              return (
-                                <ChartSummaryItem key={summaryData.summaryId}>
-                                  {summaryData.summary}
-                                </ChartSummaryItem>
-                              );
-                            })}
-                          </ChartSummaryList>
+                          <ChartSummary>
+                            <ChartSummaryText>요약</ChartSummaryText>
+                            <ChartSummaryList>
+                              {chartData.statisticsSummary.map(
+                                (summaryData) => {
+                                  return (
+                                    <ChartSummaryItem
+                                      key={summaryData.summaryId}
+                                    >
+                                      {summaryData.summary}
+                                    </ChartSummaryItem>
+                                  );
+                                },
+                              )}
+                            </ChartSummaryList>
+                          </ChartSummary>
                         </ChartItem>
                       </ChartTitleItemWrapper>
                       {/* 차트 결과 차트 모음 */}
@@ -123,17 +127,15 @@ const ChartResult: React.FC<ChartResultProps> = ({
                               String(statisticData.statisticId)
                             }
                           >
-                            <ChartItemBox>
+                            <ChartResultBox>
                               {/* 차트 질문 */}
-                              <ChartStatisticHeadWrapper>
-                                <ChartStatiticHead>
-                                  {statisticData.question}
-                                </ChartStatiticHead>
-                              </ChartStatisticHeadWrapper>
+                              <ChartStatiticHead>
+                                {statisticData.question}
+                              </ChartStatiticHead>
                               <ChartStatisticContentWrapper>
                                 {chartByType(statisticData, userCount)}
                               </ChartStatisticContentWrapper>
-                            </ChartItemBox>
+                            </ChartResultBox>
                           </ChartItem>
                         ))}
                       </ChartItemWrapper>
@@ -152,6 +154,7 @@ const ChartResult: React.FC<ChartResultProps> = ({
 const Container = styled.div`
   margin-top: 12px;
   box-sizing: border-box;
+  word-break: keep-all;
 
   @media (max-width: 767px) {
     margin-top: 8px;
@@ -217,15 +220,7 @@ const ContentList = styled.ul`
 `;
 
 // 차트 목록 전체 감싸기
-const ChartWrapper = styled.section`
-  @media (max-width: 767px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-`;
+const ChartWrapper = styled.section``;
 
 // 차트 목록 하나
 const ChartListWrapper = styled.div`
@@ -233,29 +228,28 @@ const ChartListWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // padding: 20px 16px 20px 16px;
+  padding: 80px 0px;
 
   @media (max-width: 767px) {
-    width: 100%;
+    // width: 100%;
+    padding: 64px 0;
   }
-`;
-
-// 차트 소제목 감싸기
-const ChartHeadWrapper = styled.div`
-  margin-bottom: 24px;
 `;
 
 // 차트 소제목
 const ChartHead = styled.h1`
+  margin-bottom: 24px;
   color: #263747;
-  font-size: 48px;
-  font-weight: bold;
+  // font-size: 5.5vw;
+  font-size: 56px;
+  // font-weight: bold;
 
   @media (max-width: 767px) {
-    font-size: 36px;
+    font-size: 50px;
   }
   @media (max-width: 575px) {
     font-size: 32px;
+    // font-size: 7vw;
   }
 `;
 
@@ -279,7 +273,7 @@ const ChartItemList = styled.div`
 // 차트 제목, 요약 카드 감싸기
 const ChartTitleItemWrapper = styled.ul`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 
   @media (max-width: 767px) {
     width: 100%;
@@ -293,12 +287,10 @@ const ChartItem = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: calc(50% - 16px);
+  width: calc(50% - 10px);
   margin-bottom: 12px;
-  // padding: 24px 40px 24px 40px;
   border-radius: 25px;
-  border: solid #d7e2eb;
-  border-width: 1px;
+  border: 1px solid #d7e2eb;
   background-color: #ffffff;
   // color: #593137;
   color: #263747;
@@ -309,83 +301,101 @@ const ChartItem = styled.li`
   }
 `;
 
-// 통계 카드 내부
+// 통계 카드 설명, 요약 내부
 const ChartItemBox = styled.div`
-  padding: 24px 32px 20px;
+  padding: 64px;
 
   @media (max-width: 767px) {
-    padding: 28px 56px;
   }
   @media (max-width: 575px) {
-    padding: 20px 48px 24px;
+    padding: 24px;
   }
 `;
 
 // 차트 소제목 관련 이미지
 const ChartTitleItemImg = styled.img`
-  width: 100px;
+  width: 72px;
   height: auto;
-  margin: 12px 0px 20px;
+  margin-bottom: 16px;
 
   @media (max-width: 767px) {
   }
   @media (max-width: 575px) {
-    width: 80px;
-    height: auto;
-    margin: 12px 0px 16px;
   }
 `;
 
 // 차트 소제목
 const ChartTitleItemHead = styled.h2`
   margin-bottom: 12px;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.6;
 
   @media (max-width: 767px) {
+    font-size: 28px;
   }
   @media (max-width: 575px) {
-    margin-bottom: 8px;
+    font-size: 24px;
   }
 `;
 
 // 차트 소제목과 관련된 내용
 const ChartTitleItemDescription = styled.h3`
-  padding: 4px 0px 8px;
-  line-height: 130%;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.6;
 
   @media (max-width: 767px) {
-    padding: 4px 0px 4px;
+    font-size: 18px;
+  }
+  @media (max-width: 575px) {
+  }
+`;
+
+// 요약 카드 내부
+const ChartSummary = styled.div`
+  padding: 64px;
+  letter-spacing: -0.009em;
+
+  @media (max-width: 767px) {
+  }
+  @media (max-width: 575px) {
+    padding: 24px;
   }
 `;
 
 // 요약
 const ChartSummaryText = styled.div`
-  padding: 32px 32px 0px;
-  font-size: 20px;
-  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.6;
 
   @media (max-width: 767px) {
-    padding: 28px 48px 0px;
+    font-size: 24px;
+  }
+  @media (max-width: 575px) {
+    font-size: 20px;
   }
 `;
 
 // 차트 요약 리스트
 const ChartSummaryList = styled.ul`
-  padding: 12px 32px 28px;
+  font-size: 20px;
+  letter-spacing: -0.009em;
+  font-weight: 700;
+  line-height: 1.6;
 
   @media (max-width: 767px) {
-    padding: 12px 48px 24px;
+    font-size: 18px;
   }
   @media (max-width: 575px) {
-    padding: 12px 48px 20px;
   }
 `;
 
 // 차트 요약 하나
 const ChartSummaryItem = styled.li`
-  margin: 8px 0px;
-  line-height: 130%;
+  margin-bottom: 16px;
 
   &::before {
     content: '\\2022';
@@ -402,7 +412,7 @@ const ChartSummaryItem = styled.li`
 const ChartItemWrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 
   @media (max-width: 767px) {
     display: block;
@@ -412,31 +422,38 @@ const ChartItemWrapper = styled.ul`
 `;
 
 // 통계 차트 질문 감싸기
-const ChartStatisticHeadWrapper = styled.div`
+const ChartResultBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  // padding: 24px 0px 24px 40px;
+  padding: 24px 40px;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
+  @media (max-width: 575px) {
+  }
 `;
 
 // 통계 차트 질문
 const ChartStatiticHead = styled.h2`
-  margin-top: 24px;
-  margin-bottom: 16px;
+  margin: 24px 0px 16px;
   /* padding-right: 40px; */
   font-size: 20px;
   font-weight: 700;
   color: #263747;
-  line-height: 120%;
 
   @media (max-width: 767px) {
-    margin-top: 24px;
     font-size: 18px;
+  }
+  @media (max-width: 575px) {
+    margin: 8px 0px 8px;
+    /* padding-right: 24px; */
   }
 `;
 
 // 통계 차트 감싸기
-const ChartStatisticContentWrapper = styled.div`
-  //  min-height: 215px;
-`;
+const ChartStatisticContentWrapper = styled.div``;
 
 export default ChartResult;

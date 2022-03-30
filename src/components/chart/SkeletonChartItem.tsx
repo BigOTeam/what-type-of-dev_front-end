@@ -23,8 +23,7 @@ const ChartItemBox = styled.div`
   height: 240px;
   padding: 0px 48px;
   //   border-radius: 25px;
-  //   border: solid #d7e2eb;
-  //   border-width: 1px;
+  //   border:1px solid #d7e2eb;
   background-color: #ffffff;
 
   @media (max-width: 767px) {
