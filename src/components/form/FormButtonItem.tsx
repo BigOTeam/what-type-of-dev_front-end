@@ -2,7 +2,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { Survey } from '../../data/formType';
+import { Survey } from '../../types/formType';
 
 interface FormItemProps {
   surveyList: Survey[] | undefined;
@@ -19,9 +19,7 @@ const FormButtonItem: React.FC<FormItemProps> = ({
     <>
       {surveyList !== undefined ? (
         <>
-          <Question>
-            {surveyList[0].questionId}. {surveyList[0].question}
-          </Question>
+          <Question>Q.{surveyList[0].question}</Question>
           <ButtonSection>
             <QuestionButton onClick={handleClickYes}>네</QuestionButton>
             <QuestionButton onClick={handleClickNo}>아니오</QuestionButton>

@@ -26,8 +26,8 @@ export interface SurveyResultRequestType {
 }
 
 export interface SurveyResult {
-  questionInitial: number;
-  answerSeq: number;
+  questionInitial: string | null;
+  answerSeq: number | null;
 }
 export interface Job {
   jobId: number;

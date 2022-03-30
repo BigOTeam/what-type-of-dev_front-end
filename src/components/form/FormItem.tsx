@@ -8,7 +8,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-import { Survey } from '../../data/formType';
+import { Survey } from '../../types/formType';
+import CustomFormControlLabel from './CustomFormControlLabel';
 
 interface FormItemProps {
   surveyList: Survey[] | undefined;
@@ -20,24 +21,24 @@ const FormItem: React.FC<FormItemProps> = ({ surveyList }) => {
       {surveyList !== undefined
         ? surveyList.map((element) => {
             return (
-              <FormControl css={radioStyle} key={element.questionId}>
-                <FormLabel
-                  id={String(element.questionId)}
-                  css={QuestionWrapper}
-                >
-                  {element.questionId}. {element.question}
+              <FormControl css={radioStyle}>
+                <FormLabel id={element.questionInitial} css={QuestionWrapper}>
+                  Q.{element.question}
                 </FormLabel>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-radio-buttons-group -label"
-                >
+                <RadioGroup row>
                   {element.answers.map((option) => {
                     return (
-                      <FormControlLabel
+                      <CustomFormControlLabel
                         value={option.answerSeq}
                         control={<Radio />}
                         label={option.answer}
+                        id={element.questionInitial}
                       />
+                      // <FormControlLabel
+                      //   value={option.answerSeq}
+                      //   control={<Radio />}
+                      //   label={option.answer}
+                      // />
                     );
                   })}
                 </RadioGroup>

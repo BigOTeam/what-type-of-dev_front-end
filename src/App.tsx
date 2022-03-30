@@ -19,10 +19,6 @@ import LoadingCircular from './components/common/LoadingCircular';
 import ChartPage from './pages/ChartPage';
 import FormPage from './pages/FormPage';
 
-import { worker } from './mocks/browser';
-
-worker.start();
-
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 const HomePage = lazy(() => import('./pages/HomePage'));
 

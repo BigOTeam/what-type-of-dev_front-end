@@ -7,7 +7,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import FormItem from './FormItem';
-import { FormResponseData } from '../../data/formType';
+import { FormResponseData } from '../../types/formType';
 import FormButtonItem from './FormButtonItem';
 
 const FormSection: React.FC = () => {
