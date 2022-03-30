@@ -66,7 +66,18 @@ const ChartResult: React.FC<ChartResultProps> = ({
                       <ContentInfoList>
                         {contentData.contentsInfo.map((contentInfo) => (
                           <ContentInfoItem key={contentInfo.questionId}>
-                            <ContentItem>{contentInfo.question}</ContentItem>
+                            <ContentItem>
+                              <a
+                                // eslint-disable-next-line no-useless-concat
+                                href={
+                                  '#' +
+                                  String(contentData.partId) +
+                                  String(contentInfo.questionId)
+                                }
+                              >
+                                {contentInfo.question}
+                              </a>
+                            </ContentItem>
                           </ContentInfoItem>
                         ))}
                       </ContentInfoList>
@@ -122,7 +133,13 @@ const ChartResult: React.FC<ChartResultProps> = ({
                       {/* 차트 결과 차트 모음 */}
                       <ChartItemWrapper>
                         {chartData.statisticResult.map((statisticData) => (
-                          <ChartItem key={statisticData.statisticId}>
+                          <ChartItem
+                            key={statisticData.statisticId}
+                            id={
+                              String(chartData.partId) +
+                              String(statisticData.statisticId)
+                            }
+                          >
                             <ChartItemBox>
                               {/* 차트 질문 */}
                               <ChartStatisticHeadWrapper>
