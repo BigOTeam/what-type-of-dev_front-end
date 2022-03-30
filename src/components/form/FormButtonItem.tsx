@@ -33,28 +33,29 @@ const FormButtonItem: React.FC<FormItemProps> = ({
 const Question = styled.p`
   justify-content: center;
   align-items: center;
-  text-align: center;
-
   width: 100%;
+  margin-bottom: 12px;
   padding: 20px 0px;
-
+  box-sizing: border-box;
   font-size: 24px;
   font-weight: 500;
-  box-sizing: border-box;
+  text-align: center;
 `;
 
 const ButtonSection = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
   align-items: center;
+
+  @media (max-width: 575px) {
+    flex-direction: column;
+  }
 `;
 
 const QuestionButton = styled.button`
-  width: 280px;
+  width: 260px;
   height: 100px;
-
-  margin: 20px 20px;
 
   background-color: #fff;
   border: 2px solid #593137;
@@ -66,6 +67,17 @@ const QuestionButton = styled.button`
   font-weight: bold;
 
   cursor: pointer;
+
+  @media (max-width: 767px) {
+    width: calc(260px * 0.9);
+    height: calc(100px * 0.9);
+  }
+
+  @media (max-width: 575px) {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 16px;
+  }
 `;
 
 export default FormButtonItem;

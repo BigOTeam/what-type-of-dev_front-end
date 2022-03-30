@@ -18,20 +18,15 @@ const ProgressHeader: React.FC = () => {
 };
 
 const Header = styled.header`
-  display: flex;
-  justify-content: center;
-
-  width: 100%;
-  height: 100%;
-
+  margin: 20px 0;
   transition: all ease 0.3s;
 `;
 
 const Wrapper = styled.div`
-  width: 600px;
-  height: 100%;
-
-  margin: 20px 24px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
   transition: all ease 0.3s;
 `;
 

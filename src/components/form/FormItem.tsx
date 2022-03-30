@@ -18,48 +18,42 @@ interface FormItemProps {
 const FormItem: React.FC<FormItemProps> = ({ surveyList }) => {
   return (
     <Container>
-      {surveyList !== undefined
-        ? surveyList.map((element) => {
-            return (
-              <FormControl css={radioStyle}>
-                <FormLabel id={element.questionInitial} css={QuestionWrapper}>
-                  Q.{element.question}
+      <Wrapper>
+        {surveyList !== undefined
+          ? surveyList.map((surveyItem) => (
+              <FormControl key={surveyItem.questionInitial} css={radioStyle}>
+                <FormLabel
+                  id={surveyItem.questionInitial}
+                  css={QuestionWrapper}
+                >
+                  Q.{surveyItem.question}
                 </FormLabel>
                 <RadioGroup row>
-                  {element.answers.map((option) => {
-                    return (
-                      <CustomFormControlLabel
-                        value={option.answerSeq}
-                        control={<Radio />}
-                        label={option.answer}
-                        id={element.questionInitial}
-                      />
-                      // <FormControlLabel
-                      //   value={option.answerSeq}
-                      //   control={<Radio />}
-                      //   label={option.answer}
-                      // />
-                    );
-                  })}
+                  {surveyItem.answers.map((option) => (
+                    <CustomFormControlLabel
+                      key={option.answerSeq}
+                      value={option.answerSeq}
+                      control={<Radio />}
+                      label={option.answer}
+                      id={surveyItem.questionInitial}
+                    />
+                  ))}
                 </RadioGroup>
               </FormControl>
-            );
-          })
-        : null}
+            ))
+          : null}
+      </Wrapper>
     </Container>
   );
 };
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-
-  width: 100%;
-  height: 100%;
-
   transition: all ease 0.3s;
+`;
+
+const Wrapper = styled.div`
+  max-width: 600px;
+  box-sizing: border-box;
 `;
 
 const radioStyle = css`
