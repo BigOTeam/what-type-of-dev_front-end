@@ -30,32 +30,24 @@ const ContentItem: React.FC<ContentItemProps> = ({ contentData }) => {
   );
 };
 
-// 세부 목차 하나
 const Card = styled.li`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: calc(50% - 16px);
+  width: calc(50% - 8px);
+  padding: 40px 24px 48px;
+  border: 1px solid #d7e2eb;
   border-radius: 25px;
-  border: solid #d7e2eb;
-  border-width: 1px;
-  background-color: #ffffff;
-  line-height: 130%;
+  box-sizing: border-box;
 
   @media (max-width: 767px) {
     width: 100%;
-    margin: 8px 0px;
-    padding: 0px;
+    margin-bottom: 16px;
   }
 `;
 
 // 세부 목차의 소제목
 const Title = styled.h2`
-  margin: 40px 0px 24px;
-  padding: 24px 0px 0px 40px;
+  margin-bottom: 24px;
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 700;
 
   @media (max-width: 767px) {
     margin: 40px 0px 16px;
@@ -70,16 +62,9 @@ const Title = styled.h2`
 
 // 세부 목차 내용 리스트
 const NavList = styled.ul`
-  // margin-top: 24px;
-  padding: 16px 32px 28px;
-  list-style-position: inside;
-
   @media (max-width: 767px) {
-    margin-top: 0px;
-    padding: 12px 40px 32px;
   }
   @media (max-width: 575px) {
-    padding: 0px 40px 32px;
   }
 `;
 
@@ -87,7 +72,10 @@ const NavList = styled.ul`
 const NavItem = styled.li`
   margin-top: 10px;
   font-size: 16px;
-  // vertical-align: middle;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.009em;
+  list-style: none;
 
   &::before {
     content: '\\2022';

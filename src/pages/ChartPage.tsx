@@ -44,11 +44,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px 16px;
   background-color: #ffffff;
 `;
 
 const Wrapper = styled.div`
   width: 100%;
   max-width: 900px;
+  padding: 0px 16px;
+  box-sizing: border-box;
 `;

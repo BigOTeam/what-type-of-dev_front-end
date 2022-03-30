@@ -59,14 +59,14 @@ const ChartResult: React.FC<ChartResultProps> = ({
           <>
             <Section>
               <SubHead>목차</SubHead>
-              <ContentsWrapper>
+              <ContentList>
                 {chartContents.map((contentData) => (
                   <ContentItem
                     key={contentData.partId}
                     contentData={contentData}
                   />
                 ))}
-              </ContentsWrapper>
+              </ContentList>
             </Section>
             {/* 차트 목록 */}
             <ChartWrapper>
@@ -151,14 +151,10 @@ const ChartResult: React.FC<ChartResultProps> = ({
 
 const Container = styled.div`
   margin-top: 12px;
-  padding: 0px 16px;
+  box-sizing: border-box;
 
   @media (max-width: 767px) {
     margin-top: 8px;
-    width: calc(100%-32px);
-    padding: 16px;
-  }
-  @media (max-width: 575px) {
   }
 `;
 
@@ -208,9 +204,9 @@ const SubHead = styled.h1`
 `;
 
 // 세부 목차 리스트 감싸기
-const ContentsWrapper = styled.ul`
+const ContentList = styled.ul`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
 
   @media (max-width: 767px) {
