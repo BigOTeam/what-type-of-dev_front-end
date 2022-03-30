@@ -72,6 +72,7 @@ const ChartResult: React.FC<ChartResultProps> = ({
                                 href={
                                   '#' +
                                   String(contentData.partId) +
+                                  '-' +
                                   String(contentInfo.questionId)
                                 }
                               >
@@ -137,6 +138,7 @@ const ChartResult: React.FC<ChartResultProps> = ({
                             key={statisticData.statisticId}
                             id={
                               String(chartData.partId) +
+                              '-' +
                               String(statisticData.statisticId)
                             }
                           >
