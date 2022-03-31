@@ -6,7 +6,7 @@ import Header from '../components/chart/Header';
 import ChartResult from '../components/chart/ChartResult';
 import ChartSearch from '../components/chart/ChartSearch';
 import SkeletonChartSection from '../components/chart/SkeletonChartSection';
-import SkeletonChartTitle from '../components/chart/SkeletonChartTitle';
+import SkeletonHeader from '../components/chart/SkeletonHeader';
 
 const ChartPage: React.FC = () => {
   const { isLoading, data, isError, errorMessage } = useChartList();
@@ -19,7 +19,7 @@ const ChartPage: React.FC = () => {
     <Container>
       <Wrapper>
         {isLoading || !data ? (
-          <SkeletonChartTitle />
+          <SkeletonHeader />
         ) : (
           <Header titleData={data.statisticsData.statisticTitle} />
         )}

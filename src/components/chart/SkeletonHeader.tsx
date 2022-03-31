@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const SkeletonChartTitle: React.FC = () => {
+const SkeletonHeader: React.FC = () => {
   return (
     <TitleContainer>
       <TitleWrapper>
@@ -43,4 +43,4 @@ const TitleHead = styled.h1`
   }
 `;
 
-export default SkeletonChartTitle;
+export default SkeletonHeader;
