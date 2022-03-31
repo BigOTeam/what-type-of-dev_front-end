@@ -37,7 +37,7 @@ const ChartResult: React.FC<ChartResultProps> = ({
             id={data.statisticId}
             indexAxis="x"
             chartAnswerInfo={data.chartInfo}
-            chartJobInfo={[]}
+            chartJobInfo={null}
           />
         );
       case 'horizontalBar':
@@ -46,7 +46,7 @@ const ChartResult: React.FC<ChartResultProps> = ({
             id={data.statisticId}
             indexAxis="y"
             chartAnswerInfo={data.chartInfo}
-            chartJobInfo={[]}
+            chartJobInfo={null}
           />
         );
       default:

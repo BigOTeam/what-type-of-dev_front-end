@@ -26,8 +26,8 @@ interface ChartResultProps {
   indexAxis: 'y' | 'x';
   //   question: string;
   //   chartType: string;
-  chartAnswerInfo: ChartAnswerType[];
-  chartJobInfo: ChartJobRankDataType[];
+  chartAnswerInfo: ChartAnswerType[] | null;
+  chartJobInfo: ChartJobRankDataType[] | null;
   // chartAnswerInfo: [{id: number, labelName: string, dataCount: number}]
 }
 
@@ -90,7 +90,7 @@ const BarChart: React.FC<ChartResultProps> = ({
   };
 
   useEffect(() => {
-    if (chartAnswerInfo.length > 0) {
+    if (chartAnswerInfo) {
       setData({
         labels: chartAnswerInfo.map((data: ChartAnswerType) => data.answer),
         datasets: [
@@ -105,7 +105,8 @@ const BarChart: React.FC<ChartResultProps> = ({
           },
         ],
       });
-    } else {
+    } else if (chartJobInfo) {
+      console.log('chartJobInfo');
       setData({
         labels: chartJobInfo.map((data: ChartJobRankDataType) => data.jobName),
         datasets: [
@@ -120,6 +121,8 @@ const BarChart: React.FC<ChartResultProps> = ({
           },
         ],
       });
+    } else {
+      console.log('no data');
     }
   }, []);
 

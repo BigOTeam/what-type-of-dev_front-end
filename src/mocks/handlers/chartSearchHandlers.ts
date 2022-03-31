@@ -11,7 +11,7 @@ export const chartSearchHandlers = [
 
     const JobRankData: ChartJobRankDataType[] = ChartSearchData.filter(
       (chart) => chart.gender === gender,
-    ).filter((chart) => chart.age === age)[0].statisticFilterData.JobRankData;
+    ).filter((chart) => chart.age === age)[0]?.statisticFilterData.JobRankData;
 
     return response(
       context.status(200),

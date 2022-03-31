@@ -42,7 +42,7 @@ const ChartSearch: React.FC = () => {
       <BarChart
         id={1}
         indexAxis="y"
-        chartAnswerInfo={[]}
+        chartAnswerInfo={null}
         chartJobInfo={data!}
       />
     );
