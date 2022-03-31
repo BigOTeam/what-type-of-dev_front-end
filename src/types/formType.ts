@@ -22,13 +22,19 @@ export interface Answers {
 }
 
 export interface SurveyResultRequestType {
-  surveyResult: SurveyResult[];
+  surveyResult: SurveyResult[] | null;
 }
 
+// export interface SurveyResult {
+//   questionInitial: string | null;
+//   answerSeq: number | null;
+// }
+
 export interface SurveyResult {
-  questionInitial: string | null;
-  answerSeq: number | null;
+  questionInitial: string;
+  answerSeq: number;
 }
+
 export interface Job {
   jobId: number;
   jobName: string;

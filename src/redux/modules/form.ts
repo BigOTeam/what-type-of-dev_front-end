@@ -4,8 +4,11 @@ import { SurveyResultRequestType, SurveyResult } from '../../types/formType';
 
 const prefix: string = 'what-type-of-dev/form';
 
+// const initialState: SurveyResultRequestType = {
+//   surveyResult: [{ questionInitial: 'about_me', answerSeq: 1 }],
+// };
 const initialState: SurveyResultRequestType = {
-  surveyResult: [{ questionInitial: 'about_me', answerSeq: 1 }],
+  surveyResult: [],
 };
 
 /*
@@ -61,24 +64,33 @@ export const surveyUpdate = (param: SurveyResult) => {
 };
 
 const reducer = (state = initialState, action: any) => {
-  console.log(state.surveyResult);
-
   switch (action.type) {
     case SURVEY_INSERT:
       return {
         ...state,
-        surveyResult: [...state.surveyResult, action.payload],
+        // surveyResult: [...state.surveyResult, action.payload],
+        surveyResult: state.surveyResult !== null && [
+          ...state.surveyResult,
+          action.payload,
+        ],
       };
     case SURVEY_UPDATE:
       return {
         ...state,
-        surveyResult: [
+        surveyResult: state.surveyResult !== null && [
           ...state.surveyResult.filter(
             (survey) =>
               survey.questionInitial !== action.payload.questionInitial,
           ),
           action.payload,
         ],
+        // surveyResult: [
+        //   ...state.surveyResult.filter(
+        //     (survey) =>
+        //       survey.questionInitial !== action.payload.questionInitial,
+        //   ),
+        //   action.payload,
+        // ],
       };
 
     default:
