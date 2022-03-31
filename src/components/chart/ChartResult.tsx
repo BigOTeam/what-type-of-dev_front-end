@@ -84,39 +84,31 @@ const ChartResult: React.FC<ChartResultProps> = ({
                       {/* 차트 제목, 요약 2개의 카드 */}
                       <ChartTitleItemWrapper>
                         {/* 차트 카드 : 제목, 이미지, 요약 */}
-                        <ChartItem>
-                          <ChartItemBox>
-                            <ChartTitleItemImg
-                              src={chartData.imgUrl}
-                              alt={chartData.imgUrl}
-                            ></ChartTitleItemImg>
-                            <ChartTitleItemHead>
-                              {chartData.title}
-                            </ChartTitleItemHead>
-                            <ChartTitleItemDescription>
-                              {chartData.description}
-                            </ChartTitleItemDescription>
-                          </ChartItemBox>
-                        </ChartItem>
+                        <TitleSummaryCard>
+                          <ChartTitleItemImg
+                            src={chartData.imgUrl}
+                            alt={chartData.imgUrl}
+                          ></ChartTitleItemImg>
+                          <ChartTitleItemHead>
+                            {chartData.title}
+                          </ChartTitleItemHead>
+                          <ChartTitleItemDescription>
+                            {chartData.description}
+                          </ChartTitleItemDescription>
+                        </TitleSummaryCard>
                         {/* 차트 카드 : 주요 정보 3개 요약 */}
-                        <ChartItem>
-                          <ChartSummary>
-                            <ChartSummaryText>요약</ChartSummaryText>
-                            <ChartSummaryList>
-                              {chartData.statisticsSummary.map(
-                                (summaryData) => {
-                                  return (
-                                    <ChartSummaryItem
-                                      key={summaryData.summaryId}
-                                    >
-                                      {summaryData.summary}
-                                    </ChartSummaryItem>
-                                  );
-                                },
-                              )}
-                            </ChartSummaryList>
-                          </ChartSummary>
-                        </ChartItem>
+                        <TitleSummaryCard>
+                          <ChartSummaryText>요약</ChartSummaryText>
+                          <ChartSummaryList>
+                            {chartData.statisticsSummary.map((summaryData) => {
+                              return (
+                                <ChartSummaryItem key={summaryData.summaryId}>
+                                  {summaryData.summary}
+                                </ChartSummaryItem>
+                              );
+                            })}
+                          </ChartSummaryList>
+                        </TitleSummaryCard>
                       </ChartTitleItemWrapper>
                       {/* 차트 결과 차트 모음 */}
                       <ChartCardList>
@@ -297,21 +289,9 @@ const ChartItem = styled.li`
     padding: 0px;
   }
 `;
-
-// 통계 카드 설명, 요약 내부
-const ChartItemBox = styled.div`
-  padding: 64px;
-
-  @media (max-width: 767px) {
-  }
-  @media (max-width: 575px) {
-    padding: 24px;
-  }
-`;
-
 // 차트 소제목 관련 이미지
 const ChartTitleItemImg = styled.img`
-  width: auto;
+  width: fit-content;
   height: 72px;
   margin-bottom: 16px;
 
@@ -351,12 +331,21 @@ const ChartTitleItemDescription = styled.h3`
   }
 `;
 
-// 요약 카드 내부
-const ChartSummary = styled.div`
+const TitleSummaryCard = styled.li`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: calc(50% - 8px);
+  margin-bottom: 12px;
   padding: 64px;
-  letter-spacing: -0.009em;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 1px solid #d7e2eb;
+  background-color: #ffffff;
+  color: #263747;
 
   @media (max-width: 767px) {
+    width: 100%;
   }
   @media (max-width: 575px) {
     padding: 24px;
