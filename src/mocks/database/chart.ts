@@ -106,7 +106,7 @@ export const statisticsData: ChartResultType = {
               '인프라',
               '데이터/머신러닝',
               'DB',
-              '',
+              '프로그래밍툴',
               '기타',
             ],
             count: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
@@ -325,232 +325,92 @@ export const ChartSearchData: ChartFilterType[] = [
     gender: 'all',
     age: 'all',
     statisticFilterData: {
-      JobRankData: [
-        {
-          rankId: 1,
-          jobName: '웹',
-          userCount: 210,
-        },
-        {
-          rankId: 2,
-          jobName: '인프라',
-          userCount: 200,
-        },
-        {
-          rankId: 3,
-          jobName: '게임',
-          userCount: 150,
-        },
-        {
-          rankId: 4,
-          jobName: '금융',
-          userCount: 140,
-        },
-        {
-          rankId: 5,
-          jobName: '시스템소프트웨어',
-          userCount: 130,
-        },
-        {
-          rankId: 6,
-          jobName: '엔터테인먼트',
-          userCount: 110,
-        },
-        {
-          rankId: 7,
-          jobName: '데이터/머신러닝',
-          userCount: 20,
-        },
-        {
-          rankId: 8,
-          jobName: 'DB',
-          userCount: 10,
-        },
-        {
-          rankId: 9,
-          jobName: '프로그래밍툴',
-          userCount: 8,
-        },
-        {
-          rankId: 10,
-          jobName: '응용소프트웨어',
-          userCount: 2,
-        },
-      ],
+      JobRankData: {
+        content: [
+          '인프라',
+          '웹',
+          '금융',
+          '응용소프트웨어',
+          '시스템소프트웨어',
+          '게임',
+          '엔터테이먼트',
+
+          '데이터/머신러닝',
+          'DB',
+          '프로그래밍툴',
+          '기타',
+        ],
+        count: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+      },
     },
   },
   {
     gender: 'female',
     age: 'all',
     statisticFilterData: {
-      JobRankData: [
-        {
-          rankId: 1,
-          jobName: '인프라',
-          userCount: 220,
-        },
-        {
-          rankId: 2,
-          jobName: '웹',
-          userCount: 190,
-        },
-        {
-          rankId: 3,
-          jobName: '게임',
-          userCount: 150,
-        },
-        {
-          rankId: 4,
-          jobName: '금융',
-          userCount: 140,
-        },
-        {
-          rankId: 5,
-          jobName: '시스템소프트웨어',
-          userCount: 130,
-        },
-        {
-          rankId: 6,
-          jobName: '엔터테인먼트',
-          userCount: 110,
-        },
-        {
-          rankId: 7,
-          jobName: '데이터/머신러닝',
-          userCount: 20,
-        },
-        {
-          rankId: 8,
-          jobName: 'DB',
-          userCount: 10,
-        },
-        {
-          rankId: 9,
-          jobName: '프로그래밍툴',
-          userCount: 8,
-        },
-        {
-          rankId: 10,
-          jobName: '응용소프트웨어',
-          userCount: 2,
-        },
-      ],
+      JobRankData: {
+        content: [
+          '게임',
+          '웹',
+          '금융',
+          '응용소프트웨어',
+          '시스템소프트웨어',
+
+          '엔터테이먼트',
+          '인프라',
+          '데이터/머신러닝',
+          'DB',
+          '프로그래밍툴',
+          '기타',
+        ],
+        count: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+      },
     },
   },
   {
     gender: 'male',
     age: 'all',
     statisticFilterData: {
-      JobRankData: [
-        {
-          rankId: 1,
-          jobName: '게임',
-          userCount: 200,
-        },
-        {
-          rankId: 2,
-          jobName: '웹',
-          userCount: 198,
-        },
-        {
-          rankId: 3,
-          jobName: '인프라',
-          userCount: 150,
-        },
-        {
-          rankId: 4,
-          jobName: '금융',
-          userCount: 140,
-        },
-        {
-          rankId: 5,
-          jobName: '시스템소프트웨어',
-          userCount: 130,
-        },
-        {
-          rankId: 6,
-          jobName: '엔터테인먼트',
-          userCount: 110,
-        },
-        {
-          rankId: 7,
-          jobName: '데이터/머신러닝',
-          userCount: 20,
-        },
-        {
-          rankId: 8,
-          jobName: 'DB',
-          userCount: 10,
-        },
-        {
-          rankId: 9,
-          jobName: '프로그래밍툴',
-          userCount: 8,
-        },
-        {
-          rankId: 10,
-          jobName: '응용소프트웨어',
-          userCount: 2,
-        },
-      ],
+      JobRankData: {
+        content: [
+          '응용소프트웨어',
+          '웹',
+          '금융',
+
+          '시스템소프트웨어',
+          '게임',
+          '엔터테이먼트',
+          '인프라',
+          '데이터/머신러닝',
+          'DB',
+          '프로그래밍툴',
+          '기타',
+        ],
+        count: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+      },
     },
   },
   {
     gender: 'male',
     age: '2529',
     statisticFilterData: {
-      JobRankData: [
-        {
-          rankId: 1,
-          jobName: '시스템소프트웨어',
-          userCount: 200,
-        },
-        {
-          rankId: 2,
-          jobName: '웹',
-          userCount: 198,
-        },
-        {
-          rankId: 3,
-          jobName: '인프라',
-          userCount: 150,
-        },
-        {
-          rankId: 4,
-          jobName: '금융',
-          userCount: 140,
-        },
-        {
-          rankId: 5,
-          jobName: '게임',
-          userCount: 130,
-        },
-        {
-          rankId: 6,
-          jobName: '엔터테인먼트',
-          userCount: 110,
-        },
-        {
-          rankId: 7,
-          jobName: '데이터/머신러닝',
-          userCount: 20,
-        },
-        {
-          rankId: 8,
-          jobName: 'DB',
-          userCount: 10,
-        },
-        {
-          rankId: 9,
-          jobName: '프로그래밍툴',
-          userCount: 8,
-        },
-        {
-          rankId: 10,
-          jobName: '응용소프트웨어',
-          userCount: 2,
-        },
-      ],
+      JobRankData: {
+        content: [
+          '금융',
+          '웹',
+
+          '응용소프트웨어',
+          '시스템소프트웨어',
+          '게임',
+          '엔터테이먼트',
+          '인프라',
+          '데이터/머신러닝',
+          'DB',
+          '프로그래밍툴',
+          '기타',
+        ],
+        count: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+      },
     },
   },
 ];

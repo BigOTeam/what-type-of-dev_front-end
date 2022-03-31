@@ -155,11 +155,5 @@ export interface StatisticFilterDataType {
 }
 
 export interface ChartJobRankListType {
-  JobRankData: ChartJobRankDataType[];
-}
-
-export interface ChartJobRankDataType {
-  rankId: number;
-  jobName: string;
-  userCount: number;
+  JobRankData: ChartAnswerType;
 }

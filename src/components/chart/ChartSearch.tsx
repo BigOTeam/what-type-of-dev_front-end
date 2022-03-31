@@ -38,14 +38,7 @@ const ChartSearch: React.FC = () => {
   };
 
   const BarChartData = () => {
-    return (
-      <BarChart
-        id={1}
-        indexAxis="y"
-        chartAnswerInfo={null}
-        chartJobInfo={data!}
-      />
-    );
+    return <BarChart id={1} indexAxis="y" chartAnswerInfo={data!} />;
     //  return <BarChart id={1} indexAxis="y" chartAnswerInfo={data} />;
   };
 

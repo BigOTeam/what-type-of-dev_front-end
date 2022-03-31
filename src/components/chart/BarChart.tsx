@@ -17,7 +17,6 @@ import {
   ChartAnswerType,
   BarChartData,
   BarChartOption,
-  ChartJobRankDataType,
 } from '../../types/chartTypes';
 import { CHART_COLOR_LIST } from '../../data/chartColorListData';
 
@@ -26,8 +25,7 @@ interface ChartResultProps {
   indexAxis: 'y' | 'x';
   //   question: string;
   //   chartType: string;
-  chartAnswerInfo: ChartAnswerType | null;
-  chartJobInfo: ChartJobRankDataType[] | null;
+  chartAnswerInfo: ChartAnswerType;
   // chartAnswerInfo: [{id: number, labelName: string, dataCount: number}]
 }
 
@@ -44,7 +42,6 @@ const BarChart: React.FC<ChartResultProps> = ({
   id,
   indexAxis,
   chartAnswerInfo,
-  chartJobInfo,
 }) => {
   const [data, setData] = useState<BarChartData>({ labels: [], datasets: [] });
 
@@ -90,38 +87,18 @@ const BarChart: React.FC<ChartResultProps> = ({
   };
 
   useEffect(() => {
-    if (chartAnswerInfo) {
-      setData({
-        labels: chartAnswerInfo.content,
-        datasets: [
-          {
-            label: '응답자',
-            data: chartAnswerInfo.count,
-            backgroundColor: CHART_COLOR_LIST[3].backgroundColor,
-            borderColor: CHART_COLOR_LIST[3].borderColor,
-            borderWidth: 0,
-          },
-        ],
-      });
-    } else if (chartJobInfo) {
-      console.log('chartJobInfo');
-      setData({
-        labels: chartJobInfo.map((data: ChartJobRankDataType) => data.jobName),
-        datasets: [
-          {
-            label: '응답자',
-            data: chartJobInfo.map(
-              (data: ChartJobRankDataType) => data.userCount,
-            ),
-            backgroundColor: CHART_COLOR_LIST[3].backgroundColor,
-            borderColor: CHART_COLOR_LIST[3].borderColor,
-            borderWidth: 0,
-          },
-        ],
-      });
-    } else {
-      console.log('no data');
-    }
+    setData({
+      labels: chartAnswerInfo.content,
+      datasets: [
+        {
+          label: '응답자',
+          data: chartAnswerInfo.count,
+          backgroundColor: CHART_COLOR_LIST[3].backgroundColor,
+          borderColor: CHART_COLOR_LIST[3].borderColor,
+          borderWidth: 0,
+        },
+      ],
+    });
   }, []);
 
   return (
@@ -135,8 +112,6 @@ export default BarChart;
 
 const Container = styled.div`
   // position: relative;
-  // overflow: hidden;
-  // height: 200px;
   height: 100%;
 
   @media (max-width: 767px) {
