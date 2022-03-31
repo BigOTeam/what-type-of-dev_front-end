@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -9,8 +9,6 @@ import { GENDER_LIST, AGE_LIST } from '../../data/chartSearchData';
 import BarChart from './BarChart';
 import SkeletonChartItem from './SkeletonChartItem';
 
-// import { ChartAnswerType } from '../../types/chartTypes';
-
 const ChartSearch: React.FC = () => {
   const [gender, setGender] = useState<string>('all');
   const [age, setAge] = useState<string>('all');
@@ -20,33 +18,23 @@ const ChartSearch: React.FC = () => {
     age,
   });
 
-  useEffect(() => {
-    console.log('ChartSearch', data);
-    BarChartData();
-  }, [data]);
-
-  const handleChangeGender = (
+  const handleGenderChange = (
     event: React.ChangeEvent<HTMLSelectElement>,
   ): void => {
     setGender(event.target.value);
   };
 
-  const handleChangeAge = (
+  const handleAgeChange = (
     event: React.ChangeEvent<HTMLSelectElement>,
   ): void => {
     setAge(event.target.value);
-  };
-
-  const BarChartData = () => {
-    return <BarChart id={1} indexAxis="y" chartAnswerInfo={data!} />;
-    //  return <BarChart id={1} indexAxis="y" chartAnswerInfo={data} />;
   };
 
   return (
     <Container>
       <Wrapper>
         <FilterList>
-          <FilterSelect name="gender" onChange={handleChangeGender}>
+          <FilterSelect name="gender" onChange={handleGenderChange}>
             <option value="all">전체 성별</option>
             {GENDER_LIST.map((gender) => (
               <option key={gender.id} value={gender.value}>
@@ -54,7 +42,7 @@ const ChartSearch: React.FC = () => {
               </option>
             ))}
           </FilterSelect>
-          <FilterSelect name="age" onChange={handleChangeAge}>
+          <FilterSelect name="age" onChange={handleAgeChange}>
             <option value="all">전체 연령대</option>
             {AGE_LIST.map((age) => (
               <option key={age.id} value={age.value}>
@@ -71,7 +59,7 @@ const ChartSearch: React.FC = () => {
               <div>일치하는 데이터가 없습니다</div>
             ) : (
               <ChartItem>
-                <BarChartData />
+                <BarChart id={1} indexAxis="y" chartLabelDataInfo={data} />
               </ChartItem>
             )}
           </ChartWrapper>
@@ -106,7 +94,6 @@ const FilterList = styled.div`
 
 const FilterSelect = styled.select`
   width: 100%;
-  // max-width: 378px;
   height: 42px;
   margin: 0px 4px;
   padding: 0 14px;
@@ -119,7 +106,7 @@ const FilterSelect = styled.select`
   // background-repeat: no-repeat;
   font-size: 16px;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-  // font-weight: 400;
+  font-weight: 400;
   line-height: 1.6;
   color: #263747;
   appearance: none;
@@ -138,12 +125,6 @@ const FilterSelect = styled.select`
     color: #495057;
   }
 
-  // @media (max-width: 767px) {
-  //   max-width: 100%;
-  //   height: 38px;
-  //   margin-bottom: 8px;
-  //   font-size: 14px;
-  // }
   @media (max-width: 575px) {
     max-width: 100%;
     height: 38px;

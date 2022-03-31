@@ -13,38 +13,37 @@ import { Doughnut } from 'react-chartjs-2';
 import ChartDataLabels, { Context } from 'chartjs-plugin-datalabels';
 
 import {
-  ChartAnswerType,
+  ChartLabelDataType,
   DoughnutChartData,
   DoughnutChartOption,
 } from '../../types/chartTypes';
-import { ChartColor, CHART_COLOR_LIST } from '../../data/chartColorListData';
+import { CHART_COLOR } from '../../data/chartColorListData';
 
 interface ChartResultProps {
   id: number;
-  //   question: string;
-  //   chartType: string;
-  chartAnswerInfo: ChartAnswerType;
+  chartLabelDataInfo: ChartLabelDataType;
   userCount: number;
 }
 
 ChartJS.register(ArcElement, CategoryScale, Tooltip, Legend, ChartDataLabels);
 
+const CARD_BACKGROUND_COLOR = '#FFFFFF';
+const BODY_FONT_COLOR = '#000000';
+const CHART_FONT = 'Spoqa Han Sans Neo'; // 'sans-serif',
+// const BODY_FONT_WEIGHT = 700;
+const CHART_BODY_FONT_SIZE = 14;
+const CHART_BORDER_COLOR = CHART_COLOR.borderColor;
+const CHART_BORDER_WIDTH = 0;
+const TOOLTIP_PADDING_SIZE = 8;
+
 const DoughnutChart: React.FC<ChartResultProps> = ({
   id,
-  chartAnswerInfo,
+  chartLabelDataInfo,
   userCount,
 }) => {
   const [data, setData] = useState<DoughnutChartData>({
-    labels: chartAnswerInfo.content,
-    datasets: [
-      {
-        label: '# of Votes',
-        data: chartAnswerInfo.count,
-        backgroundColor: CHART_COLOR_LIST.map((x) => x.backgroundColor),
-        borderColor: CHART_COLOR_LIST.map((x) => x.borderColor),
-        borderWidth: 0,
-      },
-    ],
+    labels: [],
+    datasets: [],
   });
 
   const options: DoughnutChartOption = {
@@ -65,38 +64,36 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
         labels: {
           value: {
             font: {
-              family: 'Spoqa Han Sans Neo', // 'sans-serif',
+              family: CHART_FONT,
               weight: 'bold',
             },
           },
         },
       },
       tooltip: {
-        backgroundColor: '#FFFFFF',
-        bodyColor: '#000000',
+        backgroundColor: CARD_BACKGROUND_COLOR,
+        bodyColor: BODY_FONT_COLOR,
         bodyFont: {
-          size: 14,
+          size: CHART_BODY_FONT_SIZE,
           weight: 'bold',
         },
-        padding: 8,
+        padding: TOOLTIP_PADDING_SIZE,
       },
     },
   };
 
   useEffect(() => {
     setData({
-      labels: chartAnswerInfo.content,
+      labels: chartLabelDataInfo.content,
       datasets: [
         {
           label: '# of Votes',
-          data: chartAnswerInfo.count,
-          backgroundColor: CHART_COLOR_LIST.map(
-            (chartColor: ChartColor) => chartColor.backgroundColor,
+          data: chartLabelDataInfo.count.map((value) =>
+            Math.floor((value / userCount) * 100),
           ),
-          borderColor: CHART_COLOR_LIST.map(
-            (chartColor: ChartColor) => chartColor.borderColor,
-          ),
-          borderWidth: 0,
+          backgroundColor: CHART_COLOR.colorList,
+          borderColor: CHART_BORDER_COLOR,
+          borderWidth: CHART_BORDER_WIDTH,
         },
       ],
     });
@@ -113,8 +110,6 @@ export default DoughnutChart;
 
 const Container = styled.div`
   // position: relative;
-  // overflow: hidden;
-  // height: 311px;
 
   @media (max-width: 767px) {
     padding: 8px 0px;

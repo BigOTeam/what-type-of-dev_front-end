@@ -6,14 +6,16 @@ interface ChartTitleProps {
   titleData: ChartResultTitleType;
 }
 
+const START_DATE = '2022/04/07';
+
 const Header: React.FC<ChartTitleProps> = ({ titleData }) => {
   return (
     <Container>
       <Wrapper>
         <TitleHead>당신이 개발자라면 설문 통계</TitleHead>
-        <TitlePeriod>
-          설문 조사 기간 : 2022/04/06 ~ {titleData.surveyDate}
-        </TitlePeriod>
+        <Period>
+          설문 조사 기간 : {START_DATE} ~ {titleData.surveyDate}
+        </Period>
         <TitleInfo>
           {titleData.responseUserCount}
           {titleData.statisticSummary}
@@ -58,7 +60,7 @@ const TitleHead = styled.h1`
   }
 `;
 
-const TitlePeriod = styled.h2`
+const Period = styled.h2`
   padding-top: 8px;
   font-size: 24px;
 

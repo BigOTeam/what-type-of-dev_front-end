@@ -48,10 +48,10 @@ export interface ChartAnalyzeType {
   statisticId: number;
   question: string;
   chartType: string;
-  chartInfo: ChartAnswerType;
+  chartInfo: ChartLabelDataType;
 }
 
-export interface ChartAnswerType {
+export interface ChartLabelDataType {
   content: string[];
   count: number[];
 }
@@ -94,7 +94,7 @@ interface DoughnutChartDataset {
   label: string;
   data: number[];
   backgroundColor: string[];
-  borderColor: string[];
+  borderColor: string;
   borderWidth: number;
 }
 
@@ -155,5 +155,5 @@ export interface StatisticFilterDataType {
 }
 
 export interface ChartJobRankListType {
-  JobRankData: ChartAnswerType;
+  JobRankData: ChartLabelDataType;
 }

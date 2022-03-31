@@ -14,19 +14,16 @@ import {
 import { Bar } from 'react-chartjs-2';
 
 import {
-  ChartAnswerType,
+  ChartLabelDataType,
   BarChartData,
   BarChartOption,
 } from '../../types/chartTypes';
-import { CHART_COLOR_LIST } from '../../data/chartColorListData';
+import { CHART_COLOR } from '../../data/chartColorListData';
 
 interface ChartResultProps {
   id: number;
   indexAxis: 'y' | 'x';
-  //   question: string;
-  //   chartType: string;
-  chartAnswerInfo: ChartAnswerType;
-  // chartAnswerInfo: [{id: number, labelName: string, dataCount: number}]
+  chartLabelDataInfo: ChartLabelDataType;
 }
 
 ChartJS.register(
@@ -38,10 +35,20 @@ ChartJS.register(
   Legend,
 );
 
+const CARD_BACKGROUND_COLOR = '#FFFFFF';
+const BODY_FONT_COLOR = '#000000';
+const CHART_FONT = 'Spoqa Han Sans Neo'; // 'sans-serif',
+// const BODY_FONT_WEIGHT = 700;
+const CHART_BODY_FONT_SIZE = 14;
+const CHART_BACKGROUND_COLOR = CHART_COLOR.colorList[2];
+const CHART_BORDER_COLOR = CHART_COLOR.borderColor;
+const CHART_BORDER_WIDTH = 0;
+const TOOLTIP_PADDING_SIZE = 8;
+
 const BarChart: React.FC<ChartResultProps> = ({
   id,
   indexAxis,
-  chartAnswerInfo,
+  chartLabelDataInfo,
 }) => {
   const [data, setData] = useState<BarChartData>({ labels: [], datasets: [] });
 
@@ -54,13 +61,13 @@ const BarChart: React.FC<ChartResultProps> = ({
         display: false,
       },
       tooltip: {
-        backgroundColor: '#FFFFFF',
-        bodyColor: '#000000',
+        backgroundColor: CARD_BACKGROUND_COLOR,
+        bodyColor: BODY_FONT_COLOR,
         bodyFont: {
-          size: 14,
+          size: CHART_BODY_FONT_SIZE,
           weight: 'bold',
         },
-        padding: 8,
+        padding: TOOLTIP_PADDING_SIZE,
       },
     },
     scales: {
@@ -68,7 +75,7 @@ const BarChart: React.FC<ChartResultProps> = ({
         ticks: {
           autoSkip: false,
           font: {
-            family: 'Spoqa Han Sans Neo', // 'sans-serif',
+            family: CHART_FONT,
             // weight: 'bold',
           },
         },
@@ -76,7 +83,7 @@ const BarChart: React.FC<ChartResultProps> = ({
       x: {
         ticks: {
           font: {
-            family: 'Spoqa Han Sans Neo', // 'sans-serif',
+            family: CHART_FONT,
             // weight: 'bold',
           },
         },
@@ -88,14 +95,14 @@ const BarChart: React.FC<ChartResultProps> = ({
 
   useEffect(() => {
     setData({
-      labels: chartAnswerInfo.content,
+      labels: chartLabelDataInfo.content,
       datasets: [
         {
           label: '응답자',
-          data: chartAnswerInfo.count,
-          backgroundColor: CHART_COLOR_LIST[3].backgroundColor,
-          borderColor: CHART_COLOR_LIST[3].borderColor,
-          borderWidth: 0,
+          data: chartLabelDataInfo.count,
+          backgroundColor: CHART_BACKGROUND_COLOR,
+          borderColor: CHART_BORDER_COLOR,
+          borderWidth: CHART_BORDER_WIDTH,
         },
       ],
     });

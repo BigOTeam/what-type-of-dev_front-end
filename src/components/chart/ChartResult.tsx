@@ -21,13 +21,13 @@ const ChartResult: React.FC<ChartResultProps> = ({
   chartAnalyze,
   userCount,
 }) => {
-  const chartByType = (data: ChartAnalyzeType, userCount: number) => {
+  const renderChart = (data: ChartAnalyzeType, userCount: number) => {
     switch (data.chartType) {
       case 'doughnut':
         return (
           <DoughnutChart
             id={data.statisticId}
-            chartAnswerInfo={data.chartInfo}
+            chartLabelDataInfo={data.chartInfo}
             userCount={userCount}
           />
         );
@@ -36,7 +36,7 @@ const ChartResult: React.FC<ChartResultProps> = ({
           <BarChart
             id={data.statisticId}
             indexAxis="x"
-            chartAnswerInfo={data.chartInfo}
+            chartLabelDataInfo={data.chartInfo}
           />
         );
       case 'horizontalBar':
@@ -44,21 +44,21 @@ const ChartResult: React.FC<ChartResultProps> = ({
           <BarChart
             id={data.statisticId}
             indexAxis="y"
-            chartAnswerInfo={data.chartInfo}
+            chartLabelDataInfo={data.chartInfo}
           />
         );
       default:
-        return <div></div>;
+        return <></>;
     }
   };
 
   return (
     <Container>
       <Wrapper>
-        {chartContents && chartAnalyze && userCount && (
+        {chartContents !== [] && chartAnalyze !== [] && userCount >= 0 && (
           <>
-            <Section>
-              <SubHead>목차</SubHead>
+            <ContentWrapper>
+              <ContentHead>목차</ContentHead>
               <ContentList>
                 {chartContents.map((contentData) => (
                   <ContentItem
@@ -67,51 +67,47 @@ const ChartResult: React.FC<ChartResultProps> = ({
                   />
                 ))}
               </ContentList>
-            </Section>
-            {/* 차트 목록 */}
-            <ChartWrapper>
+            </ContentWrapper>
+            {/* 차트 결과 */}
+            <ChartResultWrapper>
               {chartAnalyze.map((chartData) => {
                 return (
                   <ChartPartWrapper key={chartData.partId}>
-                    {/* 차트 목차 제목 */}
                     <ChartHead>
                       Part {chartData.partId}. {chartData.title}
                     </ChartHead>
                     {/* 차트 카드 리스트 시작 */}
                     <ChartItemList>
                       {/* 차트 제목, 요약 2개의 카드 */}
-                      <ChartTitleItemWrapper>
-                        {/* 차트 카드 : 제목, 이미지, 요약 */}
+                      <TitleSummaryWrapper>
+                        {/* 제목 */}
                         <TitleSummaryCard>
-                          <ChartTitleItemImg
+                          <TitleItemImg
                             src={chartData.imgUrl}
                             alt={chartData.imgUrl}
-                          ></ChartTitleItemImg>
-                          <ChartTitleItemHead>
-                            {chartData.title}
-                          </ChartTitleItemHead>
-                          <ChartTitleItemDescription>
-                            {chartData.description}
-                          </ChartTitleItemDescription>
+                          ></TitleItemImg>
+                          <TitleHead>{chartData.title}</TitleHead>
+                          <Description>{chartData.description}</Description>
                         </TitleSummaryCard>
-                        {/* 차트 카드 : 주요 정보 3개 요약 */}
+                        {/* 요약 */}
                         <TitleSummaryCard>
-                          <ChartSummaryText>요약</ChartSummaryText>
-                          <ChartSummaryList>
+                          <SummaryHead>요약</SummaryHead>
+                          <SummaryList>
                             {chartData.statisticsSummary.map((summaryData) => {
                               return (
-                                <ChartSummaryItem key={summaryData.summaryId}>
+                                <SummaryItem key={summaryData.summaryId}>
                                   {summaryData.summary}
-                                </ChartSummaryItem>
+                                </SummaryItem>
                               );
                             })}
-                          </ChartSummaryList>
+                          </SummaryList>
                         </TitleSummaryCard>
-                      </ChartTitleItemWrapper>
-                      {/* 차트 결과 차트 모음 */}
+                      </TitleSummaryWrapper>
+                      {/* 차트 결과 모음 */}
                       <ChartCardList>
                         {chartData.statisticResult.map((statisticData) => (
-                          <ChartItem
+                          // 차트 카드 하나
+                          <ChartCard
                             key={statisticData.statisticId}
                             id={
                               String(chartData.partId) +
@@ -119,21 +115,19 @@ const ChartResult: React.FC<ChartResultProps> = ({
                               String(statisticData.statisticId)
                             }
                           >
-                            {/* <ChartResultBox> */}
                             {/* 차트 질문 */}
-                            <ChartStatiticHead>
+                            <StatisticHead>
                               {statisticData.question}
-                            </ChartStatiticHead>
-                            {chartByType(statisticData, userCount)}
-                            {/* </ChartResultBox> */}
-                          </ChartItem>
+                            </StatisticHead>
+                            {renderChart(statisticData, userCount)}
+                          </ChartCard>
                         ))}
                       </ChartCardList>
                     </ChartItemList>
                   </ChartPartWrapper>
                 );
               })}
-            </ChartWrapper>
+            </ChartResultWrapper>
           </>
         )}
       </Wrapper>
@@ -163,7 +157,7 @@ const Wrapper = styled.div`
 `;
 
 // 목차 전체
-const Section = styled.section`
+const ContentWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -181,7 +175,7 @@ const Section = styled.section`
 `;
 
 // 목차
-const SubHead = styled.h1`
+const ContentHead = styled.h1`
   margin-bottom: 20px;
   font-size: 44px;
   font-weight: bold;
@@ -210,7 +204,7 @@ const ContentList = styled.ul`
 `;
 
 // 차트 목록 전체 감싸기
-const ChartWrapper = styled.section``;
+const ChartResultWrapper = styled.section``;
 
 // 차트 목록 하나
 const ChartPartWrapper = styled.div`
@@ -258,7 +252,7 @@ const ChartItemList = styled.div`
 `;
 
 // 차트 제목, 요약 카드 감싸기
-const ChartTitleItemWrapper = styled.ul`
+const TitleSummaryWrapper = styled.ul`
   display: flex;
   justify-content: space-between;
 
@@ -266,72 +260,6 @@ const ChartTitleItemWrapper = styled.ul`
     width: 100%;
     flex-direction: column;
     align-items: center;
-  }
-`;
-
-// 차트 카드 하나
-const ChartItem = styled.li`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: calc(50% - 8px);
-  margin-bottom: 12px;
-  padding: 24px 40px;
-  box-sizing: border-box;
-  border-radius: 25px;
-  border: 1px solid #d7e2eb;
-  background-color: #ffffff;
-  // color: #593137;
-  color: #263747;
-
-  @media (max-width: 767px) {
-    width: 100%;
-    padding: 0px;
-    font-size: 18px;
-  }
-  @media (max-width: 575px) {
-  }
-`;
-// 차트 소제목 관련 이미지
-const ChartTitleItemImg = styled.img`
-  width: fit-content;
-  height: 72px;
-  margin-bottom: 16px;
-
-  @media (max-width: 767px) {
-  }
-  @media (max-width: 575px) {
-    width: 72px;
-    height: auto;
-  }
-`;
-
-// 차트 소제목
-const ChartTitleItemHead = styled.h2`
-  margin-bottom: 12px;
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1.6;
-
-  @media (max-width: 767px) {
-    font-size: 28px;
-  }
-  @media (max-width: 575px) {
-    font-size: 24px;
-  }
-`;
-
-// 차트 소제목과 관련된 내용
-const ChartTitleItemDescription = styled.h3`
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.6;
-
-  @media (max-width: 767px) {
-    font-size: 18px;
-  }
-  @media (max-width: 575px) {
   }
 `;
 
@@ -356,8 +284,50 @@ const TitleSummaryCard = styled.li`
   }
 `;
 
+// 차트 소제목 관련 이미지
+const TitleItemImg = styled.img`
+  width: fit-content;
+  height: 72px;
+  margin-bottom: 16px;
+
+  @media (max-width: 767px) {
+  }
+  @media (max-width: 575px) {
+    width: 72px;
+    height: auto;
+  }
+`;
+
+// 차트 소제목
+const TitleHead = styled.h2`
+  margin-bottom: 12px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.6;
+
+  @media (max-width: 767px) {
+    font-size: 28px;
+  }
+  @media (max-width: 575px) {
+    font-size: 24px;
+  }
+`;
+
+// 차트 소제목과 관련된 내용
+const Description = styled.h3`
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.6;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
+  @media (max-width: 575px) {
+  }
+`;
+
 // 요약
-const ChartSummaryText = styled.div`
+const SummaryHead = styled.div`
   margin-bottom: 12px;
   font-size: 28px;
   font-weight: 700;
@@ -372,7 +342,7 @@ const ChartSummaryText = styled.div`
 `;
 
 // 차트 요약 리스트
-const ChartSummaryList = styled.ul`
+const SummaryList = styled.ul`
   font-size: 20px;
   letter-spacing: -0.009em;
   font-weight: 700;
@@ -386,7 +356,7 @@ const ChartSummaryList = styled.ul`
 `;
 
 // 차트 요약 하나
-const ChartSummaryItem = styled.li`
+const SummaryItem = styled.li`
   margin-bottom: 16px;
 
   &::before {
@@ -413,15 +383,25 @@ const ChartCardList = styled.ul`
   }
 `;
 
-// 통계 차트 질문 감싸기
-const ChartResultBox = styled.div`
+// 차트 카드 하나
+const ChartCard = styled.li`
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  // padding: 24px 0px 24px 40px;
+  width: calc(50% - 8px);
+  margin-bottom: 12px;
   padding: 24px 40px;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 1px solid #d7e2eb;
+  background-color: #ffffff;
+  // color: #593137;
+  color: #263747;
 
   @media (max-width: 767px) {
+    width: 100%;
+    padding: 0px;
     font-size: 18px;
   }
   @media (max-width: 575px) {
@@ -429,7 +409,7 @@ const ChartResultBox = styled.div`
 `;
 
 // 통계 차트 질문
-const ChartStatiticHead = styled.h2`
+const StatisticHead = styled.h2`
   margin: 24px 0px 16px;
   /* padding-right: 40px; */
   font-size: 20px;
