@@ -11,7 +11,9 @@ const Header: React.FC<ChartTitleProps> = ({ titleData }) => {
     <Container>
       <Wrapper>
         <TitleHead>당신이 개발자라면 설문 통계</TitleHead>
-        <TitlePeriod>설문 조사 기간 : {titleData.surveyPeriod}</TitlePeriod>
+        <TitlePeriod>
+          설문 조사 기간 : 2022/04/06 ~ {titleData.surveyDate}
+        </TitlePeriod>
         <TitleInfo>
           {titleData.responseUserCount}
           {titleData.statisticSummary}

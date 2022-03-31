@@ -12,7 +12,7 @@ export interface ChartResultType {
 }
 
 export interface ChartResultTitleType {
-  surveyPeriod: string;
+  surveyDate: string;
   responseUserCount: number;
   responseCareerCount: number;
   responseNewCount: number;
