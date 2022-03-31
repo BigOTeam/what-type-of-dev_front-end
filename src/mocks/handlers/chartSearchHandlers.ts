@@ -1,6 +1,6 @@
 import { rest } from 'msw';
 
-// import { ChartFilterType } from '../../types/chartTypes';
+import { ChartJobRankDataType } from '../../types/chartTypes';
 
 import { ChartSearchData } from '../database/chart';
 
@@ -9,14 +9,14 @@ export const chartSearchHandlers = [
     const gender = request.url.searchParams.get('gender');
     const age = request.url.searchParams.get('age');
 
-    const chartJobRankListData = ChartSearchData
-      .filter((chart) => chart.gender === gender)
-      .filter((chart) => chart.age === age);
+    const JobRankData: ChartJobRankDataType[] = ChartSearchData.filter(
+      (chart) => chart.gender === gender,
+    ).filter((chart) => chart.age === age)[0].statisticFilterData.JobRankData;
 
     return response(
       context.status(200),
       context.json({
-        chartJobRankListData,
+        JobRankData,
       }),
     );
   }),

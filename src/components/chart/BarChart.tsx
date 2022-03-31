@@ -12,12 +12,12 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-// import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 import {
   ChartAnswerType,
   BarChartData,
   BarChartOption,
+  ChartJobRankDataType,
 } from '../../types/chartTypes';
 import { CHART_COLOR_LIST } from '../../data/chartColorListData';
 
@@ -27,6 +27,7 @@ interface ChartResultProps {
   //   question: string;
   //   chartType: string;
   chartAnswerInfo: ChartAnswerType[];
+  chartJobInfo: ChartJobRankDataType[];
   // chartAnswerInfo: [{id: number, labelName: string, dataCount: number}]
 }
 
@@ -37,26 +38,15 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  // ChartDataLabels,
 );
 
 const BarChart: React.FC<ChartResultProps> = ({
   id,
   indexAxis,
   chartAnswerInfo,
+  chartJobInfo,
 }) => {
-  const [data, setData] = useState<BarChartData>({
-    labels: chartAnswerInfo.map((data: ChartAnswerType) => data.answer),
-    datasets: [
-      {
-        label: '응답자',
-        data: chartAnswerInfo.map((data: ChartAnswerType) => data.answerCount),
-        backgroundColor: CHART_COLOR_LIST[3].backgroundColor,
-        borderColor: CHART_COLOR_LIST[3].borderColor,
-        borderWidth: 0,
-      },
-    ],
-  });
+  const [data, setData] = useState<BarChartData>({ labels: [], datasets: [] });
 
   const options: BarChartOption = {
     plugins: {
@@ -100,25 +90,42 @@ const BarChart: React.FC<ChartResultProps> = ({
   };
 
   useEffect(() => {
-    setData({
-      labels: chartAnswerInfo.map((data: ChartAnswerType) => data.answer),
-      datasets: [
-        {
-          label: '응답자',
-          data: chartAnswerInfo.map(
-            (data: ChartAnswerType) => data.answerCount,
-          ),
-          backgroundColor: CHART_COLOR_LIST[3].backgroundColor,
-          borderColor: CHART_COLOR_LIST[3].borderColor,
-          borderWidth: 0,
-        },
-      ],
-    });
+    if (chartAnswerInfo.length > 0) {
+      setData({
+        labels: chartAnswerInfo.map((data: ChartAnswerType) => data.answer),
+        datasets: [
+          {
+            label: '응답자',
+            data: chartAnswerInfo.map(
+              (data: ChartAnswerType) => data.answerCount,
+            ),
+            backgroundColor: CHART_COLOR_LIST[3].backgroundColor,
+            borderColor: CHART_COLOR_LIST[3].borderColor,
+            borderWidth: 0,
+          },
+        ],
+      });
+    } else {
+      setData({
+        labels: chartJobInfo.map((data: ChartJobRankDataType) => data.jobName),
+        datasets: [
+          {
+            label: '응답자',
+            data: chartJobInfo.map(
+              (data: ChartJobRankDataType) => data.userCount,
+            ),
+            backgroundColor: CHART_COLOR_LIST[3].backgroundColor,
+            borderColor: CHART_COLOR_LIST[3].borderColor,
+            borderWidth: 0,
+          },
+        ],
+      });
+    }
   }, []);
 
   return (
     <Container>
-      <Bar options={options} data={data} />
+      <Bar options={options} data={data!} />
     </Container>
   );
 };

@@ -21,7 +21,7 @@ const ChartSearch: React.FC = () => {
   });
 
   useEffect(() => {
-    console.log(data);
+    console.log('ChartSearch', data);
     BarChartData();
   }, [data]);
 
@@ -38,7 +38,15 @@ const ChartSearch: React.FC = () => {
   };
 
   const BarChartData = () => {
-    return <BarChart id={1} indexAxis="y" chartAnswerInfo={data} />;
+    return (
+      <BarChart
+        id={1}
+        indexAxis="y"
+        chartAnswerInfo={[]}
+        chartJobInfo={data!}
+      />
+    );
+    //  return <BarChart id={1} indexAxis="y" chartAnswerInfo={data} />;
   };
 
   return (

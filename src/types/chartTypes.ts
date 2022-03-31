@@ -148,15 +148,19 @@ interface BarChartDataset {
 export interface ChartFilterType {
   gender: string;
   age: string;
-  chartJobRankList: ChartAnswerType[] | null;
+  statisticFilterData: ChartJobRankListType;
+}
+
+export interface StatisticFilterDataType {
+  statisticFilterData: ChartJobRankListType;
 }
 
 export interface ChartJobRankListType {
-  chartJobRankListData: ChartAnswerType[];
+  JobRankData: ChartJobRankDataType[];
 }
 
-// export interface ChartJobRankType {
-//   rankId: number;
-//   jobName: string;
-//   userCount: number;
-// }
+export interface ChartJobRankDataType {
+  rankId: number;
+  jobName: string;
+  userCount: number;
+}
