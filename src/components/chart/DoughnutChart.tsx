@@ -23,7 +23,7 @@ interface ChartResultProps {
   id: number;
   //   question: string;
   //   chartType: string;
-  chartAnswerInfo: ChartAnswerType[];
+  chartAnswerInfo: ChartAnswerType;
   userCount: number;
 }
 
@@ -35,13 +35,11 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
   userCount,
 }) => {
   const [data, setData] = useState<DoughnutChartData>({
-    labels: chartAnswerInfo.map((data: ChartAnswerType) => data.answer),
+    labels: chartAnswerInfo.content,
     datasets: [
       {
         label: '# of Votes',
-        data: chartAnswerInfo.map((data: ChartAnswerType) =>
-          Math.floor(Number(data.answerCount / userCount) * 100),
-        ),
+        data: chartAnswerInfo.count,
         backgroundColor: CHART_COLOR_LIST.map((x) => x.backgroundColor),
         borderColor: CHART_COLOR_LIST.map((x) => x.borderColor),
         borderWidth: 0,
@@ -87,13 +85,11 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
 
   useEffect(() => {
     setData({
-      labels: chartAnswerInfo.map((data: ChartAnswerType) => data.answer),
+      labels: chartAnswerInfo.content,
       datasets: [
         {
           label: '# of Votes',
-          data: chartAnswerInfo.map((data: ChartAnswerType) => {
-            return Math.floor(Number(data.answerCount / userCount) * 100);
-          }),
+          data: chartAnswerInfo.count,
           backgroundColor: CHART_COLOR_LIST.map(
             (chartColor: ChartColor) => chartColor.backgroundColor,
           ),

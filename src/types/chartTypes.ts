@@ -48,13 +48,12 @@ export interface ChartAnalyzeType {
   statisticId: number;
   question: string;
   chartType: string;
-  chartInfo: ChartAnswerType[];
+  chartInfo: ChartAnswerType;
 }
 
 export interface ChartAnswerType {
-  answer: string;
-  answerCount: number;
-  rank: number;
+  content: string[];
+  count: number[];
 }
 
 export interface DoughnutChartOption {

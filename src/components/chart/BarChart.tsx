@@ -26,7 +26,7 @@ interface ChartResultProps {
   indexAxis: 'y' | 'x';
   //   question: string;
   //   chartType: string;
-  chartAnswerInfo: ChartAnswerType[] | null;
+  chartAnswerInfo: ChartAnswerType | null;
   chartJobInfo: ChartJobRankDataType[] | null;
   // chartAnswerInfo: [{id: number, labelName: string, dataCount: number}]
 }
@@ -92,13 +92,11 @@ const BarChart: React.FC<ChartResultProps> = ({
   useEffect(() => {
     if (chartAnswerInfo) {
       setData({
-        labels: chartAnswerInfo.map((data: ChartAnswerType) => data.answer),
+        labels: chartAnswerInfo.content,
         datasets: [
           {
             label: '응답자',
-            data: chartAnswerInfo.map(
-              (data: ChartAnswerType) => data.answerCount,
-            ),
+            data: chartAnswerInfo.count,
             backgroundColor: CHART_COLOR_LIST[3].backgroundColor,
             borderColor: CHART_COLOR_LIST[3].borderColor,
             borderWidth: 0,
