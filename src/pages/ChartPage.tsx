@@ -21,7 +21,7 @@ const ChartPage: React.FC = () => {
         {isLoading || !data ? (
           <SkeletonChartTitle />
         ) : (
-          <Header chartTitle={data.statisticsData.statisticTitle} />
+          <Header titleData={data.statisticsData.statisticTitle} />
         )}
         <ChartSearch />
         {isLoading || !data ? (

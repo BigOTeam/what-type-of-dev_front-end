@@ -3,18 +3,18 @@ import styled from '@emotion/styled';
 import { ChartResultTitleType } from '../../types/chartTypes';
 
 interface ChartTitleProps {
-  chartTitle: ChartResultTitleType;
+  titleData: ChartResultTitleType;
 }
 
-const Header: React.FC<ChartTitleProps> = ({ chartTitle }) => {
+const Header: React.FC<ChartTitleProps> = ({ titleData }) => {
   return (
     <Container>
       <Wrapper>
         <TitleHead>당신이 개발자라면 설문 통계</TitleHead>
-        <TitlePeriod>설문 조사 기간 : {chartTitle.surveyPeriod}</TitlePeriod>
+        <TitlePeriod>설문 조사 기간 : {titleData.surveyPeriod}</TitlePeriod>
         <TitleInfo>
-          {chartTitle.responseUserCount}
-          {chartTitle.statisticSummary}
+          {titleData.responseUserCount}
+          {titleData.statisticSummary}
         </TitleInfo>
       </Wrapper>
     </Container>
