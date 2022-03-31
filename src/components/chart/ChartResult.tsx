@@ -121,13 +121,13 @@ const ChartResult: React.FC<ChartResultProps> = ({
                               String(statisticData.statisticId)
                             }
                           >
-                            <ChartResultBox>
-                              {/* 차트 질문 */}
-                              <ChartStatiticHead>
-                                {statisticData.question}
-                              </ChartStatiticHead>
-                              {chartByType(statisticData, userCount)}
-                            </ChartResultBox>
+                            {/* <ChartResultBox> */}
+                            {/* 차트 질문 */}
+                            <ChartStatiticHead>
+                              {statisticData.question}
+                            </ChartStatiticHead>
+                            {chartByType(statisticData, userCount)}
+                            {/* </ChartResultBox> */}
                           </ChartItem>
                         ))}
                       </ChartCardList>
@@ -271,13 +271,16 @@ const ChartTitleItemWrapper = styled.ul`
   }
 `;
 
-// 차트, 제목, 요약 등 카드 하나
+// 차트 카드 하나
 const ChartItem = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: calc(50% - 10px);
+  align-items: center;
+  width: calc(50% - 8px);
   margin-bottom: 12px;
+  padding: 24px 40px;
+  box-sizing: border-box;
   border-radius: 25px;
   border: 1px solid #d7e2eb;
   background-color: #ffffff;
@@ -287,6 +290,9 @@ const ChartItem = styled.li`
   @media (max-width: 767px) {
     width: 100%;
     padding: 0px;
+    font-size: 18px;
+  }
+  @media (max-width: 575px) {
   }
 `;
 // 차트 소제목 관련 이미지
