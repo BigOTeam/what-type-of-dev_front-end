@@ -43,3 +43,7 @@ export interface JobRank extends Job {
 export interface SurveyResultResponseType {
   rankData: JobRank[];
 }
+
+export interface RootState {
+  form: SurveyResultRequestType;
+}

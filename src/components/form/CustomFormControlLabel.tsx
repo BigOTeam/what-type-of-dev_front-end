@@ -1,14 +1,45 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { surveyInsert, surveyUpdate } from '../../redux/modules/form';
+
 import { useRadioGroup } from '@mui/material/RadioGroup';
 import FormControlLabel, {
   FormControlLabelProps,
 } from '@mui/material/FormControlLabel';
 
-import { SurveyResult } from '../../types/formType';
+import {
+  SurveyResultRequestType,
+  SurveyResult,
+  RootState,
+} from '../../types/formType';
 
 const CustomFormControlLabel: React.FC<FormControlLabelProps> = (props) => {
-  const [survey, setSurvey] = useState<SurveyResult>();
+  const dispatch = useDispatch();
   const radioGroup = useRadioGroup();
+
+  // store 의 state 접근하여 가져오기
+  const surveyList = useSelector<RootState, SurveyResult[] | null>(
+    (state) => state.form.surveyResult,
+  );
+
+  useEffect(() => {
+    const param = {
+      questionInitial: props.id as string,
+      answerSeq: null,
+    };
+
+    console.log(typeof surveyList);
+    dispatch(surveyInsert(param));
+  }, []);
+
+  // store에 있는 state 바꾸는 함수 실행
+  const updateAnswer = (param: SurveyResult) => {
+    dispatch(surveyUpdate(param));
+
+    console.log(`store surveyResult`);
+    console.log(surveyList);
+  };
 
   const handleRadioGroup = () => {
     if (radioGroup !== undefined) {
@@ -16,9 +47,9 @@ const CustomFormControlLabel: React.FC<FormControlLabelProps> = (props) => {
         questionInitial: props.id as string,
         answerSeq: Number(radioGroup.value),
       };
+
       // 액션으로 스토어를 갱신시키기
-      setSurvey(param);
-      console.log(survey);
+      updateAnswer(param);
     }
   };
 
