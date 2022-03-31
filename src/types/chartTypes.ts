@@ -146,7 +146,6 @@ interface BarChartDataset {
 }
 
 export interface ChartFilterType {
-  career: string;
   gender: string;
   age: string;
   chartJobRankList: ChartAnswerType[] | null;
