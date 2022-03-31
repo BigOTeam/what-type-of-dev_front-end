@@ -9,42 +9,42 @@ const SkeletonChartSection: React.FC = () => {
         <Section>
           <ContentInfo>
             <ContentInfoItem>
-              <ContentTitle />
-              <ContentItem />
+              <ContentTitle animation="wave" />
+              <ContentItem animation="wave" />
             </ContentInfoItem>
             <ContentInfoItem>
-              <ContentTitle />
-              <ContentItem />
-            </ContentInfoItem>
-          </ContentInfo>
-          <ContentInfo>
-            <ContentInfoItem>
-              <ContentTitle />
-              <ContentItem />
-            </ContentInfoItem>
-            <ContentInfoItem>
-              <ContentTitle />
-              <ContentItem />
+              <ContentTitle animation="wave" />
+              <ContentItem animation="wave" />
             </ContentInfoItem>
           </ContentInfo>
           <ContentInfo>
             <ContentInfoItem>
-              <ContentTitle />
-              <ContentItem />
+              <ContentTitle animation="wave" />
+              <ContentItem animation="wave" />
             </ContentInfoItem>
             <ContentInfoItem>
-              <ContentTitle />
-              <ContentItem />
+              <ContentTitle animation="wave" />
+              <ContentItem animation="wave" />
             </ContentInfoItem>
           </ContentInfo>
           <ContentInfo>
             <ContentInfoItem>
-              <ContentTitle />
-              <ContentItem />
+              <ContentTitle animation="wave" />
+              <ContentItem animation="wave" />
             </ContentInfoItem>
             <ContentInfoItem>
-              <ContentTitle />
-              <ContentItem />
+              <ContentTitle animation="wave" />
+              <ContentItem animation="wave" />
+            </ContentInfoItem>
+          </ContentInfo>
+          <ContentInfo>
+            <ContentInfoItem>
+              <ContentTitle animation="wave" />
+              <ContentItem animation="wave" />
+            </ContentInfoItem>
+            <ContentInfoItem>
+              <ContentTitle animation="wave" />
+              <ContentItem animation="wave" />
             </ContentInfoItem>
           </ContentInfo>
         </Section>
