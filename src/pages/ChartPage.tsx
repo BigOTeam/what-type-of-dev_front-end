@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import useChartList from '../hooks/useChartList';
 
-import ChartHeader from '../components/chart/ChartHeader';
+import Header from '../components/chart/Header';
 import ChartResult from '../components/chart/ChartResult';
 import ChartSearch from '../components/chart/ChartSearch';
 import SkeletonChartSection from '../components/chart/SkeletonChartSection';
@@ -21,7 +21,7 @@ const ChartPage: React.FC = () => {
         {isLoading || !data ? (
           <SkeletonChartTitle />
         ) : (
-          <ChartHeader chartTitle={data.statisticsData.statisticTitle} />
+          <Header chartTitle={data.statisticsData.statisticTitle} />
         )}
         <ChartSearch />
         {isLoading || !data ? (

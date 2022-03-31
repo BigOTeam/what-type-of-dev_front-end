@@ -6,7 +6,7 @@ interface ChartTitleProps {
   chartTitle: ChartResultTitleType;
 }
 
-const ChartHeader: React.FC<ChartTitleProps> = ({ chartTitle }) => {
+const Header: React.FC<ChartTitleProps> = ({ chartTitle }) => {
   return (
     <Container>
       <Wrapper>
@@ -21,7 +21,7 @@ const ChartHeader: React.FC<ChartTitleProps> = ({ chartTitle }) => {
   );
 };
 
-export default ChartHeader;
+export default Header;
 
 const Container = styled.section`
   text-align: center;
