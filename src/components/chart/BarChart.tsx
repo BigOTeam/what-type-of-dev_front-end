@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 import styled from '@emotion/styled';
 
 import {
@@ -50,7 +48,18 @@ const BarChart: React.FC<ChartResultProps> = ({
   indexAxis,
   chartLabelDataInfo,
 }) => {
-  const [data, setData] = useState<BarChartData>({ labels: [], datasets: [] });
+  const data: BarChartData = {
+    labels: chartLabelDataInfo.content,
+    datasets: [
+      {
+        label: '응답자',
+        data: chartLabelDataInfo.count,
+        backgroundColor: CHART_BACKGROUND_COLOR,
+        borderColor: CHART_BORDER_COLOR,
+        borderWidth: CHART_BORDER_WIDTH,
+      },
+    ],
+  };
 
   const options: BarChartOption = {
     plugins: {
@@ -93,24 +102,9 @@ const BarChart: React.FC<ChartResultProps> = ({
     responsive: true,
   };
 
-  useEffect(() => {
-    setData({
-      labels: chartLabelDataInfo.content,
-      datasets: [
-        {
-          label: '응답자',
-          data: chartLabelDataInfo.count,
-          backgroundColor: CHART_BACKGROUND_COLOR,
-          borderColor: CHART_BORDER_COLOR,
-          borderWidth: CHART_BORDER_WIDTH,
-        },
-      ],
-    });
-  }, []);
-
   return (
     <Container>
-      <Bar options={options} data={data!} />
+      <Bar options={options} data={data} />
     </Container>
   );
 };

@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 import styled from '@emotion/styled';
 
 import {
@@ -41,10 +39,20 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
   chartLabelDataInfo,
   userCount,
 }) => {
-  const [data, setData] = useState<DoughnutChartData>({
-    labels: [],
-    datasets: [],
-  });
+  const data: DoughnutChartData = {
+    labels: chartLabelDataInfo.content,
+    datasets: [
+      {
+        label: '# of Votes',
+        data: chartLabelDataInfo.count.map((value) =>
+          Math.floor((value / userCount) * 100),
+        ),
+        backgroundColor: CHART_COLOR.colorList,
+        borderColor: CHART_BORDER_COLOR,
+        borderWidth: CHART_BORDER_WIDTH,
+      },
+    ],
+  };
 
   const options: DoughnutChartOption = {
     responsive: true,
@@ -81,23 +89,6 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
       },
     },
   };
-
-  useEffect(() => {
-    setData({
-      labels: chartLabelDataInfo.content,
-      datasets: [
-        {
-          label: '# of Votes',
-          data: chartLabelDataInfo.count.map((value) =>
-            Math.floor((value / userCount) * 100),
-          ),
-          backgroundColor: CHART_COLOR.colorList,
-          borderColor: CHART_BORDER_COLOR,
-          borderWidth: CHART_BORDER_WIDTH,
-        },
-      ],
-    });
-  }, []);
 
   return (
     <Container>
