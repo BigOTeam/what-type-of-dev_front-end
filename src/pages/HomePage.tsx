@@ -1,18 +1,33 @@
+import { useState, useEffect } from 'react';
+
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
 import LinkSection from '../components/home/LinkSection';
+import surveyService from '../services/surveyService';
 
 const HomePage: React.FC = () => {
+  const [responseUserCount, setResponseUserCount] = useState<number>();
+
   useDocumentTitle('당신이 개발자라면');
+
+  useEffect(() => {
+    const getResponseUserCount = async () => {
+      const count = await surveyService.getNumberOfParticipants();
+
+      setResponseUserCount(count);
+    };
+
+    getResponseUserCount();
+  }, []);
 
   return (
     <>
       <Header />
       <LinkSection
         headText={'당신이 개발자라면?'}
-        description={'누적 테스트 응답자 수 50명'}
+        description={`누적 테스트 응답자 수 ${responseUserCount}명`}
         linkButtonText={'테스트 시작'}
         linkUrl={'#'}
         imgUrl={'/images/common/self-introduction_character.png'}
