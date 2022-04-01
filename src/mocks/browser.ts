@@ -1,3 +1,5 @@
 import { setupWorker } from 'msw';
 
-export const worker = setupWorker();
+import { surveyHandlers } from './handlers/surveyHandlers';
+
+export const worker = setupWorker(...surveyHandlers);
