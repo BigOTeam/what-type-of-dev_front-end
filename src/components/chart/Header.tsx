@@ -7,6 +7,7 @@ interface ChartTitleProps {
 }
 
 const START_DATE = '2022/04/07';
+const FONT_COLOR = '#45494b';
 
 const Header: React.FC<ChartTitleProps> = ({ titleData }) => {
   return (
@@ -29,9 +30,10 @@ export default Header;
 
 const Container = styled.section`
   text-align: center;
-  color: #ffffff;
-  background: url(/images/chart/title.png);
-  opacity: 0.55;
+  color: ${FONT_COLOR};
+  background: #e8f4fd;
+  // background: url(/images/chart/title.png);
+  // opacity: 0.55;
 `;
 
 const Wrapper = styled.div`

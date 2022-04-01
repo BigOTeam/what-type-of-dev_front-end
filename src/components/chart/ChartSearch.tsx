@@ -9,6 +9,8 @@ import { GENDER_LIST, AGE_LIST } from '../../data/chartSearchData';
 import BarChart from './BarChart';
 import SkeletonChartItem from './skeletonUI/SkeletonChartItem';
 
+const FONT_COLOR = '#45494b';
+
 const ChartSearch: React.FC = () => {
   const [gender, setGender] = useState<string>('all');
   const [age, setAge] = useState<string>('all');
@@ -108,10 +110,10 @@ const FilterSelect = styled.select`
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   font-weight: 400;
   line-height: 1.6;
-  color: #263747;
-  appearance: none;
-  transition: color 0.08s ease-in-out, background-color 0.08s ease-in-out,
-    border-color 0.08s ease-in-out, box-shadow 0.08s ease-in-out;
+  color: ${FONT_COLOR};
+  // appearance: none;
+  // transition: color 0.08s ease-in-out, background-color 0.08s ease-in-out,
+  // border-color 0.08s ease-in-out, box-shadow 0.08s ease-in-out;
   cursor: pointer;
 
   &:hover {

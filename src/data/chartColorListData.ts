@@ -4,6 +4,6 @@ export interface ChartColor {
 }
 
 export const CHART_COLOR: ChartColor = {
-  colorList: ['#FDD263', '#FFEA8F', '#FEFFC1'],
+  colorList: ['#a2d2f7','#b9def9', '#d1e9fb'],
   borderColor: '#0f0e1e',
 };

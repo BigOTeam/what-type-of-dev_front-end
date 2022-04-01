@@ -16,6 +16,8 @@ interface ChartResultProps {
   userCount: number;
 }
 
+const FONT_COLOR = '#45494b';
+
 const ChartResult: React.FC<ChartResultProps> = ({
   chartContents,
   chartAnalyze,
@@ -164,7 +166,8 @@ const ContentWrapper = styled.section`
   align-items: center;
   width: 100%;
   padding: 80px 0px;
-  color: #263747;
+  color: ${FONT_COLOR};
+  // color: #263747;
 
   @media (max-width: 767px) {
     padding: 72px 16px;
@@ -223,7 +226,7 @@ const ChartPartWrapper = styled.div`
 // 차트 소제목
 const ChartHead = styled.h1`
   margin-bottom: 24px;
-  color: #263747;
+  color: ${FONT_COLOR};
   // font-size: 5.5vw;
   font-size: 56px;
   // font-weight: bold;
@@ -274,7 +277,7 @@ const TitleSummaryCard = styled.li`
   border-radius: 25px;
   border: 1px solid #d7e2eb;
   background-color: #ffffff;
-  color: #263747;
+  color: ${FONT_COLOR};
 
   @media (max-width: 767px) {
     width: 100%;
@@ -395,9 +398,8 @@ const ChartCard = styled.li`
   box-sizing: border-box;
   border-radius: 25px;
   border: 1px solid #d7e2eb;
-  background-color: #ffffff;
   // color: #593137;
-  color: #263747;
+  color: ${FONT_COLOR};
 
   @media (max-width: 767px) {
     width: 100%;
@@ -414,7 +416,7 @@ const StatisticHead = styled.h2`
   /* padding-right: 40px; */
   font-size: 20px;
   font-weight: 700;
-  color: #263747;
+  color: ${FONT_COLOR};
 
   @media (max-width: 767px) {
     font-size: 18px;
