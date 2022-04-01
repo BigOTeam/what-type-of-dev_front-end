@@ -9,6 +9,11 @@ interface LinkSectionProps {
   linkUrl: string;
   imgUrl: string;
   isReversed: boolean;
+  backgroundColor: string;
+}
+
+interface ContainerProps {
+  backgroundColor: string;
 }
 
 interface WrapperProps {
@@ -22,9 +27,10 @@ const LinkSection: React.FC<LinkSectionProps> = ({
   linkUrl,
   imgUrl,
   isReversed,
+  backgroundColor,
 }) => {
   return (
-    <Container>
+    <Container backgroundColor={backgroundColor}>
       <Wrapper isReversed={isReversed}>
         <ImgWrapper>
           <CharacterImg src={imgUrl} alt={`${headText} 이미지`} />
@@ -41,9 +47,9 @@ const LinkSection: React.FC<LinkSectionProps> = ({
   );
 };
 
-const Container = styled.section`
+const Container = styled.section<ContainerProps>`
   padding: 120px 16px;
-  background-color: #e8f4fd;
+  background-color: ${(props) => props.backgroundColor};
   box-sizing: border-box;
 
   @media (max-width: 991px) {
@@ -55,8 +61,7 @@ const Container = styled.section`
 const Wrapper = styled.div<WrapperProps>`
   overflow: hidden;
   display: flex;
-  flex-direction: ${(props) =>
-    props.isReversed ? 'column-reverse' : 'column'};
+  flex-direction: ${(props) => (props.isReversed ? 'row-reverse' : 'row')};
   justify-content: space-between;
   max-width: 900px;
   margin: 0 auto;
