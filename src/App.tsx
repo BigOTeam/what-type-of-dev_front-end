@@ -36,7 +36,7 @@ const App: React.FC = () => {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/statistics" component={ChartPage} />
-            <Route exact path="/dev-form" component={FormPage} />
+            <Route exact path="/form" component={FormPage} />
           </Switch>
           {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
         </Router>

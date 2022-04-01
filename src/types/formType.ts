@@ -25,11 +25,6 @@ export interface SurveyResultRequestType {
   surveyResult: SurveyResult[] | null;
 }
 
-// export interface SurveyResult {
-//   questionInitial: string | null;
-//   answerSeq: number | null;
-// }
-
 export interface SurveyResult {
   questionInitial: string;
   answerSeq: number;

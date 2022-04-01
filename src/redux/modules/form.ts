@@ -1,44 +1,8 @@
-import { createActions, handleActions } from 'redux-actions';
-
 import { SurveyResultRequestType, SurveyResult } from '../../types/formType';
 
-const prefix: string = 'what-type-of-dev/form';
-
-// const initialState: SurveyResultRequestType = {
-//   surveyResult: [{ questionInitial: 'about_me', answerSeq: 1 }],
-// };
 const initialState: SurveyResultRequestType = {
   surveyResult: [],
 };
-
-/*
-export const { addSurvey, updateSurvey } = createActions(
-  'ADD_SURVEY',
-  'UPDATE_SURVEY',
-  { prefix },
-);
-
-const reducer = handleActions<SurveyResultRequestType, SurveyResult>(
-  {
-    ADD_SURVEY: (state, action) => ({
-      ...state,
-      surveyResult: [...state.surveyResult, action.payload],
-    }),
-
-    UPDATE_SURVEY: (state, action) => ({
-      ...state,
-      surveyResult: [
-        ...state.surveyResult.filter(
-          (survey) => survey.questionInitial !== action.payload.questionInitial,
-        ),
-        action.payload,
-      ],
-    }),
-  },
-  initialState,
-  { prefix },
-);
-*/
 
 const SURVEY_INSERT = 'form/INSERT';
 const SURVEY_UPDATE = 'form/UPDATE';
@@ -68,7 +32,6 @@ const reducer = (state = initialState, action: any) => {
     case SURVEY_INSERT:
       return {
         ...state,
-        // surveyResult: [...state.surveyResult, action.payload],
         surveyResult: state.surveyResult !== null && [
           ...state.surveyResult,
           action.payload,
@@ -84,13 +47,6 @@ const reducer = (state = initialState, action: any) => {
           ),
           action.payload,
         ],
-        // surveyResult: [
-        //   ...state.surveyResult.filter(
-        //     (survey) =>
-        //       survey.questionInitial !== action.payload.questionInitial,
-        //   ),
-        //   action.payload,
-        // ],
       };
 
     default:
