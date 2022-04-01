@@ -1,3 +1,6 @@
 import { setupWorker } from 'msw';
 
-export const worker = setupWorker();
+import { chartHandlers } from './handlers/chartHandlers';
+import { chartSearchHandlers } from './handlers/chartSearchHandlers';
+
+export const worker = setupWorker(...chartHandlers, ...chartSearchHandlers);
