@@ -5,8 +5,8 @@ import useChartList from '../hooks/useChartList';
 import Header from '../components/chart/Header';
 import ChartResult from '../components/chart/ChartResult';
 import ChartSearch from '../components/chart/ChartSearch';
-import SkeletonChartSection from '../components/chart/SkeletonChartSection';
-import SkeletonHeader from '../components/chart/SkeletonHeader';
+import SkeletonChartSection from '../components/chart/skeletonUI/SkeletonChartSection';
+import SkeletonHeader from '../components/chart/skeletonUI/SkeletonHeader';
 
 const ChartPage: React.FC = () => {
   const { isLoading, data, isError, errorMessage } = useChartList();

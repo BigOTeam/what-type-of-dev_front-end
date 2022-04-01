@@ -7,7 +7,7 @@ import useChartSearchList from '../../hooks/useChartSearchList';
 import { GENDER_LIST, AGE_LIST } from '../../data/chartSearchData';
 
 import BarChart from './BarChart';
-import SkeletonChartItem from './SkeletonChartItem';
+import SkeletonChartItem from './skeletonUI/SkeletonChartItem';
 
 const ChartSearch: React.FC = () => {
   const [gender, setGender] = useState<string>('all');
