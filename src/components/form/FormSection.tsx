@@ -7,7 +7,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import FormItem from './FormItem';
-import { FormResponseData } from '../../data/formType';
+import { FormResponseData } from '../../types/formType';
 import FormButtonItem from './FormButtonItem';
 
 const FormSection: React.FC = () => {
@@ -26,6 +26,7 @@ const FormSection: React.FC = () => {
     });
   }, [isDeveloper, nextPageNumber]);
 
+  // handleYesButtonClick
   const handleClickYes = () => {
     setIsDeveloper(true);
     onClickNextButton();
@@ -43,44 +44,46 @@ const FormSection: React.FC = () => {
 
   return (
     <Container>
-      <MainImage
-        src={formData?.pageData.pageImageUrl}
-        alt={formData?.pageData.pageDescription}
-      />
-      <MainQuestion>
-        💖🧡💛 {formData?.pageData.pageDescription} 💚💙💜
-      </MainQuestion>
-      {nextPageNumber === 1 ? (
-        <FormButtonItem
-          surveyList={formData?.pageData.survey}
-          handleClickYes={handleClickYes}
-          handleClickNo={handleClickNo}
+      <Wrapper>
+        <MainImage
+          src={formData?.pageData.pageImageUrl}
+          alt={formData?.pageData.pageDescription}
         />
-      ) : (
-        <>
-          <FormItem surveyList={formData?.pageData.survey} />
-          <ButtonSection>
-            <NextButton onClick={onClickNextButton}>다음</NextButton>
-          </ButtonSection>
-        </>
-      )}
+        <MainQuestion>
+          💖🧡💛 {formData?.pageData.pageDescription} 💚💙💜
+        </MainQuestion>
+        {nextPageNumber === 1 ? (
+          <FormButtonItem
+            surveyList={formData?.pageData.survey}
+            handleClickYes={handleClickYes}
+            handleClickNo={handleClickNo}
+          />
+        ) : (
+          <>
+            <FormItem surveyList={formData?.pageData.survey} />
+            <ButtonSection>
+              <NextButton onClick={onClickNextButton}>다음</NextButton>
+            </ButtonSection>
+          </>
+        )}
+      </Wrapper>
     </Container>
   );
 };
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-
-  width: 100%;
-  height: 100%;
-
   transition: all ease 0.3s;
 `;
 
+const Wrapper = styled.div`
+  max-width: 600px;
+  padding: 0 16px;
+  margin: 0 auto;
+  box-sizing: border-box;
+`;
+
 const MainImage = styled.img`
-  width: 600px;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
 `;

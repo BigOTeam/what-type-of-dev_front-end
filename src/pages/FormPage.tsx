@@ -4,8 +4,8 @@ import FormSection from '../components/form/FormSection';
 const FormPage: React.FC = () => {
   return (
     <>
-      <ProgressHeader></ProgressHeader>
-      <FormSection></FormSection>
+      <ProgressHeader />
+      <FormSection />
     </>
   );
 };

@@ -8,7 +8,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-import { Survey } from '../../data/formType';
+import { Survey } from '../../types/formType';
+import CustomFormControlLabel from './CustomFormControlLabel';
 
 interface FormItemProps {
   surveyList: Survey[] | undefined;
@@ -17,48 +18,42 @@ interface FormItemProps {
 const FormItem: React.FC<FormItemProps> = ({ surveyList }) => {
   return (
     <Container>
-      {surveyList !== undefined
-        ? surveyList.map((element) => {
-            return (
-              <FormControl css={radioStyle} key={element.questionId}>
+      <Wrapper>
+        {surveyList !== undefined
+          ? surveyList.map((surveyItem) => (
+              <FormControl key={surveyItem.questionInitial} css={radioStyle}>
                 <FormLabel
-                  id={String(element.questionId)}
+                  id={surveyItem.questionInitial}
                   css={QuestionWrapper}
                 >
-                  {element.questionId}. {element.question}
+                  Q.{surveyItem.question}
                 </FormLabel>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-radio-buttons-group -label"
-                >
-                  {element.answers.map((option) => {
-                    return (
-                      <FormControlLabel
-                        value={option.answerSeq}
-                        control={<Radio />}
-                        label={option.answer}
-                      />
-                    );
-                  })}
+                <RadioGroup row>
+                  {surveyItem.answers.map((option) => (
+                    <CustomFormControlLabel
+                      key={option.answerSeq}
+                      value={option.answerSeq}
+                      control={<Radio />}
+                      label={option.answer}
+                      id={surveyItem.questionInitial}
+                    />
+                  ))}
                 </RadioGroup>
               </FormControl>
-            );
-          })
-        : null}
+            ))
+          : null}
+      </Wrapper>
     </Container>
   );
 };
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-
-  width: 100%;
-  height: 100%;
-
   transition: all ease 0.3s;
+`;
+
+const Wrapper = styled.div`
+  max-width: 600px;
+  box-sizing: border-box;
 `;
 
 const radioStyle = css`
