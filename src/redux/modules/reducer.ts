@@ -6,14 +6,17 @@ import storage from 'redux-persist/lib/storage';
 
 import history from '../../history';
 
+import form from './form';
+
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: [],
+  whitelist: ['form'],
   blacklist: [],
 };
 
 const reducer = combineReducers({
+  form,
   router: connectRouter(history),
 });
 

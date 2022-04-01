@@ -8,12 +8,6 @@ const Header: React.FC = () => {
       <Wrapper>
         <BrandWrapper>
           <Brand to="/">
-            <LogoWrapper>
-              <Logo
-                src="/images/common/brand-logo.png"
-                alt="'당신이 개발자라면' 로고"
-              />
-            </LogoWrapper>
             <BrandName>당신이 개발자라면</BrandName>
           </Brand>
         </BrandWrapper>
@@ -28,7 +22,8 @@ const Container = styled.header`
   left: 0;
   z-index: 100;
   width: 100%;
-  background-color: #0d161c;
+  background-color: #fff;
+  box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
 `;
 
 const Wrapper = styled.div`
@@ -37,12 +32,12 @@ const Wrapper = styled.div`
   align-items: center;
   max-width: 900px;
   margin: 0 auto;
-  padding: 6px 16px;
+  padding: 18px 16px;
   box-sizing: border-box;
 `;
 
 const BrandWrapper = styled.div`
-  height: 34px;
+  height: 100%;
 `;
 
 const Brand = styled(Link)`
@@ -51,27 +46,12 @@ const Brand = styled(Link)`
   height: inherit;
 `;
 
-const LogoWrapper = styled.div`
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  background-color: #fff;
-`;
-
-const Logo = styled.img`
-  width: 24px;
-  height: 24px;
-  margin: 0 auto;
-`;
-
 const BrandName = styled.span`
   margin-left: 6px;
   padding-top: 1px;
   font-size: 18px;
   font-weight: 700;
-  color: #fff;
+  color: #333;
 `;
 
 export default Header;
