@@ -11,7 +11,7 @@ import { Doughnut } from 'react-chartjs-2';
 import ChartDataLabels, { Context } from 'chartjs-plugin-datalabels';
 
 import {
-  ChartLabelDataType,
+  ChartInfoType,
   DoughnutChartData,
   DoughnutChartOption,
 } from '../../types/chartTypes';
@@ -19,7 +19,7 @@ import { CHART_COLOR } from '../../data/chartColorListData';
 
 interface ChartResultProps {
   id: number;
-  chartLabelDataInfo: ChartLabelDataType;
+  chartLabelDataInfo: ChartInfoType;
   userCount: number;
 }
 
@@ -32,6 +32,7 @@ const CHART_FONT = 'Spoqa Han Sans Neo'; // 'sans-serif',
 const CHART_BODY_FONT_SIZE = 14;
 const CHART_BORDER_COLOR = CHART_COLOR.borderColor;
 const CHART_BORDER_WIDTH = 0;
+const CHART_HOVER_BORDER_WIDTH = 4;
 const TOOLTIP_PADDING_SIZE = 8;
 
 const DoughnutChart: React.FC<ChartResultProps> = ({
@@ -50,6 +51,7 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
         backgroundColor: CHART_COLOR.colorList,
         borderColor: CHART_BORDER_COLOR,
         borderWidth: CHART_BORDER_WIDTH,
+        hoverBorderWidth: CHART_HOVER_BORDER_WIDTH,
       },
     ],
   };
@@ -92,7 +94,11 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
 
   return (
     <Container>
-      <Doughnut data={data} options={options} />
+      <Doughnut
+        data={data}
+        options={options}
+        style={{ width: 'auto', minHeight: '200px' }}
+      />
     </Container>
   );
 };
@@ -100,9 +106,16 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
 export default DoughnutChart;
 
 const Container = styled.div`
-  // position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 
   @media (max-width: 767px) {
-    padding: 8px 0px;
+    padding: 4px 0px;
+  }
+  @media (max-width: 575px) {
+    margin: 4px 0px;
   }
 `;

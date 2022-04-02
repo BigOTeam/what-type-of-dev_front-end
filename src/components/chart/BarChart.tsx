@@ -12,7 +12,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 
 import {
-  ChartLabelDataType,
+  ChartInfoType,
   BarChartData,
   BarChartOption,
 } from '../../types/chartTypes';
@@ -21,7 +21,8 @@ import { CHART_COLOR } from '../../data/chartColorListData';
 interface ChartResultProps {
   id: number;
   indexAxis: 'y' | 'x';
-  chartLabelDataInfo: ChartLabelDataType;
+  chartLabelDataInfo: ChartInfoType;
+  labelName: string;
 }
 
 ChartJS.register(
@@ -41,22 +42,25 @@ const CHART_BODY_FONT_SIZE = 14;
 const CHART_BACKGROUND_COLOR = CHART_COLOR.colorList[2];
 const CHART_BORDER_COLOR = CHART_COLOR.borderColor;
 const CHART_BORDER_WIDTH = 0;
+const CHART_HOVER_BORDER_WIDTH = 1;
 const TOOLTIP_PADDING_SIZE = 8;
 
 const BarChart: React.FC<ChartResultProps> = ({
   id,
   indexAxis,
   chartLabelDataInfo,
+  labelName,
 }) => {
   const data: BarChartData = {
     labels: chartLabelDataInfo.content,
     datasets: [
       {
-        label: '응답자',
+        label: labelName,
         data: chartLabelDataInfo.count,
         backgroundColor: CHART_BACKGROUND_COLOR,
         borderColor: CHART_BORDER_COLOR,
         borderWidth: CHART_BORDER_WIDTH,
+        hoverBorderWidth: CHART_HOVER_BORDER_WIDTH,
       },
     ],
   };
@@ -67,7 +71,7 @@ const BarChart: React.FC<ChartResultProps> = ({
         display: false,
       },
       legend: {
-        display: false,
+        display: true,
       },
       tooltip: {
         backgroundColor: CARD_BACKGROUND_COLOR,
@@ -104,7 +108,11 @@ const BarChart: React.FC<ChartResultProps> = ({
 
   return (
     <Container>
-      <Bar options={options} data={data} />
+      <Bar
+        options={options}
+        data={data}
+        style={{ width: '100%', minHeight: '220px' }}
+      />
     </Container>
   );
 };
@@ -112,9 +120,15 @@ const BarChart: React.FC<ChartResultProps> = ({
 export default BarChart;
 
 const Container = styled.div`
-  // position: relative;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   @media (max-width: 767px) {
+    padding: 4px 0px;
+  }
+  @media (max-width: 575px) {
+    margin: 4px 0px;
   }
 `;
