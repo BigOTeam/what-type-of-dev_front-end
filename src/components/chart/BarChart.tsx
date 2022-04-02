@@ -72,6 +72,7 @@ const BarChart: React.FC<ChartResultProps> = ({
       },
       legend: {
         display: true,
+        position: 'bottom',
       },
       tooltip: {
         backgroundColor: CARD_BACKGROUND_COLOR,

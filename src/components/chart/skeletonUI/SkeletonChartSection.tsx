@@ -7,6 +7,7 @@ const SkeletonChartSection: React.FC = () => {
     <BodyContainer>
       <BodyWrapper>
         <Section>
+          <Title />
           <ContentInfo>
             <ContentInfoItem>
               <ContentTitle animation="wave" />
@@ -100,6 +101,18 @@ const ContentInfo = styled.ul`
     display: block;
     width: 100%;
     margin-top: 0px;
+  }
+  @media (max-width: 575px) {
+  }
+`;
+
+const Title = styled(Skeleton)`
+  variant="rectangular";
+  width: 150px;
+  height: 100px;
+
+  @media (max-width: 767px) {
+    width: 50%;
   }
   @media (max-width: 575px) {
   }

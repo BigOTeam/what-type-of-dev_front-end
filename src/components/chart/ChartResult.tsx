@@ -157,7 +157,7 @@ const ContentWrapper = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 80px 0px;
+  padding: 80px 0px 0px;
   color: ${FONT_COLOR};
   // color: #263747;
 
@@ -165,7 +165,7 @@ const ContentWrapper = styled.section`
     padding: 72px 16px;
   }
   @media (max-width: 575px) {
-    padding: 62px 16px;
+    padding: 62px 16px 0px;
   }
 `;
 
@@ -205,7 +205,7 @@ const ChartResultWrapper = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 80px 0px;
+  padding: 80px 0px 0px;
   color: ${FONT_COLOR};
 
   @media (max-width: 767px) {
@@ -223,11 +223,11 @@ const ChartPartWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 80px 0px;
+  padding: 80px 0px 0px;
 
   @media (max-width: 767px) {
     // width: 100%;
-    padding: 64px 0;
+    padding: 64px 0px 0px;
   }
 `;
 
@@ -375,8 +375,6 @@ const SummaryItem = styled.li`
     padding-right: 3px;
     font-size: 20px;
     text-align: left;
-    // margin: 0 0 0 -2em;
-    // width: 2em;
   }
 `;
 

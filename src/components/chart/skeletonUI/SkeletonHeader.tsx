@@ -21,7 +21,7 @@ const TitleContainer = styled.section`
 `;
 
 const TitleWrapper = styled.div`
-  padding: 32px 48px 158px;
+  padding: 32px 48px 150px;
   opacity: 1;
 
   @media (max-width: 767px) {

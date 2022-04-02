@@ -97,6 +97,7 @@ export interface BarChartOption {
     };
     legend: {
       display: boolean;
+      position: 'bottom';
     };
     tooltip: TooltipType;
   };
@@ -144,4 +145,3 @@ export interface ChartFilterType {
 export interface StatisticFilterDataType {
   chartInfoData: ChartInfoType;
 }
-
