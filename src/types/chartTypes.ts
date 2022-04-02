@@ -2,10 +2,6 @@ import { Context } from 'chartjs-plugin-datalabels';
 import { Padding } from 'chartjs-plugin-datalabels/types/options';
 
 export interface ChartDataType {
-  statisticsData: ChartResultType;
-}
-
-export interface ChartResultType {
   header: ChartHeaderType;
   contents: ChartContentsType[];
 }
@@ -90,9 +86,11 @@ interface DoughnutChartDataset {
   hoverBorderWidth: number;
 }
 
+type IndexAxisType = 'y' | 'x';
+
 export interface BarChartOption {
   responsive: boolean;
-  indexAxis: 'y' | 'x';
+  indexAxis: IndexAxisType;
   plugins: {
     datalabels: {
       display: boolean;
@@ -141,9 +139,5 @@ interface BarChartDataset {
 export interface ChartFilterType {
   gender: string;
   age: string;
-  chartInfoData: ChartInfoType;
-}
-
-export interface StatisticFilterDataType {
   chartInfoData: ChartInfoType;
 }

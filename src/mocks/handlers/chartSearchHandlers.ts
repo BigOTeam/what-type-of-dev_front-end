@@ -14,7 +14,7 @@ export const chartSearchHandlers = [
       const chartInfoData: ChartInfoType = ChartSearchData.filter(
         (chart) => chart.gender === gender,
       ).filter((chart) => chart.age === age)[0]?.chartInfoData;
-      const status: number = 401;
+      const status: number = 200;
 
       if (status === 401) {
         return response(
@@ -36,7 +36,9 @@ export const chartSearchHandlers = [
 
       return response(
         context.json({
-          chartInfoData,
+          content: chartInfoData.content,
+          count: chartInfoData.count,
+          countPercent: chartInfoData.countPercent,
         }),
       );
     },

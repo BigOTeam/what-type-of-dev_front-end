@@ -1,6 +1,6 @@
-import { ChartResultType, ChartFilterType } from '../../types/chartTypes';
+import { ChartDataType, ChartFilterType } from '../../types/chartTypes';
 
-export const statisticsData: ChartResultType = {
+export const statisticsData: ChartDataType = {
   header: {
     endDate: '04/08',
     userCount: 2000,

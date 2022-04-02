@@ -11,33 +11,27 @@ import SkeletonHeader from '../components/chart/skeletonUI/SkeletonHeader';
 const ChartPage: React.FC = () => {
   const { isLoading, data, isError, errorMessage } = useChartList();
 
-  if (isError) {
-    console.log(errorMessage);
-  }
-
   return (
     <Container>
       <Wrapper>
         {isLoading || !data ? (
           <SkeletonHeader />
         ) : (
-          <Header headerData={data.statisticsData.header} />
+          <Header headerData={data.header} />
         )}
         <ChartSearch />
         {isLoading || !data ? (
           <SkeletonChartSection />
         ) : (
           <ChartResult
-            chartData={data.statisticsData.contents}
-            userCount={data.statisticsData.header.userCount}
+            chartData={data.contents}
+            userCount={data.header.userCount}
           />
         )}
       </Wrapper>
     </Container>
   );
 };
-
-export default ChartPage;
 
 const Container = styled.div`
   display: flex;
@@ -52,3 +46,5 @@ const Wrapper = styled.div`
   padding: 0px 16px;
   box-sizing: border-box;
 `;
+
+export default ChartPage;
