@@ -37,19 +37,19 @@ const ChartSearch: React.FC = () => {
       <Wrapper>
         <FilterList>
           <FilterSelect name="gender" onChange={handleGenderChange}>
-            <option value="all">전체 성별</option>
+            <FilterOption value="all">전체 성별</FilterOption>
             {GENDER_LIST.map((gender) => (
-              <option key={gender.id} value={gender.value}>
+              <FilterOption key={gender.id} value={gender.value}>
                 {gender.name}
-              </option>
+              </FilterOption>
             ))}
           </FilterSelect>
           <FilterSelect name="age" onChange={handleAgeChange}>
-            <option value="all">전체 연령대</option>
+            <FilterOption value="all">전체 연령대</FilterOption>
             {AGE_LIST.map((age) => (
-              <option key={age.id} value={age.value}>
+              <FilterOption key={age.id} value={age.value}>
                 {age.name}
-              </option>
+              </FilterOption>
             ))}
           </FilterSelect>
         </FilterList>
@@ -58,10 +58,15 @@ const ChartSearch: React.FC = () => {
         ) : (
           <ChartWrapper>
             {!data ? (
-              <div>일치하는 데이터가 없습니다</div>
+              <>일치하는 데이터가 없습니다</>
             ) : (
               <ChartItem>
-                <BarChart id={1} indexAxis="y" chartLabelDataInfo={data} />
+                <BarChart
+                  id={1}
+                  indexAxis="y"
+                  chartLabelDataInfo={data}
+                  labelName="현업 개발자"
+                />
               </ChartItem>
             )}
           </ChartWrapper>
@@ -102,18 +107,19 @@ const FilterSelect = styled.select`
   border: 1px solid #d7e2eb;
   border-radius: 4px;
   box-sizing: border-box;
-  // background-position: calc(100% - 0.8rem) 49%;
-  // background-size: 0.625rem 0.3125rem;
-  // background-color: #fbfbfd;
-  // background-repeat: no-repeat;
+  background-position: calc(100% - 0.8rem) 49%;
+  background-size: 0.625rem 0.3125rem;
+  background-color: #fbfbfd;
+  background-image: url(/images/common/toggle-black.png);
+  background-repeat: no-repeat;
   font-size: 16px;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   font-weight: 400;
   line-height: 1.6;
   color: ${FONT_COLOR};
-  // appearance: none;
+  appearance: none;
   // transition: color 0.08s ease-in-out, background-color 0.08s ease-in-out,
-  // border-color 0.08s ease-in-out, box-shadow 0.08s ease-in-out;
+  //   border-color 0.08s ease-in-out, box-shadow 0.08s ease-in-out;
   cursor: pointer;
 
   &:hover {
@@ -134,6 +140,8 @@ const FilterSelect = styled.select`
     font-size: 14px;
   }
 `;
+
+const FilterOption = styled.option``;
 
 const ChartWrapper = styled.div`
   display: flex;

@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+const FONT_COLOR = '#45494b';
+
 const SkeletonHeader: React.FC = () => {
   return (
     <TitleContainer>
@@ -12,9 +14,10 @@ const SkeletonHeader: React.FC = () => {
 
 const TitleContainer = styled.section`
   text-align: center;
-  color: #ffffff;
-  background: url(/images/chart/title.png);
-  opacity: 0.55;
+  color: ${FONT_COLOR};
+  background: #e8f4fd;
+  // background: url(/images/chart/title.png);
+  // opacity: 0.55;
 `;
 
 const TitleWrapper = styled.div`

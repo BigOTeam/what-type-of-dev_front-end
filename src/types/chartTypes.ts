@@ -6,54 +6,43 @@ export interface ChartDataType {
 }
 
 export interface ChartResultType {
-  statisticTitle: ChartResultTitleType;
-  statisticContents: ChartResultContentsType[];
-  statisticAnalyze: ChartResultAnalyzeType[];
+  header: ChartHeaderType;
+  contents: ChartContentsType[];
 }
 
-export interface ChartResultTitleType {
-  surveyDate: string;
-  responseUserCount: number;
-  responseCareerCount: number;
-  responseNewCount: number;
-  statisticSummary: string;
+export interface ChartHeaderType {
+  endDate: string;
+  userCount: number;
+  careerCount: number;
+  newCount: number;
 }
 
-export interface ChartResultContentsType {
-  partId: number;
-  title: string;
-  contentsInfo: ChartContentInfoType[];
-}
-
-export interface ChartContentInfoType {
-  questionId: number;
-  question: string;
-}
-
-export interface ChartResultAnalyzeType {
-  partId: number;
-  title: string;
+export interface ChartContentsType {
+  groupId: number;
+  groupName: string;
+  questionInfo: QuestionInfoType[];
   description: string;
   imgUrl: string;
-  statisticsSummary: ChartResultAnalyzeSummaryType[];
-  statisticResult: ChartAnalyzeType[];
+  summaryInfo: string[];
+  result: ChartAnalyzeType[];
 }
 
-export interface ChartResultAnalyzeSummaryType {
-  summaryId: number;
-  summary: string;
+export interface QuestionInfoType {
+  id: number;
+  question: string;
 }
 
 export interface ChartAnalyzeType {
-  statisticId: number;
+  id: number;
   question: string;
   chartType: string;
-  chartInfo: ChartLabelDataType;
+  chartInfoData: ChartInfoType;
 }
 
-export interface ChartLabelDataType {
+export interface ChartInfoType {
   content: string[];
   count: number[];
+  countPercent: number[];
 }
 
 export interface DoughnutChartOption {
@@ -96,6 +85,7 @@ interface DoughnutChartDataset {
   backgroundColor: string[];
   borderColor: string;
   borderWidth: number;
+  hoverBorderWidth: number;
 }
 
 export interface BarChartOption {
@@ -142,18 +132,16 @@ interface BarChartDataset {
   backgroundColor: string;
   borderColor: string;
   borderWidth: number;
+  hoverBorderWidth: number;
 }
 
 export interface ChartFilterType {
   gender: string;
   age: string;
-  statisticFilterData: ChartJobRankListType;
+  chartInfoData: ChartInfoType;
 }
 
 export interface StatisticFilterDataType {
-  statisticFilterData: ChartJobRankListType;
+  chartInfoData: ChartInfoType;
 }
 
-export interface ChartJobRankListType {
-  JobRankData: ChartLabelDataType;
-}
