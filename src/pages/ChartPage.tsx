@@ -21,16 +21,15 @@ const ChartPage: React.FC = () => {
         {isLoading || !data ? (
           <SkeletonHeader />
         ) : (
-          <Header titleData={data.statisticsData.statisticTitle} />
+          <Header headerData={data.statisticsData.header} />
         )}
         <ChartSearch />
         {isLoading || !data ? (
           <SkeletonChartSection />
         ) : (
           <ChartResult
-            chartContents={data.statisticsData.statisticContents}
-            chartAnalyze={data.statisticsData.statisticAnalyze}
-            userCount={data.statisticsData.statisticTitle.responseUserCount}
+            chartData={data.statisticsData.contents}
+            userCount={data.statisticsData.header.userCount}
           />
         )}
       </Wrapper>

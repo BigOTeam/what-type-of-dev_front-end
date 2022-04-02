@@ -12,9 +12,13 @@ const useChartList = () => {
   const { isLoading, data, isError, error } = useQuery<
     AxiosResponse<ChartDataType>,
     AxiosError<ErrorResponse>
-  >('chartResultList', queryFn);
+  >('chartResultList', queryFn, {
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    retry: false, 
+  });
 
-  console.log('/statistics', data?.data.statisticsData);
+  // console.log('/statistics', data?.data.statisticsData);
 
   return {
     isLoading,

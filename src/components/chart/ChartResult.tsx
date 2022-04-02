@@ -1,52 +1,45 @@
 import styled from '@emotion/styled';
 
-import {
-  ChartAnalyzeType,
-  ChartResultAnalyzeType,
-  ChartResultContentsType,
-} from '../../types/chartTypes';
+import { ChartAnalyzeType, ChartContentsType } from '../../types/chartTypes';
 
 import DoughnutChart from './DoughnutChart';
 import BarChart from './BarChart';
 import ContentItem from './ContentItem';
 
 interface ChartResultProps {
-  chartContents: ChartResultContentsType[];
-  chartAnalyze: ChartResultAnalyzeType[];
+  chartData: ChartContentsType[];
   userCount: number;
 }
 
 const FONT_COLOR = '#45494b';
 
-const ChartResult: React.FC<ChartResultProps> = ({
-  chartContents,
-  chartAnalyze,
-  userCount,
-}) => {
+const ChartResult: React.FC<ChartResultProps> = ({ chartData, userCount }) => {
   const renderChart = (data: ChartAnalyzeType, userCount: number) => {
     switch (data.chartType) {
       case 'doughnut':
         return (
           <DoughnutChart
-            id={data.statisticId}
-            chartLabelDataInfo={data.chartInfo}
+            id={data.id}
+            chartLabelDataInfo={data.chartInfoData}
             userCount={userCount}
           />
         );
       case 'verticalBar':
         return (
           <BarChart
-            id={data.statisticId}
+            id={data.id}
             indexAxis="x"
-            chartLabelDataInfo={data.chartInfo}
+            chartLabelDataInfo={data.chartInfoData}
+            labelName="모든 응답자"
           />
         );
       case 'horizontalBar':
         return (
           <BarChart
-            id={data.statisticId}
+            id={data.id}
             indexAxis="y"
-            chartLabelDataInfo={data.chartInfo}
+            chartLabelDataInfo={data.chartInfoData}
+            labelName="모든 응답자"
           />
         );
       default:
@@ -57,71 +50,70 @@ const ChartResult: React.FC<ChartResultProps> = ({
   return (
     <Container>
       <Wrapper>
-        {chartContents !== [] && chartAnalyze !== [] && userCount >= 0 && (
+        {chartData !== [] && userCount >= 0 && (
           <>
             <ContentWrapper>
               <ContentHead>목차</ContentHead>
               <ContentList>
-                {chartContents.map((contentData) => (
+                {chartData.map((contentData) => (
                   <ContentItem
-                    key={contentData.partId}
-                    contentData={contentData}
+                    key={contentData.groupId}
+                    groupId={contentData.groupId}
+                    groupName={contentData.groupName}
+                    questionInfo={contentData.questionInfo}
                   />
                 ))}
               </ContentList>
             </ContentWrapper>
             {/* 차트 결과 */}
             <ChartResultWrapper>
-              {chartAnalyze.map((chartData) => {
+              {chartData.map((data) => {
                 return (
-                  <ChartPartWrapper key={chartData.partId}>
+                  <ChartPartWrapper key={data.groupId}>
                     <ChartHead>
-                      Part {chartData.partId}. {chartData.title}
+                      Part {data.groupId}. {data.groupName}
                     </ChartHead>
                     {/* 차트 카드 리스트 시작 */}
                     <ChartItemList>
-                      {/* 차트 제목, 요약 2개의 카드 */}
+                      {/* 제목, 요약 2개의 카드 */}
                       <TitleSummaryWrapper>
                         {/* 제목 */}
                         <TitleSummaryCard>
                           <TitleItemImg
-                            src={chartData.imgUrl}
-                            alt={chartData.imgUrl}
+                            src={data.imgUrl}
+                            alt={data.imgUrl}
                           ></TitleItemImg>
-                          <TitleHead>{chartData.title}</TitleHead>
-                          <Description>{chartData.description}</Description>
+                          <TitleHead>{data.groupName}</TitleHead>
+                          <Description>{data.description}</Description>
                         </TitleSummaryCard>
                         {/* 요약 */}
                         <TitleSummaryCard>
                           <SummaryHead>요약</SummaryHead>
                           <SummaryList>
-                            {chartData.statisticsSummary.map((summaryData) => {
-                              return (
-                                <SummaryItem key={summaryData.summaryId}>
-                                  {summaryData.summary}
-                                </SummaryItem>
-                              );
-                            })}
+                            {data.summaryInfo.map((summary, index) => (
+                              <SummaryItem key={index}>{summary}</SummaryItem>
+                            ))}
                           </SummaryList>
                         </TitleSummaryCard>
                       </TitleSummaryWrapper>
                       {/* 차트 결과 모음 */}
                       <ChartCardList>
-                        {chartData.statisticResult.map((statisticData) => (
+                        {data.result.map((chartLabelData) => (
                           // 차트 카드 하나
                           <ChartCard
-                            key={statisticData.statisticId}
+                            key={chartLabelData.id}
                             id={
-                              String(chartData.partId) +
+                              String(data.groupId) +
                               '-' +
-                              String(statisticData.statisticId)
+                              String(chartLabelData.id)
                             }
                           >
-                            {/* 차트 질문 */}
                             <StatisticHead>
-                              {statisticData.question}
+                              {chartLabelData.question}
                             </StatisticHead>
-                            {renderChart(statisticData, userCount)}
+                            <StatisticChart>
+                              {renderChart(chartLabelData, userCount)}
+                            </StatisticChart>
                           </ChartCard>
                         ))}
                       </ChartCardList>
@@ -207,7 +199,22 @@ const ContentList = styled.ul`
 `;
 
 // 차트 목록 전체 감싸기
-const ChartResultWrapper = styled.section``;
+const ChartResultWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 80px 0px;
+  color: ${FONT_COLOR};
+
+  @media (max-width: 767px) {
+    padding: 72px 16px;
+  }
+  @media (max-width: 575px) {
+    padding: 62px 16px;
+  }
+`;
 
 // 차트 목록 하나
 const ChartPartWrapper = styled.div`
@@ -215,6 +222,7 @@ const ChartPartWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
   padding: 80px 0px;
 
   @media (max-width: 767px) {
@@ -227,9 +235,8 @@ const ChartPartWrapper = styled.div`
 const ChartHead = styled.h1`
   margin-bottom: 24px;
   color: ${FONT_COLOR};
-  // font-size: 5.5vw;
   font-size: 56px;
-  // font-weight: bold;
+  font-weight: 800;
 
   @media (max-width: 767px) {
     font-size: 50px;
@@ -362,7 +369,7 @@ const SummaryList = styled.ul`
 const SummaryItem = styled.li`
   margin-bottom: 16px;
 
-  &::before {
+  &::marker {
     content: '\\2022';
     display: inline-block;
     padding-right: 3px;
@@ -402,11 +409,16 @@ const ChartCard = styled.li`
   color: ${FONT_COLOR};
 
   @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    padding: 0px;
+    padding: 24px 40px;
     font-size: 18px;
   }
   @media (max-width: 575px) {
+    padding: 16px 24px;
   }
 `;
 
@@ -416,14 +428,27 @@ const StatisticHead = styled.h2`
   /* padding-right: 40px; */
   font-size: 20px;
   font-weight: 700;
+  line-height: 1.2;
+  // text-align: center;
   color: ${FONT_COLOR};
 
   @media (max-width: 767px) {
     font-size: 18px;
   }
   @media (max-width: 575px) {
-    margin: 8px 0px 8px;
+    margin: 8px 0px;
     /* padding-right: 24px; */
+  }
+`;
+
+const StatisticChart = styled.div`
+  // min-width: 200px;
+
+  @media (max-width: 767px) {
+    // padding: 4px 0px;
+  }
+  @media (max-width: 575px) {
+    // margin: 4px 0px;
   }
 `;
 

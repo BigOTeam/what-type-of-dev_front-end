@@ -1,25 +1,26 @@
 import styled from '@emotion/styled';
 
-import { ChartResultTitleType } from '../../types/chartTypes';
+import { ChartHeaderType } from '../../types/chartTypes';
 
 interface ChartTitleProps {
-  titleData: ChartResultTitleType;
+  headerData: ChartHeaderType;
 }
 
 const START_DATE = '2022/04/07';
 const FONT_COLOR = '#45494b';
 
-const Header: React.FC<ChartTitleProps> = ({ titleData }) => {
+const Header: React.FC<ChartTitleProps> = ({ headerData }) => {
   return (
     <Container>
       <Wrapper>
-        <TitleHead>당신이 개발자라면 설문 통계</TitleHead>
+        <Head>당신이 개발자라면 설문 통계</Head>
         <Period>
-          설문 조사 기간 : {START_DATE} ~ {titleData.surveyDate}
+          설문 조사 기간 : {START_DATE} ~ {headerData.endDate}
         </Period>
         <TitleInfo>
-          {titleData.responseUserCount}
-          {titleData.statisticSummary}
+          {headerData.userCount}명의 응답자(현업 개발자:{' '}
+          {headerData.careerCount}명, 비개발자: {headerData.newCount}명)가
+          답변을 했습니다. 다른 사람들의 의견을 구경하고 내 답변과 비교해보세요!
         </TitleInfo>
       </Wrapper>
     </Container>
@@ -48,10 +49,10 @@ const Wrapper = styled.div`
   }
 `;
 
-const TitleHead = styled.h1`
+const Head = styled.h1`
   margin: 20px 0px 28px;
   font-size: 52px;
-  font-weight: bold;
+  font-weight: 700;
 
   @media (max-width: 767px) {
     margin: 20px 0px 24px;
@@ -65,6 +66,7 @@ const TitleHead = styled.h1`
 const Period = styled.h2`
   padding-top: 8px;
   font-size: 24px;
+  font-weight: 700;
 
   @media (max-width: 767px) {
     padding-top: 4px;
@@ -77,6 +79,7 @@ const Period = styled.h2`
 const TitleInfo = styled.h2`
   margin: 24px 32px 16px;
   font-size: 18px;
+  font-weight: 500;
   line-height: 150%;
 
   @media (max-width: 767px) {

@@ -1,27 +1,26 @@
 import styled from '@emotion/styled';
 
-import { ChartResultContentsType } from '../../types/chartTypes';
+import { QuestionInfoType } from '../../types/chartTypes';
 
 interface ContentItemProps {
-  contentData: ChartResultContentsType;
+  groupId: number;
+  groupName: string;
+  questionInfo: QuestionInfoType[];
 }
 
-const ContentItem: React.FC<ContentItemProps> = ({ contentData }) => {
+const ContentItem: React.FC<ContentItemProps> = ({
+  groupId,
+  groupName,
+  questionInfo,
+}) => {
   return (
-    <Card key={contentData.partId}>
-      <Title>{contentData.title}</Title>
+    <Card key={groupId}>
+      <Title>{groupName}</Title>
       <NavList>
-        {contentData.contentsInfo.map((contentInfo) => (
-          <NavItem key={contentInfo.questionId}>
-            <NavLink
-              href={
-                '#' +
-                String(contentData.partId) +
-                '-' +
-                String(contentInfo.questionId)
-              }
-            >
-              {contentInfo.question}
+        {questionInfo.map((question) => (
+          <NavItem key={question.id}>
+            <NavLink href={'#' + String(groupId) + '-' + String(question.id)}>
+              {question.question}
             </NavLink>
           </NavItem>
         ))}
@@ -71,12 +70,12 @@ const NavList = styled.ul`
 const NavItem = styled.li`
   margin-top: 10px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
   letter-spacing: -0.009em;
   list-style: none;
 
-  &::before {
+  &::marker {
     content: '\\2022';
     font-size: 20px;
     text-align: left;
