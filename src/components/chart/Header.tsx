@@ -18,9 +18,8 @@ const Header: React.FC<ChartTitleProps> = ({ headerData }) => {
           설문 조사 기간 : {START_DATE} ~ {headerData.endDate}
         </Period>
         <TitleInfo>
-          {headerData.userCount}명의 응답자(현업 개발자:{' '}
-          {headerData.careerCount}명, 비개발자: {headerData.newCount}명)가
-          답변을 했습니다. 다른 사람들의 의견을 구경하고 내 답변과 비교해보세요!
+          {`${headerData.userCount}명의 응답자(현업 개발자: ${headerData.careerCount}명, 비개발자: ${headerData.newCount}명)가
+          답변을 했습니다. 다른 사람들의 의견을 구경하고 내 답변과 비교해보세요!`}
         </TitleInfo>
       </Wrapper>
     </Container>

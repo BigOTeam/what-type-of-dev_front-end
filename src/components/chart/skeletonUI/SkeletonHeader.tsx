@@ -13,32 +13,32 @@ const SkeletonHeader: React.FC = () => {
 };
 
 const TitleContainer = styled.section`
-  text-align: center;
+  background-color: #e8f4fd;
   color: ${FONT_COLOR};
-  background: #e8f4fd;
+  text-align: center;
   // background: url(/images/chart/title.png);
   // opacity: 0.55;
 `;
 
 const TitleWrapper = styled.div`
-  padding: 32px 48px 150px;
   opacity: 1;
+  padding: 32px 48px 150px;
 
   @media (max-width: 767px) {
-    padding: 32px 48px 196px;
+    padding-bottom: 196px;
   }
   @media (max-width: 575px) {
-    padding: 32px 48px 140px;
+    padding-bottom: 140px;
   }
 `;
 
 const TitleHead = styled.h1`
   margin: 20px 0px 28px;
   font-size: 52px;
-  font-weight: bold;
+  font-weight: 500;
 
   @media (max-width: 767px) {
-    margin: 20px 0px 24px;
+    margin-bottom: 24px;
     font-size: 44px;
   }
   @media (max-width: 575px) {

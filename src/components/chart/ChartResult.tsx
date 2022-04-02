@@ -65,62 +65,55 @@ const ChartResult: React.FC<ChartResultProps> = ({ chartData, userCount }) => {
                 ))}
               </ContentList>
             </ContentWrapper>
-            {/* 차트 결과 */}
             <ChartResultWrapper>
-              {chartData.map((data) => {
-                return (
-                  <ChartPartWrapper key={data.groupId}>
-                    <ChartHead>
-                      Part {data.groupId}. {data.groupName}
-                    </ChartHead>
-                    {/* 차트 카드 리스트 시작 */}
-                    <ChartItemList>
-                      {/* 제목, 요약 2개의 카드 */}
-                      <TitleSummaryWrapper>
-                        {/* 제목 */}
-                        <TitleSummaryCard>
-                          <TitleItemImg
-                            src={data.imgUrl}
-                            alt={data.imgUrl}
-                          ></TitleItemImg>
-                          <TitleHead>{data.groupName}</TitleHead>
-                          <Description>{data.description}</Description>
-                        </TitleSummaryCard>
-                        {/* 요약 */}
-                        <TitleSummaryCard>
-                          <SummaryHead>요약</SummaryHead>
-                          <SummaryList>
-                            {data.summaryInfo.map((summary, index) => (
-                              <SummaryItem key={index}>{summary}</SummaryItem>
-                            ))}
-                          </SummaryList>
-                        </TitleSummaryCard>
-                      </TitleSummaryWrapper>
-                      {/* 차트 결과 모음 */}
-                      <ChartCardList>
-                        {data.result.map((chartLabelData) => (
-                          // 차트 카드 하나
-                          <ChartCard
-                            key={chartLabelData.id}
-                            id={
-                              String(data.groupId) +
-                              '-' +
-                              String(chartLabelData.id)
-                            }
-                          >
-                            <StatisticHead>
-                              {chartLabelData.question}
-                            </StatisticHead>
-                            <StatisticChart>
-                              {renderChart(chartLabelData, userCount)}
-                            </StatisticChart>
-                          </ChartCard>
-                        ))}
-                      </ChartCardList>
-                    </ChartItemList>
-                  </ChartPartWrapper>
-                );
-              })}
+              {chartData.map((data) => (
+                <ChartPartWrapper key={data.groupId}>
+                  <ChartHead>
+                    Part {data.groupId}. {data.groupName}
+                  </ChartHead>
+                  {/* 차트 카드 리스트 시작 */}
+                  <ChartItemList>
+                    {/* 제목, 요약 2개의 카드 */}
+                    <TitleSummaryWrapper>
+                      {/* 제목 */}
+                      <TitleSummaryCard>
+                        <TitleItemImg
+                          src={data.imgUrl}
+                          alt={`${data.groupName} 대표 캐릭터 이미지`}
+                        />
+                        <TitleHead>{data.groupName}</TitleHead>
+                        <Description>{data.description}</Description>
+                      </TitleSummaryCard>
+                      {/* 요약 */}
+                      <TitleSummaryCard>
+                        <SummaryHead>요약</SummaryHead>
+                        <SummaryList>
+                          {data.summaryInfo.map((summary, index) => (
+                            <SummaryItem key={index}>{summary}</SummaryItem>
+                          ))}
+                        </SummaryList>
+                      </TitleSummaryCard>
+                    </TitleSummaryWrapper>
+                    {/* 차트 결과 모음 */}
+                    <ChartCardList>
+                      {data.result.map((chartLabelData) => (
+                        // 차트 카드 하나
+                        <ChartCard
+                          key={chartLabelData.id}
+                          id={`${data.groupId}-${chartLabelData.id}`}
+                        >
+                          <StatisticHead>
+                            {chartLabelData.question}
+                          </StatisticHead>
+                          <StatisticChart>
+                            {renderChart(chartLabelData, userCount)}
+                          </StatisticChart>
+                        </ChartCard>
+                      ))}
+                    </ChartCardList>
+                  </ChartItemList>
+                </ChartPartWrapper>
+              ))}
             </ChartResultWrapper>
           </>
         )}
@@ -157,7 +150,7 @@ const ContentWrapper = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 80px 0px 0px;
+  padding: 80px 0 0;
   color: ${FONT_COLOR};
   // color: #263747;
 
@@ -165,7 +158,7 @@ const ContentWrapper = styled.section`
     padding: 72px 16px;
   }
   @media (max-width: 575px) {
-    padding: 62px 16px 0px;
+    padding: 62px 16px 0;
   }
 `;
 

@@ -15,10 +15,8 @@ const useChartList = () => {
   >('chartResultList', queryFn, {
     refetchOnWindowFocus: false,
     refetchOnMount: false,
-    retry: false, 
+    retry: false,
   });
-
-  // console.log('/statistics', data?.data.statisticsData);
 
   return {
     isLoading,

@@ -22,8 +22,6 @@ const useChartSearchList = (params: object) => {
     staleTime: ONE_DAY,
   });
 
-  console.log('/chartSearchList', data);
-
   return {
     isLoading,
     data: data?.data?.chartInfoData,

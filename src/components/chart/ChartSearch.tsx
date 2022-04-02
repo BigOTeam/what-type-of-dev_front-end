@@ -32,6 +32,10 @@ const ChartSearch: React.FC = () => {
     setAge(event.target.value);
   };
 
+  if (isError) {
+    return <div>{errorMessage}</div>;
+  }
+
   return (
     <Container>
       <Wrapper>
@@ -124,7 +128,7 @@ const FilterSelect = styled.select`
 
   &:hover {
     border: 1px solid #3396f4;
-    box-shadow: inset 0 0 0 1px#3396f4;
+    box-shadow: inset 0 0 0 1px #3396f4;
   }
   &:focus {
     border: 1px solid #3396f4;

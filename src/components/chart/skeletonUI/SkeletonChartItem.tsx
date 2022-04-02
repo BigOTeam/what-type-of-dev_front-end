@@ -5,7 +5,7 @@ import Skeleton from '@mui/material/Skeleton';
 const SkeletonChartItem: React.FC = () => {
   return (
     <Wrapper>
-      <SkeletonItem animation="wave" />
+      <SkeletonItem variant="rectangular" animation="wave" />
     </Wrapper>
   );
 };
@@ -30,7 +30,6 @@ const Wrapper = styled.div`
 `;
 
 const SkeletonItem = styled(Skeleton)`
-  variant="rectangular";
   width: 60%;
   height: 100%;
 

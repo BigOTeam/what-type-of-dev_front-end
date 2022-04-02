@@ -7,52 +7,29 @@ const SkeletonChartSection: React.FC = () => {
     <BodyContainer>
       <BodyWrapper>
         <Section>
-          <Title />
-          <ContentInfo>
-            <ContentInfoItem>
-              <ContentTitle animation="wave" />
-              <ContentItem animation="wave" />
-            </ContentInfoItem>
-            <ContentInfoItem>
-              <ContentTitle animation="wave" />
-              <ContentItem animation="wave" />
-            </ContentInfoItem>
-          </ContentInfo>
-          <ContentInfo>
-            <ContentInfoItem>
-              <ContentTitle animation="wave" />
-              <ContentItem animation="wave" />
-            </ContentInfoItem>
-            <ContentInfoItem>
-              <ContentTitle animation="wave" />
-              <ContentItem animation="wave" />
-            </ContentInfoItem>
-          </ContentInfo>
-          <ContentInfo>
-            <ContentInfoItem>
-              <ContentTitle animation="wave" />
-              <ContentItem animation="wave" />
-            </ContentInfoItem>
-            <ContentInfoItem>
-              <ContentTitle animation="wave" />
-              <ContentItem animation="wave" />
-            </ContentInfoItem>
-          </ContentInfo>
-          <ContentInfo>
-            <ContentInfoItem>
-              <ContentTitle animation="wave" />
-              <ContentItem animation="wave" />
-            </ContentInfoItem>
-            <ContentInfoItem>
-              <ContentTitle animation="wave" />
-              <ContentItem animation="wave" />
-            </ContentInfoItem>
-          </ContentInfo>
+          <Title variant="rectangular" />
+          <ContentBox />
+          <ContentBox />
+          <ContentBox />
+          <ContentBox />
         </Section>
       </BodyWrapper>
     </BodyContainer>
   );
 };
+
+const ContentBox: React.FC = () => (
+  <ContentInfo>
+    <ContentInfoItem>
+      <ContentTitle variant="rectangular" animation="wave" />
+      <ContentItem variant="rectangular" animation="wave" />
+    </ContentInfoItem>
+    <ContentInfoItem>
+      <ContentTitle variant="rectangular" animation="wave" />
+      <ContentItem variant="rectangular" animation="wave" />
+    </ContentInfoItem>
+  </ContentInfo>
+);
 
 const BodyContainer = styled.div`
   margin-top: 28px;
@@ -107,7 +84,6 @@ const ContentInfo = styled.ul`
 `;
 
 const Title = styled(Skeleton)`
-  variant="rectangular";
   width: 150px;
   height: 100px;
 
@@ -134,7 +110,6 @@ const ContentInfoItem = styled.li`
 `;
 
 const ContentTitle = styled(Skeleton)`
-  variant="rectangular";
   width: 200px;
   height: 100px;
 
@@ -146,7 +121,6 @@ const ContentTitle = styled(Skeleton)`
 `;
 
 const ContentItem = styled(Skeleton)`
-  variant="rectangular";
   width: 100%;
   height: 200px;
 

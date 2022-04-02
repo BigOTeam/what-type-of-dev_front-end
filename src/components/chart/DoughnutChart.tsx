@@ -101,8 +101,6 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
   );
 };
 
-export default DoughnutChart;
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -117,3 +115,5 @@ const Container = styled.div`
     margin: 4px 0px;
   }
 `;
+
+export default DoughnutChart;

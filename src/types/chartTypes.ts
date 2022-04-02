@@ -45,6 +45,8 @@ export interface ChartInfoType {
   countPercent: number[];
 }
 
+type FontWeightType = 'bold' | 'normal' | 'bolder' | 'lighter';
+
 export interface DoughnutChartOption {
   responsive: boolean;
   maintainAspectRatio: boolean;
@@ -55,7 +57,7 @@ export interface DoughnutChartOption {
         value: {
           font: {
             family: string;
-            weight: 'bold' | 'normal' | 'bolder' | 'lighter';
+            weight: FontWeightType;
           };
         };
       };
@@ -69,7 +71,7 @@ interface TooltipType {
   bodyColor: string;
   bodyFont: {
     size: number;
-    weight: 'bold' | 'normal' | 'bolder' | 'lighter';
+    weight: FontWeightType;
   };
   padding: Padding;
 }
