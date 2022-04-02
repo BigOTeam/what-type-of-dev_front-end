@@ -95,7 +95,7 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
       <Doughnut
         data={data}
         options={options}
-        style={{ width: 'auto', minHeight: '200px' }}
+        style={{ width: '100%', minHeight: '200px' }}
       />
     </Container>
   );
