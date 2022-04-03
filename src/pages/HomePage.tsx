@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
         headText={'테스트 종합 통계'}
         description={'흥미로운 통계 결과를 확인해보세요.'}
         linkButtonText={'통계 보러가기'}
-        linkUrl={'#'}
+        linkUrl={'/statistics'}
         imgUrl={'/images/common/web_character.png'}
         isReversed={true}
         backgroundColor={'#bcdffb'}

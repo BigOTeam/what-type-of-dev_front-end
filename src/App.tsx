@@ -29,7 +29,6 @@ const App: React.FC = () => {
         <Router>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/surveys" component={SurveyPage} />
           </Switch>
           {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
         </Router>
@@ -37,7 +36,5 @@ const App: React.FC = () => {
     </ErrorBoundary>
   );
 };
-
-const SurveyPage = () => <div>survey</div>;
 
 export default App;
