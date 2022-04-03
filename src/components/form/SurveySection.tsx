@@ -6,12 +6,12 @@ import { axiosInstance } from '../../utils/axios';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import FormItem from './FormItem';
+import SurveyItem from './SurveyItem';
 import { SurveyResponseType } from '../../types/formType';
-import FormButtonItem from './FormButtonItem';
+import SurveyButtonItem from './SurveyButtonItem';
 
-const FormSection: React.FC = () => {
-  const [formData, setFormData] = useState<SurveyResponseType>();
+const SurveySection: React.FC = () => {
+  const [surveyData, serSurveyData] = useState<SurveyResponseType>();
   const [isDeveloper, setIsDeveloper] = useState<boolean | null>(null);
   const [nextPageNumber, setNextPageNumber] = useState<number>(1);
 
@@ -22,7 +22,7 @@ const FormSection: React.FC = () => {
     };
 
     axiosInstance.get(`/surveys`, { params }).then((response) => {
-      setFormData(response.data);
+      serSurveyData(response.data);
     });
   }, [isDeveloper, nextPageNumber]);
 
@@ -46,19 +46,19 @@ const FormSection: React.FC = () => {
     <Container>
       <Wrapper>
         <MainImage
-          src={formData?.pageImageUrl}
-          alt={formData?.pageDescription}
+          src={surveyData?.pageImageUrl}
+          alt={surveyData?.pageDescription}
         />
-        <MainQuestion>💖🧡💛 {formData?.pageDescription} 💚💙💜</MainQuestion>
+        <MainQuestion>💖🧡💛 {surveyData?.pageDescription} 💚💙💜</MainQuestion>
         {nextPageNumber === 1 ? (
-          <FormButtonItem
-            surveyList={formData?.survey}
+          <SurveyButtonItem
+            surveyList={surveyData?.survey}
             handleClickYes={handleClickYes}
             handleClickNo={handleClickNo}
           />
         ) : (
           <>
-            <FormItem surveyList={formData?.survey} />
+            <SurveyItem surveyList={surveyData?.survey} />
             <ButtonSection>
               <NextButton onClick={onClickNextButton}>다음</NextButton>
             </ButtonSection>
@@ -124,4 +124,4 @@ const NextButton = styled.button`
   cursor: pointer;
 `;
 
-export default FormSection;
+export default SurveySection;

@@ -10,7 +10,7 @@ interface FormItemProps {
   handleClickNo: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const FormButtonItem: React.FC<FormItemProps> = ({
+const SurveyButtonItem: React.FC<FormItemProps> = ({
   surveyList,
   handleClickYes,
   handleClickNo,
@@ -80,4 +80,4 @@ const QuestionButton = styled.button`
   }
 `;
 
-export default FormButtonItem;
+export default SurveyButtonItem;

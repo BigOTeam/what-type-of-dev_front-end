@@ -15,7 +15,7 @@ interface FormItemProps {
   surveyList: Survey[] | undefined;
 }
 
-const FormItem: React.FC<FormItemProps> = ({ surveyList }) => {
+const SurveyItem: React.FC<FormItemProps> = ({ surveyList }) => {
   return (
     <Container>
       <Wrapper>
@@ -75,4 +75,4 @@ const QuestionWrapper = css`
   box-sizing: border-box;
 `;
 
-export default FormItem;
+export default SurveyItem;
