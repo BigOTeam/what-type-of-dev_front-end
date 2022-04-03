@@ -1,8 +1,4 @@
-export interface FormResponseData {
-  pageData: SurveyInfo;
-}
-
-export interface SurveyInfo {
+export interface SurveyResponseType {
   pageNo: number;
   pageName: string;
   pageDescription: string;

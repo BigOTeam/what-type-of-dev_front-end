@@ -7,11 +7,11 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import FormItem from './FormItem';
-import { FormResponseData } from '../../types/formType';
+import { SurveyResponseType } from '../../types/formType';
 import FormButtonItem from './FormButtonItem';
 
 const FormSection: React.FC = () => {
-  const [formData, setFormData] = useState<FormResponseData>();
+  const [formData, setFormData] = useState<SurveyResponseType>();
   const [isDeveloper, setIsDeveloper] = useState<boolean | null>(null);
   const [nextPageNumber, setNextPageNumber] = useState<number>(1);
 
@@ -21,7 +21,7 @@ const FormSection: React.FC = () => {
       isDeveloper: isDeveloper,
     };
 
-    axiosInstance.get(`/dev-form`, { params }).then((response) => {
+    axiosInstance.get(`/surveys`, { params }).then((response) => {
       setFormData(response.data);
     });
   }, [isDeveloper, nextPageNumber]);
@@ -46,21 +46,19 @@ const FormSection: React.FC = () => {
     <Container>
       <Wrapper>
         <MainImage
-          src={formData?.pageData.pageImageUrl}
-          alt={formData?.pageData.pageDescription}
+          src={formData?.pageImageUrl}
+          alt={formData?.pageDescription}
         />
-        <MainQuestion>
-          💖🧡💛 {formData?.pageData.pageDescription} 💚💙💜
-        </MainQuestion>
+        <MainQuestion>💖🧡💛 {formData?.pageDescription} 💚💙💜</MainQuestion>
         {nextPageNumber === 1 ? (
           <FormButtonItem
-            surveyList={formData?.pageData.survey}
+            surveyList={formData?.survey}
             handleClickYes={handleClickYes}
             handleClickNo={handleClickNo}
           />
         ) : (
           <>
-            <FormItem surveyList={formData?.pageData.survey} />
+            <FormItem surveyList={formData?.survey} />
             <ButtonSection>
               <NextButton onClick={onClickNextButton}>다음</NextButton>
             </ButtonSection>

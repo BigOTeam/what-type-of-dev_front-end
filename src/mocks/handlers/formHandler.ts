@@ -9,7 +9,7 @@ import {
 
 export const formHandler = [
   rest.get(
-    `${process.env.REACT_APP_SERVER_URL}/dev-form`,
+    `${process.env.REACT_APP_SERVER_URL}/surveys`,
     async (request, response, context) => {
       const pageNo = request.url.searchParams.get('pageNo');
       const isDeveloper = request.url.searchParams.get('isDeveloper');
