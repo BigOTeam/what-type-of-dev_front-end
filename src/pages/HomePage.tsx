@@ -14,9 +14,10 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     const getResponseUserCount = async () => {
-      const count = await surveyService.getNumberOfParticipants();
+      const newResponseUserCount =
+        await surveyService.getNumberOfParticipants();
 
-      setResponseUserCount(count);
+      setResponseUserCount(newResponseUserCount);
     };
 
     getResponseUserCount();
