@@ -1,7 +1,6 @@
 import { useEffect, Suspense, lazy } from 'react';
 
-import { Switch, Route } from 'react-router-dom';
-import { ConnectedRouter as Router } from 'connected-react-router';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { ErrorBoundary } from 'react-error-boundary';
 
@@ -11,8 +10,6 @@ import { Global } from '@emotion/react';
 
 import resetStyles from './styles/resetStyles';
 import commonStyles from './styles/commonStyles';
-
-import history from './history';
 
 import LoadingCircular from './components/common/LoadingCircular';
 
@@ -29,9 +26,10 @@ const App: React.FC = () => {
       <Global styles={resetStyles} />
       <Global styles={commonStyles} />
       <Suspense fallback={<LoadingCircular />}>
-        <Router history={history}>
+        <Router>
           <Switch>
             <Route exact path="/" component={HomePage} />
+            <Route exact path="/surveys" component={SurveyPage} />
           </Switch>
           {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
         </Router>
@@ -39,5 +37,7 @@ const App: React.FC = () => {
     </ErrorBoundary>
   );
 };
+
+const SurveyPage = () => <div>survey</div>;
 
 export default App;

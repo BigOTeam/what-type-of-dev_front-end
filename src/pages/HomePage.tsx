@@ -29,7 +29,7 @@ const HomePage: React.FC = () => {
         headText={'당신이 개발자라면?'}
         description={`누적 테스트 응답자 수 ${responseUserCount}명`}
         linkButtonText={'테스트 시작'}
-        linkUrl={'#'}
+        linkUrl={'/surveys'}
         imgUrl={'/images/common/self-introduction_character.png'}
         isReversed={false}
         backgroundColor={'#e8f4fd'}
