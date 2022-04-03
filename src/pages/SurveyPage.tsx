@@ -1,5 +1,5 @@
-import ProgressHeader from '../components/form/ProgressHeader';
-import SurveySection from '../components/form/SurveySection';
+import ProgressHeader from '../components/survey/ProgressHeader';
+import SurveySection from '../components/survey/SurveySection';
 
 const SurveyPage: React.FC = () => {
   return (

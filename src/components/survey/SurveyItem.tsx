@@ -8,7 +8,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-import { Survey } from '../../types/formType';
+import { Survey } from '../../types/SurveyType';
 import CustomFormControlLabel from './CustomFormControlLabel';
 
 interface FormItemProps {

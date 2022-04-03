@@ -2,7 +2,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { Survey } from '../../types/formType';
+import { Survey } from '../../types/SurveyType';
 
 interface FormItemProps {
   surveyList: Survey[] | undefined;

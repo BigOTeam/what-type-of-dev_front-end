@@ -7,7 +7,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import SurveyItem from './SurveyItem';
-import { SurveyResponseType } from '../../types/formType';
+import { SurveyResponseType } from '../../types/SurveyType';
 import SurveyButtonItem from './SurveyButtonItem';
 
 const SurveySection: React.FC = () => {

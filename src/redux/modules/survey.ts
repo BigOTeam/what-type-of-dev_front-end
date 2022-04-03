@@ -1,4 +1,4 @@
-import { SurveyResultRequestType, SurveyResult } from '../../types/formType';
+import { SurveyResultRequestType, SurveyResult } from '../../types/SurveyType';
 
 const initialState: SurveyResultRequestType = {
   surveyResult: [],
