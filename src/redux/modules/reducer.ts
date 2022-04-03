@@ -16,7 +16,7 @@ const persistConfig = {
 };
 
 const reducer = combineReducers({
-  form: survey,
+  survey,
   router: connectRouter(history),
 });
 

@@ -4,13 +4,13 @@ import styled from '@emotion/styled';
 
 import { Survey } from '../../types/SurveyType';
 
-interface FormItemProps {
+interface SurveyItemProps {
   surveyList: Survey[] | undefined;
   handleClickYes: React.MouseEventHandler<HTMLButtonElement>;
   handleClickNo: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const SurveyButtonItem: React.FC<FormItemProps> = ({
+const SurveyButtonItem: React.FC<SurveyItemProps> = ({
   surveyList,
   handleClickYes,
   handleClickNo,

@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { surveyUpdate } from '../../redux/modules/survey';
 
 import { axiosInstance } from '../../utils/axios';
 
@@ -11,6 +14,8 @@ import { SurveyResponseType } from '../../types/SurveyType';
 import SurveyButtonItem from './SurveyButtonItem';
 
 const SurveySection: React.FC = () => {
+  const dispatch = useDispatch();
+
   const [surveyData, serSurveyData] = useState<SurveyResponseType>();
   const [isDeveloper, setIsDeveloper] = useState<boolean | null>(null);
   const [nextPageNumber, setNextPageNumber] = useState<number>(1);
@@ -26,14 +31,25 @@ const SurveySection: React.FC = () => {
     });
   }, [isDeveloper, nextPageNumber]);
 
-  // handleYesButtonClick
   const handleClickYes = () => {
     setIsDeveloper(true);
+    dispatch(
+      surveyUpdate({
+        questionInitial: 'aboutme_dev',
+        answerSeq: 1,
+      }),
+    );
     onClickNextButton();
   };
 
   const handleClickNo = () => {
     setIsDeveloper(false);
+    dispatch(
+      surveyUpdate({
+        questionInitial: 'aboutme_dev',
+        answerSeq: 2,
+      }),
+    );
     onClickNextButton();
   };
 

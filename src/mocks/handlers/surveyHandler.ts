@@ -5,9 +5,9 @@ import {
   formData2,
   formData3,
   formData4,
-} from '../database/formData';
+} from '../database/surveyData';
 
-export const formHandler = [
+export const surveyHandler = [
   rest.get(
     `${process.env.REACT_APP_SERVER_URL}/surveys`,
     async (request, response, context) => {
