@@ -3,8 +3,6 @@ import { useDispatch } from 'react-redux';
 
 import { surveyUpdate } from '../../redux/modules/survey';
 
-import { axiosInstance } from '../../utils/axios';
-
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -12,6 +10,8 @@ import styled from '@emotion/styled';
 import SurveyItem from './SurveyItem';
 import { SurveyResponseType } from '../../types/SurveyType';
 import SurveyButtonItem from './SurveyButtonItem';
+import SurveyService from '../../services/SurveyService';
+import ProgressHeader from './ProgressHeader';
 
 const SurveySection: React.FC = () => {
   const dispatch = useDispatch();
@@ -26,9 +26,7 @@ const SurveySection: React.FC = () => {
       isDeveloper: isDeveloper,
     };
 
-    axiosInstance.get(`/surveys`, { params }).then((response) => {
-      serSurveyData(response.data);
-    });
+    SurveyService.getSurvey(params).then((response) => serSurveyData(response));
   }, [isDeveloper, nextPageNumber]);
 
   const handleClickYes = () => {
@@ -61,6 +59,7 @@ const SurveySection: React.FC = () => {
   return (
     <Container>
       <Wrapper>
+        <ProgressHeader pageNo={nextPageNumber} />
         <MainImage
           src={surveyData?.pageImageUrl}
           alt={surveyData?.pageDescription}
