@@ -32,10 +32,6 @@ const ChartSearch: React.FC = () => {
     setAge(event.target.value);
   };
 
-  if (isError) {
-    return <div>{errorMessage}</div>;
-  }
-
   return (
     <Container>
       <Wrapper>
@@ -61,8 +57,14 @@ const ChartSearch: React.FC = () => {
           <SkeletonChartItem />
         ) : (
           <ChartWrapper>
-            {!data ? (
-              <>일치하는 데이터가 없습니다</>
+            {isError ? (
+              <ErrorMessage>
+                {errorMessage}. 다른 조건으로 검색해주세요.
+              </ErrorMessage>
+            ) : !data ? (
+              <ErrorMessage>
+                일치하는 데이터가 없습니다. 다른 조건으로 검색해주세요.
+              </ErrorMessage>
             ) : (
               <ChartItem>
                 <BarChart
@@ -120,8 +122,6 @@ const FilterSelect = styled.select`
   line-height: 1.6;
   color: ${FONT_COLOR};
   appearance: none;
-  // transition: color 0.08s ease-in-out, background-color 0.08s ease-in-out,
-  //   border-color 0.08s ease-in-out, box-shadow 0.08s ease-in-out;
   cursor: pointer;
 
   &:hover {
@@ -152,6 +152,11 @@ const ChartWrapper = styled.div`
   padding: 40px 0;
   border-radius: 25px;
   border: 1px solid #d7e2eb;
+`;
+
+const ErrorMessage = styled.span`
+  width: 80%;
+  text-align: center;
 `;
 
 const ChartItem = styled.div`
