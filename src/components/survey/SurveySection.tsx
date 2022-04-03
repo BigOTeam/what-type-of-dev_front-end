@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { surveyUpdate } from '../../redux/modules/survey';
 
@@ -8,17 +8,25 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import SurveyItem from './SurveyItem';
-import { SurveyResponseType } from '../../types/SurveyType';
+import {
+  RootState,
+  SurveyResponseType,
+  SurveyResult,
+} from '../../types/SurveyType';
 import SurveyButtonItem from './SurveyButtonItem';
 import SurveyService from '../../services/SurveyService';
 import ProgressHeader from './ProgressHeader';
 
 const SurveySection: React.FC = () => {
+  const surveyResult = useSelector<RootState, SurveyResult[] | null>(
+    (state) => state.survey.surveyResult,
+  );
   const dispatch = useDispatch();
 
   const [surveyData, serSurveyData] = useState<SurveyResponseType>();
   const [isDeveloper, setIsDeveloper] = useState<boolean | null>(null);
   const [nextPageNumber, setNextPageNumber] = useState<number>(1);
+  const [nextButtonText, setNextButtonText] = useState<string>('다음');
 
   useEffect(() => {
     const params = {
@@ -28,6 +36,12 @@ const SurveySection: React.FC = () => {
 
     SurveyService.getSurvey(params).then((response) => serSurveyData(response));
   }, [isDeveloper, nextPageNumber]);
+
+  useEffect(() => {
+    if (nextPageNumber === 8) {
+      setNextButtonText('결과보기');
+    }
+  }, [nextPageNumber]);
 
   const handleClickYes = () => {
     setIsDeveloper(true);
@@ -52,8 +66,12 @@ const SurveySection: React.FC = () => {
   };
 
   const onClickNextButton = () => {
-    setNextPageNumber((prevNumber) => prevNumber + 1);
-    window.scrollTo({ top: 0 });
+    if (nextPageNumber === 8) {
+      SurveyService.sendSurvey({ surveyResult: surveyResult });
+    } else {
+      setNextPageNumber((prevNumber) => prevNumber + 1);
+      window.scrollTo({ top: 0 });
+    }
   };
 
   return (
@@ -75,7 +93,9 @@ const SurveySection: React.FC = () => {
           <>
             <SurveyItem surveyList={surveyData?.survey} />
             <ButtonSection>
-              <NextButton onClick={onClickNextButton}>다음</NextButton>
+              <NextButton onClick={onClickNextButton}>
+                {nextButtonText}
+              </NextButton>
             </ButtonSection>
           </>
         )}
