@@ -42,31 +42,23 @@ const Card = styled.li`
   }
 `;
 
-// 세부 목차의 소제목
 const Title = styled.h2`
   margin-bottom: 24px;
   font-size: 32px;
   font-weight: 700;
 
   @media (max-width: 767px) {
-    margin: 40px 0px 16px;
+    margin: 40px 0 16px;
     font-size: 28px;
   }
   @media (max-width: 575px) {
-    margin: 32px 0px 16px;
+    margin-top: 32px;
     font-size: 24px;
   }
 `;
 
-// 세부 목차 내용 리스트
-const NavList = styled.ul`
-  @media (max-width: 767px) {
-  }
-  @media (max-width: 575px) {
-  }
-`;
+const NavList = styled.ul``;
 
-// 세부 목차 내용 하나
 const NavItem = styled.li`
   margin-top: 10px;
   font-size: 16px;

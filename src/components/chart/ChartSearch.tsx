@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 import styled from '@emotion/styled';
 
-import useChartSearchList from '../../hooks/useChartSearchList';
-
 import { GENDER_LIST, AGE_LIST } from '../../data/chartSearchData';
+
+import useChartSearchList from '../../hooks/useChartSearchList';
 
 import BarChart from './BarChart';
 import SkeletonChartItem from './skeletonUI/SkeletonChartItem';
@@ -80,8 +80,6 @@ const ChartSearch: React.FC = () => {
   );
 };
 
-export default ChartSearch;
-
 const Container = styled.section`
   max-width: 900px;
   margin: 40px auto 24px;
@@ -97,7 +95,7 @@ const FilterList = styled.div`
   margin-bottom: 8px;
 
   @media (max-width: 575px) {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     flex-direction: column;
     align-items: center;
   }
@@ -106,7 +104,7 @@ const FilterList = styled.div`
 const FilterSelect = styled.select`
   width: 100%;
   height: 42px;
-  margin: 0px 4px;
+  margin: 0 4px;
   padding: 0 14px;
   border: 1px solid #d7e2eb;
   border-radius: 4px;
@@ -151,7 +149,7 @@ const ChartWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  padding: 40px 0px;
+  padding: 40px 0;
   border-radius: 25px;
   border: 1px solid #d7e2eb;
 `;
@@ -166,3 +164,5 @@ const ChartItem = styled.div`
     width: 95%;
   }
 `;
+
+export default ChartSearch;

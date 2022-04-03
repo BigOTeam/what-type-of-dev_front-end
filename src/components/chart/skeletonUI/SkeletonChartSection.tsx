@@ -33,22 +33,13 @@ const ContentBox: React.FC = () => (
 
 const BodyContainer = styled.div`
   margin-top: 28px;
-  padding: 0px 16px;
-
-  @media (max-width: 767px) {
-  }
-  @media (max-width: 575px) {
-  }
+  padding: 0 16px;
 `;
 
 const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
-
-  @media (max-width: 767px) {
-  }
 `;
 
 const Section = styled.section`
@@ -57,7 +48,7 @@ const Section = styled.section`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  margin: 0px 16px;
+  margin: 0 16px;
   color: #263747;
 
   @media (max-width: 767px) {
@@ -77,7 +68,7 @@ const ContentInfo = styled.ul`
   @media (max-width: 767px) {
     display: block;
     width: 100%;
-    margin-top: 0px;
+    margin-top: 0;
   }
   @media (max-width: 575px) {
   }
@@ -97,7 +88,7 @@ const Title = styled(Skeleton)`
 const ContentInfoItem = styled.li`
   width: calc(50% - 72px);
   margin-top: 10px;
-  padding: 16px 32px 0px;
+  padding: 16px 32px 0;
   border-radius: 25px;
   border: 1px solid #d7e2eb;
   background-color: #ffffff;
@@ -123,9 +114,6 @@ const ContentTitle = styled(Skeleton)`
 const ContentItem = styled(Skeleton)`
   width: 100%;
   height: 200px;
-
-  @media (max-width: 767px) {
-  }
 `;
 
 export default SkeletonChartSection;

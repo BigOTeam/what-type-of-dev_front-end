@@ -86,7 +86,7 @@ interface DoughnutChartDataset {
   hoverBorderWidth: number;
 }
 
-type IndexAxisType = 'y' | 'x';
+export type IndexAxisType = 'y' | 'x';
 
 export interface BarChartOption {
   responsive: boolean;
@@ -107,7 +107,7 @@ export interface BarChartOption {
         autoSkip: boolean;
         font: {
           family: string;
-          // weight: 'bold' | 'normal' | 'bolder' | 'lighter';
+          // weight: FontWeightType;
         };
       };
     };
@@ -115,7 +115,7 @@ export interface BarChartOption {
       ticks: {
         font: {
           family: string;
-          // weight: 'bold' | 'normal' | 'bolder' | 'lighter';
+          // weight: FontWeightType;
         };
       };
     };

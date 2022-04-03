@@ -185,7 +185,7 @@ const ContentList = styled.ul`
   width: 100%;
 
   @media (max-width: 767px) {
-    // padding: 0px 24px 48px 24px;
+    // padding: 0 24px 48px 24px;
     flex-direction: column;
     align-items: center;
   }
@@ -198,7 +198,7 @@ const ChartResultWrapper = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 80px 0px 0px;
+  padding: 80px 0 0;
   color: ${FONT_COLOR};
 
   @media (max-width: 767px) {
@@ -216,11 +216,11 @@ const ChartPartWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 80px 0px 0px;
+  padding: 80px 0 0;
 
   @media (max-width: 767px) {
     // width: 100%;
-    padding: 64px 0px 0px;
+    padding: 64px 0 0;
   }
 `;
 
@@ -415,7 +415,7 @@ const ChartCard = styled.li`
 
 // 통계 차트 질문
 const StatisticHead = styled.h2`
-  margin: 24px 0px 16px;
+  margin: 24px 0 16px;
   /* padding-right: 40px; */
   font-size: 20px;
   font-weight: 700;
@@ -427,7 +427,7 @@ const StatisticHead = styled.h2`
     font-size: 18px;
   }
   @media (max-width: 575px) {
-    margin: 8px 0px;
+    margin: 8px 0;
     /* padding-right: 24px; */
   }
 `;
@@ -436,10 +436,10 @@ const StatisticChart = styled.div`
   // min-width: 200px;
 
   @media (max-width: 767px) {
-    // padding: 4px 0px;
+    // padding: 4px 0;
   }
   @media (max-width: 575px) {
-    // margin: 4px 0px;
+    // margin: 4px 0;
   }
 `;
 

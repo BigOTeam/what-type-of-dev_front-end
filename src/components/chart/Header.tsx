@@ -49,12 +49,12 @@ const Wrapper = styled.div`
 `;
 
 const Head = styled.h1`
-  margin: 20px 0px 28px;
+  margin: 20px 0 28px;
   font-size: 52px;
   font-weight: 700;
 
   @media (max-width: 767px) {
-    margin: 20px 0px 24px;
+    margin-bottom: 24px;
     font-size: 44px;
   }
   @media (max-width: 575px) {

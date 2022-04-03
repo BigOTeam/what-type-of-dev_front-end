@@ -11,6 +11,10 @@ import SkeletonHeader from '../components/chart/skeletonUI/SkeletonHeader';
 const ChartPage: React.FC = () => {
   const { isLoading, data, isError, errorMessage } = useChartList();
 
+  if (isError) {
+    return <div>{errorMessage}</div>;
+  }
+
   return (
     <Container>
       <Wrapper>
@@ -43,7 +47,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   max-width: 900px;
-  padding: 0px 16px;
+  padding: 0 16px;
   box-sizing: border-box;
 `;
 

@@ -33,7 +33,7 @@ const TitleWrapper = styled.div`
 `;
 
 const TitleHead = styled.h1`
-  margin: 20px 0px 28px;
+  margin: 20px 0 28px;
   font-size: 52px;
   font-weight: 500;
 

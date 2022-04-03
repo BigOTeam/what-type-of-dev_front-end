@@ -15,7 +15,11 @@ import {
   DoughnutChartData,
   DoughnutChartOption,
 } from '../../types/chartTypes';
-import { CHART_COLOR } from '../../data/chartColorListData';
+
+import {
+  CHART_COLOR,
+  CHART_DEFAULT_STYLE,
+} from '../../data/chartColorListData';
 
 interface ChartResultProps {
   id: number;
@@ -24,16 +28,6 @@ interface ChartResultProps {
 }
 
 ChartJS.register(ArcElement, CategoryScale, Tooltip, Legend, ChartDataLabels);
-
-const CARD_BACKGROUND_COLOR = '#FFFFFF';
-const BODY_FONT_COLOR = '#000000';
-const CHART_FONT = 'Spoqa Han Sans Neo'; // 'sans-serif',
-// const BODY_FONT_WEIGHT = 700;
-const CHART_BODY_FONT_SIZE = 14;
-const CHART_BORDER_COLOR = CHART_COLOR.borderColor;
-const CHART_BORDER_WIDTH = 0;
-const CHART_HOVER_BORDER_WIDTH = 4;
-const TOOLTIP_PADDING_SIZE = 8;
 
 const DoughnutChart: React.FC<ChartResultProps> = ({
   id,
@@ -47,9 +41,9 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
         label: '# of Votes',
         data: chartLabelDataInfo.countPercent,
         backgroundColor: CHART_COLOR.colorList,
-        borderColor: CHART_BORDER_COLOR,
-        borderWidth: CHART_BORDER_WIDTH,
-        hoverBorderWidth: CHART_HOVER_BORDER_WIDTH,
+        borderColor: CHART_DEFAULT_STYLE.border.color,
+        borderWidth: CHART_DEFAULT_STYLE.border.width,
+        hoverBorderWidth: CHART_DEFAULT_STYLE.border.doughnutHoverWidth,
       },
     ],
   };
@@ -60,32 +54,28 @@ const DoughnutChart: React.FC<ChartResultProps> = ({
     plugins: {
       datalabels: {
         formatter: function (value: number, context: Context): string {
-          return (
-            value +
-            '%\n' +
-            context.chart.data.labels?.slice(
-              context.dataIndex,
-              context.dataIndex + 1,
-            )
-          );
+          return `${value}%\n${context.chart.data.labels?.slice(
+            context.dataIndex,
+            context.dataIndex + 1,
+          )}`;
         },
         labels: {
           value: {
             font: {
-              family: CHART_FONT,
+              family: CHART_DEFAULT_STYLE.font.family,
               weight: 'bold',
             },
           },
         },
       },
       tooltip: {
-        backgroundColor: CARD_BACKGROUND_COLOR,
-        bodyColor: BODY_FONT_COLOR,
+        backgroundColor: CHART_DEFAULT_STYLE.cardColor,
+        bodyColor: CHART_DEFAULT_STYLE.font.color,
         bodyFont: {
-          size: CHART_BODY_FONT_SIZE,
+          size: CHART_DEFAULT_STYLE.font.size,
           weight: 'bold',
         },
-        padding: TOOLTIP_PADDING_SIZE,
+        padding: CHART_DEFAULT_STYLE.tooltip.paddingSize,
       },
     },
   };
@@ -109,10 +99,10 @@ const Container = styled.div`
   box-sizing: border-box;
 
   @media (max-width: 767px) {
-    padding: 4px 0px;
+    padding: 4px 0;
   }
   @media (max-width: 575px) {
-    margin: 4px 0px;
+    margin: 4px 0;
   }
 `;
 
