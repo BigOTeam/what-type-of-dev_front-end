@@ -11,7 +11,7 @@ import SkeletonChartItem from './skeletonUI/SkeletonChartItem';
 
 const FONT_COLOR = '#45494b';
 
-const ChartSearch: React.FC = () => {
+const ChartFilteredSection: React.FC = () => {
   const [gender, setGender] = useState<string>('all');
   const [age, setAge] = useState<string>('all');
 
@@ -170,4 +170,4 @@ const ChartItem = styled.div`
   }
 `;
 
-export default ChartSearch;
+export default ChartFilteredSection;

@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import useChartList from '../hooks/useChartList';
 
 import Header from '../components/chart/Header';
-import ChartResult from '../components/chart/ChartResult';
-import ChartSearch from '../components/chart/ChartSearch';
+import ChartResultSection from '../components/chart/ChartResultSection';
+import ChartFilteredSection from '../components/chart/ChartFilteredSection';
 import SkeletonChartSection from '../components/chart/skeletonUI/SkeletonChartSection';
 import SkeletonHeader from '../components/chart/skeletonUI/SkeletonHeader';
 
@@ -23,11 +23,11 @@ const ChartPage: React.FC = () => {
         ) : (
           <Header headerData={data.header} />
         )}
-        <ChartSearch />
+        <ChartFilteredSection />
         {isLoading || !data ? (
           <SkeletonChartSection />
         ) : (
-          <ChartResult
+          <ChartResultSection
             chartData={data.contents}
             userCount={data.header.userCount}
           />
