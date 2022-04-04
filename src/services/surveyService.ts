@@ -5,6 +5,12 @@ import {
 import { axiosInstance } from '../utils/axios';
 
 class SurveyService {
+  public static async getNumberOfParticipants() {
+    const response = await axiosInstance.get('/api/v1/surveys/count');
+
+    return response.data.responseUserCount;
+  }
+
   public static async getSurvey(params: SurveyRequestType) {
     const response = await axiosInstance.get('/api/v1/surveys', {
       params,
