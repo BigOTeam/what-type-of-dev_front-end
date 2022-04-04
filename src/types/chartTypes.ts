@@ -2,59 +2,46 @@ import { Context } from 'chartjs-plugin-datalabels';
 import { Padding } from 'chartjs-plugin-datalabels/types/options';
 
 export interface ChartDataType {
-  statisticsData: ChartResultType;
+  header: ChartHeaderType;
+  contents: ChartContentsType[];
 }
 
-export interface ChartResultType {
-  statisticTitle: ChartResultTitleType;
-  statisticContents: ChartResultContentsType[];
-  statisticAnalyze: ChartResultAnalyzeType[];
+export interface ChartHeaderType {
+  endDate: string;
+  userCount: number;
+  careerCount: number;
+  newCount: number;
 }
 
-export interface ChartResultTitleType {
-  surveyDate: string;
-  responseUserCount: number;
-  responseCareerCount: number;
-  responseNewCount: number;
-  statisticSummary: string;
-}
-
-export interface ChartResultContentsType {
-  partId: number;
-  title: string;
-  contentsInfo: ChartContentInfoType[];
-}
-
-export interface ChartContentInfoType {
-  questionId: number;
-  question: string;
-}
-
-export interface ChartResultAnalyzeType {
-  partId: number;
-  title: string;
+export interface ChartContentsType {
+  groupId: number;
+  groupName: string;
+  questionInfo: QuestionInfoType[];
   description: string;
   imgUrl: string;
-  statisticsSummary: ChartResultAnalyzeSummaryType[];
-  statisticResult: ChartAnalyzeType[];
+  summaryInfo: string[];
+  result: ChartAnalyzeType[];
 }
 
-export interface ChartResultAnalyzeSummaryType {
-  summaryId: number;
-  summary: string;
+export interface QuestionInfoType {
+  id: number;
+  question: string;
 }
 
 export interface ChartAnalyzeType {
-  statisticId: number;
+  id: number;
   question: string;
   chartType: string;
-  chartInfo: ChartLabelDataType;
+  chartInfoData: ChartInfoType;
 }
 
-export interface ChartLabelDataType {
+export interface ChartInfoType {
   content: string[];
   count: number[];
+  countPercent: number[];
 }
+
+type FontWeightType = 'bold' | 'normal' | 'bolder' | 'lighter';
 
 export interface DoughnutChartOption {
   responsive: boolean;
@@ -66,7 +53,7 @@ export interface DoughnutChartOption {
         value: {
           font: {
             family: string;
-            weight: 'bold' | 'normal' | 'bolder' | 'lighter';
+            weight: FontWeightType;
           };
         };
       };
@@ -80,7 +67,7 @@ interface TooltipType {
   bodyColor: string;
   bodyFont: {
     size: number;
-    weight: 'bold' | 'normal' | 'bolder' | 'lighter';
+    weight: FontWeightType;
   };
   padding: Padding;
 }
@@ -96,17 +83,21 @@ interface DoughnutChartDataset {
   backgroundColor: string[];
   borderColor: string;
   borderWidth: number;
+  hoverBorderWidth: number;
 }
+
+export type IndexAxisType = 'y' | 'x';
 
 export interface BarChartOption {
   responsive: boolean;
-  indexAxis: 'y' | 'x';
+  indexAxis: IndexAxisType;
   plugins: {
     datalabels: {
       display: boolean;
     };
     legend: {
       display: boolean;
+      position: 'bottom';
     };
     tooltip: TooltipType;
   };
@@ -116,7 +107,6 @@ export interface BarChartOption {
         autoSkip: boolean;
         font: {
           family: string;
-          // weight: 'bold' | 'normal' | 'bolder' | 'lighter';
         };
       };
     };
@@ -124,7 +114,6 @@ export interface BarChartOption {
       ticks: {
         font: {
           family: string;
-          // weight: 'bold' | 'normal' | 'bolder' | 'lighter';
         };
       };
     };
@@ -142,18 +131,11 @@ interface BarChartDataset {
   backgroundColor: string;
   borderColor: string;
   borderWidth: number;
+  hoverBorderWidth: number;
 }
 
 export interface ChartFilterType {
   gender: string;
   age: string;
-  statisticFilterData: ChartJobRankListType;
-}
-
-export interface StatisticFilterDataType {
-  statisticFilterData: ChartJobRankListType;
-}
-
-export interface ChartJobRankListType {
-  JobRankData: ChartLabelDataType;
+  chartInfoData: ChartInfoType;
 }

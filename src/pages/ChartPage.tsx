@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import useChartList from '../hooks/useChartList';
 
 import Header from '../components/chart/Header';
-import ChartResult from '../components/chart/ChartResult';
-import ChartSearch from '../components/chart/ChartSearch';
+import ChartResultSection from '../components/chart/ChartResultSection';
+import ChartFilteredSection from '../components/chart/ChartFilteredSection';
 import SkeletonChartSection from '../components/chart/skeletonUI/SkeletonChartSection';
 import SkeletonHeader from '../components/chart/skeletonUI/SkeletonHeader';
 
@@ -12,7 +12,7 @@ const ChartPage: React.FC = () => {
   const { isLoading, data, isError, errorMessage } = useChartList();
 
   if (isError) {
-    console.log(errorMessage);
+    return <div>{errorMessage}</div>;
   }
 
   return (
@@ -21,24 +21,21 @@ const ChartPage: React.FC = () => {
         {isLoading || !data ? (
           <SkeletonHeader />
         ) : (
-          <Header titleData={data.statisticsData.statisticTitle} />
+          <Header headerData={data.header} />
         )}
-        <ChartSearch />
+        <ChartFilteredSection />
         {isLoading || !data ? (
           <SkeletonChartSection />
         ) : (
-          <ChartResult
-            chartContents={data.statisticsData.statisticContents}
-            chartAnalyze={data.statisticsData.statisticAnalyze}
-            userCount={data.statisticsData.statisticTitle.responseUserCount}
+          <ChartResultSection
+            chartData={data.contents}
+            userCount={data.header.userCount}
           />
         )}
       </Wrapper>
     </Container>
   );
 };
-
-export default ChartPage;
 
 const Container = styled.div`
   display: flex;
@@ -50,6 +47,8 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   max-width: 900px;
-  padding: 0px 16px;
+  padding: 0 16px;
   box-sizing: border-box;
 `;
+
+export default ChartPage;

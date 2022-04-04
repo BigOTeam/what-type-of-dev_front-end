@@ -12,16 +12,22 @@ import {
 import { Bar } from 'react-chartjs-2';
 
 import {
-  ChartLabelDataType,
+  ChartInfoType,
   BarChartData,
   BarChartOption,
+  IndexAxisType,
 } from '../../types/chartTypes';
-import { CHART_COLOR } from '../../data/chartColorListData';
+
+import {
+  CHART_COLOR,
+  CHART_DEFAULT_STYLE,
+} from '../../data/chartColorListData';
 
 interface ChartResultProps {
   id: number;
-  indexAxis: 'y' | 'x';
-  chartLabelDataInfo: ChartLabelDataType;
+  indexAxis: IndexAxisType;
+  chartLabelDataInfo: ChartInfoType;
+  labelName: string;
 }
 
 ChartJS.register(
@@ -33,30 +39,24 @@ ChartJS.register(
   Legend,
 );
 
-const CARD_BACKGROUND_COLOR = '#FFFFFF';
-const BODY_FONT_COLOR = '#000000';
-const CHART_FONT = 'Spoqa Han Sans Neo'; // 'sans-serif',
-// const BODY_FONT_WEIGHT = 700;
-const CHART_BODY_FONT_SIZE = 14;
 const CHART_BACKGROUND_COLOR = CHART_COLOR.colorList[2];
-const CHART_BORDER_COLOR = CHART_COLOR.borderColor;
-const CHART_BORDER_WIDTH = 0;
-const TOOLTIP_PADDING_SIZE = 8;
 
 const BarChart: React.FC<ChartResultProps> = ({
   id,
   indexAxis,
   chartLabelDataInfo,
+  labelName,
 }) => {
   const data: BarChartData = {
     labels: chartLabelDataInfo.content,
     datasets: [
       {
-        label: '응답자',
+        label: labelName,
         data: chartLabelDataInfo.count,
         backgroundColor: CHART_BACKGROUND_COLOR,
-        borderColor: CHART_BORDER_COLOR,
-        borderWidth: CHART_BORDER_WIDTH,
+        borderColor: CHART_DEFAULT_STYLE.border.color,
+        borderWidth: CHART_DEFAULT_STYLE.border.width,
+        hoverBorderWidth: CHART_DEFAULT_STYLE.border.barHoverWidth,
       },
     ],
   };
@@ -67,16 +67,17 @@ const BarChart: React.FC<ChartResultProps> = ({
         display: false,
       },
       legend: {
-        display: false,
+        display: true,
+        position: 'bottom',
       },
       tooltip: {
-        backgroundColor: CARD_BACKGROUND_COLOR,
-        bodyColor: BODY_FONT_COLOR,
+        backgroundColor: CHART_DEFAULT_STYLE.cardColor,
+        bodyColor: CHART_DEFAULT_STYLE.font.color,
         bodyFont: {
-          size: CHART_BODY_FONT_SIZE,
+          size: CHART_DEFAULT_STYLE.font.size,
           weight: 'bold',
         },
-        padding: TOOLTIP_PADDING_SIZE,
+        padding: CHART_DEFAULT_STYLE.tooltip.paddingSize,
       },
     },
     scales: {
@@ -84,16 +85,14 @@ const BarChart: React.FC<ChartResultProps> = ({
         ticks: {
           autoSkip: false,
           font: {
-            family: CHART_FONT,
-            // weight: 'bold',
+            family: CHART_DEFAULT_STYLE.font.family,
           },
         },
       },
       x: {
         ticks: {
           font: {
-            family: CHART_FONT,
-            // weight: 'bold',
+            family: CHART_DEFAULT_STYLE.font.family,
           },
         },
       },
@@ -104,17 +103,27 @@ const BarChart: React.FC<ChartResultProps> = ({
 
   return (
     <Container>
-      <Bar options={options} data={data} />
+      <Bar
+        options={options}
+        data={data}
+        style={{ width: '100%', minHeight: '220px' }}
+      />
     </Container>
   );
 };
 
-export default BarChart;
-
 const Container = styled.div`
-  // position: relative;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   @media (max-width: 767px) {
+    padding: 4px 0;
+  }
+  @media (max-width: 575px) {
+    margin: 4px 0;
   }
 `;
+
+export default BarChart;

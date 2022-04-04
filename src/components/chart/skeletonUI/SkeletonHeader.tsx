@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+const FONT_COLOR = '#45494b';
+
 const SkeletonHeader: React.FC = () => {
   return (
     <TitleContainer>
@@ -11,31 +13,30 @@ const SkeletonHeader: React.FC = () => {
 };
 
 const TitleContainer = styled.section`
+  background-color: #e8f4fd;
+  color: ${FONT_COLOR};
   text-align: center;
-  color: #ffffff;
-  background: url(/images/chart/title.png);
-  opacity: 0.55;
 `;
 
 const TitleWrapper = styled.div`
-  padding: 32px 48px 158px;
   opacity: 1;
+  padding: 32px 48px 150px;
 
   @media (max-width: 767px) {
-    padding: 32px 48px 196px;
+    padding-bottom: 196px;
   }
   @media (max-width: 575px) {
-    padding: 32px 48px 140px;
+    padding-bottom: 140px;
   }
 `;
 
 const TitleHead = styled.h1`
-  margin: 20px 0px 28px;
+  margin: 20px 0 28px;
   font-size: 52px;
-  font-weight: bold;
+  font-weight: 500;
 
   @media (max-width: 767px) {
-    margin: 20px 0px 24px;
+    margin-bottom: 24px;
     font-size: 44px;
   }
   @media (max-width: 575px) {

@@ -2,14 +2,16 @@ import { useState } from 'react';
 
 import styled from '@emotion/styled';
 
-import useChartSearchList from '../../hooks/useChartSearchList';
-
 import { GENDER_LIST, AGE_LIST } from '../../data/chartSearchData';
+
+import useChartSearchList from '../../hooks/useChartSearchList';
 
 import BarChart from './BarChart';
 import SkeletonChartItem from './skeletonUI/SkeletonChartItem';
 
-const ChartSearch: React.FC = () => {
+const FONT_COLOR = '#45494b';
+
+const ChartFilteredSection: React.FC = () => {
   const [gender, setGender] = useState<string>('all');
   const [age, setAge] = useState<string>('all');
 
@@ -35,19 +37,19 @@ const ChartSearch: React.FC = () => {
       <Wrapper>
         <FilterList>
           <FilterSelect name="gender" onChange={handleGenderChange}>
-            <option value="all">전체 성별</option>
+            <FilterOption value="all">전체 성별</FilterOption>
             {GENDER_LIST.map((gender) => (
-              <option key={gender.id} value={gender.value}>
+              <FilterOption key={gender.id} value={gender.value}>
                 {gender.name}
-              </option>
+              </FilterOption>
             ))}
           </FilterSelect>
           <FilterSelect name="age" onChange={handleAgeChange}>
-            <option value="all">전체 연령대</option>
+            <FilterOption value="0-100">전체 연령대</FilterOption>
             {AGE_LIST.map((age) => (
-              <option key={age.id} value={age.value}>
+              <FilterOption key={age.id} value={age.value}>
                 {age.name}
-              </option>
+              </FilterOption>
             ))}
           </FilterSelect>
         </FilterList>
@@ -55,11 +57,22 @@ const ChartSearch: React.FC = () => {
           <SkeletonChartItem />
         ) : (
           <ChartWrapper>
-            {!data ? (
-              <div>일치하는 데이터가 없습니다</div>
+            {isError ? (
+              <ErrorMessage>
+                {errorMessage}. 다른 조건으로 검색해주세요.
+              </ErrorMessage>
+            ) : !data ? (
+              <ErrorMessage>
+                일치하는 데이터가 없습니다. 다른 조건으로 검색해주세요.
+              </ErrorMessage>
             ) : (
               <ChartItem>
-                <BarChart id={1} indexAxis="y" chartLabelDataInfo={data} />
+                <BarChart
+                  id={1}
+                  indexAxis="y"
+                  chartLabelDataInfo={data}
+                  labelName="현업 개발자"
+                />
               </ChartItem>
             )}
           </ChartWrapper>
@@ -68,8 +81,6 @@ const ChartSearch: React.FC = () => {
     </Container>
   );
 };
-
-export default ChartSearch;
 
 const Container = styled.section`
   max-width: 900px;
@@ -86,7 +97,7 @@ const FilterList = styled.div`
   margin-bottom: 8px;
 
   @media (max-width: 575px) {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     flex-direction: column;
     align-items: center;
   }
@@ -95,28 +106,27 @@ const FilterList = styled.div`
 const FilterSelect = styled.select`
   width: 100%;
   height: 42px;
-  margin: 0px 4px;
+  margin: 0 4px;
   padding: 0 14px;
   border: 1px solid #d7e2eb;
   border-radius: 4px;
   box-sizing: border-box;
-  // background-position: calc(100% - 0.8rem) 49%;
-  // background-size: 0.625rem 0.3125rem;
-  // background-color: #fbfbfd;
-  // background-repeat: no-repeat;
+  background-position: calc(100% - 0.8rem) 49%;
+  background-size: 0.625rem 0.3125rem;
+  background-color: #fbfbfd;
+  background-image: url(/images/common/toggle-black.png);
+  background-repeat: no-repeat;
   font-size: 16px;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   font-weight: 400;
   line-height: 1.6;
-  color: #263747;
+  color: ${FONT_COLOR};
   appearance: none;
-  transition: color 0.08s ease-in-out, background-color 0.08s ease-in-out,
-    border-color 0.08s ease-in-out, box-shadow 0.08s ease-in-out;
   cursor: pointer;
 
   &:hover {
     border: 1px solid #3396f4;
-    box-shadow: inset 0 0 0 1px#3396f4;
+    box-shadow: inset 0 0 0 1px #3396f4;
   }
   &:focus {
     border: 1px solid #3396f4;
@@ -133,13 +143,20 @@ const FilterSelect = styled.select`
   }
 `;
 
+const FilterOption = styled.option``;
+
 const ChartWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  padding: 40px 0px;
+  padding: 40px 0;
   border-radius: 25px;
   border: 1px solid #d7e2eb;
+`;
+
+const ErrorMessage = styled.span`
+  width: 80%;
+  text-align: center;
 `;
 
 const ChartItem = styled.div`
@@ -152,3 +169,5 @@ const ChartItem = styled.div`
     width: 95%;
   }
 `;
+
+export default ChartFilteredSection;

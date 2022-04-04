@@ -1,27 +1,26 @@
 import styled from '@emotion/styled';
 
-import { ChartResultContentsType } from '../../types/chartTypes';
+import { QuestionInfoType } from '../../types/chartTypes';
 
 interface ContentItemProps {
-  contentData: ChartResultContentsType;
+  groupId: number;
+  groupName: string;
+  questionInfo: QuestionInfoType[];
 }
 
-const ContentItem: React.FC<ContentItemProps> = ({ contentData }) => {
+const ContentItem: React.FC<ContentItemProps> = ({
+  groupId,
+  groupName,
+  questionInfo,
+}) => {
   return (
-    <Card key={contentData.partId}>
-      <Title>{contentData.title}</Title>
+    <Card key={groupId}>
+      <Title>{groupName}</Title>
       <NavList>
-        {contentData.contentsInfo.map((contentInfo) => (
-          <NavItem key={contentInfo.questionId}>
-            <NavLink
-              href={
-                '#' +
-                String(contentData.partId) +
-                '-' +
-                String(contentInfo.questionId)
-              }
-            >
-              {contentInfo.question}
+        {questionInfo.map((question) => (
+          <NavItem key={question.id}>
+            <NavLink href={'#' + String(groupId) + '-' + String(question.id)}>
+              {question.question}
             </NavLink>
           </NavItem>
         ))}
@@ -43,40 +42,33 @@ const Card = styled.li`
   }
 `;
 
-// 세부 목차의 소제목
 const Title = styled.h2`
   margin-bottom: 24px;
   font-size: 32px;
   font-weight: 700;
 
   @media (max-width: 767px) {
-    margin: 40px 0px 16px;
+    margin: 40px 0 16px;
     font-size: 28px;
   }
   @media (max-width: 575px) {
-    margin: 32px 0px 16px;
+    margin-top: 32px;
     font-size: 24px;
   }
 `;
 
-// 세부 목차 내용 리스트
-const NavList = styled.ul`
-  @media (max-width: 767px) {
-  }
-  @media (max-width: 575px) {
-  }
-`;
+const NavList = styled.ul``;
 
-// 세부 목차 내용 하나
 const NavItem = styled.li`
   margin-top: 10px;
+  padding-left: 3px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
   letter-spacing: -0.009em;
   list-style: none;
 
-  &::before {
+  &::marker {
     content: '\\2022';
     font-size: 20px;
     text-align: left;
