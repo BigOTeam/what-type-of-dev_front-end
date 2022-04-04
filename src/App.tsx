@@ -13,6 +13,9 @@ import commonStyles from './styles/commonStyles';
 
 import LoadingCircular from './components/common/LoadingCircular';
 
+import ChartPage from './pages/ChartPage';
+import FormPage from './pages/FormPage';
+
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 const HomePage = lazy(() => import('./pages/HomePage'));
 
@@ -29,6 +32,8 @@ const App: React.FC = () => {
         <Router>
           <Switch>
             <Route exact path="/" component={HomePage} />
+            <Route exact path="/statistics" component={ChartPage} />
+            <Route exact path="/form" component={FormPage} />
           </Switch>
           {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
         </Router>

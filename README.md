@@ -195,9 +195,9 @@
 
 ### 설문 폼 캐릭터
 
-| <img src="readme_assets/1_자기소개.png" alt="캐릭터 디자인" width="150px" height="150px"/> |  <img src="readme_assets/2_개발관련.png" alt="캐릭터 디자인" width="150px" height="150px"/>  | <img src="readme_assets/3_도덕성.png" alt="캐릭터 디자인" width="150px" height="150px"/> | <img src="readme_assets/4_관계.png" alt="캐릭터 디자인" width="150px" height="150px"/> |
-| :----------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: |
-|   <img src="readme_assets/5_성공.png" alt="캐릭터 디자인" width="150px" height="150px"/>   | <img src="readme_assets/6_삶의만족도.png" alt="캐릭터 디자인" width="150px" height="150px"/> |  <img src="readme_assets/7_도전.png" alt="캐릭터 디자인" width="150px" height="150px"/>  |                                                                                        |
+| <img src="readme_assets/1_self-introduction.png" alt="캐릭터 디자인" width="150px" height="150px"/> | <img src="readme_assets/2_development.png" alt="캐릭터 디자인" width="150px" height="150px"/>  | <img src="readme_assets/3_morality.png" alt="캐릭터 디자인" width="150px" height="150px"/>  | <img src="readme_assets/4_relationship.png" alt="캐릭터 디자인" width="150px" height="150px"/> |
+| :-------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: |
+|      <img src="readme_assets/5_success.png" alt="캐릭터 디자인" width="150px" height="150px"/>      | <img src="readme_assets/6_satisfaction.png" alt="캐릭터 디자인" width="150px" height="150px"/> | <img src="readme_assets/7_challenge.png" alt="캐릭터 디자인" width="150px" height="150px"/> |                                                                                                |
 
 ### 설문 결과 캐릭터
 
