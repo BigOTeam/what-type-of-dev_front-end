@@ -36,8 +36,7 @@ const Container = styled.section`
 `;
 
 const Wrapper = styled.div`
-  padding: 32px 48px;
-  opacity: 1;
+  padding: 52px 48px 48px;
 
   @media (max-width: 767px) {
     padding: 32px 48px 28px;
@@ -48,12 +47,12 @@ const Wrapper = styled.div`
 `;
 
 const Head = styled.h1`
-  margin: 20px 0 28px;
+  margin-bottom: 36px;
   font-size: 52px;
   font-weight: 700;
 
   @media (max-width: 767px) {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     font-size: 44px;
   }
   @media (max-width: 575px) {
@@ -62,12 +61,12 @@ const Head = styled.h1`
 `;
 
 const Period = styled.h2`
-  padding-top: 8px;
+  margin-bottom: 24px;
   font-size: 24px;
   font-weight: 700;
 
   @media (max-width: 767px) {
-    padding-top: 4px;
+    margin-bottom: 16px;
   }
   @media (max-width: 575px) {
     font-size: 18px;
@@ -75,16 +74,13 @@ const Period = styled.h2`
 `;
 
 const Info = styled.h2`
-  margin: 24px 32px 16px;
+  margin: 0 32px;
   font-size: 18px;
   font-weight: 500;
-  line-height: 150%;
+  line-height: 1.5;
 
-  @media (max-width: 767px) {
-    margin: 24px 20px 16px;
-  }
   @media (max-width: 575px) {
-    margin: 16px 16px 16px;
+    margin: 0 16px;
     font-size: 14px;
   }
 `;

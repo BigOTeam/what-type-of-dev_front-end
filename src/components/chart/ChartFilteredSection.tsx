@@ -116,6 +116,7 @@ const FilterSelect = styled.select`
   background-color: #fbfbfd;
   background-image: url(/images/common/toggle-black.png);
   background-repeat: no-repeat;
+  transition: color 0.08s ease-in-out;
   font-size: 16px;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   font-weight: 400;

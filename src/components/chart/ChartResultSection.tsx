@@ -77,6 +77,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: ${FONT_COLOR};
 
   @media (max-width: 767px) {
     width: 100%;
@@ -90,7 +91,6 @@ const ContentWrapper = styled.section`
   justify-content: center;
   width: 100%;
   padding: 80px 0 0;
-  color: ${FONT_COLOR};
 
   @media (max-width: 767px) {
     padding: 72px 16px 0;
@@ -133,7 +133,6 @@ const ChartWrapper = styled.section`
   justify-content: center;
   width: 100%;
   padding: 20px 0 80px;
-  color: ${FONT_COLOR};
 
   @media (max-width: 767px) {
     padding: 0 16px 72px;
@@ -158,14 +157,15 @@ const ChartGroupWrapper = styled.div`
 
 const GroupHead = styled.h1`
   margin-bottom: 32px;
-  font-size: 56px;
+  font-size: 44px;
   font-weight: 600;
-  color: ${FONT_COLOR};
 
   @media (max-width: 767px) {
-    font-size: 50px;
+    margin-bottom: 20px;
+    font-size: 36px;
   }
   @media (max-width: 575px) {
+    margin-bottom: 16px;
     font-size: 32px;
   }
 `;
