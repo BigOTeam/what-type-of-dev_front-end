@@ -1,5 +1,11 @@
+import ResultSection from '../components/result/ResultSection';
+
 const ResultPage: React.FC = () => {
-  return <></>;
+  return (
+    <>
+      <ResultSection />
+    </>
+  );
 };
 
 export default ResultPage;
