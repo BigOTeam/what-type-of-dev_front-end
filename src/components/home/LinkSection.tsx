@@ -2,21 +2,44 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-const TestStartSection: React.FC = () => {
+interface LinkSectionProps {
+  headText: string;
+  description: string;
+  linkButtonText: string;
+  linkUrl: string;
+  imgUrl: string;
+  isReversed: boolean;
+  backgroundColor: string;
+}
+
+interface ContainerProps {
+  backgroundColor: string;
+}
+
+interface WrapperProps {
+  isReversed: boolean;
+}
+
+const LinkSection: React.FC<LinkSectionProps> = ({
+  headText,
+  description,
+  linkButtonText,
+  linkUrl,
+  imgUrl,
+  isReversed,
+  backgroundColor,
+}) => {
   return (
-    <Container>
-      <Wrapper>
+    <Container backgroundColor={backgroundColor}>
+      <Wrapper isReversed={isReversed}>
         <ImgWrapper>
-          <CharacterImg
-            src="/images/common/self-introduction_character.png"
-            alt="메인 케릭터 이미지"
-          />
+          <CharacterImg src={imgUrl} alt={`${headText} 이미지`} />
         </ImgWrapper>
         <Box>
-          <Head>당신이 개발자라면?</Head>
-          <Description>누적 테스트 응답자 수 50명</Description>
+          <Head>{headText}</Head>
+          <Description>{description}</Description>
           <LinkWrapper>
-            <LinkButton to="#">테스트 시작</LinkButton>
+            <LinkButton to={linkUrl}>{linkButtonText}</LinkButton>
           </LinkWrapper>
         </Box>
       </Wrapper>
@@ -24,9 +47,9 @@ const TestStartSection: React.FC = () => {
   );
 };
 
-const Container = styled.section`
+const Container = styled.section<ContainerProps>`
   padding: 120px 16px;
-  background-color: #e8f4fd;
+  background-color: ${(props) => props.backgroundColor};
   box-sizing: border-box;
 
   @media (max-width: 991px) {
@@ -35,9 +58,10 @@ const Container = styled.section`
   }
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<WrapperProps>`
   overflow: hidden;
   display: flex;
+  flex-direction: ${(props) => (props.isReversed ? 'row-reverse' : 'row')};
   justify-content: space-between;
   max-width: 900px;
   margin: 0 auto;
@@ -138,4 +162,4 @@ const LinkButton = styled(Link)`
   }
 `;
 
-export default TestStartSection;
+export default LinkSection;
