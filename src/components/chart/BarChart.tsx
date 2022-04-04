@@ -86,7 +86,6 @@ const BarChart: React.FC<ChartResultProps> = ({
           autoSkip: false,
           font: {
             family: CHART_DEFAULT_STYLE.font.family,
-            // weight: 'bold',
           },
         },
       },
@@ -94,7 +93,6 @@ const BarChart: React.FC<ChartResultProps> = ({
         ticks: {
           font: {
             family: CHART_DEFAULT_STYLE.font.family,
-            // weight: 'bold',
           },
         },
       },

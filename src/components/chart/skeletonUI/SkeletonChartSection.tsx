@@ -45,8 +45,8 @@ const BodyWrapper = styled.div`
 const Section = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
   width: 100%;
   margin: 0 16px;
   color: #263747;
@@ -61,8 +61,8 @@ const Section = styled.section`
 const ContentInfo = styled.ul`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
 
   @media (max-width: 767px) {

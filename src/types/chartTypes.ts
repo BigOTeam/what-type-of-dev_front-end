@@ -107,7 +107,6 @@ export interface BarChartOption {
         autoSkip: boolean;
         font: {
           family: string;
-          // weight: FontWeightType;
         };
       };
     };
@@ -115,7 +114,6 @@ export interface BarChartOption {
       ticks: {
         font: {
           family: string;
-          // weight: FontWeightType;
         };
       };
     };

@@ -33,8 +33,8 @@ const Container = styled.header`
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   max-width: 900px;
   margin: 0 auto;
   padding: 6px 16px;
