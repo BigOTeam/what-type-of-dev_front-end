@@ -13,7 +13,10 @@ interface ChartResultProps {
 
 const FONT_COLOR = '#45494b';
 
-const ChartResult: React.FC<ChartResultProps> = ({ chartData, userCount }) => {
+const ChartResultSection: React.FC<ChartResultProps> = ({
+  chartData,
+  userCount,
+}) => {
   return (
     <Container>
       <Wrapper>
@@ -187,4 +190,4 @@ const ChartCardList = styled.ul`
   }
 `;
 
-export default ChartResult;
+export default ChartResultSection;
