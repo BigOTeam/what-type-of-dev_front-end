@@ -30,7 +30,7 @@ export const CHART_DEFAULT_STYLE: ChartDefaultStyle = {
   cardColor: '#FFFFFF',
   font: {
     color: '#000000',
-    family: 'Spoqa Han Sans Neo', // 'sans-serif',
+    family: 'Spoqa Han Sans Neo', 
     size: 14,
   },
   border: {
