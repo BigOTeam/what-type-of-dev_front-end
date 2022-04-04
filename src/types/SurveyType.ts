@@ -1,3 +1,7 @@
+export interface SurveyRequestType {
+  pageNo: number;
+  isDeveloper: boolean | null;
+}
 export interface SurveyResponseType {
   pageNo: number;
   pageName: string;
@@ -42,5 +46,5 @@ export interface SurveyResultResponseType {
 }
 
 export interface RootState {
-  form: SurveyResultRequestType;
+  survey: SurveyResultRequestType;
 }

@@ -8,14 +8,14 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-import { Survey } from '../../types/formType';
+import { Survey } from '../../types/SurveyType';
 import CustomFormControlLabel from './CustomFormControlLabel';
 
 interface FormItemProps {
   surveyList: Survey[] | undefined;
 }
 
-const FormItem: React.FC<FormItemProps> = ({ surveyList }) => {
+const SurveyItem: React.FC<FormItemProps> = ({ surveyList }) => {
   return (
     <Container>
       <Wrapper>
@@ -75,4 +75,4 @@ const QuestionWrapper = css`
   box-sizing: border-box;
 `;
 
-export default FormItem;
+export default SurveyItem;

@@ -551,3 +551,29 @@ export const formData4 = {
     },
   ],
 };
+
+export const ResultData = {
+  rankData: [
+    {
+      jobId: 1,
+      jobRank: 1,
+      jobName: '웹',
+      jobDescription: '웹은 ...',
+      jobImgUrl: '/images/Web.png',
+    },
+    {
+      jobId: 2,
+      jobRank: 2,
+      jobName: 'DB',
+      jobDescription: 'DB는...',
+      jobImgUrl: '/images/DB.png',
+    },
+    {
+      jobId: 5,
+      jobRank: 3,
+      jobName: 'Game',
+      jobDescription: 'Game은...',
+      jobImgUrl: '/images/Game.png',
+    },
+  ],
+};

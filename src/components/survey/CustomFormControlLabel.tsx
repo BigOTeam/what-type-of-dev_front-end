@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { surveyUpdate } from '../../redux/modules/form';
+import { surveyUpdate } from '../../redux/modules/survey';
 
 import { useRadioGroup } from '@mui/material/RadioGroup';
 import FormControlLabel, {

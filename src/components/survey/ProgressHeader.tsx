@@ -2,14 +2,18 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-const ProgressHeader: React.FC = () => {
+interface ProgressHeaderProps {
+  pageNo: number;
+}
+
+const ProgressHeader: React.FC<ProgressHeaderProps> = ({ pageNo }) => {
   return (
     <Header>
       <Wrapper>
         <ProgressCount>
-          <p>1/7</p>
+          <p>{pageNo}/8</p>
         </ProgressCount>
-        <ProgressBar>
+        <ProgressBar pageNo={pageNo}>
           <div className="bar__fill"></div>
         </ProgressBar>
       </Wrapper>
@@ -24,16 +28,11 @@ const Header = styled.header`
 
 const Wrapper = styled.div`
   max-width: 600px;
-  margin: 0 auto;
-  padding: 0 16px;
   box-sizing: border-box;
   transition: all ease 0.3s;
 `;
 
 const ProgressCount = styled.div`
-  display: flex;
-  justify-content: start;
-  align-items: center;
   margin-bottom: 20px;
 
   & p {
@@ -42,7 +41,7 @@ const ProgressCount = styled.div`
   }
 `;
 
-const ProgressBar = styled.div`
+const ProgressBar = styled.div<ProgressHeaderProps>`
   border-radius: 6px;
   height: 16px;
   position: relative;
@@ -51,7 +50,7 @@ const ProgressBar = styled.div`
 
   & .bar__fill {
     position: absolute;
-    width: 10%;
+    width: ${(props) => `${props.pageNo * 12.5}%`};
     height: 100%;
     background-color: #ff9fbf;
     border-radius: 6px;

@@ -1,19 +1,32 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { axiosInstance } from '../../utils/axios';
+import { surveyUpdate } from '../../redux/modules/survey';
 
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import FormItem from './FormItem';
-import { SurveyResponseType } from '../../types/formType';
-import FormButtonItem from './FormButtonItem';
+import SurveyItem from './SurveyItem';
+import {
+  RootState,
+  SurveyResponseType,
+  SurveyResult,
+} from '../../types/SurveyType';
+import SurveyButtonItem from './SurveyButtonItem';
+import SurveyService from '../../services/SurveyService';
+import ProgressHeader from './ProgressHeader';
 
-const FormSection: React.FC = () => {
-  const [formData, setFormData] = useState<SurveyResponseType>();
+const SurveySection: React.FC = () => {
+  const surveyResult = useSelector<RootState, SurveyResult[] | null>(
+    (state) => state.survey.surveyResult,
+  );
+  const dispatch = useDispatch();
+
+  const [surveyData, serSurveyData] = useState<SurveyResponseType>();
   const [isDeveloper, setIsDeveloper] = useState<boolean | null>(null);
   const [nextPageNumber, setNextPageNumber] = useState<number>(1);
+  const [nextButtonText, setNextButtonText] = useState<string>('다음');
 
   useEffect(() => {
     const params = {
@@ -21,46 +34,68 @@ const FormSection: React.FC = () => {
       isDeveloper: isDeveloper,
     };
 
-    axiosInstance.get(`/surveys`, { params }).then((response) => {
-      setFormData(response.data);
-    });
+    SurveyService.getSurvey(params).then((response) => serSurveyData(response));
   }, [isDeveloper, nextPageNumber]);
 
-  // handleYesButtonClick
+  useEffect(() => {
+    if (nextPageNumber === 8) {
+      setNextButtonText('결과보기');
+    }
+  }, [nextPageNumber]);
+
   const handleClickYes = () => {
     setIsDeveloper(true);
+    dispatch(
+      surveyUpdate({
+        questionInitial: 'aboutme_dev',
+        answerSeq: 1,
+      }),
+    );
     onClickNextButton();
   };
 
   const handleClickNo = () => {
     setIsDeveloper(false);
+    dispatch(
+      surveyUpdate({
+        questionInitial: 'aboutme_dev',
+        answerSeq: 2,
+      }),
+    );
     onClickNextButton();
   };
 
   const onClickNextButton = () => {
-    setNextPageNumber((prevNumber) => prevNumber + 1);
-    window.scrollTo({ top: 0 });
+    if (nextPageNumber === 8) {
+      SurveyService.sendSurvey({ surveyResult: surveyResult });
+    } else {
+      setNextPageNumber((prevNumber) => prevNumber + 1);
+      window.scrollTo({ top: 0 });
+    }
   };
 
   return (
     <Container>
       <Wrapper>
+        <ProgressHeader pageNo={nextPageNumber} />
         <MainImage
-          src={formData?.pageImageUrl}
-          alt={formData?.pageDescription}
+          src={surveyData?.pageImageUrl}
+          alt={surveyData?.pageDescription}
         />
-        <MainQuestion>💖🧡💛 {formData?.pageDescription} 💚💙💜</MainQuestion>
+        <MainQuestion>💖🧡💛 {surveyData?.pageDescription} 💚💙💜</MainQuestion>
         {nextPageNumber === 1 ? (
-          <FormButtonItem
-            surveyList={formData?.survey}
+          <SurveyButtonItem
+            surveyList={surveyData?.survey}
             handleClickYes={handleClickYes}
             handleClickNo={handleClickNo}
           />
         ) : (
           <>
-            <FormItem surveyList={formData?.survey} />
+            <SurveyItem surveyList={surveyData?.survey} />
             <ButtonSection>
-              <NextButton onClick={onClickNextButton}>다음</NextButton>
+              <NextButton onClick={onClickNextButton}>
+                {nextButtonText}
+              </NextButton>
             </ButtonSection>
           </>
         )}
@@ -124,4 +159,4 @@ const NextButton = styled.button`
   cursor: pointer;
 `;
 
-export default FormSection;
+export default SurveySection;
