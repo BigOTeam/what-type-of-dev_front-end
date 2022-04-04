@@ -22,10 +22,7 @@ const SurveyItem: React.FC<FormItemProps> = ({ surveyList }) => {
         {surveyList !== undefined
           ? surveyList.map((surveyItem) => (
               <FormControl key={surveyItem.questionInitial} css={radioStyle}>
-                <FormLabel
-                  id={surveyItem.questionInitial}
-                  css={QuestionWrapper}
-                >
+                <FormLabel id={surveyItem.questionInitial} css={questionLabel}>
                   Q.{surveyItem.question}
                 </FormLabel>
                 <RadioGroup row>
@@ -65,13 +62,13 @@ const radioStyle = css`
   box-sizing: border-box;
 `;
 
-const QuestionWrapper = css`
+const questionLabel = css`
   width: 100%;
   padding: 10px 0px;
 
   font-size: 20px;
   font-weight: 800;
-  color: #2e2e2e;
+  color: #27282e;
   box-sizing: border-box;
 `;
 

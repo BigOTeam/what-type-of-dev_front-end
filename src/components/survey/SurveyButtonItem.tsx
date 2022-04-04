@@ -31,15 +31,22 @@ const SurveyButtonItem: React.FC<SurveyItemProps> = ({
 };
 
 const Question = styled.p`
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+
   width: 100%;
+
   margin-bottom: 12px;
   padding: 20px 0px;
-  box-sizing: border-box;
+
+  color: #27282e;
   font-size: 24px;
   font-weight: 500;
-  text-align: center;
+
+  box-sizing: border-box;
+
+  @media (max-width: 575px) {
+    font-size: 20px;
+  }
 `;
 
 const ButtonSection = styled.div`
@@ -58,8 +65,8 @@ const QuestionButton = styled.button`
   height: 100px;
 
   background-color: #fff;
-  border: 2px solid #593137;
-  border-radius: 15px;
+  border: 2px solid #313a59;
+  border-radius: 14px;
 
   letter-spacing: -0.02em;
   line-height: 1.2em;

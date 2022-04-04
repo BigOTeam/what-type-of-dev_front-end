@@ -5,6 +5,7 @@ import {
   formData2,
   formData3,
   formData4,
+  resultData,
 } from '../database/surveyData';
 
 export const surveyHandlers = [
@@ -31,6 +32,13 @@ export const surveyHandlers = [
       } else if (Number(pageNo) === 3) {
         return await response(context.json(formData4));
       }
+    },
+  ),
+
+  rest.post(
+    `${process.env.REACT_APP_SERVER_URL}/api/v1/results`,
+    async (request, response, context) => {
+      return await response(context.json(resultData));
     },
   ),
 ];

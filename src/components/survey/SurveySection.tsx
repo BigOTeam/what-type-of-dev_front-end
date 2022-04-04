@@ -104,7 +104,7 @@ const SurveySection: React.FC = () => {
   );
 };
 
-const Container = styled.div`
+const Container = styled.main`
   transition: all ease 0.3s;
 `;
 
@@ -129,9 +129,14 @@ const MainQuestion = styled.p`
   width: 100%;
   padding: 20px 0px;
 
+  color: #27282e;
   font-size: 24px;
   font-weight: 500;
   box-sizing: border-box;
+
+  @media (max-width: 575px) {
+    font-size: 20px;
+  }
 `;
 
 const ButtonSection = styled.div`
@@ -148,8 +153,8 @@ const NextButton = styled.button`
   margin: 20px 20px;
 
   background-color: #fff;
-  border: 2px solid #593137;
-  border-radius: 15px;
+  border: 2px solid #313a59;
+  border-radius: 14px;
 
   letter-spacing: -0.02em;
   line-height: 1.2em;
