@@ -5,7 +5,7 @@ import useDocumentTitle from '../hooks/useDocumentTitle';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
 import LinkSection from '../components/home/LinkSection';
-import surveyService from '../services/surveyService';
+import surveyService from '../services/SurveyService';
 
 const HomePage: React.FC = () => {
   const [responseUserCount, setResponseUserCount] = useState<number>();
