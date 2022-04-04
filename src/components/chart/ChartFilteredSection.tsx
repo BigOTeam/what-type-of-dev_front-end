@@ -13,7 +13,7 @@ const FONT_COLOR = '#45494b';
 
 const ChartFilteredSection: React.FC = () => {
   const [gender, setGender] = useState<string>('all');
-  const [age, setAge] = useState<string>('all');
+  const [age, setAge] = useState<string>('0-100');
 
   const { isLoading, data, isError, errorMessage } = useChartSearchList({
     gender,
