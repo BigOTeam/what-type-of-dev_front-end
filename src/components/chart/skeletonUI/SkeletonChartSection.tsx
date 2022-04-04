@@ -89,7 +89,7 @@ const ContentInfoItem = styled.li`
   width: calc(50% - 72px);
   margin-top: 10px;
   padding: 16px 32px 0;
-  border-radius: 25px;
+  border-radius: 14px;
   border: 1px solid #d7e2eb;
   background-color: #ffffff;
 

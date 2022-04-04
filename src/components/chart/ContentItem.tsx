@@ -31,10 +31,11 @@ const ContentItem: React.FC<ContentItemProps> = ({
 
 const Card = styled.li`
   width: calc(50% - 8px);
-  padding: 40px 24px 48px;
+  padding: 40px;
   border: 1px solid #d7e2eb;
-  border-radius: 25px;
+  border-radius: 14px;
   box-sizing: border-box;
+  background-color: #fff;
 
   @media (max-width: 767px) {
     width: 100%;
@@ -48,7 +49,7 @@ const Title = styled.h2`
   font-weight: 700;
 
   @media (max-width: 767px) {
-    margin: 40px 0 16px;
+    margin-bottom: 16px;
     font-size: 28px;
   }
   @media (max-width: 575px) {
@@ -65,19 +66,21 @@ const NavItem = styled.li`
   font-size: 16px;
   font-weight: 500;
   line-height: 1.6;
-  letter-spacing: -0.009em;
+  color: #6a6d6f;
   list-style: none;
 
   &::marker {
     content: '\\2022';
-    font-size: 20px;
-    text-align: left;
     display: inline-block;
     padding-right: 2px;
+    font-size: 20px;
+    text-align: left;
   }
 `;
 
 const NavLink = styled.a`
+  transition: color 0.08s ease-in-out;
+
   &:hover {
     color: #3396f4;
   }

@@ -101,9 +101,9 @@ const ContentWrapper = styled.section`
 `;
 
 const ContentHead = styled.h1`
-  margin-bottom: 20px;
+  margin-bottom: 32px;
   font-size: 44px;
-  font-weight: bold;
+  font-weight: 600;
 
   @media (max-width: 767px) {
     margin-bottom: 20px;
@@ -157,10 +157,10 @@ const ChartGroupWrapper = styled.div`
 `;
 
 const GroupHead = styled.h1`
-  margin-bottom: 24px;
-  color: ${FONT_COLOR};
+  margin-bottom: 32px;
   font-size: 56px;
-  font-weight: 800;
+  font-weight: 600;
+  color: ${FONT_COLOR};
 
   @media (max-width: 767px) {
     font-size: 50px;

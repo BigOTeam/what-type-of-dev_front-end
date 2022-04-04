@@ -7,9 +7,8 @@ interface ChartTitleProps {
 }
 
 const START_DATE = '2022/04/07';
-const FONT_COLOR = '#45494b';
 
-const Header: React.FC<ChartTitleProps> = ({ headerData }) => {
+const ChartTitle: React.FC<ChartTitleProps> = ({ headerData }) => {
   return (
     <Container>
       <Wrapper>
@@ -19,19 +18,21 @@ const Header: React.FC<ChartTitleProps> = ({ headerData }) => {
         </Period>
         <TitleInfo>
           {`${headerData.userCount}명의 응답자(현업 개발자: ${headerData.careerCount}명, 비개발자: ${headerData.newCount}명)가
-          답변을 했습니다. 다른 사람들의 의견을 구경하고 내 답변과 비교해보세요!`}
+          답변을 했습니다.`}
+          <br />
+          다른 사람들의 의견을 구경하고 내 답변과 비교해보세요!
         </TitleInfo>
       </Wrapper>
     </Container>
   );
 };
 
-export default Header;
-
 const Container = styled.section`
+  margin: 20px 0;
+  border-radius: 14px;
+  background-color: #97cdf5;
   text-align: center;
-  color: ${FONT_COLOR};
-  background: #e8f4fd;
+  color: #fff;
 `;
 
 const Wrapper = styled.div`
@@ -87,3 +88,5 @@ const TitleInfo = styled.h2`
     font-size: 14px;
   }
 `;
+
+export default ChartTitle;

@@ -47,12 +47,12 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: calc(50% - 8px);
-  margin-bottom: 12px;
-  padding: 64px;
-  box-sizing: border-box;
-  border-radius: 25px;
+  margin-bottom: 14px;
+  padding: 40px;
+  border-radius: 14px;
   border: 1px solid #d7e2eb;
   background-color: #ffffff;
+  box-sizing: border-box;
   color: ${FONT_COLOR};
 
   @media (max-width: 767px) {
@@ -76,8 +76,8 @@ const TitleImg = styled.img`
 
 const TitleHead = styled.h2`
   margin-bottom: 12px;
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 600;
   line-height: 1.6;
 
   @media (max-width: 767px) {
@@ -89,9 +89,10 @@ const TitleHead = styled.h2`
 `;
 
 const Description = styled.h3`
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.6;
+  color: #6a6d6f;
 
   @media (max-width: 767px) {
     font-size: 18px;
@@ -101,7 +102,7 @@ const Description = styled.h3`
 const SummaryHead = styled.div`
   margin-bottom: 12px;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.6;
 
   @media (max-width: 767px) {
@@ -113,10 +114,10 @@ const SummaryHead = styled.div`
 `;
 
 const SummaryList = styled.ul`
-  font-size: 20px;
-  letter-spacing: -0.009em;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.6;
+  color: #6a6d6f;
 
   @media (max-width: 575px) {
     font-size: 18px;

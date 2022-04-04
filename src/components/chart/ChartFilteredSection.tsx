@@ -83,13 +83,14 @@ const ChartFilteredSection: React.FC = () => {
 };
 
 const Container = styled.section`
-  max-width: 900px;
-  margin: 40px auto 24px;
-  padding: 0 16px;
-  box-sizing: border-box;
+  margin: 40px 0 24px;
 `;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+`;
 
 const FilterList = styled.div`
   display: flex;
@@ -106,10 +107,9 @@ const FilterList = styled.div`
 const FilterSelect = styled.select`
   width: 100%;
   height: 42px;
-  margin: 0 4px;
   padding: 0 14px;
   border: 1px solid #d7e2eb;
-  border-radius: 4px;
+  border-radius: 8px;
   box-sizing: border-box;
   background-position: calc(100% - 0.8rem) 49%;
   background-size: 0.625rem 0.3125rem;
@@ -134,12 +134,19 @@ const FilterSelect = styled.select`
     background-color: #fff;
     color: #495057;
   }
+  &:first-child {
+    margin-right: 8px;
+  }
 
   @media (max-width: 575px) {
     max-width: 100%;
     height: 38px;
     margin-bottom: 8px;
     font-size: 14px;
+
+    &:first-child {
+      margin-right: 0;
+    }
   }
 `;
 
@@ -150,8 +157,9 @@ const ChartWrapper = styled.div`
   justify-content: center;
   margin-top: 20px;
   padding: 40px 0;
-  border-radius: 25px;
   border: 1px solid #d7e2eb;
+  border-radius: 14px;
+  background-color: #fff;
 `;
 
 const ErrorMessage = styled.span`
