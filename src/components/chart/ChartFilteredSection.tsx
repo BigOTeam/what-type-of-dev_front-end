@@ -45,7 +45,7 @@ const ChartFilteredSection: React.FC = () => {
             ))}
           </FilterSelect>
           <FilterSelect name="age" onChange={handleAgeChange}>
-            <FilterOption value="all">전체 연령대</FilterOption>
+            <FilterOption value="0-100">전체 연령대</FilterOption>
             {AGE_LIST.map((age) => (
               <FilterOption key={age.id} value={age.value}>
                 {age.name}

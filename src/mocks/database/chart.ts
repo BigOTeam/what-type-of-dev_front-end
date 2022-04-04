@@ -307,7 +307,7 @@ export const statisticsData: ChartDataType = {
 export const ChartSearchData: ChartFilterType[] = [
   {
     gender: 'all',
-    age: 'all',
+    age: '0-100',
     chartInfoData: {
       content: [
         '인프라',
@@ -328,7 +328,7 @@ export const ChartSearchData: ChartFilterType[] = [
   },
   {
     gender: 'female',
-    age: 'all',
+    age: '0-100',
     chartInfoData: {
       content: [
         '게임',
@@ -349,7 +349,7 @@ export const ChartSearchData: ChartFilterType[] = [
   },
   {
     gender: 'male',
-    age: 'all',
+    age: '0-100',
     chartInfoData: {
       content: [
         '응용소프트웨어',
@@ -370,7 +370,7 @@ export const ChartSearchData: ChartFilterType[] = [
   },
   {
     gender: 'male',
-    age: '2529',
+    age: '25-29',
     chartInfoData: {
       content: [
         '금융',
