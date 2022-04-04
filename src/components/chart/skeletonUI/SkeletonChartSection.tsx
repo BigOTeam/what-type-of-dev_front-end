@@ -49,12 +49,9 @@ const Section = styled.section`
   justify-content: space-around;
   width: 100%;
   margin: 0 16px;
-  color: #263747;
 
   @media (max-width: 767px) {
     align-items: center;
-  }
-  @media (max-width: 575px) {
   }
 `;
 
@@ -70,8 +67,6 @@ const ContentInfo = styled.ul`
     width: 100%;
     margin-top: 0;
   }
-  @media (max-width: 575px) {
-  }
 `;
 
 const Title = styled(Skeleton)`
@@ -80,8 +75,6 @@ const Title = styled(Skeleton)`
 
   @media (max-width: 767px) {
     width: 50%;
-  }
-  @media (max-width: 575px) {
   }
 `;
 
@@ -96,8 +89,6 @@ const ContentInfoItem = styled.li`
   @media (max-width: 767px) {
     width: initial;
   }
-  @media (max-width: 575px) {
-  }
 `;
 
 const ContentTitle = styled(Skeleton)`
@@ -106,8 +97,6 @@ const ContentTitle = styled(Skeleton)`
 
   @media (max-width: 767px) {
     width: 50%;
-  }
-  @media (max-width: 575px) {
   }
 `;
 

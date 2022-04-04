@@ -5,7 +5,7 @@ import { ChartAnalyzeType } from '../../types/chartTypes';
 import DoughnutChart from './DoughnutChart';
 import BarChart from './BarChart';
 
-interface ChartDataProps {
+interface ChartCardProps {
   data: ChartAnalyzeType;
   groupId: number;
   userCount: number;
@@ -13,7 +13,7 @@ interface ChartDataProps {
 
 const FONT_COLOR = '#45494b';
 
-const ChartCard: React.FC<ChartDataProps> = ({ data, groupId, userCount }) => {
+const ChartCard: React.FC<ChartCardProps> = ({ data, groupId, userCount }) => {
   const renderChart = (data: ChartAnalyzeType, userCount: number) => {
     switch (data.chartType) {
       case 'doughnut':
@@ -88,11 +88,7 @@ const Head = styled.h2`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
-  color: ${FONT_COLOR};
 
-  @media (max-width: 767px) {
-    font-size: 18px;
-  }
   @media (max-width: 575px) {
     margin: 8px 0;
   }

@@ -23,7 +23,7 @@ import {
   CHART_DEFAULT_STYLE,
 } from '../../data/chartColorListData';
 
-interface ChartResultProps {
+interface BarChartProps {
   id: number;
   indexAxis: IndexAxisType;
   chartLabelDataInfo: ChartInfoType;
@@ -41,7 +41,7 @@ ChartJS.register(
 
 const CHART_BACKGROUND_COLOR = CHART_COLOR.colorList[2];
 
-const BarChart: React.FC<ChartResultProps> = ({
+const BarChart: React.FC<BarChartProps> = ({
   id,
   indexAxis,
   chartLabelDataInfo,

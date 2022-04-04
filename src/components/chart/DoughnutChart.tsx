@@ -21,7 +21,7 @@ import {
   CHART_DEFAULT_STYLE,
 } from '../../data/chartColorListData';
 
-interface ChartResultProps {
+interface DoughnutChartProps {
   id: number;
   chartLabelDataInfo: ChartInfoType;
   userCount: number;
@@ -29,7 +29,7 @@ interface ChartResultProps {
 
 ChartJS.register(ArcElement, CategoryScale, Tooltip, Legend, ChartDataLabels);
 
-const DoughnutChart: React.FC<ChartResultProps> = ({
+const DoughnutChart: React.FC<DoughnutChartProps> = ({
   id,
   chartLabelDataInfo,
   userCount,

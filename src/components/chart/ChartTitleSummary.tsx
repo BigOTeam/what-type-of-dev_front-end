@@ -16,11 +16,11 @@ const ChartTitleSummary: React.FC<ChartTitleSummaryProps> = ({ data }) => {
           src={data.imgUrl}
           alt={`${data.groupName} 대표 캐릭터 이미지`}
         />
-        <TitleHead>{data.groupName}</TitleHead>
+        <Head>{data.groupName}</Head>
         <Description>{data.description}</Description>
       </Card>
       <Card>
-        <SummaryHead>요약</SummaryHead>
+        <Head>요약</Head>
         <SummaryList>
           {data.summaryInfo.map((summary, index) => (
             <SummaryItem key={index}>{summary}</SummaryItem>
@@ -74,15 +74,12 @@ const TitleImg = styled.img`
   }
 `;
 
-const TitleHead = styled.h2`
+const Head = styled.h2`
   margin-bottom: 12px;
   font-size: 28px;
   font-weight: 600;
   line-height: 1.6;
 
-  @media (max-width: 767px) {
-    font-size: 28px;
-  }
   @media (max-width: 575px) {
     font-size: 24px;
   }
@@ -96,20 +93,6 @@ const Description = styled.h3`
 
   @media (max-width: 767px) {
     font-size: 18px;
-  }
-`;
-
-const SummaryHead = styled.div`
-  margin-bottom: 12px;
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1.6;
-
-  @media (max-width: 767px) {
-    font-size: 24px;
-  }
-  @media (max-width: 575px) {
-    font-size: 20px;
   }
 `;
 

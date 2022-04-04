@@ -3,25 +3,25 @@ import styled from '@emotion/styled';
 import { ChartHeaderType } from '../../types/chartTypes';
 
 interface ChartTitleProps {
-  headerData: ChartHeaderType;
+  titleData: ChartHeaderType;
 }
 
 const START_DATE = '2022/04/07';
 
-const ChartTitle: React.FC<ChartTitleProps> = ({ headerData }) => {
+const ChartTitle: React.FC<ChartTitleProps> = ({ titleData }) => {
   return (
     <Container>
       <Wrapper>
         <Head>당신이 개발자라면 설문 통계</Head>
         <Period>
-          설문 조사 기간 : {START_DATE} ~ {headerData.endDate}
+          설문 조사 기간 : {START_DATE} ~ {titleData.endDate}
         </Period>
-        <TitleInfo>
-          {`${headerData.userCount}명의 응답자(현업 개발자: ${headerData.careerCount}명, 비개발자: ${headerData.newCount}명)가
+        <Info>
+          {`${titleData.userCount}명의 응답자(현업 개발자: ${titleData.careerCount}명, 비개발자: ${titleData.newCount}명)가
           답변을 했습니다.`}
           <br />
           다른 사람들의 의견을 구경하고 내 답변과 비교해보세요!
-        </TitleInfo>
+        </Info>
       </Wrapper>
     </Container>
   );
@@ -74,7 +74,7 @@ const Period = styled.h2`
   }
 `;
 
-const TitleInfo = styled.h2`
+const Info = styled.h2`
   margin: 24px 32px 16px;
   font-size: 18px;
   font-weight: 500;

@@ -25,7 +25,7 @@ const ChartPage: React.FC = () => {
           {isLoading || !data ? (
             <SkeletonHeader />
           ) : (
-            <ChartTitle headerData={data.header} />
+            <ChartTitle titleData={data.header} />
           )}
           <ChartFilteredSection />
           {isLoading || !data ? (
@@ -47,7 +47,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: #ffffff; */
   background-color: #eff9fd;
 `;
 
