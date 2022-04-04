@@ -32,8 +32,6 @@ const Container = styled.section`
   text-align: center;
   color: ${FONT_COLOR};
   background: #e8f4fd;
-  // background: url(/images/chart/title.png);
-  // opacity: 0.55;
 `;
 
 const Wrapper = styled.div`

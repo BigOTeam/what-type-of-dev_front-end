@@ -61,6 +61,7 @@ const NavList = styled.ul``;
 
 const NavItem = styled.li`
   margin-top: 10px;
+  padding-left: 3px;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.6;

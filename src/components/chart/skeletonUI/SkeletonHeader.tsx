@@ -16,8 +16,6 @@ const TitleContainer = styled.section`
   background-color: #e8f4fd;
   color: ${FONT_COLOR};
   text-align: center;
-  // background: url(/images/chart/title.png);
-  // opacity: 0.55;
 `;
 
 const TitleWrapper = styled.div`
