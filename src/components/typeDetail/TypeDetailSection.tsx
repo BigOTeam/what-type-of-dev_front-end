@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 
 import SurveyService from '../../services/SurveyService';
+import SkeletonJobTypeDetail from './SkeletonJobTypeDetail';
 
 interface TypeDetailSectionProps {
   id: number;
@@ -12,37 +13,49 @@ const FONT_COLOR = '#45494b';
 
 const TypeDetailSection: React.FC<TypeDetailSectionProps> = ({ id }) => {
   const [data, setData] = useState<any>();
+  const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    SurveyService.getJobDetail(id).then((res) => {
-      setData(res);
-    });
+    SurveyService.getJobDetail(2)
+      .then((res) => {
+        setData(res);
+      })
+      .catch((error) => {});
   }, []);
 
   return (
     <Container>
       <Wrapper>
+        <HeaderSection>
+          <Title>
+            <TitleHead>당신이 개발자라면</TitleHead>
+            당신에게 어울리는 분야는 바로
+          </Title>
+        </HeaderSection>
         {!data ? (
-          <>데이터가 없습니다</>
+          <SkeletonJobTypeDetail />
         ) : (
           <>
-            <HeaderSection>
-              <Title>
-                <TitleHead>당신이 개발자라면</TitleHead>
-                당신에게 어울리는 분야는 바로
-              </Title>
-              <JobTypeHead>{data.jobName}</JobTypeHead>
+            <ImgSection>
+              {!isImgLoaded ? <></> : <JobTypeHead>{data.jobName}</JobTypeHead>}
               <JobTypeImg
                 src={`${data.jobImgUrl}`}
                 alt={`${data.jobName} 대표 캐릭터 이미지`}
+                onLoad={() => {
+                  setIsImgLoaded(true);
+                }}
               />
-            </HeaderSection>
-            <DescriptionSection>
-              <Card>
-                <JobTypeSub>{data.jobName}</JobTypeSub>
-                <JDescription>{data.jobDescription}</JDescription>
-              </Card>
-            </DescriptionSection>
+            </ImgSection>
+            {!isImgLoaded ? (
+              <SkeletonJobTypeDetail />
+            ) : (
+              <DescriptionSection>
+                <Card>
+                  <JobTypeSub>{data.jobName}</JobTypeSub>
+                  <JDescription>{data.jobDescription}</JDescription>
+                </Card>
+              </DescriptionSection>
+            )}
           </>
         )}
       </Wrapper>
@@ -84,7 +97,6 @@ const Title = styled.h2`
   color: ${FONT_COLOR};
   font-size: 26px;
   font-weight: 700;
-
   line-height: 1.4;
 
   @media (max-width: 767px) {
@@ -110,6 +122,16 @@ const TitleHead = styled.div`
     z-index: -1;
     background-color: #cbe6fa;
   }
+`;
+
+const ImgSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin-top: 16px;
+  box-sizing: border-box;
+  text-align: center;
 `;
 
 const JobTypeHead = styled.h1`
