@@ -8,6 +8,8 @@ interface TypeDetailSectionProps {
   jobId: any;
 }
 
+const FONT_COLOR = '#45494b';
+
 const TypeDetailSection: React.FC<TypeDetailSectionProps> = ({ jobId }) => {
   const [data, setData] = useState<any>();
 
@@ -26,12 +28,14 @@ const TypeDetailSection: React.FC<TypeDetailSectionProps> = ({ jobId }) => {
           <>
             <HeaderSection>
               <Title>
-                당신이 개발자라면
-                <br />
+                <TitleHead>당신이 개발자라면</TitleHead>
                 당신에게 어울리는 분야는 바로
               </Title>
               <JobTypeHead>{data.jobName}</JobTypeHead>
-              <JobTypeImg src="/images/Infra.png" alt="대표 캐릭터 이미지" />
+              <JobTypeImg
+                src={`${data.jobImgUrl}`}
+                alt={`${data.jobName} 대표 캐릭터 이미지`}
+              />
             </HeaderSection>
             <DescriptionSection>
               <Card>
@@ -77,14 +81,34 @@ const Title = styled.h2`
   width: fit-content;
   margin-bottom: 12px;
   border-radius: 25px;
+  color: ${FONT_COLOR};
   font-size: 26px;
   font-weight: 700;
+
   line-height: 1.4;
 
   @media (max-width: 767px) {
   }
   @media (max-width: 575px) {
     font-size: 20px;
+  }
+`;
+
+const TitleHead = styled.div`
+  width: fit-content;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 18px;
+    left: 0;
+    bottom: 1px;
+    z-index: -1;
+    background-color: #cbe6fa;
   }
 `;
 
@@ -99,8 +123,11 @@ const JobTypeHead = styled.h1`
   color: #ffffff;
 
   @media (max-width: 767px) {
+    padding: 10px 18px;
+    font-size: 40px;
   }
   @media (max-width: 575px) {
+    padding: 8px 16px;
     font-size: 36px;
   }
 `;
@@ -112,6 +139,7 @@ const JobTypeImg = styled.img`
 const DescriptionSection = styled.section`
   width: 100%;
   box-sizing: border-box;
+  color: ${FONT_COLOR};
 `;
 
 const Card = styled.div`
@@ -136,11 +164,10 @@ const Card = styled.div`
 const JobTypeSub = styled.div`
   width: fit-content;
   margin-bottom: 28px;
-  font-size: 44px;
-  text-align: center;
-  font-weight: 700;
-  text-decoration: none;
   position: relative;
+  font-size: 44px;
+  font-weight: 700;
+  text-align: center;
 
   @media (max-width: 767px) {
     font-size: 36px;
@@ -163,12 +190,14 @@ const JobTypeSub = styled.div`
 
 const JDescription = styled.div`
   font-size: 24px;
+  font-weight: 500;
   line-height: 1.4;
 
   @media (max-width: 767px) {
     font-size: 20px;
   }
   @media (max-width: 575px) {
+    font-size: 18px;
   }
 `;
 
