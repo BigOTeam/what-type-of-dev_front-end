@@ -14,7 +14,7 @@ import SkeletonJobTypeDetail from './SkeletonJobTypeDetail';
 
 const FONT_COLOR = '#45494b';
 
-const TypeDetailSection: React.FC = () => {
+const JobTypeDetailSection: React.FC = () => {
   // const id = useParams();
   const [data, setData] = useState<JobTypeDetail>();
   const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
@@ -228,4 +228,4 @@ const JDescription = styled.div`
   }
 `;
 
-export default TypeDetailSection;
+export default JobTypeDetailSection;

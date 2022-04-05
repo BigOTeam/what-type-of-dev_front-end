@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 
 import Header from '../components/common/Header';
-import TypeDetailSection from '../components/typeDetail/TypeDetailSection';
+import JobTypeDetailSection from '../components/typeDetail/JobTypeDetailSection';
 import Footer from '../components/common/Footer';
 
 type Params = {
@@ -14,7 +14,7 @@ const JobTypeDetailPage: React.FC = () => {
   return (
     <>
       <Header />
-      <TypeDetailSection id={Number(id)} />
+      <JobTypeDetailSection id={Number(id)} />
       <Footer />
     </>
   );
