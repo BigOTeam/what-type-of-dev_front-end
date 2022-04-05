@@ -29,13 +29,13 @@ class SurveyService {
   }
 
   public static async getJobs() {
-    const response = await axiosInstance.post('/api/v1/surveys/jobs');
+    const response = await axiosInstance.get('/api/v1/surveys/jobs');
 
     return response.data;
   }
 
-  public static async getJobDetail() {
-    const response = await axiosInstance.post('/api/v1/surveys/jobs/:jobId');
+  public static async getJobDetail(jobId: number) {
+    const response = await axiosInstance.get(`/api/v1/surveys/jobs/${jobId}`);
 
     return response.data;
   }

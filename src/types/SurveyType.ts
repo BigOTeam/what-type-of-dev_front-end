@@ -48,3 +48,7 @@ export interface SurveyResultResponseType {
 export interface RootState {
   survey: SurveyResultRequestType;
 }
+
+export interface JobTypeDetail extends Job {
+  jobDescription: string;
+}
