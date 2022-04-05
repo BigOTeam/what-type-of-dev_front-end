@@ -23,7 +23,7 @@ import {
   CHART_DEFAULT_STYLE,
 } from '../../data/chartColorListData';
 
-interface ChartResultProps {
+interface BarChartProps {
   id: number;
   indexAxis: IndexAxisType;
   chartLabelDataInfo: ChartInfoType;
@@ -41,18 +41,18 @@ ChartJS.register(
 
 const CHART_BACKGROUND_COLOR = CHART_COLOR.colorList[2];
 
-const BarChart: React.FC<ChartResultProps> = ({
+const BarChart: React.FC<BarChartProps> = ({
   id,
   indexAxis,
   chartLabelDataInfo,
   labelName,
 }) => {
   const data: BarChartData = {
-    labels: chartLabelDataInfo.content,
+    labels: chartLabelDataInfo.contentList,
     datasets: [
       {
         label: labelName,
-        data: chartLabelDataInfo.count,
+        data: chartLabelDataInfo.countList,
         backgroundColor: CHART_BACKGROUND_COLOR,
         borderColor: CHART_DEFAULT_STYLE.border.color,
         borderWidth: CHART_DEFAULT_STYLE.border.width,

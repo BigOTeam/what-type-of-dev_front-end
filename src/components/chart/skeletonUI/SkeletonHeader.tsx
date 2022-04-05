@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-const FONT_COLOR = '#45494b';
-
 const SkeletonHeader: React.FC = () => {
   return (
     <TitleContainer>
@@ -13,17 +11,18 @@ const SkeletonHeader: React.FC = () => {
 };
 
 const TitleContainer = styled.section`
-  background-color: #e8f4fd;
-  color: ${FONT_COLOR};
+  margin: 20px 0;
+  border-radius: 14px;
+  background-color: #97cdf5;
   text-align: center;
+  color: #fff;
 `;
 
 const TitleWrapper = styled.div`
-  opacity: 1;
   padding: 32px 48px 150px;
 
   @media (max-width: 767px) {
-    padding-bottom: 196px;
+    padding-bottom: 150px;
   }
   @media (max-width: 575px) {
     padding-bottom: 140px;
@@ -33,10 +32,10 @@ const TitleWrapper = styled.div`
 const TitleHead = styled.h1`
   margin: 20px 0 28px;
   font-size: 52px;
-  font-weight: 500;
+  font-weight: 700;
 
   @media (max-width: 767px) {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     font-size: 44px;
   }
   @media (max-width: 575px) {

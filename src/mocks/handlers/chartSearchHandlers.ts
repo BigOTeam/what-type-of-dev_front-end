@@ -36,9 +36,9 @@ export const chartSearchHandlers = [
 
       return response(
         context.json({
-          content: chartInfoData.content,
-          count: chartInfoData.count,
-          countPercent: chartInfoData.countPercent,
+          contentList: chartInfoData.contentList,
+          countList: chartInfoData.countList,
+          countPercentList: chartInfoData.countPercentList,
         }),
       );
     },

@@ -5,7 +5,7 @@ import { ChartAnalyzeType } from '../../types/chartTypes';
 import DoughnutChart from './DoughnutChart';
 import BarChart from './BarChart';
 
-interface ChartDataProps {
+interface ChartCardProps {
   data: ChartAnalyzeType;
   groupId: number;
   userCount: number;
@@ -13,7 +13,7 @@ interface ChartDataProps {
 
 const FONT_COLOR = '#45494b';
 
-const ChartCard: React.FC<ChartDataProps> = ({ data, groupId, userCount }) => {
+const ChartCard: React.FC<ChartCardProps> = ({ data, groupId, userCount }) => {
   const renderChart = (data: ChartAnalyzeType, userCount: number) => {
     switch (data.chartType) {
       case 'doughnut':
@@ -61,12 +61,13 @@ const Card = styled.li`
   align-items: center;
   justify-content: flex-start;
   width: calc(50% - 8px);
-  margin-bottom: 12px;
-  padding: 24px 40px;
-  box-sizing: border-box;
-  border-radius: 25px;
+  margin-bottom: 14px;
+  padding: 40px;
+  border-radius: 14px;
   border: 1px solid #d7e2eb;
+  box-sizing: border-box;
   color: ${FONT_COLOR};
+  background-color: #fff;
 
   @media (max-width: 767px) {
     display: flex;
@@ -83,15 +84,11 @@ const Card = styled.li`
 `;
 
 const Head = styled.h2`
-  margin: 24px 0 16px;
-  font-size: 20px;
-  font-weight: 700;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 500;
   line-height: 1.2;
-  color: ${FONT_COLOR};
 
-  @media (max-width: 767px) {
-    font-size: 18px;
-  }
   @media (max-width: 575px) {
     margin: 8px 0;
   }

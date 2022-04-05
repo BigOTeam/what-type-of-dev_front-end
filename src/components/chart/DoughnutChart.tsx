@@ -21,7 +21,7 @@ import {
   CHART_DEFAULT_STYLE,
 } from '../../data/chartColorListData';
 
-interface ChartResultProps {
+interface DoughnutChartProps {
   id: number;
   chartLabelDataInfo: ChartInfoType;
   userCount: number;
@@ -29,17 +29,17 @@ interface ChartResultProps {
 
 ChartJS.register(ArcElement, CategoryScale, Tooltip, Legend, ChartDataLabels);
 
-const DoughnutChart: React.FC<ChartResultProps> = ({
+const DoughnutChart: React.FC<DoughnutChartProps> = ({
   id,
   chartLabelDataInfo,
   userCount,
 }) => {
   const data: DoughnutChartData = {
-    labels: chartLabelDataInfo.content,
+    labels: chartLabelDataInfo.contentList,
     datasets: [
       {
         label: '# of Votes',
-        data: chartLabelDataInfo.countPercent,
+        data: chartLabelDataInfo.countPercentList,
         backgroundColor: CHART_COLOR.colorList,
         borderColor: CHART_DEFAULT_STYLE.border.color,
         borderWidth: CHART_DEFAULT_STYLE.border.width,
