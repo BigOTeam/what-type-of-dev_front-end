@@ -37,7 +37,7 @@ const App: React.FC = () => {
             <Route exact path="/statistics" component={ChartPage} />
             <Route exact path="/surveys" component={SurveyPage} />
             <Route exact path="/results" component={ResultPage} />
-            <Route exact path="/detail" component={JobTypeDetailPage} />
+            <Route exact path="/jobs/:id" component={JobTypeDetailPage} />
           </Switch>
           {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
         </Router>
