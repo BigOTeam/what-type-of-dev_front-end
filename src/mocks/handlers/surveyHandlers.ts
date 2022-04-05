@@ -5,6 +5,8 @@ import {
   formData2,
   formData3,
   formData4,
+  resultData,
+  totalJobData,
 } from '../database/surveyData';
 
 export const surveyHandlers = [
@@ -31,6 +33,20 @@ export const surveyHandlers = [
       } else if (Number(pageNo) === 3) {
         return await response(context.json(formData4));
       }
+    },
+  ),
+
+  rest.post(
+    `${process.env.REACT_APP_SERVER_URL}/api/v1/surveys/results`,
+    async (request, response, context) => {
+      return await response(context.json(resultData));
+    },
+  ),
+
+  rest.get(
+    `${process.env.REACT_APP_SERVER_URL}/api/v1/surveys/jobs`,
+    async (request, response, context) => {
+      return await response(context.json(totalJobData));
     },
   ),
 ];
