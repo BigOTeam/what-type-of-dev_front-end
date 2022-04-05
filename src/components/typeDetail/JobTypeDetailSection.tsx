@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
@@ -8,20 +7,18 @@ import { JobTypeDetail } from '../../types/SurveyType';
 import SurveyService from '../../services/SurveyService';
 import SkeletonJobTypeDetail from './SkeletonJobTypeDetail';
 
-// type TypeDetailSectionProps {
-//   id: number;
-// }
+interface TypeDetailSectionProps {
+  id: number;
+}
 
 const FONT_COLOR = '#45494b';
 
-const JobTypeDetailSection: React.FC = () => {
-  // const id = useParams();
+const JobTypeDetailSection: React.FC<TypeDetailSectionProps> = ({ id }) => {
   const [data, setData] = useState<JobTypeDetail>();
   const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    // SurveyService.getJobDetail(Number(id))
-    SurveyService.getJobDetail(2)
+    SurveyService.getJobDetail(id)
       .then((res) => {
         setData(res);
       })
