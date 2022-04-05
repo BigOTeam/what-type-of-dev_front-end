@@ -17,7 +17,7 @@ export interface ChartContentsType {
   groupId: number;
   groupName: string;
   description: string;
-  imgUrl: string;
+  groupImg: string;
   summaryInfos: string[];
   results: ChartAnalyzeType[];
 }
