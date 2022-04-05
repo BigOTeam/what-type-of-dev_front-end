@@ -1,21 +1,48 @@
+import { useEffect } from 'react';
+
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
 import { Survey } from '../../types/SurveyType';
 import CustomFormControlLabel from './CustomFormControlLabel';
+import { useDispatch } from 'react-redux';
+import { radioInit, radioUpdate } from '../../redux/modules/radio';
 
 interface FormItemProps {
   surveyList: Survey[] | undefined;
 }
 
 const SurveyItem: React.FC<FormItemProps> = ({ surveyList }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(radioInit());
+
+    surveyList?.map((surveyItem) =>
+      dispatch(
+        radioUpdate({
+          questionInitial: surveyItem.questionInitial,
+          answerSeq: 0,
+        }),
+      ),
+    );
+  }, [surveyList]);
+
+  const handleRadioValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(
+      radioUpdate({
+        questionInitial: event.target.name,
+        answerSeq: Number(event.target.value),
+      }),
+    );
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -25,12 +52,12 @@ const SurveyItem: React.FC<FormItemProps> = ({ surveyList }) => {
                 <FormLabel id={surveyItem.questionInitial} css={questionLabel}>
                   Q.{surveyItem.question}
                 </FormLabel>
-                <RadioGroup row>
+                <RadioGroup row onChange={handleRadioValue}>
                   {surveyItem.answers.map((option) => (
                     <CustomFormControlLabel
                       key={option.answerSeq}
                       value={option.answerSeq}
-                      control={<Radio />}
+                      control={<Radio name={surveyItem.questionInitial} />}
                       label={option.answer}
                       id={surveyItem.questionInitial}
                     />
