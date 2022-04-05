@@ -16,11 +16,10 @@ export interface ChartHeaderType {
 export interface ChartContentsType {
   groupId: number;
   groupName: string;
-  questionInfo: QuestionInfoType[];
   description: string;
   imgUrl: string;
-  summaryInfo: string[];
-  result: ChartAnalyzeType[];
+  summaryInfos: string[];
+  results: ChartAnalyzeType[];
 }
 
 export interface QuestionInfoType {
@@ -28,17 +27,15 @@ export interface QuestionInfoType {
   question: string;
 }
 
-export interface ChartAnalyzeType {
-  id: number;
-  question: string;
+export interface ChartAnalyzeType extends QuestionInfoType {
   chartType: string;
   chartInfoData: ChartInfoType;
 }
 
 export interface ChartInfoType {
-  content: string[];
-  count: number[];
-  countPercent: number[];
+  contentList: string[];
+  countList: number[];
+  countPercentList: number[];
 }
 
 type FontWeightType = 'bold' | 'normal' | 'bolder' | 'lighter';

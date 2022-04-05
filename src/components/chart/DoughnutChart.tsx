@@ -35,11 +35,11 @@ const DoughnutChart: React.FC<DoughnutChartProps> = ({
   userCount,
 }) => {
   const data: DoughnutChartData = {
-    labels: chartLabelDataInfo.content,
+    labels: chartLabelDataInfo.contentList,
     datasets: [
       {
         label: '# of Votes',
-        data: chartLabelDataInfo.countPercent,
+        data: chartLabelDataInfo.countPercentList,
         backgroundColor: CHART_COLOR.colorList,
         borderColor: CHART_DEFAULT_STYLE.border.color,
         borderWidth: CHART_DEFAULT_STYLE.border.width,

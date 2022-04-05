@@ -22,7 +22,7 @@ const ChartTitleSummary: React.FC<ChartTitleSummaryProps> = ({ data }) => {
       <Card>
         <Head>요약</Head>
         <SummaryList>
-          {data.summaryInfo.map((summary, index) => (
+          {data.summaryInfos.map((summary, index) => (
             <SummaryItem key={index}>{summary}</SummaryItem>
           ))}
         </SummaryList>

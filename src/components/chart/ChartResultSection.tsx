@@ -30,7 +30,7 @@ const ChartResultSection: React.FC<ChartResultProps> = ({
                     key={contentData.groupId}
                     groupId={contentData.groupId}
                     groupName={contentData.groupName}
-                    questionInfo={contentData.questionInfo}
+                    questionInfo={contentData.results}
                   />
                 ))}
               </ContentList>
@@ -44,7 +44,7 @@ const ChartResultSection: React.FC<ChartResultProps> = ({
                   <ChartItemList>
                     <ChartTitleSummary data={data} />
                     <ChartCardList>
-                      {data.result.map((chartLabelData) => (
+                      {data.results.map((chartLabelData) => (
                         <ChartCard
                           data={chartLabelData}
                           userCount={userCount}
