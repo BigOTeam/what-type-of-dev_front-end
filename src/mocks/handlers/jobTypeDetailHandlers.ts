@@ -26,7 +26,7 @@ export const jobTypeDetailHandlers = [
         context.json({
           jobId: JobTypeDetailData[jobIndex].jobId,
           jobName: JobTypeDetailData[jobIndex].jobName,
-          jobImgUrl: JobTypeDetailData[jobIndex].jobImgUrl,
+          jobImg: JobTypeDetailData[jobIndex].jobImg,
           jobDescription: JobTypeDetailData[jobIndex].jobDescription,
         }),
       );
