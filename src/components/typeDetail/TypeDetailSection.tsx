@@ -1,26 +1,33 @@
 import { useEffect, useState } from 'react';
+// import { useParams } from 'react-router-dom';
 
 import styled from '@emotion/styled';
+
+import { JobTypeDetail } from '../../types/SurveyType';
 
 import SurveyService from '../../services/SurveyService';
 import SkeletonJobTypeDetail from './SkeletonJobTypeDetail';
 
-interface TypeDetailSectionProps {
-  id: number;
-}
+// type TypeDetailSectionProps {
+//   id: number;
+// }
 
 const FONT_COLOR = '#45494b';
 
-const TypeDetailSection: React.FC<TypeDetailSectionProps> = ({ id }) => {
-  const [data, setData] = useState<any>();
+const TypeDetailSection: React.FC = () => {
+  // const id = useParams();
+  const [data, setData] = useState<JobTypeDetail>();
   const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
   useEffect(() => {
+    // SurveyService.getJobDetail(Number(id))
     SurveyService.getJobDetail(2)
       .then((res) => {
         setData(res);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        // 에러 발생시 처리
+      });
   }, []);
 
   return (
@@ -99,8 +106,6 @@ const Title = styled.h2`
   font-weight: 700;
   line-height: 1.4;
 
-  @media (max-width: 767px) {
-  }
   @media (max-width: 575px) {
     font-size: 20px;
   }
