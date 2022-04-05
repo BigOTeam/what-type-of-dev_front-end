@@ -13,7 +13,7 @@ const ChartTitleSummary: React.FC<ChartTitleSummaryProps> = ({ data }) => {
     <Wrapper>
       <Card>
         <TitleImg
-          src={data.imgUrl}
+          src={data.groupImg}
           alt={`${data.groupName} 대표 캐릭터 이미지`}
         />
         <Head>{data.groupName}</Head>

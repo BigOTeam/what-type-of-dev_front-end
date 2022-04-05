@@ -12,7 +12,7 @@ export const statisticsData: ChartDataType = {
       groupId: 1,
       groupName: '프로필',
       description: 'ㅇㅇ명의 개발자와 ㅇㅇ명의 예비 개발자가 참여했습니다.',
-      imgUrl: '/images/chart/self.png',
+      groupImg: '/images/chart/self.png',
       summaryInfos: [
         '참여한 현 개발자의 Top 3는 웹, 모바일, 블록체인 순서였습니다.',
         '희망연봉 1순위는 1억 이상이었습니다.',
@@ -125,7 +125,7 @@ export const statisticsData: ChartDataType = {
       groupId: 2,
       groupName: '생활모습',
       description: '선호하는 근무 형태 1순위는 원격 근무였습니다.',
-      imgUrl: '/images/chart/satisfaction.png',
+      groupImg: '/images/chart/satisfaction.png',
       summaryInfos: [
         '사용하는 모바일 운영체제는 iOS가 51%, Android가 49%였습니다.',
         'ㅇㅇ%의 응답자가 현재 삶에 만족스럽다고 답변했습니다.',
