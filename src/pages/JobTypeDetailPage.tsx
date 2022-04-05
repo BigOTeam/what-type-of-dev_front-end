@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 
 import Header from '../components/common/Header';
-import JobTypeDetailSection from '../components/typeDetail/JobTypeDetailSection';
+import JobTypeDetailSection from '../components/result/JobTypeDetailSection';
 import Footer from '../components/common/Footer';
 
 type Params = {

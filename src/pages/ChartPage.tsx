@@ -9,6 +9,7 @@ import ChartFilteredSection from '../components/chart/ChartFilteredSection';
 import SkeletonChartSection from '../components/chart/skeletonUI/SkeletonChartSection';
 import SkeletonHeader from '../components/chart/skeletonUI/SkeletonHeader';
 import Footer from '../components/common/Footer';
+import ResultButtonSection from '../components/result/ResultButtonSection';
 
 const ChartPage: React.FC = () => {
   const { isLoading, data, isError, errorMessage } = useChartList();
@@ -36,6 +37,7 @@ const ChartPage: React.FC = () => {
               userCount={data.header.userCount}
             />
           )}
+          <ResultButtonSection isStatistics={true} />
         </Wrapper>
       </Container>
       <Footer />

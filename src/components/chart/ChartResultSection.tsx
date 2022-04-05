@@ -132,7 +132,7 @@ const ChartWrapper = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 20px 0 80px;
+  padding: 20px 0 20px;
 
   @media (max-width: 767px) {
     padding: 0 16px 72px;
