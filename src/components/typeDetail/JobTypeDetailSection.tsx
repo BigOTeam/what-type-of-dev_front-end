@@ -43,7 +43,7 @@ const JobTypeDetailSection: React.FC<TypeDetailSectionProps> = ({ id }) => {
             <ImgSection>
               {!isImgLoaded ? <></> : <JobTypeHead>{data.jobName}</JobTypeHead>}
               <JobTypeImg
-                src={`${data.jobImgUrl}`}
+                src={`${data.jobImg}`}
                 alt={`${data.jobName} 대표 캐릭터 이미지`}
                 onLoad={() => {
                   setIsImgLoaded(true);
