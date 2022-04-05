@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { surveyUpdate } from '../../redux/modules/survey';
 
@@ -8,25 +8,18 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import SurveyItem from './SurveyItem';
-import {
-  RootState,
-  SurveyResponseType,
-  SurveyResult,
-} from '../../types/SurveyType';
+import { SurveyResponseType } from '../../types/SurveyType';
 import SurveyButtonItem from './SurveyButtonItem';
 import SurveyService from '../../services/SurveyService';
 import ProgressHeader from './ProgressHeader';
+import { Link } from 'react-router-dom';
 
 const SurveySection: React.FC = () => {
-  const surveyResult = useSelector<RootState, SurveyResult[] | null>(
-    (state) => state.survey.surveyResult,
-  );
   const dispatch = useDispatch();
 
   const [surveyData, serSurveyData] = useState<SurveyResponseType>();
   const [isDeveloper, setIsDeveloper] = useState<boolean | null>(null);
   const [nextPageNumber, setNextPageNumber] = useState<number>(1);
-  const [nextButtonText, setNextButtonText] = useState<string>('다음');
 
   useEffect(() => {
     const params = {
@@ -37,13 +30,7 @@ const SurveySection: React.FC = () => {
     SurveyService.getSurvey(params).then((response) => serSurveyData(response));
   }, [isDeveloper, nextPageNumber]);
 
-  useEffect(() => {
-    if (nextPageNumber === 8) {
-      setNextButtonText('결과보기');
-    }
-  }, [nextPageNumber]);
-
-  const handleClickYes = () => {
+  const handleYesButtonClick = () => {
     setIsDeveloper(true);
     dispatch(
       surveyUpdate({
@@ -51,7 +38,7 @@ const SurveySection: React.FC = () => {
         answerSeq: 1,
       }),
     );
-    onClickNextButton();
+    handleNextButtonClick();
   };
 
   const handleClickNo = () => {
@@ -62,16 +49,12 @@ const SurveySection: React.FC = () => {
         answerSeq: 2,
       }),
     );
-    onClickNextButton();
+    handleNextButtonClick();
   };
 
-  const onClickNextButton = () => {
-    if (nextPageNumber === 8) {
-      SurveyService.sendSurvey({ surveyResult: surveyResult });
-    } else {
-      setNextPageNumber((prevNumber) => prevNumber + 1);
-      window.scrollTo({ top: 0 });
-    }
+  const handleNextButtonClick = () => {
+    setNextPageNumber((prevNumber) => prevNumber + 1);
+    window.scrollTo({ top: 0 });
   };
 
   return (
@@ -86,16 +69,18 @@ const SurveySection: React.FC = () => {
         {nextPageNumber === 1 ? (
           <SurveyButtonItem
             surveyList={surveyData?.survey}
-            handleClickYes={handleClickYes}
+            handleClickYes={handleYesButtonClick}
             handleClickNo={handleClickNo}
           />
         ) : (
           <>
             <SurveyItem surveyList={surveyData?.survey} />
             <ButtonSection>
-              <NextButton onClick={onClickNextButton}>
-                {nextButtonText}
-              </NextButton>
+              {nextPageNumber < 8 ? (
+                <NextButton onClick={handleNextButtonClick}>다음</NextButton>
+              ) : (
+                <ResultButton to="/results">결과보기</ResultButton>
+              )}
             </ButtonSection>
           </>
         )}
@@ -162,6 +147,40 @@ const NextButton = styled.button`
   font-weight: bold;
 
   cursor: pointer;
+
+  :hover {
+    color: #fefefe;
+    background-color: #5bb1f8;
+    transition: all ease 0.3s;
+  }
+`;
+
+const ResultButton = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 280px;
+  height: 100px;
+
+  margin: 20px 20px;
+
+  background-color: #fff;
+  border: 2px solid #313a59;
+  border-radius: 14px;
+
+  letter-spacing: -0.02em;
+  line-height: 1.2em;
+  font-size: 20px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  :hover {
+    color: #fefefe;
+    background-color: #5bb1f8;
+    transition: all ease 0.3s;
+  }
 `;
 
 export default SurveySection;

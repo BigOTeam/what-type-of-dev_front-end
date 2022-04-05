@@ -578,3 +578,58 @@ export const resultData = {
     },
   ],
 };
+
+export const totalJobData = {
+  jobList: [
+    {
+      jobId: 1,
+      jobName: '웹',
+      jobImg: '/images/Web.png',
+    },
+    {
+      jobId: 2,
+      jobName: 'DB',
+      jobImg: '/images/DB.png',
+    },
+    {
+      jobId: 3,
+      jobName: '엔터테인먼트',
+      jobImg: '/images/Ent.png',
+    },
+    {
+      jobId: 4,
+      jobName: '금융',
+      jobImg: '/images/Finance.png',
+    },
+    {
+      jobId: 5,
+      jobName: '게임',
+      jobImg: '/images/Game.png',
+    },
+    {
+      jobId: 6,
+      jobName: '인프라',
+      jobImg: '/images/Infra.png',
+    },
+    {
+      jobId: 7,
+      jobName: '빅데이터/머신러닝',
+      jobImg: '/images/Machine.png',
+    },
+    {
+      jobId: 8,
+      jobName: '시스템 소프트웨어',
+      jobImg: '/images/OS.png',
+    },
+    {
+      jobId: 9,
+      jobName: '툴',
+      jobImg: '/images/Tool.png',
+    },
+    {
+      jobId: 10,
+      jobName: '응용 소프트웨어',
+      jobImg: '/images/Util.png',
+    },
+  ],
+};

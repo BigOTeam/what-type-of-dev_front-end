@@ -33,7 +33,7 @@ export interface SurveyResult {
 export interface Job {
   jobId: number;
   jobName: string;
-  jobImgUrl: string;
+  jobImg: string;
 }
 
 export interface JobRank extends Job {
@@ -43,6 +43,10 @@ export interface JobRank extends Job {
 
 export interface SurveyResultResponseType {
   rankData: JobRank[];
+}
+
+export interface JobListResponseType {
+  jobList: Job[];
 }
 
 export interface RootState {
