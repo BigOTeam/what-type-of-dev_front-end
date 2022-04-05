@@ -6,7 +6,7 @@ export interface SurveyResponseType {
   pageNo: number;
   pageName: string;
   pageDescription: string;
-  pageImageUrl: string;
+  pageImg: string;
   survey: Survey[];
 }
 

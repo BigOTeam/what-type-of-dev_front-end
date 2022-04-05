@@ -62,7 +62,7 @@ const SurveySection: React.FC = () => {
       <Wrapper>
         <ProgressHeader pageNo={nextPageNumber} />
         <MainImage
-          src={surveyData?.pageImageUrl}
+          src={surveyData?.pageImg}
           alt={surveyData?.pageDescription}
         />
         <MainQuestion>💖🧡💛 {surveyData?.pageDescription} 💚💙💜</MainQuestion>

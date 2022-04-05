@@ -2,7 +2,7 @@ export const formData1 = {
   pageNo: 1,
   pageName: '자기소개',
   pageDescription: '당신에 대해서 알려주세요!',
-  pageImageUrl: '/images/1_자기소개.png',
+  pageImg: '/images/1_자기소개.png',
   survey: [
     {
       questionInitial: 'aboutme_dev',
@@ -25,7 +25,7 @@ export const formData2 = {
   pageNo: 2,
   pageName: '자기소개',
   pageDescription: '당신에 대해서 알려주세요!',
-  pageImageUrl: '/images/1_자기소개.png',
+  pageImg: '/images/1_자기소개.png',
   survey: [
     {
       questionInitial: 'aboutme_dev_type',
@@ -218,7 +218,7 @@ export const formData3 = {
   pageNo: 2,
   pageName: '자기소개',
   pageDescription: '당신에 대해서 알려주세요!',
-  pageImageUrl: '/images/1_자기소개.png',
+  pageImg: '/images/1_자기소개.png',
   survey: [
     {
       questionInitial: 'aboutme_age',
@@ -361,7 +361,7 @@ export const formData4 = {
   pageNo: 3,
   pageName: '개발관련',
   pageDescription: '개발 관련 질문!',
-  pageImageUrl: '/images/2_개발관련.png',
+  pageImg: '/images/2_개발관련.png',
   survey: [
     {
       questionInitial: 'dev_headphone',

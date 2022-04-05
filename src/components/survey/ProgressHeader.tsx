@@ -56,18 +56,6 @@ const ProgressBar = styled.div<ProgressHeaderProps>`
     border-radius: 6px;
     transition: all ease 0.3s;
   }
-
-  & .bar__fill::before {
-    content: '';
-    background-image: url(/images/ribbit.png);
-    width: 60px;
-    height: 60px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: -25px;
-    right: -25px;
-  }
 `;
 
 export default ProgressHeader;

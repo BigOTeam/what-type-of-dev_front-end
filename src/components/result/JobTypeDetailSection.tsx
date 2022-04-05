@@ -5,7 +5,8 @@ import styled from '@emotion/styled';
 import { JobTypeDetail } from '../../types/SurveyType';
 
 import SurveyService from '../../services/SurveyService';
-import SkeletonJobTypeDetail from './SkeletonJobTypeDetail';
+import SkeletonJobTypeDetail from './skeletonUI/SkeletonJobTypeDetail';
+import ResultButtonSection from './ResultButtonSection';
 
 interface TypeDetailSectionProps {
   id: number;
@@ -25,7 +26,7 @@ const JobTypeDetailSection: React.FC<TypeDetailSectionProps> = ({ id }) => {
       .catch((error) => {
         // 에러 발생시 처리
       });
-  }, []);
+  }, [id]);
 
   return (
     <Container>
@@ -62,6 +63,7 @@ const JobTypeDetailSection: React.FC<TypeDetailSectionProps> = ({ id }) => {
             )}
           </>
         )}
+        <ResultButtonSection isStatistics={false} />
       </Wrapper>
     </Container>
   );
