@@ -5,16 +5,16 @@ import TypeDetailSection from '../components/typeDetail/TypeDetailSection';
 import Footer from '../components/common/Footer';
 
 type Params = {
-  jobId: string;
+  id: string;
 };
 
 const JobTypeDetailPage: React.FC = () => {
-  const { jobId } = useParams<Params>();
+  const { id } = useParams<Params>();
 
   return (
     <>
       <Header />
-      <TypeDetailSection jobId={jobId} />
+      <TypeDetailSection id={Number(id)} />
       <Footer />
     </>
   );

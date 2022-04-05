@@ -5,16 +5,16 @@ import styled from '@emotion/styled';
 import SurveyService from '../../services/SurveyService';
 
 interface TypeDetailSectionProps {
-  jobId: any;
+  id: number;
 }
 
 const FONT_COLOR = '#45494b';
 
-const TypeDetailSection: React.FC<TypeDetailSectionProps> = ({ jobId }) => {
+const TypeDetailSection: React.FC<TypeDetailSectionProps> = ({ id }) => {
   const [data, setData] = useState<any>();
 
   useEffect(() => {
-    SurveyService.getJobDetail(Number(jobId)).then((res) => {
+    SurveyService.getJobDetail(id).then((res) => {
       setData(res);
     });
   }, []);
