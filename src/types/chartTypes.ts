@@ -55,7 +55,13 @@ export interface DoughnutChartOption {
         };
       };
     };
-    tooltip: TooltipType;
+    tooltip: DoughnutTooltipType;
+  };
+}
+
+interface DoughnutTooltipType extends TooltipType {
+  callbacks: {
+    label: (data: any) => string
   };
 }
 

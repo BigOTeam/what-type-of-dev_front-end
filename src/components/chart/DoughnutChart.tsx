@@ -76,6 +76,11 @@ const DoughnutChart: React.FC<DoughnutChartProps> = ({
           weight: 'bold',
         },
         padding: CHART_DEFAULT_STYLE.tooltip.paddingSize,
+        callbacks: {
+          label: (data) => {
+            return `${data.parsed}%`;
+          },
+        },
       },
     },
   };
