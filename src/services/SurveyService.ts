@@ -21,7 +21,7 @@ class SurveyService {
 
   public static async sendSurvey(params: SurveyResultRequestType) {
     const response = await axiosInstance.post(
-      '/api/v1/surveys/results',
+      '/rec-api/v1/surveys/results',
       params,
     );
 
