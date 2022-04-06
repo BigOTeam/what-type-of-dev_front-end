@@ -13,13 +13,12 @@ import commonStyles from './styles/commonStyles';
 
 import LoadingCircular from './components/common/LoadingCircular';
 
-import ChartPage from './pages/ChartPage';
-import SurveyPage from './pages/SurveyPage';
-import ResultPage from './pages/ResultPage';
-import JobTypeDetailPage from './pages/JobTypeDetailPage';
-
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 const HomePage = lazy(() => import('./pages/HomePage'));
+const ChartPage = lazy(() => import('./pages/ChartPage'));
+const SurveyPage = lazy(() => import('./pages/SurveyPage'));
+const ResultPage = lazy(() => import('./pages/ResultPage'));
+const JobTypeDetailPage = lazy(() => import('./pages/JobTypeDetailPage'));
 
 const App: React.FC = () => {
   useEffect(() => {
