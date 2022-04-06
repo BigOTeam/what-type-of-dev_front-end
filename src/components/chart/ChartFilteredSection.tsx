@@ -4,6 +4,8 @@ import styled from '@emotion/styled';
 
 import { GENDER_LIST, AGE_LIST } from '../../data/chartSearchData';
 
+import { ChartInfoType } from '../../types/chartTypes';
+
 import useChartSearchList from '../../hooks/useChartSearchList';
 
 import BarChart from './BarChart';
@@ -30,6 +32,30 @@ const ChartFilteredSection: React.FC = () => {
     event: React.ChangeEvent<HTMLSelectElement>,
   ): void => {
     setAge(event.target.value);
+  };
+
+  const renderChart = (data: ChartInfoType) => {
+    let totalCount = data.count.reduce(function add(sum: number, cur: number) {
+      return sum + cur;
+    }, 0);
+    if (totalCount === 0) {
+      return (
+        <ErrorMessage>
+          일치하는 데이터가 없습니다.
+          <br />
+          다른 조건으로 검색해주세요. ٩( ᐛ )و
+        </ErrorMessage>
+      );
+    } else {
+      return (
+        <BarChart
+          id={1}
+          indexAxis="y"
+          chartLabelDataInfo={data}
+          labelName="현업 개발자"
+        />
+      );
+    }
   };
 
   return (
@@ -59,21 +85,14 @@ const ChartFilteredSection: React.FC = () => {
           <ChartWrapper>
             {isError ? (
               <ErrorMessage>
-                {errorMessage}. 다른 조건으로 검색해주세요.
+                {errorMessage}에러가 발생했습니다. 다른 조건으로 검색해주세요.
               </ErrorMessage>
             ) : !data ? (
               <ErrorMessage>
                 일치하는 데이터가 없습니다. 다른 조건으로 검색해주세요.
               </ErrorMessage>
             ) : (
-              <ChartItem>
-                <BarChart
-                  id={1}
-                  indexAxis="y"
-                  chartLabelDataInfo={data}
-                  labelName="현업 개발자"
-                />
-              </ChartItem>
+              <ChartItem>{renderChart(data)}</ChartItem>
             )}
           </ChartWrapper>
         )}
@@ -155,6 +174,7 @@ const FilterOption = styled.option``;
 
 const ChartWrapper = styled.div`
   display: flex;
+  flex-direction: center;
   justify-content: center;
   margin-top: 20px;
   padding: 40px 0;
@@ -163,9 +183,11 @@ const ChartWrapper = styled.div`
   background-color: #fff;
 `;
 
-const ErrorMessage = styled.span`
-  width: 80%;
+const ErrorMessage = styled.div`
+  color: #6a6d6f;
+  font-weight: 500;
   text-align: center;
+  line-height: 1.5;
 `;
 
 const ChartItem = styled.div`
