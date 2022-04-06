@@ -22,20 +22,40 @@ export interface ChartContentsType {
   results: ChartAnalyzeType[];
 }
 
-export interface QuestionInfoType {
-  id: number;
-  question: string;
-}
-
 export interface ChartAnalyzeType extends QuestionInfoType {
   chartType: string;
   chartInfoData: ChartInfoType;
 }
 
+export interface QuestionInfoType {
+  id: number;
+  question: string;
+}
+
 export interface ChartInfoType {
-  contentList: string[];
-  countList: number[];
-  countPercentList: number[];
+  contents: string[];
+  count: number[];
+  countPercent: number[];
+}
+
+export interface ChartFilterType {
+  gender: string;
+  age: string;
+  chartInfoData: ChartInfoType;
+}
+
+export interface DoughnutChartData {
+  labels: string[];
+  datasets: DoughnutChartDataset[];
+}
+
+interface DoughnutChartDataset {
+  label: string;
+  data: number[];
+  backgroundColor: string[];
+  borderColor: string;
+  borderWidth: number;
+  hoverBorderWidth: number;
 }
 
 type FontWeightType = 'bold' | 'normal' | 'bolder' | 'lighter';
@@ -55,7 +75,13 @@ export interface DoughnutChartOption {
         };
       };
     };
-    tooltip: TooltipType;
+    tooltip: DoughnutTooltipType;
+  };
+}
+
+interface DoughnutTooltipType extends TooltipType {
+  callbacks: {
+    label: (data: any) => string;
   };
 }
 
@@ -67,20 +93,6 @@ interface TooltipType {
     weight: FontWeightType;
   };
   padding: Padding;
-}
-
-export interface DoughnutChartData {
-  labels: string[];
-  datasets: DoughnutChartDataset[];
-}
-
-interface DoughnutChartDataset {
-  label: string;
-  data: number[];
-  backgroundColor: string[];
-  borderColor: string;
-  borderWidth: number;
-  hoverBorderWidth: number;
 }
 
 export type IndexAxisType = 'y' | 'x';
@@ -96,7 +108,7 @@ export interface BarChartOption {
       display: boolean;
       position: 'bottom';
     };
-    tooltip: TooltipType;
+    tooltip: BarTooltipType;
   };
   scales: {
     y: {
@@ -117,6 +129,14 @@ export interface BarChartOption {
   };
 }
 
+interface BarTooltipType extends TooltipType {
+  titleColor: string;
+  titleFont: {
+    size: number;
+    weight: FontWeightType;
+  };
+}
+
 export interface BarChartData {
   labels: string[];
   datasets: BarChartDataset[];
@@ -129,10 +149,4 @@ interface BarChartDataset {
   borderColor: string;
   borderWidth: number;
   hoverBorderWidth: number;
-}
-
-export interface ChartFilterType {
-  gender: string;
-  age: string;
-  chartInfoData: ChartInfoType;
 }

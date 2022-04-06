@@ -24,9 +24,9 @@ export const statisticsData: ChartDataType = {
           question: '현직에서 개발일을 하고 계신가요?',
           chartType: 'doughnut',
           chartInfoData: {
-            contentList: ['예', '아니오'],
-            countList: [1300, 700],
-            countPercentList: [60, 40],
+            contents: ['예', '아니오'],
+            count: [1300, 700],
+            countPercent: [60, 40],
           },
         },
         {
@@ -35,7 +35,7 @@ export const statisticsData: ChartDataType = {
             '현직 개발자인 경우, 현재 일하고 있는 분야를 선택해주세요. 현직 개발자가 아닌 경우, 어느 분야에서 일하고 싶은지 선택해주세요.',
           chartType: 'horizontalBar',
           chartInfoData: {
-            contentList: [
+            contents: [
               '웹',
               '금융',
               '응용소프트웨어',
@@ -48,8 +48,8 @@ export const statisticsData: ChartDataType = {
               '프로그래밍툴',
               '기타',
             ],
-            countList: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
-            countPercentList: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+            count: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+            countPercent: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
           },
         },
         {
@@ -57,7 +57,7 @@ export const statisticsData: ChartDataType = {
           question: '연령대를 선택해주세요.',
           chartType: 'verticalBar',
           chartInfoData: {
-            contentList: [
+            contents: [
               '20세 미만',
               '20-24세',
               '25-29세',
@@ -67,8 +67,8 @@ export const statisticsData: ChartDataType = {
               '45-49세',
               '50세 이상',
             ],
-            countList: [500, 400, 300, 200, 100, 80, 70, 60],
-            countPercentList: [50, 16, 14, 10, 4, 3, 2, 1],
+            count: [500, 400, 300, 200, 100, 80, 70, 60],
+            countPercent: [50, 16, 14, 10, 4, 3, 2, 1],
           },
         },
         {
@@ -76,9 +76,9 @@ export const statisticsData: ChartDataType = {
           question: '성별을 선택해주세요.',
           chartType: 'doughnut',
           chartInfoData: {
-            contentList: ['여성', '남성'],
-            countList: [1300, 700],
-            countPercentList: [60, 40],
+            contents: ['여성', '남성'],
+            count: [1300, 700],
+            countPercent: [60, 40],
           },
         },
         {
@@ -86,7 +86,7 @@ export const statisticsData: ChartDataType = {
           question: '희망 연봉은 얼마인가요?',
           chartType: 'verticalBar',
           chartInfoData: {
-            contentList: [
+            contents: [
               '2000-3000만원',
               '3000-4000만원',
               '4000-5000만원',
@@ -96,8 +96,8 @@ export const statisticsData: ChartDataType = {
               '8000-9000만원',
               '1억 이상',
             ],
-            countList: [500, 400, 300, 200, 100, 80, 70, 60],
-            countPercentList: [50, 16, 14, 10, 4, 3, 2, 1],
+            count: [500, 400, 300, 200, 100, 80, 70, 60],
+            countPercent: [50, 16, 14, 10, 4, 3, 2, 1],
           },
         },
         {
@@ -105,7 +105,7 @@ export const statisticsData: ChartDataType = {
           question: '당신의 직업에 얼마나 만족하나요?',
           chartType: 'horizontalBar',
           chartInfoData: {
-            contentList: [
+            contents: [
               '완전히 만족',
               '매우 만족',
               '꽤 만족',
@@ -115,8 +115,8 @@ export const statisticsData: ChartDataType = {
               '완전히 불만족',
               '모르겠다',
             ],
-            countList: [500, 400, 300, 200, 100, 80, 70, 60],
-            countPercentList: [50, 16, 14, 10, 4, 3, 2, 1],
+            count: [500, 400, 300, 200, 100, 80, 70, 60],
+            countPercent: [50, 16, 14, 10, 4, 3, 2, 1],
           },
         },
       ],
@@ -137,9 +137,9 @@ export const statisticsData: ChartDataType = {
           question: '일 할 때 어떤 음료를 마시나요?',
           chartType: 'horizontalBar',
           chartInfoData: {
-            contentList: ['커피', '차', '물', '에너지음료', '맥주', '청량음료'],
-            countList: [500, 400, 300, 200, 100, 80],
-            countPercentList: [50, 30, 10, 5, 3, 2],
+            contents: ['커피', '차', '물', '에너지음료', '맥주', '청량음료'],
+            count: [500, 400, 300, 200, 100, 80],
+            countPercent: [50, 30, 10, 5, 3, 2],
           },
         },
         {
@@ -147,9 +147,9 @@ export const statisticsData: ChartDataType = {
           question: '사용하는 모바일 운영체제는 무엇인가요?',
           chartType: 'doughnut',
           chartInfoData: {
-            contentList: ['iOS', 'Andriod'],
-            countList: [1300, 700],
-            countPercentList: [60, 40],
+            contents: ['iOS', 'Andriod'],
+            count: [1300, 700],
+            countPercent: [60, 40],
           },
         },
         {
@@ -158,7 +158,7 @@ export const statisticsData: ChartDataType = {
             '모든 것을 고려했을 때, 요즘 당신의 삶은 얼마나 만족스러운가요?',
           chartType: 'horizontalBar',
           chartInfoData: {
-            contentList: [
+            contents: [
               '매우매우 만족',
               '매우 만족',
               '꽤 만족',
@@ -171,8 +171,8 @@ export const statisticsData: ChartDataType = {
               '매우매우 불만족',
               '모르겠다',
             ],
-            countList: [700, 600, 500, 400, 300, 250, 200, 180, 100, 80, 70, 60],
-            countPercentList: [23, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+            count: [700, 600, 500, 400, 300, 250, 200, 180, 100, 80, 70, 60],
+            countPercent: [23, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
           },
         },
         {
@@ -180,14 +180,14 @@ export const statisticsData: ChartDataType = {
           question: '선호하는 근무 형태는 무엇인가요?',
           chartType: 'horizontalBar',
           chartInfoData: {
-            contentList: [
+            contents: [
               '재택근무',
               '출퇴근',
               '난 짱이라서 어디든 가능',
               '상관 없음',
             ],
-            countList: [1300, 700, 400, 300],
-            countPercentList: [50, 30, 16, 4],
+            count: [1300, 700, 400, 300],
+            countPercent: [50, 30, 16, 4],
           },
         },
         {
@@ -196,15 +196,15 @@ export const statisticsData: ChartDataType = {
             '값 비싼 것을 소유하고, 부자가 되는 것을 중요하게 생각하나요?',
           chartType: 'horizontalBar',
           chartInfoData: {
-            contentList: [
+            contents: [
               '매우 그렇다',
               '그렇다',
               '그렇지 않다',
               '매우 그렇지 않다',
               '모르겠다',
             ],
-            countList: [1300, 700, 400, 300, 200],
-            countPercentList: [50, 30, 10, 6, 4],
+            count: [1300, 700, 400, 300, 200],
+            countPercent: [50, 30, 10, 6, 4],
           },
         },
         {
@@ -213,15 +213,15 @@ export const statisticsData: ChartDataType = {
             '어떤 위험 요소도 없는 안전한 삶을 사는 것을 중요하게 생각하나요?',
           chartType: 'horizontalBar',
           chartInfoData: {
-            contentList: [
+            contents: [
               '매우 그렇다',
               '그렇다',
               '그렇지 않다',
               '매우 그렇지 않다',
               '모르겠다',
             ],
-            countList: [1300, 700, 400, 300, 200],
-            countPercentList: [50, 30, 10, 6, 4],
+            count: [1300, 700, 400, 300, 200],
+            countPercent: [50, 30, 10, 6, 4],
           },
         },
         {
@@ -229,15 +229,15 @@ export const statisticsData: ChartDataType = {
           question: '다른 사람을 돕는 것을 중요하게 생각하나요?',
           chartType: 'horizontalBar',
           chartInfoData: {
-            contentList: [
+            contents: [
               '매우 그렇다',
               '그렇다',
               '그렇지 않다',
               '매우 그렇지 않다',
               '모르겠다',
             ],
-            countList: [1300, 700, 400, 300, 200],
-            countPercentList: [50, 30, 10, 6, 4],
+            count: [1300, 700, 400, 300, 200],
+            countPercent: [50, 30, 10, 6, 4],
           },
         },
         {
@@ -245,15 +245,15 @@ export const statisticsData: ChartDataType = {
           question: '항상 올바르게 행동하는 것을 중요하게 생각하나요?',
           chartType: 'horizontalBar',
           chartInfoData: {
-            contentList: [
+            contents: [
               '매우 그렇다',
               '그렇다',
               '그렇지 않다',
               '매우 그렇지 않다',
               '모르겠다',
             ],
-            countList: [1300, 700, 400, 300, 200],
-            countPercentList: [50, 30, 10, 6, 4],
+            count: [1300, 700, 400, 300, 200],
+            countPercent: [50, 30, 10, 6, 4],
           },
         },
       ],
@@ -266,7 +266,7 @@ export const ChartSearchData: ChartFilterType[] = [
     gender: 'all',
     age: '0-100',
     chartInfoData: {
-      contentList: [
+      contents: [
         '인프라',
         '웹',
         '금융',
@@ -279,15 +279,15 @@ export const ChartSearchData: ChartFilterType[] = [
         '프로그래밍툴',
         '기타',
       ],
-      countList: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
-      countPercentList: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+      count: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+      countPercent: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
     },
   },
   {
     gender: 'female',
     age: '0-100',
     chartInfoData: {
-      contentList: [
+      contents: [
         '게임',
         '웹',
         '금융',
@@ -300,15 +300,15 @@ export const ChartSearchData: ChartFilterType[] = [
         '프로그래밍툴',
         '기타',
       ],
-      countList: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
-      countPercentList: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+      count: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+      countPercent: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
     },
   },
   {
     gender: 'male',
     age: '0-100',
     chartInfoData: {
-      contentList: [
+      contents: [
         '응용소프트웨어',
         '웹',
         '금융',
@@ -321,15 +321,15 @@ export const ChartSearchData: ChartFilterType[] = [
         '프로그래밍툴',
         '기타',
       ],
-      countList: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
-      countPercentList: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+      count: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+      countPercent: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
     },
   },
   {
     gender: 'male',
     age: '25-29',
     chartInfoData: {
-      contentList: [
+      contents: [
         '금융',
         '웹',
         '응용소프트웨어',
@@ -342,8 +342,8 @@ export const ChartSearchData: ChartFilterType[] = [
         '프로그래밍툴',
         '기타',
       ],
-      countList: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
-      countPercentList: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+      count: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
+      countPercent: [500, 400, 300, 200, 100, 80, 70, 60, 50, 40],
     },
   },
 ];

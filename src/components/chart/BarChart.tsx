@@ -48,11 +48,11 @@ const BarChart: React.FC<BarChartProps> = ({
   labelName,
 }) => {
   const data: BarChartData = {
-    labels: chartLabelDataInfo.contentList,
+    labels: chartLabelDataInfo.contents,
     datasets: [
       {
         label: labelName,
-        data: chartLabelDataInfo.countList,
+        data: chartLabelDataInfo.count,
         backgroundColor: CHART_BACKGROUND_COLOR,
         borderColor: CHART_DEFAULT_STYLE.border.color,
         borderWidth: CHART_DEFAULT_STYLE.border.width,
@@ -72,6 +72,11 @@ const BarChart: React.FC<BarChartProps> = ({
       },
       tooltip: {
         backgroundColor: CHART_DEFAULT_STYLE.cardColor,
+        titleColor: CHART_DEFAULT_STYLE.font.color,
+        titleFont: {
+          size: CHART_DEFAULT_STYLE.font.size,
+          weight: 'bold',
+        },
         bodyColor: CHART_DEFAULT_STYLE.font.color,
         bodyFont: {
           size: CHART_DEFAULT_STYLE.font.size,
