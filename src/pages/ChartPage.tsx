@@ -16,12 +16,15 @@ import Footer from '../components/common/Footer';
 const ChartPage: React.FC = () => {
   const { isLoading, data, isError, errorMessage } = useChartList();
 
-  useEffect(() => {
+  const scrollToTop = () => {
     let currentLocation = window.location.href;
-    const hasAnchor = currentLocation.includes('#');
-    if (!hasAnchor) {
+    if (!currentLocation.includes('#')) {
       window.scrollTo(0, 0);
     }
+  };
+
+  useEffect(() => {
+    scrollToTop();
   }, []);
 
   if (isError) {
