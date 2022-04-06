@@ -5,7 +5,7 @@ import useDocumentTitle from '../hooks/useDocumentTitle';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
 import LinkSection from '../components/home/LinkSection';
-import surveyService from '../services/SurveyService';
+import ChartService from '../services/ChartService';
 
 const HomePage: React.FC = () => {
   const [responseUserCount, setResponseUserCount] = useState<number>();
@@ -14,8 +14,7 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     const getResponseUserCount = async () => {
-      const newResponseUserCount =
-        await surveyService.getNumberOfParticipants();
+      const newResponseUserCount = await ChartService.getNumberOfParticipants();
 
       setResponseUserCount(newResponseUserCount);
     };

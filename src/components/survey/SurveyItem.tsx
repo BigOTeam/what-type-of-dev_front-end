@@ -15,7 +15,7 @@ import { useDispatch } from 'react-redux';
 import { radioInit, radioUpdate } from '../../redux/modules/radio';
 
 interface FormItemProps {
-  surveyList: Survey[] | undefined;
+  surveyList: Survey[];
 }
 
 const SurveyItem: React.FC<FormItemProps> = ({ surveyList }) => {
@@ -24,7 +24,7 @@ const SurveyItem: React.FC<FormItemProps> = ({ surveyList }) => {
   useEffect(() => {
     dispatch(radioInit());
 
-    surveyList?.map((surveyItem) =>
+    surveyList.map((surveyItem) =>
       dispatch(
         radioUpdate({
           questionInitial: surveyItem.questionInitial,
@@ -34,7 +34,9 @@ const SurveyItem: React.FC<FormItemProps> = ({ surveyList }) => {
     );
   }, [surveyList]);
 
-  const handleRadioValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleRadioValueChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     dispatch(
       radioUpdate({
         questionInitial: event.target.name,
@@ -52,7 +54,7 @@ const SurveyItem: React.FC<FormItemProps> = ({ surveyList }) => {
                 <FormLabel id={surveyItem.questionInitial} css={questionLabel}>
                   Q.{surveyItem.question}
                 </FormLabel>
-                <RadioGroup row onChange={handleRadioValue}>
+                <RadioGroup row onChange={handleRadioValueChange}>
                   {surveyItem.answers.map((option) => (
                     <CustomFormControlLabel
                       key={option.answerSeq}
@@ -71,9 +73,7 @@ const SurveyItem: React.FC<FormItemProps> = ({ surveyList }) => {
   );
 };
 
-const Container = styled.div`
-  transition: all ease 0.3s;
-`;
+const Container = styled.div``;
 
 const Wrapper = styled.div`
   max-width: 600px;
@@ -82,11 +82,14 @@ const Wrapper = styled.div`
 
 const radioStyle = css`
   display: flex;
+  margin-bottom: 40px;
 
-  width: 600px;
-  padding: 20px 0px;
-
-  box-sizing: border-box;
+  &:first-child {
+    margin-top: 20px;
+  }
+  &:last-child {
+    margin-bottom: 20px;
+  }
 `;
 
 const questionLabel = css`

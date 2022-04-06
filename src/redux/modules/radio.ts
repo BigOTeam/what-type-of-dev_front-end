@@ -4,7 +4,7 @@ const initialState: RadioResultType = {
   radioResult: [],
 };
 
-const RADIO_INIT = 'radio/INSERT';
+const RADIO_INIT = 'radio/INIT';
 const RADIO_UPDATE = 'radio/UPDATE';
 
 export const radioInit = () => {

@@ -12,6 +12,12 @@ class ChartService {
     });
     return response;
   }
+
+  public static async getNumberOfParticipants() {
+    const response = await axiosInstance.get('/api/v1/statistics/count');
+
+    return response.data.responseUserCount;
+  }
 }
 
 export default ChartService;

@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 interface ProgressHeaderProps {
@@ -23,13 +22,11 @@ const ProgressHeader: React.FC<ProgressHeaderProps> = ({ pageNo }) => {
 
 const Header = styled.header`
   margin: 20px 0;
-  transition: all ease 0.3s;
 `;
 
 const Wrapper = styled.div`
   max-width: 600px;
   box-sizing: border-box;
-  transition: all ease 0.3s;
 `;
 
 const ProgressCount = styled.div`
@@ -42,10 +39,10 @@ const ProgressCount = styled.div`
 `;
 
 const ProgressBar = styled.div<ProgressHeaderProps>`
-  border-radius: 6px;
-  height: 16px;
   position: relative;
+  height: 16px;
   margin: 0 auto;
+  border-radius: 6px;
   background-color: #593137;
 
   & .bar__fill {

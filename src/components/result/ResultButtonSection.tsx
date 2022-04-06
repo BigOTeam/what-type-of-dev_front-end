@@ -20,12 +20,13 @@ const ResultButtonSection: React.FC<ResultButtonSectionProps> = ({
   const [open, setOpen] = useState<boolean>(false);
   const [jobList, setJobList] = useState<JobListResponseType>();
 
+  // 통신 에러 처리
   useEffect(() => {
     SurveyService.getJobs().then((response) => setJobList(response));
   }, []);
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleLinkButtonClick = () => setOpen(true);
+  const handleModalClose = () => setOpen(false);
 
   const handleJobClick = () => {
     setOpen(false);
@@ -35,7 +36,7 @@ const ResultButtonSection: React.FC<ResultButtonSectionProps> = ({
   return (
     <Container>
       <LinkButton to="/">테스트 다시 하기</LinkButton>
-      <LinkButton to="#" onClick={handleOpen}>
+      <LinkButton to="#" onClick={handleLinkButtonClick}>
         전체 유형 보기
       </LinkButton>
       {isStatistics ? null : (
@@ -43,7 +44,7 @@ const ResultButtonSection: React.FC<ResultButtonSectionProps> = ({
       )}
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={handleModalClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
@@ -55,17 +56,15 @@ const ResultButtonSection: React.FC<ResultButtonSectionProps> = ({
             <TotalJobBoxTitle>전체 유형 보기</TotalJobBoxTitle>
             <JobList>
               {jobList !== undefined
-                ? jobList.jobList.map((job) => {
-                    return (
-                      <JobWrapper
-                        to={`/jobs/${job.jobId}`}
-                        onClick={handleJobClick}
-                      >
-                        <JobImage src={job.jobImg} alt={job.jobName} />
-                        <JobName>{job.jobName}</JobName>
-                      </JobWrapper>
-                    );
-                  })
+                ? jobList.jobList.map((job) => (
+                    <JobWrapper
+                      to={`/jobs/${job.jobId}`}
+                      onClick={handleJobClick}
+                    >
+                      <JobImage src={job.jobImg} alt={job.jobName} />
+                      <JobName>{job.jobName}</JobName>
+                    </JobWrapper>
+                  ))
                 : null}
             </JobList>
           </TotalJobBox>
@@ -80,7 +79,7 @@ const Container = styled.section`
   justify-content: space-around;
 
   width: 100%;
-  padding: 20px 0px 40px 0px;
+  padding: 20px 0 40px;
 
   @media (max-width: 767px) {
     flex-direction: column;
@@ -105,13 +104,13 @@ const LinkButton = styled(Link)`
   font-size: 20px;
   letter-spacing: -0.02em;
   line-height: 1.2em;
+  transition: all ease 0.3s;
 
   cursor: pointer;
 
-  :hover {
+  &:hover {
     color: #fefefe;
     background-color: #5bb1f8;
-    transition: all ease 0.3s;
   }
 
   @media (max-width: 767px) {

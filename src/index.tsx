@@ -14,11 +14,11 @@ const queryClient = new QueryClient();
 const store = createReduxStore();
 const persistor = persistStore(store);
 
-if (process.env.NODE_ENV === 'development') {
-  const { worker } = require('./mocks/browser');
+// if (process.env.NODE_ENV === 'development') {
+//   const { worker } = require('./mocks/browser');
 
-  worker.start();
-}
+//   worker.start();
+// }
 
 ReactDOM.render(
   <QueryClientProvider client={queryClient}>

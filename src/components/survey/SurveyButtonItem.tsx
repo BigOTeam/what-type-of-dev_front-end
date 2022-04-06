@@ -1,19 +1,18 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { Survey } from '../../types/SurveyType';
 
 interface SurveyItemProps {
   surveyList: Survey[] | undefined;
-  handleClickYes: React.MouseEventHandler<HTMLButtonElement>;
-  handleClickNo: React.MouseEventHandler<HTMLButtonElement>;
+  handleYesButtonClick: React.MouseEventHandler<HTMLButtonElement>;
+  handleNoButtonClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const SurveyButtonItem: React.FC<SurveyItemProps> = ({
   surveyList,
-  handleClickYes,
-  handleClickNo,
+  handleYesButtonClick,
+  handleNoButtonClick,
 }) => {
   return (
     <>
@@ -21,8 +20,10 @@ const SurveyButtonItem: React.FC<SurveyItemProps> = ({
         <>
           <Question>Q.{surveyList[0].question}</Question>
           <ButtonSection>
-            <QuestionButton onClick={handleClickYes}>네</QuestionButton>
-            <QuestionButton onClick={handleClickNo}>아니오</QuestionButton>
+            <QuestionButton onClick={handleYesButtonClick}>네</QuestionButton>
+            <QuestionButton onClick={handleNoButtonClick}>
+              아니오
+            </QuestionButton>
           </ButtonSection>
         </>
       ) : null}
