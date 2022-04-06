@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { surveyUpdate } from '../../redux/modules/survey';
@@ -8,35 +8,25 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import SurveyItem from './SurveyItem';
-import {
-  RadioState,
-  SurveyResponseType,
-  SurveyResult,
-} from '../../types/SurveyType';
+import { RadioState, SurveyResult } from '../../types/SurveyType';
 import SurveyButtonItem from './SurveyButtonItem';
-import SurveyService from '../../services/SurveyService';
 import ProgressHeader from './ProgressHeader';
 import { Link } from 'react-router-dom';
+import useSurveyList from '../../hooks/useSurveyList';
 
 const SurveySection: React.FC = () => {
-  const dispatch = useDispatch();
+  const [nextPageNumber, setNextPageNumber] = useState<number>(1);
+  const [isDeveloper, setIsDeveloper] = useState<boolean>(false);
 
+  const dispatch = useDispatch();
   const radioResult = useSelector<RadioState, SurveyResult[] | null>(
     (state) => state.radio.radioResult,
   );
 
-  const [surveyData, setSurveyData] = useState<SurveyResponseType>();
-  const [isDeveloper, setIsDeveloper] = useState<boolean | null>(null);
-  const [nextPageNumber, setNextPageNumber] = useState<number>(1);
-
-  useEffect(() => {
-    const params = {
-      pageNo: nextPageNumber,
-      isDeveloper: isDeveloper,
-    };
-
-    SurveyService.getSurvey(params).then((response) => setSurveyData(response));
-  }, [isDeveloper, nextPageNumber]);
+  const { isLoading, surveyData } = useSurveyList({
+    pageNo: nextPageNumber,
+    isDeveloper: isDeveloper,
+  });
 
   const handleYesButtonClick = () => {
     setIsDeveloper(true);
@@ -49,7 +39,7 @@ const SurveySection: React.FC = () => {
     setNextPageNumber((prevNumber) => prevNumber + 1);
   };
 
-  const handleClickNo = () => {
+  const handleNoButtonClick = () => {
     setIsDeveloper(false);
     dispatch(
       surveyUpdate({
@@ -82,29 +72,35 @@ const SurveySection: React.FC = () => {
     <Container>
       <Wrapper>
         <ProgressHeader pageNo={nextPageNumber} />
-        <MainImage
-          src={surveyData?.pageImg}
-          alt={surveyData?.pageDescription}
-        />
-        <MainQuestion>💖🧡💛 {surveyData?.pageDescription} 💚💙💜</MainQuestion>
-        {nextPageNumber === 1 ? (
-          <SurveyButtonItem
-            surveyList={surveyData?.survey}
-            handleClickYes={handleYesButtonClick}
-            handleClickNo={handleClickNo}
-          />
-        ) : (
+        {!isLoading && surveyData !== undefined ? (
           <>
-            <SurveyItem surveyList={surveyData?.survey} />
-            <ButtonSection>
-              {nextPageNumber < 8 ? (
-                <NextButton onClick={handleNextButtonClick}>다음</NextButton>
-              ) : (
-                <ResultButton to="/results">결과보기</ResultButton>
-              )}
-            </ButtonSection>
+            <MainImage
+              src={surveyData.pageImg}
+              alt={surveyData.pageDescription}
+            />
+            <MainQuestion>💖🧡 {surveyData.pageDescription} 💙💜</MainQuestion>
+            {nextPageNumber === 1 ? (
+              <SurveyButtonItem
+                surveyList={surveyData.surveys}
+                handleYesButtonClick={handleYesButtonClick}
+                handleNoButtonClick={handleNoButtonClick}
+              />
+            ) : (
+              <>
+                <SurveyItem surveyList={surveyData.surveys} />
+                <ButtonSection>
+                  {nextPageNumber < 8 ? (
+                    <NextButton onClick={handleNextButtonClick}>
+                      다음
+                    </NextButton>
+                  ) : (
+                    <ResultButton to="/results">결과보기</ResultButton>
+                  )}
+                </ButtonSection>
+              </>
+            )}
           </>
-        )}
+        ) : null}
       </Wrapper>
     </Container>
   );
