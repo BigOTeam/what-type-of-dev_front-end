@@ -33,11 +33,17 @@ const ResultButtonSection: React.FC<ResultButtonSectionProps> = ({
     window.scrollTo({ top: 0 });
   };
 
+  const handleRetryButtonClick = () => {
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <Container>
-      <LinkButton to="/">테스트 다시 하기</LinkButton>
+      <LinkButton to="/" onClick={handleRetryButtonClick}>
+        테스트 다시 하기
+      </LinkButton>
       <LinkButton to="#" onClick={handleLinkButtonClick}>
-        전체 유형 보기
+        전체 분야 보기
       </LinkButton>
       {isStatistics ? null : (
         <LinkButton to="/statistics">통계 보기</LinkButton>
@@ -53,7 +59,7 @@ const ResultButtonSection: React.FC<ResultButtonSectionProps> = ({
       >
         <Fade in={open}>
           <TotalJobBox>
-            <TotalJobBoxTitle>전체 유형 보기</TotalJobBoxTitle>
+            <TotalJobBoxTitle>전체 분야</TotalJobBoxTitle>
             <JobList>
               {jobList !== undefined
                 ? jobList.jobList.map((job) => (

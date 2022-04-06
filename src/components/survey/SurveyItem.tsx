@@ -84,7 +84,7 @@ const radioStyle = css`
   display: flex;
   margin-bottom: 40px;
 
-  &:first-child {
+  &:first-of-type {
     margin-top: 20px;
   }
   &:last-child {
