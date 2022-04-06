@@ -22,20 +22,40 @@ export interface ChartContentsType {
   results: ChartAnalyzeType[];
 }
 
-export interface QuestionInfoType {
-  id: number;
-  question: string;
-}
-
 export interface ChartAnalyzeType extends QuestionInfoType {
   chartType: string;
   chartInfoData: ChartInfoType;
 }
 
+export interface QuestionInfoType {
+  id: number;
+  question: string;
+}
+
 export interface ChartInfoType {
-  contentList: string[];
-  countList: number[];
-  countPercentList: number[];
+  contents: string[];
+  count: number[];
+  countPercent: number[];
+}
+
+export interface ChartFilterType {
+  gender: string;
+  age: string;
+  chartInfoData: ChartInfoType;
+}
+
+export interface DoughnutChartData {
+  labels: string[];
+  datasets: DoughnutChartDataset[];
+}
+
+interface DoughnutChartDataset {
+  label: string;
+  data: number[];
+  backgroundColor: string[];
+  borderColor: string;
+  borderWidth: number;
+  hoverBorderWidth: number;
 }
 
 type FontWeightType = 'bold' | 'normal' | 'bolder' | 'lighter';
@@ -73,20 +93,6 @@ interface TooltipType {
     weight: FontWeightType;
   };
   padding: Padding;
-}
-
-export interface DoughnutChartData {
-  labels: string[];
-  datasets: DoughnutChartDataset[];
-}
-
-interface DoughnutChartDataset {
-  label: string;
-  data: number[];
-  backgroundColor: string[];
-  borderColor: string;
-  borderWidth: number;
-  hoverBorderWidth: number;
 }
 
 export type IndexAxisType = 'y' | 'x';
@@ -143,10 +149,4 @@ interface BarChartDataset {
   borderColor: string;
   borderWidth: number;
   hoverBorderWidth: number;
-}
-
-export interface ChartFilterType {
-  gender: string;
-  age: string;
-  chartInfoData: ChartInfoType;
 }
