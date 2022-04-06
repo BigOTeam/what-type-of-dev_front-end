@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import styled from '@emotion/styled';
 
 import useChartList from '../hooks/useChartList';
@@ -8,11 +10,19 @@ import ChartResultSection from '../components/chart/ChartResultSection';
 import ChartFilteredSection from '../components/chart/ChartFilteredSection';
 import SkeletonChartSection from '../components/chart/skeletonUI/SkeletonChartSection';
 import SkeletonHeader from '../components/chart/skeletonUI/SkeletonHeader';
-import Footer from '../components/common/Footer';
 import ResultButtonSection from '../components/result/ResultButtonSection';
+import Footer from '../components/common/Footer';
 
 const ChartPage: React.FC = () => {
   const { isLoading, data, isError, errorMessage } = useChartList();
+
+  useEffect(() => {
+    let currentLocation = window.location.href;
+    const hasAnchor = currentLocation.includes('#');
+    if (!hasAnchor) {
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   if (isError) {
     return <div>{errorMessage}</div>;
