@@ -8,7 +8,7 @@ interface ChartTitleSummaryProps {
 
 const FONT_COLOR = '#45494b';
 
-const ChartTitleSummary: React.FC<ChartTitleSummaryProps> = ({ data }) => {
+const TitleSummaryCard: React.FC<ChartTitleSummaryProps> = ({ data }) => {
   return (
     <Wrapper>
       <Card>
@@ -120,4 +120,4 @@ const SummaryItem = styled.li`
   }
 `;
 
-export default ChartTitleSummary;
+export default TitleSummaryCard;

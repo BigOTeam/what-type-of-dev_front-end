@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { ChartContentsType } from '../../types/chartTypes';
 
 import ContentItem from './ContentItem';
-import ChartTitleSummary from './ChartTitleSummary';
+import TitleSummaryCard from './TitleSummaryCard';
 import ChartCard from './ChartCard';
 
 interface ChartResultProps {
@@ -42,7 +42,7 @@ const ChartResultSection: React.FC<ChartResultProps> = ({
                     Part {data.groupId}. {data.groupName}
                   </GroupHead>
                   <ChartItemList>
-                    <ChartTitleSummary data={data} />
+                    <TitleSummaryCard data={data} />
                     <ChartCardList>
                       {data.results.map((chartLabelData) => (
                         <ChartCard
