@@ -72,6 +72,11 @@ const BarChart: React.FC<BarChartProps> = ({
       },
       tooltip: {
         backgroundColor: CHART_DEFAULT_STYLE.cardColor,
+        titleColor: CHART_DEFAULT_STYLE.font.color,
+        titleFont: {
+          size: CHART_DEFAULT_STYLE.font.size,
+          weight: 'bold',
+        },
         bodyColor: CHART_DEFAULT_STYLE.font.color,
         bodyFont: {
           size: CHART_DEFAULT_STYLE.font.size,

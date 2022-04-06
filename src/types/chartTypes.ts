@@ -61,7 +61,7 @@ export interface DoughnutChartOption {
 
 interface DoughnutTooltipType extends TooltipType {
   callbacks: {
-    label: (data: any) => string
+    label: (data: any) => string;
   };
 }
 
@@ -102,7 +102,7 @@ export interface BarChartOption {
       display: boolean;
       position: 'bottom';
     };
-    tooltip: TooltipType;
+    tooltip: BarTooltipType;
   };
   scales: {
     y: {
@@ -120,6 +120,14 @@ export interface BarChartOption {
         };
       };
     };
+  };
+}
+
+interface BarTooltipType extends TooltipType {
+  titleColor: string;
+  titleFont: {
+    size: number;
+    weight: FontWeightType;
   };
 }
 
