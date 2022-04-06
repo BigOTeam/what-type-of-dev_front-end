@@ -73,6 +73,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #eff9fd;
 `;
 
 const Wrapper = styled.div`
@@ -178,6 +179,7 @@ const Card = styled.div`
   box-sizing: border-box;
   border-radius: 14px;
   border: 1px solid #d7e2eb;
+  background-color: #fff;
 
   @media (max-width: 767px) {
     padding: 52px;
@@ -189,18 +191,12 @@ const Card = styled.div`
 
 const JobTypeSub = styled.div`
   width: fit-content;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   position: relative;
-  font-size: 44px;
+  font-size: 40px;
   font-weight: 700;
   text-align: center;
-
-  @media (max-width: 767px) {
-    font-size: 36px;
-  }
-  @media (max-width: 575px) {
-    font-size: 32px;
-  }
+  z-index: 1;
 
   &::after {
     content: '';
@@ -211,6 +207,14 @@ const JobTypeSub = styled.div`
     bottom: 1px;
     z-index: -1;
     background-color: #cbe6fa;
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 16px;
+    font-size: 32px;
+  }
+  @media (max-width: 575px) {
+    font-size: 28px;
   }
 `;
 
