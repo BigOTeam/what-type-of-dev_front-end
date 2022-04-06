@@ -70,9 +70,6 @@ const Card = styled.li`
   background-color: #fff;
 
   @media (max-width: 767px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
     width: 100%;
     padding: 24px 40px;

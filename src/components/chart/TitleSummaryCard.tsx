@@ -51,7 +51,7 @@ const Card = styled.div`
   padding: 40px;
   border-radius: 14px;
   border: 1px solid #d7e2eb;
-  background-color: #ffffff;
+  background-color: #fff;
   box-sizing: border-box;
   color: ${FONT_COLOR};
 

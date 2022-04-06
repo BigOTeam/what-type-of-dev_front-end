@@ -18,7 +18,7 @@ const ChartTitle: React.FC<ChartTitleProps> = ({ titleData }) => {
         </Period>
         <Info>
           {`${titleData.userCount}명의 응답자(현업 개발자: ${titleData.careerCount}명, 비개발자: ${titleData.newCount}명)가
-          답변을 했습니다.`}
+          답변을 했습니다. `}
           <br />
           다른 사람들의 의견을 구경하고 내 답변과 비교해보세요!
         </Info>
@@ -42,7 +42,7 @@ const Wrapper = styled.div`
     padding: 32px 48px 28px;
   }
   @media (max-width: 575px) {
-    padding: 32px 48px 24px;
+    padding-bottom: 24px;
   }
 `;
 
@@ -78,6 +78,12 @@ const Info = styled.h2`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.5;
+
+  br {
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
 
   @media (max-width: 575px) {
     margin: 0 16px;

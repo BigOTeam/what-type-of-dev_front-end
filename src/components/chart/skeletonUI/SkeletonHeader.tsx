@@ -22,10 +22,10 @@ const TitleWrapper = styled.div`
   padding: 32px 48px 150px;
 
   @media (max-width: 767px) {
-    padding-bottom: 150px;
+    padding-bottom: 130px;
   }
   @media (max-width: 575px) {
-    padding-bottom: 140px;
+    padding-bottom: 100px;
   }
 `;
 
@@ -35,7 +35,6 @@ const TitleHead = styled.h1`
   font-weight: 700;
 
   @media (max-width: 767px) {
-    margin-bottom: 28px;
     font-size: 44px;
   }
   @media (max-width: 575px) {
