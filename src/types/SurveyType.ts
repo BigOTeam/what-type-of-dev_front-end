@@ -25,6 +25,10 @@ export interface SurveyResultRequestType {
   surveyResult: SurveyResult[] | null;
 }
 
+export interface RadioResultType {
+  radioResult: SurveyResult[] | null;
+}
+
 export interface SurveyResult {
   questionInitial: string;
   answerSeq: number;
@@ -51,6 +55,10 @@ export interface JobListResponseType {
 
 export interface RootState {
   survey: SurveyResultRequestType;
+}
+
+export interface RadioState {
+  radio: RadioResultType;
 }
 
 export interface JobTypeDetail extends Job {

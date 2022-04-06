@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { surveyUpdate } from '../../redux/modules/survey';
 
@@ -8,7 +8,11 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import SurveyItem from './SurveyItem';
-import { SurveyResponseType } from '../../types/SurveyType';
+import {
+  RadioState,
+  SurveyResponseType,
+  SurveyResult,
+} from '../../types/SurveyType';
 import SurveyButtonItem from './SurveyButtonItem';
 import SurveyService from '../../services/SurveyService';
 import ProgressHeader from './ProgressHeader';
@@ -17,7 +21,11 @@ import { Link } from 'react-router-dom';
 const SurveySection: React.FC = () => {
   const dispatch = useDispatch();
 
-  const [surveyData, serSurveyData] = useState<SurveyResponseType>();
+  const radioResult = useSelector<RadioState, SurveyResult[] | null>(
+    (state) => state.radio.radioResult,
+  );
+
+  const [surveyData, setSurveyData] = useState<SurveyResponseType>();
   const [isDeveloper, setIsDeveloper] = useState<boolean | null>(null);
   const [nextPageNumber, setNextPageNumber] = useState<number>(1);
 
@@ -27,7 +35,7 @@ const SurveySection: React.FC = () => {
       isDeveloper: isDeveloper,
     };
 
-    SurveyService.getSurvey(params).then((response) => serSurveyData(response));
+    SurveyService.getSurvey(params).then((response) => setSurveyData(response));
   }, [isDeveloper, nextPageNumber]);
 
   const handleYesButtonClick = () => {
@@ -38,7 +46,7 @@ const SurveySection: React.FC = () => {
         answerSeq: 1,
       }),
     );
-    handleNextButtonClick();
+    setNextPageNumber((prevNumber) => prevNumber + 1);
   };
 
   const handleClickNo = () => {
@@ -49,12 +57,25 @@ const SurveySection: React.FC = () => {
         answerSeq: 2,
       }),
     );
-    handleNextButtonClick();
+    setNextPageNumber((prevNumber) => prevNumber + 1);
   };
 
   const handleNextButtonClick = () => {
-    setNextPageNumber((prevNumber) => prevNumber + 1);
-    window.scrollTo({ top: 0 });
+    let flag = true;
+
+    if (radioResult !== null) {
+      for (let i = 0; i < radioResult?.length; i++) {
+        if (radioResult[i].answerSeq === 0) {
+          alert('모든 문항을 선택해주세요');
+          flag = false;
+          break;
+        }
+      }
+      if (flag) {
+        setNextPageNumber((prevNumber) => prevNumber + 1);
+        window.scrollTo({ top: 0 });
+      }
+    }
   };
 
   return (
