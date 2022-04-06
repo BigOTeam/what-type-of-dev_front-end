@@ -49,7 +49,7 @@ const InnerWrapper = styled.div<WrapperProps>`
   height: 100%;
 
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px;
 
   box-sizing: border-box;
 `;
@@ -71,10 +71,8 @@ const ResultImage = styled.img`
 
 const RankTitleWrapper = styled.div`
   position: relative;
-
-  top: 20px;
+  top: 25px;
   margin: 0 auto;
-
   width: 100px;
 `;
 
@@ -105,12 +103,9 @@ const RankResultWrapper = styled.div`
 `;
 
 const JobName = styled.h3`
-  text-align: center;
-
-  margin-bottom: 20px;
-
   font-size: 28px;
   font-weight: 500;
+  text-align: center;
 
   @media (max-width: 767px) {
     font-size: 24px;

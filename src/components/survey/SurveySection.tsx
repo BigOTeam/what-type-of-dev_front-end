@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { surveyUpdate } from '../../redux/modules/survey';
 
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import SurveyItem from './SurveyItem';
@@ -51,20 +50,20 @@ const SurveySection: React.FC = () => {
   };
 
   const handleNextButtonClick = () => {
-    let flag = true;
+    if (radioResult === null) {
+      return;
+    }
 
-    if (radioResult !== null) {
-      for (let i = 0; i < radioResult?.length; i++) {
-        if (radioResult[i].answerSeq === 0) {
-          alert('모든 문항을 선택해주세요');
-          flag = false;
-          break;
-        }
-      }
-      if (flag) {
-        setNextPageNumber((prevNumber) => prevNumber + 1);
-        window.scrollTo({ top: 0 });
-      }
+    const flag =
+      radioResult.filter((result) => result.answerSeq === 0).length > 0
+        ? false
+        : true;
+
+    if (flag) {
+      setNextPageNumber((prevNumber) => prevNumber + 1);
+      window.scrollTo({ top: 0 });
+    } else {
+      alert('모든 문항을 선택해주세요');
     }
   };
 
@@ -106,14 +105,12 @@ const SurveySection: React.FC = () => {
   );
 };
 
-const Container = styled.main`
-  transition: all ease 0.3s;
-`;
+const Container = styled.main``;
 
 const Wrapper = styled.div`
   max-width: 600px;
-  padding: 0 16px;
   margin: 0 auto;
+  padding: 0 16px;
   box-sizing: border-box;
 `;
 
@@ -163,12 +160,12 @@ const NextButton = styled.button`
   font-size: 20px;
   font-weight: bold;
 
+  transition: all ease 0.3s;
   cursor: pointer;
 
-  :hover {
-    color: #fefefe;
+  &:hover {
     background-color: #5bb1f8;
-    transition: all ease 0.3s;
+    color: #fefefe;
   }
 `;
 
@@ -191,12 +188,12 @@ const ResultButton = styled(Link)`
   font-size: 20px;
   font-weight: bold;
 
+  transition: all ease 0.3s;
   cursor: pointer;
 
-  :hover {
-    color: #fefefe;
+  &:hover {
     background-color: #5bb1f8;
-    transition: all ease 0.3s;
+    color: #fefefe;
   }
 `;
 

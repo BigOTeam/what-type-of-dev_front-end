@@ -61,7 +61,6 @@ const ResultSection: React.FC = () => {
 const Container = styled.main`
   background-color: #e7f4fd;
   box-sizing: border-box;
-  transition: all ease 0.3s;
 `;
 
 const Wrapper = styled.div`

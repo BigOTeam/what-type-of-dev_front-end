@@ -10,7 +10,7 @@ const CustomFormControlLabel: React.FC<FormControlLabelProps> = (props) => {
   const dispatch = useDispatch();
   const radioGroup = useRadioGroup();
 
-  const handleRadioGroup = () => {
+  const handleRadioGroupChange = () => {
     if (radioGroup !== undefined) {
       const param = {
         questionInitial: props.id as string,
@@ -21,7 +21,7 @@ const CustomFormControlLabel: React.FC<FormControlLabelProps> = (props) => {
     }
   };
 
-  return <FormControlLabel {...props} onChange={handleRadioGroup} />;
+  return <FormControlLabel {...props} onChange={handleRadioGroupChange} />;
 };
 
 export default CustomFormControlLabel;
