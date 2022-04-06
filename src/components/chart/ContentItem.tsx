@@ -1,3 +1,7 @@
+import { useEffect } from 'react';
+
+import { useLocation } from 'react-router-dom';
+
 import styled from '@emotion/styled';
 
 import { QuestionInfoType } from '../../types/chartTypes';
@@ -13,13 +17,21 @@ const ContentItem: React.FC<ContentItemProps> = ({
   groupName,
   questionInfo,
 }) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash !== '') {
+      window.location.href = `${location.pathname}${location.hash}`;
+    }
+  }, []);
+
   return (
     <Card key={groupId}>
       <Title>{groupName}</Title>
       <NavList>
         {questionInfo.map((question) => (
           <NavItem key={question.id}>
-            <NavLink href={'#' + String(groupId) + '-' + String(question.id)}>
+            <NavLink href={`#${String(groupId)}-${String(question.id)}`}>
               {question.question}
             </NavLink>
           </NavItem>

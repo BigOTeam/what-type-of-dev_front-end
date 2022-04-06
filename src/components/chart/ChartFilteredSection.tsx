@@ -12,8 +12,8 @@ import SkeletonChartItem from './skeletonUI/SkeletonChartItem';
 const FONT_COLOR = '#45494b';
 
 const ChartFilteredSection: React.FC = () => {
-  const [gender, setGender] = useState<string>('all');
-  const [age, setAge] = useState<string>('0-100');
+  const [gender, setGender] = useState<string>('전체');
+  const [age, setAge] = useState<string>('전체');
 
   const { isLoading, data, isError, errorMessage } = useChartSearchList({
     gender,
@@ -37,7 +37,7 @@ const ChartFilteredSection: React.FC = () => {
       <Wrapper>
         <FilterList>
           <FilterSelect name="gender" onChange={handleGenderChange}>
-            <FilterOption value="all">전체 성별</FilterOption>
+            <FilterOption value="전체">전체 성별</FilterOption>
             {GENDER_LIST.map((gender) => (
               <FilterOption key={gender.id} value={gender.value}>
                 {gender.name}
@@ -45,7 +45,7 @@ const ChartFilteredSection: React.FC = () => {
             ))}
           </FilterSelect>
           <FilterSelect name="age" onChange={handleAgeChange}>
-            <FilterOption value="0-100">전체 연령대</FilterOption>
+            <FilterOption value="전체">전체 연령대</FilterOption>
             {AGE_LIST.map((age) => (
               <FilterOption key={age.id} value={age.value}>
                 {age.name}
