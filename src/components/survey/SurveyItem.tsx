@@ -52,7 +52,7 @@ const SurveyItem: React.FC<FormItemProps> = ({ surveyList }) => {
           ? surveyList.map((surveyItem) => (
               <FormControl key={surveyItem.questionInitial} css={radioStyle}>
                 <FormLabel id={surveyItem.questionInitial} css={questionLabel}>
-                  Q.{surveyItem.question}
+                  Q. {surveyItem.question}
                 </FormLabel>
                 <RadioGroup row onChange={handleRadioValueChange}>
                   {surveyItem.answers.map((option) => (
