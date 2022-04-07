@@ -24,51 +24,51 @@ const ShareSection: React.FC<ShareSectionProps> = ({ name, imgUrl }) => {
 
   return (
     <Container>
-      <ShareTitle>결과 공유하기</ShareTitle>
-      <ShareButtonSection>
-        {/* <ShareButton>페이스북</ShareButton> */}
-        <ShareButton
-          src="/images/common/kakao-logo.png"
-          alt="카카오 공유 버튼"
-          onClick={handleKakaoShare}
-        />
-        {/* <ShareButton>인스타그램</ShareButton> */}
-      </ShareButtonSection>
+      <Wrapper>
+        <ShareTitle>당신에게 어울리는 개발자 유형을 공유해보세요!</ShareTitle>
+        <ShareButtonSection>
+          <ShareButton
+            src="/images/common/kakao-logo.png"
+            alt="카카오 공유 버튼"
+            onClick={handleKakaoShare}
+          />
+        </ShareButtonSection>
+      </Wrapper>
     </Container>
   );
 };
 
 const Container = styled.section`
-  padding: 40px 0px;
+  padding-bottom: 20px;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  max-width: 900px;
 `;
 
 const ShareTitle = styled.h1`
-  text-align: center;
-
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   font-size: 28px;
   font-weight: bold;
 `;
 
 const ShareButtonSection = styled.div`
-  display: flex;
-  justify-content: space-around;
+  width: 64px;
+  height: 64px;
+  margin: 0 10px;
 `;
 
 const ShareButton = styled.img`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
-
-  @media (max-width: 767px) {
-    width: 100%;
-    height: calc(100px * 0.9);
-    margin-bottom: 16px;
-  }
 `;
 
 export default ShareSection;
