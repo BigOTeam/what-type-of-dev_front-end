@@ -62,9 +62,20 @@ const BarChart: React.FC<BarChartProps> = ({
   };
 
   const options: BarChartOption = {
+    // maintainAspectRatio: false,
+    // aspectRatio: 1,
     plugins: {
       datalabels: {
-        display: false,
+        display: true,
+        labels: {
+          value: {
+            font: {
+              family: CHART_DEFAULT_STYLE.font.family,
+              weight: 'lighter',
+              size: CHART_DEFAULT_STYLE.font.size,
+            },
+          },
+        },
       },
       legend: {
         display: true,
@@ -87,9 +98,6 @@ const BarChart: React.FC<BarChartProps> = ({
     },
     scales: {
       y: {
-        // afterFit: function (scale) {
-        //   scale.width = 100;
-        // },
         ticks: {
           padding: 0,
           autoSkip: false,
@@ -121,6 +129,9 @@ const BarChart: React.FC<BarChartProps> = ({
         options={options}
         data={data}
         style={{ width: '95%' }}
+        // height={50}
+        // style={{ minHeight: '200px' }}
+        // style={{ height: '94%' }}
         // style={{ width: '100%', minHeight: '220px' }}
       />
     </Container>

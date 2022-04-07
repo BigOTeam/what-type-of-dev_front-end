@@ -23,6 +23,7 @@ export interface ChartDefaultStyle {
   };
   tooltip: {
     paddingSize: number;
+    fontSize: number;
   };
 }
 
@@ -30,7 +31,7 @@ export const CHART_DEFAULT_STYLE: ChartDefaultStyle = {
   cardColor: '#FFFFFF',
   font: {
     color: '#000000',
-    family: 'Spoqa Han Sans Neo', 
+    family: 'Spoqa Han Sans Neo',
     size: 8,
   },
   border: {
@@ -41,5 +42,6 @@ export const CHART_DEFAULT_STYLE: ChartDefaultStyle = {
   },
   tooltip: {
     paddingSize: 8,
+    fontSize: 12,
   },
 };
