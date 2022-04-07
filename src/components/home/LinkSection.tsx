@@ -33,7 +33,9 @@ const LinkSection: React.FC<LinkSectionProps> = ({
     <Container backgroundColor={backgroundColor}>
       <Wrapper isReversed={isReversed}>
         <ImgWrapper>
-          <CharacterImg src={imgUrl} alt={`${headText} 이미지`} />
+          <ImgBox>
+            <CharacterImg src={imgUrl} alt={`${headText} 이미지`} />
+          </ImgBox>
         </ImgWrapper>
         <Box>
           <Head>{headText}</Head>
@@ -81,15 +83,30 @@ const ImgWrapper = styled.div`
   }
 `;
 
-const CharacterImg = styled.img`
-  overflow: hidden;
-  width: 460px;
+const ImgBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
   height: 333px;
+  background-color: white;
   border-radius: 20px;
 
   @media (max-width: 991px) {
     width: 460px;
     height: 280px;
+  }
+`;
+
+const CharacterImg = styled.img`
+  overflow: hidden;
+  width: 390px;
+  // height: 333px;
+  height: auto;
+
+  @media (max-width: 991px) {
+    width: auto;
+    height: 260px;
   }
 `;
 
