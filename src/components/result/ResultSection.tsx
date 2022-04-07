@@ -23,6 +23,8 @@ const ResultSection: React.FC = () => {
     <Container>
       <Wrapper>
         <MainTitle>당신이 개발자라면?</MainTitle>
+        <SubTitle>어울리는 유형 Top3</SubTitle>
+        <ShareSection name={'1'} imgUrl={'1'} />
         {!isLoading && surveyResultData !== undefined ? (
           <ResultItemSection>
             <FirstRankSection>
@@ -49,10 +51,6 @@ const ResultSection: React.FC = () => {
               />
             </SecondThirdRankSection>
             <ResultButtonSection isStatistics={false} />
-            <ShareSection
-              name={surveyResultData.rankData[0].jobName}
-              imgUrl={surveyResultData.rankData[0].jobImg}
-            />
           </ResultItemSection>
         ) : null}
       </Wrapper>
@@ -75,11 +73,19 @@ const Wrapper = styled.div`
 const MainTitle = styled.h1`
   text-align: center;
 
-  padding: 60px 0px;
+  padding: 60px 0 20px;
 
   font-size: 54px;
   font-weight: bold;
 
+  box-sizing: border-box;
+`;
+
+const SubTitle = styled.h2`
+  text-align: center;
+  font-size: 24px;
+
+  margin-bottom: 40px;
   box-sizing: border-box;
 `;
 
