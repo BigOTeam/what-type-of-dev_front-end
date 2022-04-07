@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
               </MenuItem>
             </MenuList>
           </MenuGroup>
-          <MenuGroup>
+          {/* <MenuGroup>
             <MenuListHead>문의</MenuListHead>
             <MenuList>
               <MenuItem>
@@ -56,19 +56,19 @@ const Footer: React.FC = () => {
                 운영 시간: 오전 9시 ~ 오후 6시 (주말 및 공휴일 휴무)
               </MenuItem>
             </MenuList>
-          </MenuGroup>
+          </MenuGroup> */}
         </MenuSection>
         <FooterAddress>
           <p>What type of dev / 당신이 개발자라면</p>
         </FooterAddress>
         <FooterOthers>
           <SubMenuList>
-            <SubMenuItem>
+            {/* <SubMenuItem>
               <PageLink to="#">개인정보 처리방침</PageLink>
             </SubMenuItem>
             <SubMenuItem>
               <PageLink to="#">이용약관</PageLink>
-            </SubMenuItem>
+            </SubMenuItem> */}
           </SubMenuList>
           <SnsList>
             <SnsItem
@@ -81,12 +81,12 @@ const Footer: React.FC = () => {
             <SnsItem href="#" target="_blank" rel="noopener noreferrer">
               <YouTubeIcon css={snsIcon} />
             </SnsItem>
-            <SnsItem href="#" target="_blank" rel="noopener noreferrer">
+            {/* <SnsItem href="#" target="_blank" rel="noopener noreferrer">
               <FacebookIcon css={snsIcon} />
             </SnsItem>
             <SnsItem href="#" target="_blank" rel="noopener noreferrer">
               <InstagramIcon css={snsIcon} />
-            </SnsItem>
+            </SnsItem> */}
           </SnsList>
         </FooterOthers>
       </Wrapper>
