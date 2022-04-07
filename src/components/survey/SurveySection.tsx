@@ -67,6 +67,9 @@ const SurveySection: React.FC = () => {
         : true;
 
     if (flag) {
+      if (nextPageNumber === 8) {
+        window.location.href = `/results`;
+      }
       setNextPageNumber((prevNumber) => prevNumber + 1);
       window.scrollTo({ top: 0 });
     } else {
@@ -104,7 +107,9 @@ const SurveySection: React.FC = () => {
                       다음
                     </NextButton>
                   ) : (
-                    <ResultButton to="/results">결과보기</ResultButton>
+                    <NextButton onClick={handleNextButtonClick}>
+                      결과보기
+                    </NextButton>
                   )}
                 </ButtonSection>
               </>
