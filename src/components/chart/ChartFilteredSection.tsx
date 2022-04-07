@@ -49,7 +49,7 @@ const ChartFilteredSection: React.FC = () => {
     } else {
       return (
         <>
-          <ChartHead>위 조건을 만족하는 응답자 중 현업 개발자</ChartHead>
+          <ChartHead>참여한 현업 개발자</ChartHead>
           <BarChart
             id={1}
             indexAxis="y"

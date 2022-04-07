@@ -31,7 +31,7 @@ export const CHART_DEFAULT_STYLE: ChartDefaultStyle = {
   font: {
     color: '#000000',
     family: 'Spoqa Han Sans Neo', 
-    size: 14,
+    size: 8,
   },
   border: {
     color: '#FFFFFF',

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
@@ -6,8 +6,8 @@ import styled from '@emotion/styled';
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
+// import FacebookIcon from '@mui/icons-material/Facebook';
+// import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Footer: React.FC = () => {
   return (
@@ -18,10 +18,14 @@ const Footer: React.FC = () => {
             <MenuListHead>서비스</MenuListHead>
             <MenuList>
               <MenuItem>
-                <PageLink to="#">서비스 소개</PageLink>
+                <PageLink href="https://ifyoudev.notion.site/13054c90526f473ab2217b0842c5e4d0">
+                  서비스 소개
+                </PageLink>
               </MenuItem>
               <MenuItem>
-                <PageLink to="#">개발팀 소개</PageLink>
+                <PageLink href="https://ifyoudev.notion.site/13054c90526f473ab2217b0842c5e4d0">
+                  개발팀 소개
+                </PageLink>
               </MenuItem>
             </MenuList>
           </MenuGroup>
@@ -72,7 +76,7 @@ const Footer: React.FC = () => {
           </SubMenuList>
           <SnsList>
             <SnsItem
-              href="https://github.com/BigOTeam"
+              href="https://lab.ssafy.com/s06-bigdata-rec-sub2/S06P22A205"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -190,35 +194,35 @@ const SubMenuList = styled.ul`
   }
 `;
 
-const SubMenuItem = styled.li`
-  font-size: 13px;
-  line-height: 1.6;
-  color: #98a8b9;
+// const SubMenuItem = styled.li`
+//   font-size: 13px;
+//   line-height: 1.6;
+//   color: #98a8b9;
 
-  &:nth-of-type(1) {
-    color: #44576c;
-  }
-  &:not(:last-of-type) {
-    &:after {
-      content: '';
-      display: inline-block;
-      width: 1px;
-      height: 10px;
-      margin: 0 8px;
-      background-color: #98a8b9;
-    }
-  }
+//   &:nth-of-type(1) {
+//     color: #44576c;
+//   }
+//   &:not(:last-of-type) {
+//     &:after {
+//       content: '';
+//       display: inline-block;
+//       width: 1px;
+//       height: 10px;
+//       margin: 0 8px;
+//       background-color: #98a8b9;
+//     }
+//   }
 
-  @media (max-width: 349px) {
-    margin-bottom: 4px;
+//   @media (max-width: 349px) {
+//     margin-bottom: 4px;
 
-    &:not(:last-of-type) {
-      &:after {
-        content: none;
-      }
-    }
-  }
-`;
+//     &:not(:last-of-type) {
+//       &:after {
+//         content: none;
+//       }
+//     }
+//   }
+// `;
 
 const SnsList = styled.div`
   display: flex;
@@ -232,7 +236,8 @@ const SnsItem = styled.a`
   }
 `;
 
-const PageLink = styled(Link)`
+// const PageLink = styled(Link)`
+const PageLink = styled.a`
   transition: color 0.08s ease-in-out;
 
   &:hover {
@@ -240,13 +245,13 @@ const PageLink = styled(Link)`
   }
 `;
 
-const PageOuterLink = styled.a`
-  transition: color 0.08s ease-in-out;
+// const PageOuterLink = styled.a`
+//   transition: color 0.08s ease-in-out;
 
-  &:hover {
-    color: #3396f4;
-  }
-`;
+//   &:hover {
+//     color: #3396f4;
+//   }
+// `;
 
 const snsIcon = css`
   font-size: 26px;

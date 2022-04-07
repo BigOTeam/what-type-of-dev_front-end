@@ -65,13 +65,13 @@ const Card = styled.div`
 `;
 
 const TitleImg = styled.img`
-  width: fit-content;
+  width: 108px;
   height: 72px;
   margin-bottom: 16px;
 
   @media (max-width: 575px) {
     width: 72px;
-    height: auto;
+    height: 48px;
   }
 `;
 
