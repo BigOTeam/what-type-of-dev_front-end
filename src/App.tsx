@@ -1,6 +1,10 @@
 import { useEffect, Suspense, lazy } from 'react';
 
+import ReactGA from 'react-ga';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import history from './history';
 
 import { ErrorBoundary } from 'react-error-boundary';
 
@@ -20,9 +24,24 @@ const SurveyPage = lazy(() => import('./pages/SurveyPage'));
 const ResultPage = lazy(() => import('./pages/ResultPage'));
 const JobTypeDetailPage = lazy(() => import('./pages/JobTypeDetailPage'));
 
+ReactGA.event({
+  category: 'User',
+  action: 'Created an Account',
+});
+
+ReactGA.exception({
+  description: 'An error ocurred',
+  fatal: true,
+});
+
 const App: React.FC = () => {
   useEffect(() => {
     window.Kakao.init(process.env.REACT_APP_KAKAO_KEY);
+    ReactGA.initialize(`${process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID}`);
+    history.listen((location: any) => {
+      ReactGA.set({ page: location.pathname });
+      ReactGA.pageview(location.pathname);
+    });
   });
 
   return (
