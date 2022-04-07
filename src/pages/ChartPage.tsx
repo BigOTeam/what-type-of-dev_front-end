@@ -67,7 +67,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
   padding: 0 16px;
   box-sizing: border-box;
 `;
