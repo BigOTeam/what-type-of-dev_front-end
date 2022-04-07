@@ -23,9 +23,7 @@ const JobTypeDetailSection: React.FC<TypeDetailSectionProps> = ({ id }) => {
       .then((res) => {
         setData(res);
       })
-      .catch((error) => {
-        // 에러 발생시 처리
-      });
+      .catch((error) => {});
   }, [id]);
 
   return (
