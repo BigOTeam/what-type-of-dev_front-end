@@ -21,7 +21,13 @@ const CustomFormControlLabel: React.FC<FormControlLabelProps> = (props) => {
     }
   };
 
-  return <FormControlLabel {...props} onChange={handleRadioGroupChange} />;
+  return (
+    <FormControlLabel
+      {...props}
+      onChange={handleRadioGroupChange}
+      componentsProps={{ typography: { fontFamily: 'Spoqa Han Sans Neo' } }}
+    />
+  );
 };
 
 export default CustomFormControlLabel;

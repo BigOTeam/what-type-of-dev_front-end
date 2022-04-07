@@ -18,7 +18,7 @@ const SurveyButtonItem: React.FC<SurveyItemProps> = ({
     <>
       {surveyList !== undefined ? (
         <>
-          <Question>Q.{surveyList[0].question}</Question>
+          <Question>Q. {surveyList[0].question}</Question>
           <ButtonSection>
             <QuestionButton onClick={handleYesButtonClick}>네</QuestionButton>
             <QuestionButton onClick={handleNoButtonClick}>
