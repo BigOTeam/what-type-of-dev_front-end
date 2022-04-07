@@ -25,7 +25,7 @@ const ShareSection: React.FC<ShareSectionProps> = ({ name, imgUrl }) => {
   return (
     <Container>
       <Wrapper>
-        <ShareTitle>당신에게 어울리는 개발자 유형을 공유해보세요!</ShareTitle>
+        <ShareTitle>1위 유형 공유하기</ShareTitle>
         <ShareButtonSection>
           <ShareButton
             src="/images/common/kakao-logo.png"
@@ -39,30 +39,28 @@ const ShareSection: React.FC<ShareSectionProps> = ({ name, imgUrl }) => {
 };
 
 const Container = styled.section`
+  display: flex;
+  justify-content: center;
+
   padding-bottom: 20px;
 `;
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
   max-width: 900px;
 `;
 
 const ShareTitle = styled.h1`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   font-size: 28px;
   font-weight: bold;
 `;
 
 const ShareButtonSection = styled.div`
+  display: flex;
   width: 64px;
   height: 64px;
-  margin: 0 10px;
+
+  margin: 14px auto 0;
+  box-sizing: border-box;
 `;
 
 const ShareButton = styled.img`
