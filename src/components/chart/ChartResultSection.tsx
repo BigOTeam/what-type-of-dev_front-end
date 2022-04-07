@@ -46,6 +46,7 @@ const ChartResultSection: React.FC<ChartResultProps> = ({
                     <ChartCardList>
                       {data.results.map((chartLabelData) => (
                         <ChartCard
+                          key={chartLabelData.id}
                           data={chartLabelData}
                           userCount={userCount}
                           groupId={data.groupId}

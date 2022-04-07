@@ -154,7 +154,7 @@ const FilterSelect = styled.select`
     background-color: #fff;
     color: #495057;
   }
-  &:first-child {
+  &:first-of-type {
     margin-right: 8px;
   }
 
@@ -164,7 +164,7 @@ const FilterSelect = styled.select`
     margin-bottom: 8px;
     font-size: 14px;
 
-    &:first-child {
+    &:first-of-type {
       margin-right: 0;
     }
   }
