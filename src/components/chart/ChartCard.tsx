@@ -61,6 +61,7 @@ const Card = styled.li`
   align-items: center;
   justify-content: flex-start;
   width: calc(50% - 8px);
+  // width: 100%;
   margin-bottom: 14px;
   padding: 40px;
   border-radius: 14px;
@@ -69,7 +70,7 @@ const Card = styled.li`
   color: ${FONT_COLOR};
   background-color: #fff;
 
-  @media (max-width: 767px) {
+  @media (max-width: 991px) {
     justify-content: center;
     width: 100%;
     padding: 24px 40px;

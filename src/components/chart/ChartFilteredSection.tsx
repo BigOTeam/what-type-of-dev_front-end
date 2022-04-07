@@ -41,19 +41,22 @@ const ChartFilteredSection: React.FC = () => {
     if (totalCount === 0) {
       return (
         <ErrorMessage>
-          일치하는 데이터가 없습니다.
+          위의 조건에 해당하는 응답자 중 현업 개발자가 없습니다.
           <br />
           다른 조건으로 검색해주세요. ٩( ᐛ )و
         </ErrorMessage>
       );
     } else {
       return (
-        <BarChart
-          id={1}
-          indexAxis="y"
-          chartLabelDataInfo={data}
-          labelName="현업 개발자"
-        />
+        <>
+          <ChartHead>위 조건을 만족하는 응답자 중 현업 개발자</ChartHead>
+          <BarChart
+            id={1}
+            indexAxis="y"
+            chartLabelDataInfo={data}
+            labelName="현업 개발자"
+          />
+        </>
       );
     }
   };
@@ -89,7 +92,8 @@ const ChartFilteredSection: React.FC = () => {
               </ErrorMessage>
             ) : !data ? (
               <ErrorMessage>
-                일치하는 데이터가 없습니다. 다른 조건으로 검색해주세요.
+                위의 조건에 해당하는 응답자 중 현업 개발자가 없습니다. 다른
+                조건으로 검색해주세요.
               </ErrorMessage>
             ) : (
               <ChartItem>{renderChart(data)}</ChartItem>
@@ -106,7 +110,7 @@ const Container = styled.section`
 `;
 
 const Wrapper = styled.div`
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
   box-sizing: border-box;
 `;
@@ -126,7 +130,7 @@ const FilterList = styled.div`
 const FilterSelect = styled.select`
   width: 100%;
   height: 42px;
-  padding: 0 14px;
+  padding: 0 28px;
   border: 1px solid #d7e2eb;
   border-radius: 8px;
   box-sizing: border-box;
@@ -174,13 +178,22 @@ const FilterOption = styled.option``;
 
 const ChartWrapper = styled.div`
   display: flex;
-  flex-direction: center;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   margin-top: 20px;
   padding: 40px 0;
   border: 1px solid #d7e2eb;
   border-radius: 14px;
   background-color: #fff;
+`;
+
+const ChartHead = styled.div`
+  margin-bottom: 8px;
+  color: ${FONT_COLOR};
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
 `;
 
 const ErrorMessage = styled.div`

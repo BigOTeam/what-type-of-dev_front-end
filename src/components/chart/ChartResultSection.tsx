@@ -184,7 +184,7 @@ const ChartCardList = styled.ul`
   flex-wrap: wrap;
   justify-content: space-between;
 
-  @media (max-width: 767px) {
+  @media (max-width: 991px) {
     display: block;
     flex-direction: column;
     width: 100%;
