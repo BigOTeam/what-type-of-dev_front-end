@@ -64,6 +64,7 @@ const ResultButtonSection: React.FC<ResultButtonSectionProps> = ({
               {jobList !== undefined
                 ? jobList.jobList.map((job) => (
                     <JobWrapper
+                      key={job.jobId}
                       to={`/jobs/${job.jobId}`}
                       onClick={handleJobClick}
                     >
