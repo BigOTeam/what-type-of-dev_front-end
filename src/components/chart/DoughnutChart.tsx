@@ -72,7 +72,7 @@ const DoughnutChart: React.FC<DoughnutChartProps> = ({
         backgroundColor: CHART_DEFAULT_STYLE.cardColor,
         bodyColor: CHART_DEFAULT_STYLE.font.color,
         bodyFont: {
-          size: CHART_DEFAULT_STYLE.font.size,
+          size: CHART_DEFAULT_STYLE.tooltip.fontSize,
           weight: 'bold',
         },
         padding: CHART_DEFAULT_STYLE.tooltip.paddingSize,
