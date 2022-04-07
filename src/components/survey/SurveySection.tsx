@@ -1,17 +1,18 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
-import { surveyUpdate } from '../../redux/modules/survey';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 
-import SurveyItem from './SurveyItem';
 import { RadioState, SurveyResult } from '../../types/SurveyType';
+import useSurveyList from '../../hooks/useSurveyList';
+import { surveyInit, surveyUpdate } from '../../redux/modules/survey';
+
 import SurveyButtonItem from './SurveyButtonItem';
 import ProgressHeader from './ProgressHeader';
-import { Link } from 'react-router-dom';
-import useSurveyList from '../../hooks/useSurveyList';
+import SurveyItem from './SurveyItem';
 
 const SurveySection: React.FC = () => {
   const [nextPageNumber, setNextPageNumber] = useState<number>(1);
@@ -26,6 +27,10 @@ const SurveySection: React.FC = () => {
     pageNo: nextPageNumber,
     isDeveloper: isDeveloper,
   });
+
+  useEffect(() => {
+    dispatch(surveyInit());
+  }, []);
 
   const handleYesButtonClick = () => {
     setIsDeveloper(true);

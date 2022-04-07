@@ -8,7 +8,11 @@ const useSurveyList = (params: SurveyRequestType) => {
   const { isLoading, data, isError, error } = useQuery(
     ['surveyList', params],
     queryFn,
-    { refetchOnWindowFocus: false },
+    {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+    },
   );
 
   return {
