@@ -48,10 +48,13 @@ const ResultSection: React.FC = () => {
                 imgUrl={surveyResultData.rankData[2].jobImg}
               />
             </SecondThirdRankSection>
+            <ResultButtonSection isStatistics={false} />
+            <ShareSection
+              name={surveyResultData.rankData[0].jobName}
+              imgUrl={surveyResultData.rankData[0].jobImg}
+            />
           </ResultItemSection>
         ) : null}
-        <ResultButtonSection isStatistics={false} />
-        {/* <ShareSection /> */}
       </Wrapper>
     </Container>
   );
