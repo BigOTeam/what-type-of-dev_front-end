@@ -14,6 +14,8 @@ import SurveyButtonItem from './SurveyButtonItem';
 import ProgressHeader from './ProgressHeader';
 import SurveyItem from './SurveyItem';
 
+import Swal from 'sweetalert2';
+
 const SurveySection: React.FC = () => {
   const [nextPageNumber, setNextPageNumber] = useState<number>(1);
   const [isDeveloper, setIsDeveloper] = useState<boolean>(false);
@@ -68,7 +70,11 @@ const SurveySection: React.FC = () => {
       setNextPageNumber((prevNumber) => prevNumber + 1);
       window.scrollTo({ top: 0 });
     } else {
-      alert('모든 문항을 선택해주세요');
+      Swal.fire({
+        title: '모든 문항을 선택해주세요',
+        icon: 'error',
+        confirmButtonText: '확인',
+      });
     }
   };
 
