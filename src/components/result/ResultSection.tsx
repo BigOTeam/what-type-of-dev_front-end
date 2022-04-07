@@ -4,12 +4,11 @@ import { useSelector } from 'react-redux';
 import styled from '@emotion/styled';
 
 import { RootState, SurveyResult } from '../../types/SurveyType';
+import useSurveyResultList from '../../hooks/useSurveyResultList';
 
 import ResultItem from './ResultItem';
 import ShareSection from './ShareSection';
 import ResultButtonSection from './ResultButtonSection';
-import useSurveyResultList from '../../hooks/useSurveyResultList';
-import { useEffect, useState } from 'react';
 
 const ResultSection: React.FC = () => {
   const surveyResult = useSelector<RootState, SurveyResult[] | null>(
@@ -19,16 +18,6 @@ const ResultSection: React.FC = () => {
   const { isLoading, surveyResultData } = useSurveyResultList({
     surveyResult: surveyResult,
   });
-
-  const [shareName, setShareName] = useState<string>('');
-  const [shareImg, setShareImg] = useState<string>('');
-
-  useEffect(() => {
-    if (!isLoading) {
-      setShareName(surveyResultData.rankData[0].jobName);
-      setShareImg(surveyResultData.rankData[0].jobImg);
-    }
-  }, []);
 
   return (
     <Container>
@@ -59,10 +48,13 @@ const ResultSection: React.FC = () => {
                 imgUrl={surveyResultData.rankData[2].jobImg}
               />
             </SecondThirdRankSection>
+            <ResultButtonSection isStatistics={false} />
+            <ShareSection
+              name={surveyResultData.rankData[0].jobName}
+              imgUrl={surveyResultData.rankData[0].jobImg}
+            />
           </ResultItemSection>
         ) : null}
-        <ResultButtonSection isStatistics={false} />
-        <ShareSection name={shareName} imgUrl={shareImg} />
       </Wrapper>
     </Container>
   );
