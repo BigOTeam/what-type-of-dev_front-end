@@ -12,10 +12,6 @@
     <meta property="og:url" content="http://j6a205.p.ssafy.io/" />
     <meta property="og:title" content="당신이 개발자라면" />
     <meta property="og:description" content="개발자 유형 테스트" />
-    <meta
-      property="og:image"
-      content="https://firebasestorage.googleapis.com/v0/b/wtod-1c3ce.appspot.com/o/(%EC%95%95%EC%B6%95)1_%EC%9E%90%EA%B8%B0%EC%86%8C%EA%B0%9C.png?alt=media&token=ebbc3a82-6269-4662-b743-8f3612a4398c"
-    />
 
     <!-- 스포카 한 산스 네오 웹폰트 적용 -->
     <link
@@ -30,6 +26,21 @@
     <!-- 카카오 SDK 등록 -->
     <!-- <script async src="//developers.kakao.com/sdk/js/kakao.min.js"></script> -->
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+    <!-- Google Analytics 등록 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-KC0XTHD2YJ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-KC0XTHD2YJ');
+    </script>
 
     <title>당신이 개발자라면</title>
   </head>
