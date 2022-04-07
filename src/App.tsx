@@ -21,9 +21,9 @@ const ResultPage = lazy(() => import('./pages/ResultPage'));
 const JobTypeDetailPage = lazy(() => import('./pages/JobTypeDetailPage'));
 
 const App: React.FC = () => {
-  useEffect(() => {
-    window.Kakao.init(process.env.REACT_APP_KAKAO_KEY);
-  });
+  // useEffect(() => {
+  // window.Kakao.init(process.env.REACT_APP_KAKAO_KEY);
+  // });
 
   return (
     <ErrorBoundary FallbackComponent={ErrorPage}>
