@@ -23,6 +23,7 @@ const ChartPage = lazy(() => import('./pages/ChartPage'));
 const SurveyPage = lazy(() => import('./pages/SurveyPage'));
 const ResultPage = lazy(() => import('./pages/ResultPage'));
 const JobTypeDetailPage = lazy(() => import('./pages/JobTypeDetailPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 ReactGA.event({
   category: 'User',
@@ -56,6 +57,8 @@ const App: React.FC = () => {
             <Route exact path="/surveys" component={SurveyPage} />
             <Route exact path="/results" component={ResultPage} />
             <Route exact path="/jobs/:id" component={JobTypeDetailPage} />
+            <Route exact path="/jobs/:id" component={JobTypeDetailPage} />
+            <Route component={NotFoundPage} />
           </Switch>
           {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
         </Router>
