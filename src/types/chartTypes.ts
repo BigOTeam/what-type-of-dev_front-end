@@ -112,14 +112,18 @@ export interface BarChartOption {
   };
   scales: {
     y: {
+      // afterFit: (scale:any)=>any;
       ticks: {
+        padding: number;
         autoSkip: boolean;
         font: {
+              size: number;
           family: string;
         };
       };
     };
     x: {
+      // afterFit: (scale:any)=>any;
       ticks: {
         font: {
           family: string;

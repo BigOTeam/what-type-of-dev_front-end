@@ -87,14 +87,22 @@ const BarChart: React.FC<BarChartProps> = ({
     },
     scales: {
       y: {
+        // afterFit: function (scale) {
+        //   scale.width = 100;
+        // },
         ticks: {
+          padding: 0,
           autoSkip: false,
           font: {
+            size: CHART_DEFAULT_STYLE.font.size,
             family: CHART_DEFAULT_STYLE.font.family,
           },
         },
       },
       x: {
+        // afterFit: function (scale) {
+        //   scale.width = 100;
+        // },
         ticks: {
           font: {
             family: CHART_DEFAULT_STYLE.font.family,
@@ -111,7 +119,8 @@ const BarChart: React.FC<BarChartProps> = ({
       <Bar
         options={options}
         data={data}
-        style={{ width: '100%', minHeight: '220px' }}
+        // style={{ height: '100%' }}
+        // style={{ width: '100%', minHeight: '220px' }}
       />
     </Container>
   );
