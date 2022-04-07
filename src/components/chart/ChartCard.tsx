@@ -83,12 +83,13 @@ const Card = styled.li`
 
 const Head = styled.h2`
   margin-bottom: 16px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.2;
 
   @media (max-width: 575px) {
     margin: 8px 0;
+    font-size: 18px;
   }
 `;
 
