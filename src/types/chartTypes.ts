@@ -117,7 +117,7 @@ export interface BarChartOption {
         padding: number;
         autoSkip: boolean;
         font: {
-              size: number;
+          size: number;
           family: string;
         };
       };
@@ -126,6 +126,7 @@ export interface BarChartOption {
       // afterFit: (scale:any)=>any;
       ticks: {
         font: {
+          size: number;
           family: string;
         };
       };

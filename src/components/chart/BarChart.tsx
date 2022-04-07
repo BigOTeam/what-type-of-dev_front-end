@@ -105,13 +105,14 @@ const BarChart: React.FC<BarChartProps> = ({
         // },
         ticks: {
           font: {
+            size: CHART_DEFAULT_STYLE.font.size,
             family: CHART_DEFAULT_STYLE.font.family,
           },
         },
       },
     },
     indexAxis: indexAxis,
-    responsive: true,
+    responsive: false,
   };
 
   return (
@@ -119,7 +120,7 @@ const BarChart: React.FC<BarChartProps> = ({
       <Bar
         options={options}
         data={data}
-        // style={{ height: '100%' }}
+        style={{ width: '95%' }}
         // style={{ width: '100%', minHeight: '220px' }}
       />
     </Container>
