@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,7 +8,7 @@ import styled from '@emotion/styled';
 
 import { RadioState, SurveyResult } from '../../types/SurveyType';
 import useSurveyList from '../../hooks/useSurveyList';
-import { surveyUpdate } from '../../redux/modules/survey';
+import { surveyInit, surveyUpdate } from '../../redux/modules/survey';
 
 import SurveyButtonItem from './SurveyButtonItem';
 import ProgressHeader from './ProgressHeader';
@@ -27,6 +27,10 @@ const SurveySection: React.FC = () => {
     pageNo: nextPageNumber,
     isDeveloper: isDeveloper,
   });
+
+  useEffect(() => {
+    dispatch(surveyInit());
+  }, []);
 
   const handleYesButtonClick = () => {
     setIsDeveloper(true);

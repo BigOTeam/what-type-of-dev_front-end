@@ -28,24 +28,24 @@ const ResultSection: React.FC = () => {
             <FirstRankSection>
               <ResultItem
                 width={600}
-                rank={surveyResultData.data.rankData[0].jobRank}
-                name={surveyResultData.data.rankData[0].jobName}
-                description={surveyResultData.data.rankData[0].jobDescription}
-                imgUrl={surveyResultData.data.rankData[0].jobImg}
+                rank={surveyResultData.rankData[0].jobRank}
+                name={surveyResultData.rankData[0].jobName}
+                description={surveyResultData.rankData[0].jobDescription}
+                imgUrl={surveyResultData.rankData[0].jobImg}
               />
             </FirstRankSection>
             <SecondThirdRankSection>
               <ResultItem
                 width={400}
-                rank={surveyResultData.data.rankData[1].jobRank}
-                name={surveyResultData.data.rankData[1].jobName}
-                imgUrl={surveyResultData.data.rankData[1].jobImg}
+                rank={surveyResultData.rankData[1].jobRank}
+                name={surveyResultData.rankData[1].jobName}
+                imgUrl={surveyResultData.rankData[1].jobImg}
               />
               <ResultItem
                 width={400}
-                rank={surveyResultData.data.rankData[2].jobRank}
-                name={surveyResultData.data.rankData[2].jobName}
-                imgUrl={surveyResultData.data.rankData[2].jobImg}
+                rank={surveyResultData.rankData[2].jobRank}
+                name={surveyResultData.rankData[2].jobName}
+                imgUrl={surveyResultData.rankData[2].jobImg}
               />
             </SecondThirdRankSection>
           </ResultItemSection>

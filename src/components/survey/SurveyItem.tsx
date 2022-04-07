@@ -98,7 +98,8 @@ const questionLabel = css`
 
   font-size: 20px;
   font-weight: 800;
-  color: #27282e;
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  color: #313a59;
   box-sizing: border-box;
 `;
 

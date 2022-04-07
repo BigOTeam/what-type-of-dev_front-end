@@ -103,9 +103,12 @@ const RankResultWrapper = styled.div`
 `;
 
 const JobName = styled.h3`
+  text-align: center;
+  margin-bottom: 12px;
+
+  color: #313a59;
   font-size: 28px;
   font-weight: 500;
-  text-align: center;
 
   @media (max-width: 767px) {
     font-size: 24px;
@@ -119,7 +122,6 @@ const Description = styled.p`
   color: #313a59;
   font-size: 18px;
   line-height: 1.6;
-  box-sizing: border-box;
 
   @media (max-width: 767px) {
     font-size: 16px;

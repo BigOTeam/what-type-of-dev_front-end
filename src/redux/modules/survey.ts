@@ -4,8 +4,15 @@ const initialState: SurveyResultRequestType = {
   surveyResult: [],
 };
 
-const SURVEY_INSERT = 'form/INSERT';
-const SURVEY_UPDATE = 'form/UPDATE';
+const SURVEY_INIT = 'survey/INIT';
+const SURVEY_INSERT = 'survey/INSERT';
+const SURVEY_UPDATE = 'survey/UPDATE';
+
+export const surveyInit = () => {
+  return {
+    type: SURVEY_INIT,
+  };
+};
 
 export const surveyInsert = (param: SurveyResult) => {
   return {
@@ -29,6 +36,12 @@ export const surveyUpdate = (param: SurveyResult) => {
 
 const reducer = (state = initialState, action: any) => {
   switch (action.type) {
+    case SURVEY_INIT:
+      return {
+        ...state,
+        surveyResult: [],
+      };
+
     case SURVEY_INSERT:
       return {
         ...state,
@@ -37,6 +50,7 @@ const reducer = (state = initialState, action: any) => {
           action.payload,
         ],
       };
+
     case SURVEY_UPDATE:
       return {
         ...state,
