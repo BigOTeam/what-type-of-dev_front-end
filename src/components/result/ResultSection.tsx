@@ -24,34 +24,39 @@ const ResultSection: React.FC = () => {
       <Wrapper>
         <MainTitle>당신이 개발자라면?</MainTitle>
         <SubTitle>어울리는 유형 Top3</SubTitle>
-        <ShareSection name={'1'} imgUrl={'1'} />
         {!isLoading && surveyResultData !== undefined ? (
-          <ResultItemSection>
-            <FirstRankSection>
-              <ResultItem
-                width={600}
-                rank={surveyResultData.rankData[0].jobRank}
-                name={surveyResultData.rankData[0].jobName}
-                description={surveyResultData.rankData[0].jobDescription}
-                imgUrl={surveyResultData.rankData[0].jobImg}
-              />
-            </FirstRankSection>
-            <SecondThirdRankSection>
-              <ResultItem
-                width={400}
-                rank={surveyResultData.rankData[1].jobRank}
-                name={surveyResultData.rankData[1].jobName}
-                imgUrl={surveyResultData.rankData[1].jobImg}
-              />
-              <ResultItem
-                width={400}
-                rank={surveyResultData.rankData[2].jobRank}
-                name={surveyResultData.rankData[2].jobName}
-                imgUrl={surveyResultData.rankData[2].jobImg}
-              />
-            </SecondThirdRankSection>
-            <ResultButtonSection isStatistics={false} />
-          </ResultItemSection>
+          <>
+            <ShareSection
+              name={surveyResultData.rankData[0].jobName}
+              imgUrl={surveyResultData.rankData[0].jobImg}
+            />
+            <ResultItemSection>
+              <FirstRankSection>
+                <ResultItem
+                  width={600}
+                  rank={surveyResultData.rankData[0].jobRank}
+                  name={surveyResultData.rankData[0].jobName}
+                  description={surveyResultData.rankData[0].jobDescription}
+                  imgUrl={surveyResultData.rankData[0].jobImg}
+                />
+              </FirstRankSection>
+              <SecondThirdRankSection>
+                <ResultItem
+                  width={400}
+                  rank={surveyResultData.rankData[1].jobRank}
+                  name={surveyResultData.rankData[1].jobName}
+                  imgUrl={surveyResultData.rankData[1].jobImg}
+                />
+                <ResultItem
+                  width={400}
+                  rank={surveyResultData.rankData[2].jobRank}
+                  name={surveyResultData.rankData[2].jobName}
+                  imgUrl={surveyResultData.rankData[2].jobImg}
+                />
+              </SecondThirdRankSection>
+              <ResultButtonSection isStatistics={false} />
+            </ResultItemSection>
+          </>
         ) : null}
       </Wrapper>
     </Container>
