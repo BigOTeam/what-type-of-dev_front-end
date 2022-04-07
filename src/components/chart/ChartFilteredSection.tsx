@@ -201,6 +201,16 @@ const ErrorMessage = styled.div`
   font-weight: 500;
   text-align: center;
   line-height: 1.5;
+
+  br {
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding: 0 16px;
+  }
 `;
 
 const ChartItem = styled.div`

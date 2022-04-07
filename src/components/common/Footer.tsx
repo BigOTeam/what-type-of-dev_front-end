@@ -10,6 +10,21 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 // import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Footer: React.FC = () => {
+  const handleKakaoShare = () => {
+    window.Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '당신이 개발자라면?',
+        description: '개발자 유형 테스트',
+        imageUrl: '/images/common/if-dev.png',
+        link: {
+          mobileWebUrl: 'https://j6a205.p.ssafy.io',
+          androidExecutionParams: 'test',
+        },
+      },
+    });
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -29,38 +44,14 @@ const Footer: React.FC = () => {
               </MenuItem>
             </MenuList>
           </MenuGroup>
-          {/* <MenuGroup>
-            <MenuListHead>문의</MenuListHead>
-            <MenuList>
-              <MenuItem>
-                <PageOuterLink
-                  href="https://github.com/ssafy-mate/ssafy-mate_service"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  FAQ
-                </PageOuterLink>
-              </MenuItem>
-              <MenuItem>
-                <PageOuterLink
-                  href="https://github.com/ssafy-mate/ssafy-mate_service"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  1대1 문의
-                </PageOuterLink>
-              </MenuItem>
-            </MenuList>
-          </MenuGroup>
-          <MenuGroup>
-            <MenuListHead>고객센터</MenuListHead>
-            <MenuList>
-              <MenuItem>대표 문의: whattypeofdev.service@gmail.com</MenuItem>
-              <MenuItem>
-                운영 시간: 오전 9시 ~ 오후 6시 (주말 및 공휴일 휴무)
-              </MenuItem>
-            </MenuList>
-          </MenuGroup> */}
+          <ShareGroup>
+            <MenuListHead>서비스 공유</MenuListHead>
+            <ShareItem>
+              <ShareLink onClick={handleKakaoShare}>
+                카카오톡으로 공유하기
+              </ShareLink>
+            </ShareItem>
+          </ShareGroup>
         </MenuSection>
         <FooterAddress>
           <p>What type of dev / 당신이 개발자라면</p>
@@ -117,6 +108,7 @@ const Wrapper = styled.div`
 
 const MenuSection = styled.section`
   display: flex;
+  justify-content: space-between;
   margin-bottom: 48px;
 
   @media (max-width: 991px) {
@@ -252,6 +244,27 @@ const PageLink = styled.a`
 //     color: #3396f4;
 //   }
 // `;
+
+const ShareGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ShareItem = styled.div`
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #98a8b9;
+`;
+
+const ShareLink = styled.div`
+  transition: color 0.08s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: #3396f4;
+  }
+`;
 
 const snsIcon = css`
   font-size: 26px;

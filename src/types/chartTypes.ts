@@ -98,11 +98,22 @@ interface TooltipType {
 export type IndexAxisType = 'y' | 'x';
 
 export interface BarChartOption {
+  // maintainAspectRatio: boolean;
+  // aspectRatio:number;
   responsive: boolean;
   indexAxis: IndexAxisType;
   plugins: {
     datalabels: {
       display: boolean;
+      labels: {
+        value: {
+          font: {
+            family: string;
+            weight: FontWeightType;
+            size: number;
+          };
+        };
+      };
     };
     legend: {
       display: boolean;
@@ -112,7 +123,6 @@ export interface BarChartOption {
   };
   scales: {
     y: {
-      // afterFit: (scale:any)=>any;
       ticks: {
         padding: number;
         autoSkip: boolean;
@@ -123,7 +133,6 @@ export interface BarChartOption {
       };
     };
     x: {
-      // afterFit: (scale:any)=>any;
       ticks: {
         font: {
           size: number;
