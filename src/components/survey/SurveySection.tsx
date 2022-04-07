@@ -15,10 +15,12 @@ import ProgressHeader from './ProgressHeader';
 import SurveyItem from './SurveyItem';
 
 import Swal from 'sweetalert2';
+// import LoadingCircular from '../common/LoadingCircular';
 
 const SurveySection: React.FC = () => {
   const [nextPageNumber, setNextPageNumber] = useState<number>(1);
   const [isDeveloper, setIsDeveloper] = useState<boolean>(false);
+  const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
   const dispatch = useDispatch();
   const radioResult = useSelector<RadioState, SurveyResult[] | null>(
@@ -36,6 +38,7 @@ const SurveySection: React.FC = () => {
 
   const handleYesButtonClick = () => {
     setIsDeveloper(true);
+    setIsImgLoaded(false);
     dispatch(
       surveyUpdate({
         questionInitial: 'aboutme_dev',
@@ -47,6 +50,7 @@ const SurveySection: React.FC = () => {
 
   const handleNoButtonClick = () => {
     setIsDeveloper(false);
+    setIsImgLoaded(false);
     dispatch(
       surveyUpdate({
         questionInitial: 'aboutme_dev',
@@ -67,6 +71,7 @@ const SurveySection: React.FC = () => {
         : true;
 
     if (flag) {
+      setIsImgLoaded(false);
       if (nextPageNumber === 8) {
         window.location.href = `/results`;
       }
@@ -87,9 +92,23 @@ const SurveySection: React.FC = () => {
         <ProgressHeader pageNo={nextPageNumber} />
         {!isLoading && surveyData !== undefined ? (
           <>
+            {!isImgLoaded ? (
+              // <LoadingCircular />
+              <LoadingWrapper>
+                <LoadingImg
+                  src="/images/common/loading.png"
+                  alt="로딩중 이미지"
+                />
+              </LoadingWrapper>
+            ) : (
+              <></>
+            )}
             <MainImage
               src={surveyData.pageImg}
               alt={surveyData.pageDescription}
+              onLoad={() => {
+                setIsImgLoaded(true);
+              }}
             />
             <MainQuestion>💖🧡 {surveyData.pageDescription} 💙💜</MainQuestion>
             {nextPageNumber === 1 ? (
@@ -211,6 +230,19 @@ const ResultButton = styled(Link)`
     background-color: #5bb1f8;
     color: #fefefe;
   }
+`;
+
+const LoadingWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0 48px;
+`;
+
+const LoadingImg = styled.img`
+  width: 180px;
+  height: 120px%;
+  margin: 0 auto;
 `;
 
 export default SurveySection;
