@@ -16,6 +16,7 @@ const ShareSection: React.FC<ShareSectionProps> = ({ name, imgUrl, id }) => {
         description: name,
         imageUrl: imgUrl,
         link: {
+          webUrl: `https://j6a205.p.ssafy.io/jobs/${id}`,
           mobileWebUrl: `https://j6a205.p.ssafy.io/jobs/${id}`,
           androidExecutionParams: 'test',
         },
