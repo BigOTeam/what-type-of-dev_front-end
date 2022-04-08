@@ -23,12 +23,13 @@ const ResultSection: React.FC = () => {
     <Container>
       <Wrapper>
         <MainTitle>당신이 개발자라면?</MainTitle>
-        <SubTitle>어울리는 유형 Top3</SubTitle>
         {!isLoading && surveyResultData !== undefined ? (
           <>
+            <SubTitle>어울리는 유형 Top3</SubTitle>
             <ShareSection
               name={surveyResultData.rankData[0].jobName}
               imgUrl={surveyResultData.rankData[0].jobImg}
+              id={surveyResultData.rankData[0].jobId}
             />
             <ResultItemSection>
               <FirstRankSection>
@@ -54,10 +55,15 @@ const ResultSection: React.FC = () => {
                   imgUrl={surveyResultData.rankData[2].jobImg}
                 />
               </SecondThirdRankSection>
-              <ResultButtonSection isStatistics={false} />
             </ResultItemSection>
           </>
-        ) : null}
+        ) : (
+          <ErrorTitle>
+            데이터가 없어 결과를 불러올 수 없습니다.
+            <br /> 설문 조사 먼저 진행해주세요😊
+          </ErrorTitle>
+        )}
+        <ResultButtonSection isStatistics={false} />
       </Wrapper>
     </Container>
   );
@@ -91,6 +97,17 @@ const SubTitle = styled.h2`
   font-size: 24px;
 
   margin-bottom: 40px;
+  box-sizing: border-box;
+`;
+
+const ErrorTitle = styled.h2`
+  text-align: center;
+  padding: 40px 0;
+
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.5;
+
   box-sizing: border-box;
 `;
 
