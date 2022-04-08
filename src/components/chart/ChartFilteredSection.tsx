@@ -41,9 +41,8 @@ const ChartFilteredSection: React.FC = () => {
     if (totalCount === 0) {
       return (
         <ErrorMessage>
-          위의 조건에 해당하는 응답자 중 현업 개발자가 없습니다.
-          <br />
-          다른 조건으로 검색해주세요. ٩( ᐛ )و
+          `위의 조건에 해당하는 현업 개발자가 없습니다. <br />
+          다른 조건으로 검색해주세요. ٩( ᐛ )و`
         </ErrorMessage>
       );
     } else {
@@ -92,8 +91,8 @@ const ChartFilteredSection: React.FC = () => {
               </ErrorMessage>
             ) : !data ? (
               <ErrorMessage>
-                위의 조건에 해당하는 응답자 중 현업 개발자가 없습니다. 다른
-                조건으로 검색해주세요.
+                위의 조건에 해당하는 현업 개발자가 없습니다. 다른 조건으로
+                검색해주세요.
               </ErrorMessage>
             ) : (
               <ChartItem>{renderChart(data)}</ChartItem>
