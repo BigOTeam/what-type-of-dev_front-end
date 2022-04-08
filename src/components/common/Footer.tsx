@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
       content: {
         title: '당신이 개발자라면?',
         description: '개발자 유형 테스트',
-        imageUrl: '/images/common/if-dev.png',
+        imageUrl: 'https://ifh.cc/g/GOk4sw.png',
         link: {
           mobileWebUrl: 'https://j6a205.p.ssafy.io',
           androidExecutionParams: 'test',
