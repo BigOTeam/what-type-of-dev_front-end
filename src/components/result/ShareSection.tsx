@@ -4,9 +4,10 @@ import styled from '@emotion/styled';
 interface ShareSectionProps {
   name: string;
   imgUrl: string;
+  id: number;
 }
 
-const ShareSection: React.FC<ShareSectionProps> = ({ name, imgUrl }) => {
+const ShareSection: React.FC<ShareSectionProps> = ({ name, imgUrl, id }) => {
   const handleKakaoShare = () => {
     window.Kakao.Link.sendDefault({
       objectType: 'feed',
@@ -15,7 +16,7 @@ const ShareSection: React.FC<ShareSectionProps> = ({ name, imgUrl }) => {
         description: name,
         imageUrl: imgUrl,
         link: {
-          mobileWebUrl: 'https://j6a205.p.ssafy.io',
+          mobileWebUrl: `https://j6a205.p.ssafy.io/jobs/${id}`,
           androidExecutionParams: 'test',
         },
       },
