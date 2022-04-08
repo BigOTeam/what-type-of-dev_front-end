@@ -42,6 +42,8 @@
 
 [**🔗 백엔드 저장소 바로가기 Click !**](https://lab.ssafy.com/s06-bigdata-rec-sub2/S06P22A205) 👈
 
+[**🔗 추천 서비스 저장소 바로가기 Click !**](https://lab.ssafy.com/person00333/s06p22a205-recommendation-service) 👈
+
 <br />
 
 <div id="2"></div>
