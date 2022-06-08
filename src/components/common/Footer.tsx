@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
           </SubMenuList>
           <SnsList>
             <SnsItem
-              href="https://lab.ssafy.com/s06-bigdata-rec-sub2/S06P22A205"
+              href="https://github.com/BigOTeam"
               target="_blank"
               rel="noopener noreferrer"
             >
