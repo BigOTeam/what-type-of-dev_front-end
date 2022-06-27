@@ -100,13 +100,13 @@ const ImgBox = styled.div`
 
 const CharacterImg = styled.img`
   overflow: hidden;
-  width: 390px;
+  width: 90%;
   // height: 333px;
   height: auto;
 
   @media (max-width: 991px) {
     width: auto;
-    height: 260px;
+    height: 90%;
   }
 `;
 
