@@ -8,6 +8,8 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import createReduxStore from './redux/createReduxStore';
 
+import * as Sentry from '@sentry/react';
+
 import App from './App';
 
 const queryClient = new QueryClient();
@@ -19,6 +21,10 @@ const persistor = persistStore(store);
 
 //   worker.start();
 // }
+
+Sentry.init({
+  dsn: `${process.env.REACT_APP_SENTRY_DSN}`,
+});
 
 ReactDOM.render(
   <QueryClientProvider client={queryClient}>
